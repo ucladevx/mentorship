@@ -1,123 +1,123 @@
 <html>
-<head>
-  <title>Mentorship</title>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag ('homepage.js') %>
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-</head>
-<body>
-  <!-- Header -->
-  <header>
+  <head>
+    <title>Mentorship</title>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag ('homepage.js') %>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-  <!-- Navbar -->
-    <div class="ui page grid">
-      <div class="computer tablet only row">
-          <div class="ui borderless fixed menu navbar">
-              <a href="index.html"><img src="Logo.png"></a>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
 
-              <div class="right menu">
-                  <a href="" class="item">Mentors</a>
-                  <a href="" class="item">Notes</a>
-                  <a href="" class="item">Tutorials</a>
-                  <a href="" class="item">Login / Sign Up</a>
-              </div>
-          </div>
-      </div>
-      <div class="mobile only narrow row">
-          <div class="ui borderless fixed menu navbar">
-              <div class="ui middle aligned image">
-                <a href="index.html"><img src="Pencil.png"></a>
-              </div>
-              <div class="right menu open">
-                  <a href="" class="menu item">
-                      <i id="chevron" class="chevron down icon"></i>
-                  </a>
-              </div>
-          </div>
-          <div class="ui borderless vertical fixed navbar menu shadow">
-              <div class="ui fitted divider"></div>
-              <div class="menu">
-                  <a href="" class="item">Mentors</a>
-                  <a href="" class="item">Notes</a>
-                  <a href="" class="item">Tutorials</a>
-                  <a href="" class="item">Login / Sign Up</a>
-              </div>
-          </div>
-      </div>
-  </header>
-  <div id="yellowbg" class="ui center aligned padded grid, grid yellow background">
-    <div class="sixteen wide column">
+    <!-- Navbar -->
+      <div class="ui page grid">
+        <div class="computer tablet only row">
+            <div class="ui borderless fixed menu navbar">
+                <a href="index.html"> <%= image_tag("Logo.png") %> </a>
 
-      <div class="ui centered image">
-        <img width="100%" src="bridge.png">
-      </div>
-    </div>
-  </div>
-  <div class="ui grid">
-    <div class="seven wide column centered">
-      <h1>Trending Notes</h1>
-      <h4>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Donec malesuada, purus hendrerit fringilla auctor, dui ex
-        congue turpis, a tempus dui neque non ante.
-      </h4>
-    </div>
-  </div>
-  <div class="ui three column centered grid">
-    <div class="four wide column">
-      <div class="ui card">
-        <div class="image">
-          <img src="/images/CS32.png">
+                <div class="right menu">
+                    <a href="" class="item">Mentors</a>
+                    <a href="" class="item">Notes</a>
+                    <a href="" class="item">Tutorials</a>
+                    <a href="" class="item">Login / Sign Up</a>
+                </div>
+            </div>
         </div>
-        <div class="content">
-          <a class="header">Midterm Study Guide</a>
-          <div class="meta">
-            <span class="date">Austin Lee</span>
-          </div>
-          <div class="description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
-          </div>
-          <div class="extra content">
-          </div>
+        <div class="mobile only narrow row">
+            <div class="ui borderless fixed menu navbar">
+                <div class="ui middle aligned image">
+                  <a href="index.html"><%= image_tag("Pencil.png") %> </a>
+                </div>
+                <div class="right menu open">
+                    <a href="" class="menu item">
+                        <i id="chevron" class="chevron down icon"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ui borderless vertical fixed navbar menu shadow">
+                <div class="ui fitted divider"></div>
+                <div class="menu">
+                    <a href="" class="item">Mentors</a>
+                    <a href="" class="item">Notes</a>
+                    <a href="" class="item">Tutorials</a>
+                    <a href="" class="item">Login / Sign Up</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="four wide column">
-      <div class="ui card">
-        <div class="image">
-          <img src="/images/CS111.png">
-        </div>
-        <div class="content">
-          <a class="header">Week 1 Notes</a>
-          <div class="meta">
-            <span class="date">Helen Lee</span>
-          </div>
-          <div class="description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
-          </div>
-          <div class="extra content">
-          </div>
+    </header>
+    <div id="yellowbg" class="ui center aligned padded grid, grid yellow background">
+      <div class="sixteen wide column">
+        <div class="ui centered image">
+          <%= image_tag("bridge.png") %> 
         </div>
       </div>
     </div>
-    <div class="four wide column">
-      <div class="ui card">
-        <div class="image">
-          <img src="/images/CS32.png">
+    <div class="ui padded grid, grid blue background">
+      <div class="seven wide column centered">
+        <h1>Trending Notes</h1>
+        <h4>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Donec malesuada, purus hendrerit fringilla auctor, dui ex
+          congue turpis, a tempus dui neque non ante.
+        </h4>
+      </div>
+    </div>
+    <div class="ui padded three column centered grid, grid blue background">
+      <div class="four wide column">
+        <div class="ui card">
+          <div class="image">
+            <img src="/images/CS32.png">
+          </div>
+          <div class="content">
+            <a class="header">Midterm Study Guide</a>
+            <div class="meta">
+              <span class="date">Austin Lee</span>
+            </div>
+            <div class="description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+            </div>
+            <div class="extra content">
+            </div>
+          </div>
         </div>
-        <div class="content">
-          <a class="header">Final Cheat Sheet</a>
-          <div class="meta">
-            <span class="date">Charlotte McGinn</span>
+      </div>
+      <div class="four wide column">
+        <div class="ui card">
+          <div class="image">
+            <img src="/images/CS111.png">
           </div>
-          <div class="description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+          <div class="content">
+            <a class="header">Week 1 Notes</a>
+            <div class="meta">
+              <span class="date">Helen Lee</span>
+            </div>
+            <div class="description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+            </div>
+            <div class="extra content">
+            </div>
           </div>
-          <div class="extra content">
+        </div>
+      </div>
+      <div class="four wide column">
+        <div class="ui card">
+          <div class="image">
+            <img src="/images/CS32.png">
+          </div>
+          <div class="content">
+            <a class="header">Final Cheat Sheet</a>
+            <div class="meta">
+              <span class="date">Charlotte McGinn</span>
+            </div>
+            <div class="description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+            </div>
+            <div class="extra content">
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>

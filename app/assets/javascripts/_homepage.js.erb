@@ -5,15 +5,17 @@ $(document).ready(function(){
         e.preventDefault();
 		$('.ui.vertical.menu').toggle();
 		if (c == 1) {
-			document.getElementById("chevron").class="chevron down icon";
+			document.getElementById("chevron").classList= "chevron up icon";
 			document.getElementById("yellowbg").style.paddingTop= "262px";
 			c = 0;
 		}
 		else {
-			document.getElementById("chevron").class="chevron up icon";
+			document.getElementById("chevron").classList= "chevron down icon";
 			document.getElementById("yellowbg").style.paddingTop= "120px";
 			c = 1;
 		}
 	});
+    
 	$('.ui.dropdown').dropdown();
+	
 });
