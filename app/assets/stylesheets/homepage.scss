@@ -4,13 +4,15 @@
 $import-google-fonts: false;
 @import "semantic-ui";
 body{
-  background-color: #00739a;
+  background-color: white;
 }
 .image{
 }
+
 .header{
   font-size: 100px;
   font-weight: lighter;
+  padding: 0px;
 }
 .download{
   float: right;
@@ -38,15 +40,6 @@ h4{
   font-size: 3vh;
 }
 
-@charset "UTF-8";
-/* CSS Document */
-
-body {
-}
-
-header {
-	padding: 0px;
-}
 
 footer {
 
@@ -70,25 +63,21 @@ h1 {
 	padding-top: 20px;
 }
 
-.col {
-	padding-bottom: 30px;
-}
 
 .ui.menu{
 	padding-left: 30px;
 	padding-right: 30px;
-	padding-bottom: 20px;
-	padding-top: 20px;
+	padding-bottom: 10px;
+	padding-top: 10px;
 	font-size: 18px;
 	border: none;
 	font-family: 'Lato', 'Arial';
 	/* For shadow under navbar */
--webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
--moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
+	-webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
+	-moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
+	box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
 
 }
-
 
 .grid.yellow.background{
 	background-color: #ffd161;
@@ -140,7 +129,7 @@ box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
 
 .ui.menu.shadow{
 	/* For shadow under navbar */
--webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
--moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
+	-webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
+	-moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
+	box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
 }
