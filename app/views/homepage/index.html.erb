@@ -2,9 +2,57 @@
 <head>
   <title>Mentorship</title>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag ('homepage.js') %>
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 <body>
+  <!-- Header -->
+  <header>
+
+  <!-- Navbar -->
+    <div class="ui page grid">
+      <div class="computer tablet only row">
+          <div class="ui borderless fixed menu navbar">
+              <a href="index.html"><img src="Logo.png"></a>
+
+              <div class="right menu">
+                  <a href="" class="item">Mentors</a>
+                  <a href="" class="item">Notes</a>
+                  <a href="" class="item">Tutorials</a>
+                  <a href="" class="item">Login / Sign Up</a>
+              </div>
+          </div>
+      </div>
+      <div class="mobile only narrow row">
+          <div class="ui borderless fixed menu navbar">
+              <div class="ui middle aligned image">
+                <a href="index.html"><img src="Pencil.png"></a>
+              </div>
+              <div class="right menu open">
+                  <a href="" class="menu item">
+                      <i id="chevron" class="chevron down icon"></i>
+                  </a>
+              </div>
+          </div>
+          <div class="ui borderless vertical fixed navbar menu shadow">
+              <div class="ui fitted divider"></div>
+              <div class="menu">
+                  <a href="" class="item">Mentors</a>
+                  <a href="" class="item">Notes</a>
+                  <a href="" class="item">Tutorials</a>
+                  <a href="" class="item">Login / Sign Up</a>
+              </div>
+          </div>
+      </div>
+  </header>
+  <div id="yellowbg" class="ui center aligned padded grid, grid yellow background">
+    <div class="sixteen wide column">
+
+      <div class="ui centered image">
+        <img width="100%" src="bridge.png">
+      </div>
+    </div>
+  </div>
   <div class="ui grid">
     <div class="seven wide column centered">
       <h1>Trending Notes</h1>
@@ -66,7 +114,6 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
           </div>
           <div class="extra content">
-
           </div>
         </div>
       </div>
