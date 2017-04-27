@@ -1,3 +1,39 @@
 // Place all the styles related to the homepage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$import-google-fonts: false;
+@import "semantic-ui";
+body{
+  background-color: #00739a;
+}
+.image{
+}
+.header{
+  font-size: 100px;
+  font-weight: lighter;
+}
+.download{
+  float: right;
+  display: inline;
+}
+.date{
+  color:black;
+}
+h1{
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  color: #f5f5f5;
+  padding-top: 35px;
+  letter-spacing: .05em;
+  font-size: 6.5vh;
+}
+
+h4{
+  color: #f5f5f5;
+  font-family: 'Lato', sans-serif;
+  font-weight: lighter;
+  text-align: center;
+  letter-spacing: .05em;
+  padding-bottom: 5px;
+  font-size: 3vh;
+}
