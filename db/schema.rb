@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170502052538) do
+ActiveRecord::Schema.define(version: 20170503040527) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20170502052538) do
     t.string   "title"
     t.string   "uclaclass"
     t.integer  "reputation"
-    t.string   "url"
+    t.string   "ufile"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "author"
-    t.string   "type"
+    t.string   "notetype"
   end
 
 end

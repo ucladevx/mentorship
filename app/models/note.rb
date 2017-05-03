@@ -1,5 +1,5 @@
 class Note < ApplicationRecord
-    validates_presence_of :title, :uclaclass, :author, :type
+    validates_presence_of :title, :uclaclass, :author, :notetype
 
-    mount_uploader :url, NoteUploader
+    mount_uploader :ufile, NoteUploader
 end

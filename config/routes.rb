@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  # get 'notes/new'
-  #
-  # get 'notes/create'
-  #
-  # get 'notes/destroy'
-  #
-  # get 'notes/index'
 
   root 'homepage#index'
 

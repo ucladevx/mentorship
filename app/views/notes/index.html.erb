@@ -20,11 +20,10 @@
    </thead>
 
    <tbody>
-      <% @notes.each do |resume| %>
-
+      <% @notes.each do |note| %>
          <tr>
             <td><%= note.title %></td>
-            <td><%= link_to "Download Note", note.url %></td>
+            <td><%= link_to "Download Note", note.ufile.url %></td>
             <td><%= button_to "Delete",  note, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{note.title}?" %></td>
          </tr>
 
