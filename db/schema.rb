@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170503043734) do
 
   # These are extensions that must be enabled in order to support this database
@@ -19,11 +20,11 @@ ActiveRecord::Schema.define(version: 20170503043734) do
     t.string   "title"
     t.string   "uclaclass"
     t.integer  "reputation"
-    t.string   "url"
+    t.string   "ufile"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "author"
-    t.string   "type"
+    t.string   "notetype"
   end
 
   create_table "users", force: :cascade do |t|

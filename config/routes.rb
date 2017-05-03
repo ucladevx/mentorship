@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   # get 'notes/new'
   #
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   # get 'notes/destroy'
   #
   # get 'notes/index'
+
 
   root 'homepage#index'
 
