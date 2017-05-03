@@ -7,15 +7,15 @@
 
   </head>
   <body>
+
     <!-- Header -->
     <header>
 
-    <!-- Navbar -->
+      <!-- Navbar -->
       <div class="ui page grid">
         <div class="computer tablet only row">
             <div class="ui borderless fixed menu navbar">
                 <a href="index.html"> <%= image_tag("Logo.png") %> </a>
-
                 <div class="right menu">
                     <a href="" class="item">Mentors</a>
                     <a href="" class="item">Notes</a>
@@ -46,13 +46,17 @@
             </div>
         </div>
     </header>
-    <div id="yellowbg" class="ui center aligned padded grid, grid yellow background">
+
+    <!-- Yellow Box -->
+    <div class="ui center aligned padded grid, grid yellow background">
       <div class="sixteen wide column">
         <div class="ui centered image">
           <%= image_tag("bridge.png") %> 
         </div>
       </div>
     </div>
+
+    <!-- Blue Box -->
     <div class="ui padded grid, grid blue background">
       <div class="seven wide column centered">
         <h1>Trending Notes</h1>
@@ -119,5 +123,43 @@
         </div>
       </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="ui center aligned padded stackable grid">
+        <div class="row">
+          <div class="column">
+            <a id="link"><i class="chevron up icon" style=" font-size: 48px;color: #999"></i></a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="sixteen wide column">
+            <h2>THANK YOU</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="sixteen wide column">
+            <h3>for visiting us today</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="five wide column">
+            <h5>Support our Community</h5>
+            <h6>Want to contribute to the platform as a tutor? We are always looking to recruit more individuals!</h6>
+            <button class="ui button">SIGN UP NOW</button>
+          </div>
+          <div class="two wide column">
+            <div class="ui vertical divider">or</div>
+          </div>
+          <div class="five wide column">
+            <h5>Grow our Community</h5>
+            <h6>Have class notes form past quarters? Submit them into our database, and help us grow our platform.</h6>
+            <button class="ui button">SUBMIT</button>
+          </div>
+        </div>
+       </div>
+    </footer>
+    
+
   </body>
 </html>

@@ -1,11 +1,14 @@
 // Place all the styles related to the homepage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 $import-google-fonts: false;
 @import "semantic-ui";
+
 body{
   background-color: white;
 }
+
 .image{
 }
 
@@ -14,13 +17,22 @@ body{
   font-weight: lighter;
   padding: 0px;
 }
+
+footer {
+	padding-top: 20px;
+	padding-bottom: -25px;
+	color:#444444;
+}
+
 .download{
   float: right;
   display: inline;
 }
+
 .date{
   color:black;
 }
+
 h1{
   font-family: 'Lato', sans-serif;
   text-align: center;
@@ -28,6 +40,25 @@ h1{
   padding-top: 35px;
   letter-spacing: .05em;
   font-size: 6.5vh;
+}
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  color: #555;
+  letter-spacing: .05em;
+  font-size: 6.5vh;
+  margin-bottom: -25px !important;
+}
+
+h3 {
+  color: #555;
+  font-family: 'Lato', sans-serif;
+  font-weight: lighter;
+  text-align: center;
+  letter-spacing: .05em;
+  font-size: 4vh;
+  margin-bottom: 40px !important;
 }
 
 h4{
@@ -40,21 +71,29 @@ h4{
   font-size: 3vh;
 }
 
+h5 {
+  color: #555;
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  letter-spacing: .05em;
+  font-size: 3vh;
+  margin-bottom: -25px !important;
+}
 
-footer {
-
+h6 {
+  color: #777;
+  font-family: 'Lato', sans-serif;
+  font-weight: lighter;
+  text-align: center;
+  letter-spacing: .05em;
+  font-size: 2.5vh;
+  margin-bottom: 15px !important;
+  line-height:130%;
 }
 
 p {
 	font-family: 'Lato', 'Arial';
 	font-size: 18px;
-}
-
-h1 {
-	font-family: 'Lato', 'Arial';
-	color: white;
-	font-weight:300;
-	letter-spacing: 1px;
 }
 
 .container {
@@ -63,8 +102,7 @@ h1 {
 	padding-top: 20px;
 }
 
-
-.ui.menu{
+.ui.navbar{
 	padding-left: 30px;
 	padding-right: 30px;
 	padding-bottom: 10px;
@@ -82,15 +120,19 @@ h1 {
 .grid.yellow.background{
 	background-color: #ffd161;
 	padding-top:120px;
-	padding-bottom:30px;
+	padding-bottom:50px;
 }
 
 .grid.green.background{
 	background-color: #37b4ac;
+	padding-top:50px;
+	padding-bottom:50px;
 }
 
 .grid.blue.background{
 	background-color: #007cb0;
+	padding-top:50px;
+	padding-bottom:50px;
 }
 
 /* Navbar */
@@ -132,4 +174,8 @@ h1 {
 	-webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
 	-moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
 	box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
+}
+
+.ui.menu a.item:hover{
+	background-color: #f7f7f7;
 }
