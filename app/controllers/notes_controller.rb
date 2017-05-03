@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   def index
       @notes = Note.all
+    #   raise @notes.to_json
   end
 
   def new
@@ -25,6 +26,6 @@ class NotesController < ApplicationController
 
   private
     def note_params
-        params.require(:note).permit(:title, :uclaclass, :author, :type)
+        params.require(:note).permit(:title, :uclaclass, :author, :notetype, :ufile)
     end
 end
