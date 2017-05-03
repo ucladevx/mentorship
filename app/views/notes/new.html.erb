@@ -1,0 +1,27 @@
+<% if !@note.errors.empty? %>
+   <div class = "alert alert-error">
+
+      <ul>
+         <% @note.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+         <% end %>
+      </ul>
+
+   </div>
+<% end %>
+
+<div class = "well">
+   <%= form_for @note, html: { multipart: true } do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+      <%= f.label :uclaclass %>
+      <%= f.text_field :uclaclass %>
+      <%= f.label :author %>
+      <%= f.text_field :author %>
+      <%= f.label :notetype %>
+      <%= f.text_field :notetype %>
+      <%= f.label :ufile %>
+      <%= f.file_field :ufile %>
+      <%= f.submit "Save", class: "btn btn-primary" %>
+   <% end %>
+</div>
