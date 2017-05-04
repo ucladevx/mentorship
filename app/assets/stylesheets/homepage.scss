@@ -4,12 +4,11 @@
 
 $import-google-fonts: false;
 @import "semantic-ui";
+@import "base/vars";
+@import "base/colors";
 
 body{
   background-color: white;
-}
-
-.image{
 }
 
 .header{
@@ -21,7 +20,7 @@ body{
 footer {
 	padding-top: 20px;
 	padding-bottom: -25px;
-	color:#444444;
+	color: $color-tertiary-dark;
 }
 
 .download{
@@ -34,26 +33,26 @@ footer {
 }
 
 h1{
-  font-family: 'Lato', sans-serif;
+  font-family: $type-main;
   text-align: center;
-  color: #f5f5f5;
+  color: $color-tertiary-dark;
   padding-top: 35px;
   letter-spacing: .05em;
   font-size: 6.5vh;
 }
 
 h2 {
-  font-family: 'Lato', sans-serif;
+  font-family: $type-main;
   text-align: center;
-  color: #555;
+  color: $color-tertiary-dark;
   letter-spacing: .05em;
   font-size: 6.5vh;
   margin-bottom: -25px !important;
 }
 
 h3 {
-  color: #555;
-  font-family: 'Lato', sans-serif;
+  color: $color-tertiary-dark;
+  font-family: $type-main;
   font-weight: lighter;
   text-align: center;
   letter-spacing: .05em;
@@ -62,8 +61,8 @@ h3 {
 }
 
 h4{
-  color: #f5f5f5;
-  font-family: 'Lato', sans-serif;
+  color: $color-tertiary-dark;
+  font-family: $type-main;
   font-weight: lighter;
   text-align: center;
   letter-spacing: .05em;
@@ -72,8 +71,8 @@ h4{
 }
 
 h5 {
-  color: #555;
-  font-family: 'Lato', sans-serif;
+  color: $color-tertiary-dark;
+  font-family: $type-main;
   text-align: center;
   letter-spacing: .05em;
   font-size: 3vh;
@@ -81,8 +80,8 @@ h5 {
 }
 
 h6 {
-  color: #777;
-  font-family: 'Lato', sans-serif;
+  color: $color-tertiary-dark;
+  font-family: $type-main;
   font-weight: lighter;
   text-align: center;
   letter-spacing: .05em;
@@ -92,7 +91,7 @@ h6 {
 }
 
 p {
-	font-family: 'Lato', 'Arial';
+	font-family: $type-main;
 	font-size: 18px;
 }
 
@@ -102,80 +101,6 @@ p {
 	padding-top: 20px;
 }
 
-.ui.navbar{
-	padding-left: 30px;
-	padding-right: 30px;
-	padding-bottom: 10px;
-	padding-top: 10px;
-	font-size: 18px;
-	border: none;
-	font-family: 'Lato', 'Arial';
-	/* For shadow under navbar */
-	-webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
-	-moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
-	box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
-
-}
-
-.grid.yellow.background{
-	background-color: #ffd161;
-	padding-top:120px;
-	padding-bottom:50px;
-}
-
-.grid.green.background{
-	background-color: #37b4ac;
-	padding-top:50px;
-	padding-bottom:50px;
-}
-
-.grid.blue.background{
-	background-color: #007cb0;
-	padding-top:50px;
-	padding-bottom:50px;
-}
-
-/* Navbar */
-
-.mobile.row{
-	padding-top: 0px !important;
-	margin-top: 0px !important;
-}
-
-.mobile.row .ui.menu{
-	border-radius: 0px !important;
-}
-
-.padding-reset{
-	padding: 0px !important;
-}
-
-.ui.message{
-	padding: 40px !important;
-}
-
-@media (max-width: 767px) {
-  	.ui.grid.main{
-  		margin-top: 70px;
-	}
-	.ui.vertical.menu.navbar{
-		margin-top: 70px !important;
-	}
-}
-
-.ui.vertical.menu{
-	margin-top: -15px !important;
-	width: 100%;
-	display: none;
-}
-
-.ui.menu.shadow{
-	/* For shadow under navbar */
-	-webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
-	-moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
-	box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
-}
-
-.ui.menu a.item:hover{
-	background-color: #f7f7f7;
+.main-block-text > *{
+  color: white;
 }
