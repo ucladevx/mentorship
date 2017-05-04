@@ -15,10 +15,10 @@
       <div class="ui page grid">
         <div class="computer tablet only row">
             <div class="ui borderless fixed menu navbar">
-                <a href="index.html"> <%= image_tag("Logo.png") %> </a>
+                <a href="/"> <%= image_tag("Logo.png") %> </a>
                 <div class="right menu">
                     <a href="" class="item">Mentors</a>
-                    <a href="" class="item">Notes</a>
+                    <%= link_to "Notes", notes_path, class:"item"%>
                     <a href="" class="item">Tutorials</a>
                     <%= link_to "Login / Sign Up", user_session_path, class:"item"%>
                 </div>
@@ -27,7 +27,7 @@
         <div class="mobile only narrow row">
             <div class="ui borderless fixed menu navbar">
                 <div class="ui middle aligned image">
-                  <a href="index.html"><%= image_tag("Pencil.png") %> </a>
+                  <a href="/"><%= image_tag("Pencil.png") %> </a>
                 </div>
                 <div class="right menu open">
                     <a href="" class="menu item">

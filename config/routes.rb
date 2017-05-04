@@ -1,5 +1,21 @@
 Rails.application.routes.draw do
 
+  get 'mentors/index'
+
+  get 'mentors/new'
+
+  get 'mentors/create'
+
+  get 'mentors/destroy'
+
+  get 'tutorials/index'
+
+  get 'tutorials/new'
+
+  get 'tutorials/create'
+
+  get 'tutorials/destroy'
+
   devise_for :users
   post '/upvote', to: 'notes#upvote'
   post '/downvote', to: 'notes#downvote'
