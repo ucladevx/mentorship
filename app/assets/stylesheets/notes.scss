@@ -1,3 +1,60 @@
 // Place all the styles related to the notes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*.search-area{
+	position: absolute;
+	box-sizing: border-box;
+	z-index: 99;
+	top: 80px;
+	padding: 20px;
+}*/
+.ui.button{
+	float: left;
+	font-size: 16px;
+	transition: all 0.2s ease;
+}
+.ui.button.shadow {
+	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.46);
+	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.46);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.46);
+}
+
+.search-area{
+	position: absolute;
+	margin-top: 70px;
+	box-sizing: border-box;
+	z-index: 99;
+	top: 0;
+	width: 70%;
+	padding: 20px;
+}
+
+.search-bar{
+	height: 70px;
+}
+
+.search-input{
+	float: left;
+	border: 1px;
+    width: 0;
+    height: 45px;
+    border-bottom: 2px solid black;
+    font-size: 18px;
+    font-weight: 200;
+    color: black;
+
+    transition: all 1s ease;
+}
+
+.search-input.focus, .search-bar form:hover .search-input{
+	width: 40%;
+	margin-right: 20px;
+}
+#checkbox32 {
+	margin-top: 5px;
+}
+.ui.checkbox {
+	margin-top: 130px;
+	padding: 20px;
+}

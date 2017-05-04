@@ -10,13 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ActiveRecord::Schema.define(version: 20170503043734) do
+=======
+ActiveRecord::Schema.define(version: 20170429011523) do
+>>>>>>> Stashed changes
+=======
+ActiveRecord::Schema.define(version: 20170429011523) do
+>>>>>>> Stashed changes
+=======
+ActiveRecord::Schema.define(version: 20170429011523) do
+>>>>>>> Stashed changes
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "notes", force: :cascade do |t|
     t.string   "title"
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     t.string   "uclaclass"
     t.integer  "reputation"
     t.string   "ufile"
@@ -41,6 +56,23 @@ ActiveRecord::Schema.define(version: 20170503043734) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+=======
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+    t.string   "class"
+    t.integer  "reputation"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   end
 
 end

@@ -1,3 +1,87 @@
+<<<<<<< HEAD
+<html>
+<head>
+    <title>Mentorship</title>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag ('homepage.js') %>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+<body>
+    <header>
+    <!-- Navbar -->
+        <div class="ui page grid">
+        <div class="computer tablet only row">
+            <div class="ui borderless fixed menu navbar">
+                <%= link_to image_tag("Logo.png"), "/" %>
+
+                <div class="right menu">
+                    <a href="" class="item">Mentors</a>
+                    <a href="/notes/index" class="item">Notes</a>
+                    <a href="" class="item">Tutorials</a>
+                    <a href="" class="item">Login / Sign Up</a>
+                </div>
+            </div>
+        </div>
+        <div class="mobile only narrow row">
+            <div class="ui borderless fixed menu navbar">
+                <div class="ui middle aligned image">
+                  <a href="/"><%= image_tag("Pencil.png") %> </a>
+                </div>
+                <div class="right menu open">
+                    <a href="" class="menu item">
+                        <i id="chevron" class="chevron down icon"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ui borderless vertical fixed navbar menu shadow">
+                <div class="ui fitted divider"></div>
+                <div class="menu">
+                    <a href="" class="item">Mentors</a>
+                    <a href="" class="item">Notes</a>
+                    <a href="" class="item">Tutorials</a>
+                    <a href="" class="item">Login / Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- The whole search bar area -->
+    <div class="search-area">
+        <div class="search-bar">
+            <form action="#">
+                <input class="search-input focus-fixed" type="text" name="search" placeholder="search for a class"/>
+                <button class="ui button shadow">SEARCH</button>
+            </form>
+        </div>
+        <div id="results"></div>
+    </div>
+    <div class="ui checkbox">
+        <input type="checkbox" id="checkbox31">
+        <label>CS 31</label>
+        <input type="checkbox">
+        <label id=checkbox32>CS 32</label>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
 <% if !flash[:notice].blank? %>
    <div class = "alert alert-info">
       <%= flash[:notice] %>
@@ -40,3 +124,4 @@
    </tbody>
 
 </table>
+>>>>>>> cf945c50395b670795b729eea46670107170994b

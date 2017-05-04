@@ -1,3 +1,6 @@
+
+var c = 1;
+
 $(document).ready(function(){
 	$('.right.menu.open').on("click",function(e){
         e.preventDefault();
@@ -21,9 +24,10 @@ $(document).ready(function(){
     
 	$('.ui.dropdown').dropdown();
 
+
 	$('#link').click(function(){
 	    $("html, body").animate({ scrollTop: 0 }, 400);
 	    return false;
  	});
-
+ 	
 });
