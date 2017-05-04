@@ -9,43 +9,7 @@
   <body>
 
     <!-- Header -->
-    <header>
-
-      <!-- Navbar -->
-      <div class="ui page grid">
-        <div class="computer tablet only row">
-            <div class="ui borderless fixed menu navbar">
-                <a href="/"> <%= image_tag("Logo.png") %> </a>
-                <div class="right menu">
-                    <a href="" class="item">Mentors</a>
-                    <%= link_to "Notes", notes_path, class:"item"%>
-                    <a href="" class="item">Tutorials</a>
-                    <%= link_to "Login / Sign Up", user_session_path, class:"item"%>
-                </div>
-            </div>
-        </div>
-        <div class="mobile only narrow row">
-            <div class="ui borderless fixed menu navbar">
-                <div class="ui middle aligned image">
-                  <a href="/"><%= image_tag("Pencil.png") %> </a>
-                </div>
-                <div class="right menu open">
-                    <a href="" class="menu item">
-                        <i id="chevron" class="chevron down icon"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="ui borderless vertical fixed navbar menu shadow">
-                <div class="ui fitted divider"></div>
-                <div class="menu">
-                    <a href="" class="item">Mentors</a>
-                    <a href="" class="item">Notes</a>
-                    <a href="" class="item">Tutorials</a>
-                    <a href="" class="item">Login / Sign Up</a>
-                </div>
-            </div>
-        </div>
-    </header>
+  
 
     <!-- Yellow Box -->
     <div class="ui center aligned padded grid, grid yellow background">
