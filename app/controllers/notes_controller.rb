@@ -25,12 +25,14 @@ class NotesController < ApplicationController
   end
 
   def upvote
+    byebug
     @note ||= Note.find(params[:id])
     @note.reputation++
     @note.save
   end
 
   def downvote
+    byebug
     @note ||= Note.find(params[:id])
     @note.reputation
     @note.save

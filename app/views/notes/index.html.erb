@@ -4,6 +4,12 @@
    </div>
 <% end %>
 
+<script>
+  function changeNumber() {
+    document.getElementbyId("Rep").innerHTML = typeof(document.getElementById("Rep").innerHTML) ;
+  }
+</script>
+
 <br />
 
 <%= link_to "New Note", new_note_path, class: "btn btn-primary" %>
