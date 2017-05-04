@@ -18,7 +18,7 @@ Creating the user:
 Create the database:
 `$createdb -O [username] [dbname]`
 
-Alter the user to include password ()
+Alter the user to include password:
 
 `ALTER USER [username] WITH PASSWORD '[password]';`
 
