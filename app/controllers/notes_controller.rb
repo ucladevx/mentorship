@@ -10,7 +10,7 @@ class NotesController < ApplicationController
 
   def create
       @note = Note.new(note_params)
-
+      @note.reputation = 0
       if @note.save
           redirect_to notes_path, notice: "The note #{@note.title} has been uploaded."
       else
@@ -24,8 +24,21 @@ class NotesController < ApplicationController
       redirect_to notes_path, notice: "The note #{@note.title} has been deleted."
   end
 
+  def upvote
+    @note ||= Note.find(params[:id])
+    @note.reputation++
+    @note.save
+  end
+
+  def downvote
+    @note ||= Note.find(params[:id])
+    @note.reputation
+    @note.save
+  end
+
   private
     def note_params
         params.require(:note).permit(:title, :uclaclass, :author, :notetype, :ufile)
     end
+
 end
