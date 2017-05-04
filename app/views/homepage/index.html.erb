@@ -4,7 +4,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag ('homepage.js') %>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-
   </head>
   <body>
     <!-- Header -->
@@ -15,7 +14,6 @@
         <div class="computer tablet only row">
             <div class="ui borderless fixed menu navbar">
                 <a href="index.html"> <%= image_tag("Logo.png") %> </a>
-
                 <div class="right menu">
                     <a href="" class="item">Mentors</a>
                     <a href="" class="item">Notes</a>
@@ -45,14 +43,17 @@
                 </div>
             </div>
         </div>
+      </div>
     </header>
     <div id="yellowbg" class="ui center aligned padded grid, grid yellow background">
       <div class="sixteen wide column">
         <div class="ui centered image">
-          <%= image_tag("bridge.png") %> 
+          <%= image_tag("bridge.png") %>
         </div>
       </div>
     </div>
+
+    <!-- Notes Section !-->
     <div class="ui padded grid, grid blue background">
       <div class="seven wide column centered">
         <h1>Trending Notes</h1>
@@ -64,60 +65,133 @@
       </div>
     </div>
     <div class="ui padded three column centered grid, grid blue background">
-      <div class="four wide column">
-        <div class="ui card">
-          <div class="image">
-            <img src="/images/CS32.png">
+      <div class="two wide column right aligned">
+        <div class="button_wrapper">
+          <button class="circular ui icon button prev">
+            <i class="icon chevron left"></i>
+          </button>
+        </div>
+      </div>
+      <div class="twelve wide column">
+        <div class="multiple-items">
+          <div class="ui card note_cards">
+            <div class="image">
+              <%= image_tag("CS32.png") %>
+            </div>
+            <div class="content">
+              <a class="header">Midterm Study Guide</a>
+              <div class="meta">
+                <span class="date">Austin Lee</span>
+              </div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+              </div>
+              <div class="extra content">
+              </div>
+            </div>
           </div>
-          <div class="content">
-            <a class="header">Midterm Study Guide</a>
-            <div class="meta">
-              <span class="date">Austin Lee</span>
+          <div class="ui card note_cards">
+            <div class="image">
+              <%= image_tag("CS32.png") %>
             </div>
-            <div class="description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+            <div class="content">
+              <a class="header">Week 1 Notes</a>
+              <div class="meta">
+                <span class="date">Helen Lee</span>
+              </div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+              </div>
+              <div class="extra content">
+              </div>
             </div>
-            <div class="extra content">
+          </div>
+          <div class="ui card note_cards">
+            <div class="image">
+              <%= image_tag("CS32.png") %>
+            </div>
+            <div class="content">
+              <a class="header">Final Cheat Sheet</a>
+              <div class="meta">
+                <span class="date">Charlotte McGinn</span>
+              </div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+              </div>
+              <div class="extra content">
+              </div>
+            </div>
+          </div>
+          <div class="ui card note_cards">
+            <div class="image">
+              <%= image_tag("CS32.png") %>
+            </div>
+            <div class="content">
+              <a class="header">Midterm Study Guide</a>
+              <div class="meta">
+                <span class="date">Austin Lee</span>
+              </div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+              </div>
+              <div class="extra content">
+              </div>
+            </div>
+          </div>
+          <div class="ui card note_cards">
+            <div class="image">
+              <%= image_tag("CS32.png") %>
+            </div>
+            <div class="content">
+              <a class="header">Midterm Study Guide</a>
+              <div class="meta">
+                <span class="date">Austin Lee</span>
+              </div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+              </div>
+              <div class="extra content">
+              </div>
+            </div>
+          </div>
+          <div class="ui card note_cards">
+            <div class="image">
+              <%= image_tag("CS32.png") %>
+            </div>
+            <div class="content">
+              <a class="header">Midterm Study Guide</a>
+              <div class="meta">
+                <span class="date">Austin Lee</span>
+              </div>
+              <div class="description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+              </div>
+              <div class="extra content">
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="four wide column">
-        <div class="ui card">
-          <div class="image">
-            <img src="/images/CS111.png">
-          </div>
-          <div class="content">
-            <a class="header">Week 1 Notes</a>
-            <div class="meta">
-              <span class="date">Helen Lee</span>
-            </div>
-            <div class="description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
-            </div>
-            <div class="extra content">
-            </div>
-          </div>
+      <div class="two wide column left aligned">
+        <div class="button_wrapper">
+          <button class="circular ui icon button next">
+            <i class="icon chevron right"></i>
+          </button>
         </div>
       </div>
-      <div class="four wide column">
-        <div class="ui card">
-          <div class="image">
-            <img src="/images/CS32.png">
-          </div>
-          <div class="content">
-            <a class="header">Final Cheat Sheet</a>
-            <div class="meta">
-              <span class="date">Charlotte McGinn</span>
-            </div>
-            <div class="description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
-            </div>
-            <div class="extra content">
-            </div>
-          </div>
-        </div>
-      </div>
+
     </div>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      $('.multiple-items').slick({
+  	  slidesToShow: 3,
+      slidesToScroll: 3,
+      infinite: false,
+      arrows: true,
+      prevArrow: $('.prev'),
+      nextArrow: $('.next')
+      });
+    });
+    </script>
   </body>
 </html>

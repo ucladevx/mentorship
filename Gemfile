@@ -33,6 +33,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 
+# Slick Carousel
+gem "jquery-slick-rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
