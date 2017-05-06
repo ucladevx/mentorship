@@ -24,7 +24,7 @@ Alter the user to include password:
 
 
 Migrate database:
-`rake db:migrate`
+`$ rake db:migrate`
 
 Start the server:
 `$ rails s`
