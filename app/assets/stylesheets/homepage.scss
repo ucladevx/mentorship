@@ -1,9 +1,13 @@
 // Place all the styles related to the homepage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 $import-google-fonts: false;
 @import "semantic-ui";
 @import "slick";
+@import "base/vars";
+@import "base/colors";
+
 body{
   background-color: white;
 }
@@ -13,25 +17,53 @@ body{
   font-weight: lighter;
   padding: 0px;
 }
+
+footer {
+	padding-top: 20px;
+	padding-bottom: -25px;
+	color: $color-tertiary-dark;
+}
+
 .download{
   float: right;
   display: inline;
 }
+
 .date{
   color:black;
 }
+
 h1{
-  font-family: 'Lato', sans-serif;
+  font-family: $type-main;
   text-align: center;
-  color: #ffffff;
   font-weight: bolder;
+  color: $color-tertiary-dark;
   padding-top: 35px;
   font-size: 6.5vh;
 }
 
+h2 {
+  font-family: $type-main;
+  text-align: center;
+  color: $color-tertiary-dark;
+  letter-spacing: .05em;
+  font-size: 6.5vh;
+  margin-bottom: -25px !important;
+}
+
+h3 {
+  color: $color-tertiary-dark;
+  font-family: $type-main;
+  font-weight: lighter;
+  text-align: center;
+  letter-spacing: .05em;
+  font-size: 4vh;
+  margin-bottom: 40px !important;
+}
+
 h4{
-  color: #f5f5f5;
-  font-family: 'Lato', sans-serif;
+  color: $color-tertiary-dark;
+  font-family: $type-main;
   font-weight: lighter;
   text-align: center;
   letter-spacing: .05em;
@@ -39,21 +71,29 @@ h4{
   font-size: 2.5vh;
 }
 
+h5 {
+  color: $color-tertiary-dark;
+  font-family: $type-main;
+  text-align: center;
+  letter-spacing: .05em;
+  font-size: 3vh;
+  margin-bottom: -25px !important;
+}
 
-footer {
-
+h6 {
+  color: $color-tertiary-dark;
+  font-family: $type-main;
+  font-weight: lighter;
+  text-align: center;
+  letter-spacing: .05em;
+  font-size: 2.5vh;
+  margin-bottom: 15px !important;
+  line-height:130%;
 }
 
 p {
-	font-family: 'Lato', 'Arial';
+	font-family: $type-main;
 	font-size: 18px;
-}
-
-h1 {
-	font-family: 'Lato', 'Arial';
-	color: white;
-	font-weight:300;
-	letter-spacing: 1px;
 }
 
 .container {
@@ -62,75 +102,8 @@ h1 {
 	padding-top: 20px;
 }
 
-
-.ui.menu{
-	padding-left: 30px;
-	padding-right: 30px;
-	padding-bottom: 10px;
-	padding-top: 10px;
-	font-size: 18px;
-	border: none;
-	font-family: 'Lato', 'Arial';
-	/* For shadow under navbar */
-	-webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
-	-moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
-	box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
-
-}
-
-.grid.yellow.background{
-	background-color: #ffd161;
-	padding-top:120px;
-	padding-bottom:30px;
-}
-
-.grid.green.background{
-	background-color: #37b4ac;
-}
-
-.grid.blue.background{
-	background-color: #007cb0;
-}
-
-/* Navbar */
-
-.mobile.row{
-	padding-top: 0px !important;
-	margin-top: 0px !important;
-}
-
-.mobile.row .ui.menu{
-	border-radius: 0px !important;
-}
-
-.padding-reset{
-	padding: 0px !important;
-}
-
-.ui.message{
-	padding: 40px !important;
-}
-
-@media (max-width: 767px) {
-  	.ui.grid.main{
-  		margin-top: 70px;
-	}
-	.ui.vertical.menu.navbar{
-		margin-top: 70px !important;
-	}
-}
-
-.ui.vertical.menu{
-	margin-top: -15px !important;
-	width: 100%;
-	display: none;
-}
-
-.ui.menu.shadow{
-	/* For shadow under navbar */
-	-webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
-	-moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
-	box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.46);
+.main-block-text > *{
+  color: white;
 }
 
 /* NOTES CARDS */

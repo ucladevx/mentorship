@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Mentorship</title>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag ('homepage.js') %>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+  </head>
+  <body>
+
+  
+
+  </body>
+</html>
+
+
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<script>
+  function changeNumber() {
+    document.getElementbyId("Rep").innerHTML = typeof(document.getElementById("Rep").innerHTML) ;
+  }
+</script>
+
+<br />
+
+<%= link_to "New Note", new_note_path, class: "btn btn-primary" %>
+<br />
+<br />
+
+<table class = "table table-bordered table-striped">
+   <thead>.
+      <tr>
+         <th>Title</th>
+         <th>Download Link</th>
+         <th> </th>
+      </tr>
+   </thead>
+
+   <tbody>
+      <% @notes.each do |note| %>
+         <tr>
+            <td><%= note.title %></td>
+            <td><%= link_to "Download Note", note.ufile.url %></td>
+            <td><%= button_to "Delete",  note, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{note.title}?" %></td>
+            <td><%= link_to "^", upvote_path, remote: true %>
+            <td><%= note.reputation %></td>
+            <td><%= link_to "v", downvote_path, remote: true %>
+         </tr>
+
+      <% end %>
+   </tbody>
+
+</table>

@@ -1,19 +1,28 @@
-var c = 1;
-
 $(document).ready(function(){
 	$('.right.menu.open').on("click",function(e){
         e.preventDefault();
 		$('.ui.vertical.menu').toggle();
-		if (c == 1) {
+
+		// Check to see the orientation of the chevron
+		// and alternate
+		var icon = document.getElementById("chevron");
+		var iconClass = icon.className;
+
+		if (iconClass == "chevron down icon") {
 			document.getElementById("chevron").classList= "chevron up icon";
 			document.getElementById("yellowbg").style.paddingTop= "262px";
-			c = 0;
 		}
+
 		else {
 			document.getElementById("chevron").classList= "chevron down icon";
 			document.getElementById("yellowbg").style.paddingTop= "120px";
-			c = 1;
 		}
 	});
 	$('.ui.dropdown').dropdown();
+
+	$('#link').click(function(){
+	    $("html, body").animate({ scrollTop: 0 }, 400);
+	    return false;
+ 	});
+
 });

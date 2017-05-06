@@ -9,6 +9,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <div class="container" style="padding-top:55px;">
+      <%= yield %>
+    </div>
   </body>
 </html>
