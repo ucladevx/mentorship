@@ -168,10 +168,7 @@ p {
   object-fit: contain;
 }
 
-/* CAROUSEL BUTTONS */
-.ui.icon.button{
-  background-color: rgba(255,255,255,0.9);
-}
+
 
 /*.ui.icon.button:hover{
   background-color: rgba(255,255,255,0.9);
@@ -182,7 +179,16 @@ p {
   //background-color: rgba(255,255,255,0.9);
 }*/
 
+/* CAROUSEL BUTTONS */
 
+.icon.chevron{
+  color: white;
+}
+.button{
+  background-color: transparent;
+  border: 0px transparent;
+  outline: none;
+}
 .button_wrapper{
   margin-top: 100%;
 }
