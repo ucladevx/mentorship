@@ -168,23 +168,23 @@ p {
   object-fit: contain;
 }
 
-.button.prev-tut{
-  background-color: rgba(255,255,255,0.7);
-}
-.button.next-tut{
-  background-color: rgba(255,255,255,0.7);
-}
-
-.button.prev:hover{
+/* CAROUSEL BUTTONS */
+.ui.icon.button{
   background-color: rgba(255,255,255,0.9);
 }
 
-.button.next:hover{
+/*.ui.icon.button:hover{
   background-color: rgba(255,255,255,0.9);
+  //background-color: rgba(255,255,255,0.9);
 }
+.ui.icon.button:active{
+  background-color: rgba(255,255,255,0.9);
+  //background-color: rgba(255,255,255,0.9);
+}*/
+
 
 .button_wrapper{
-  margin-top: 70%;
+  margin-top: 100%;
 }
 
 .meta{
