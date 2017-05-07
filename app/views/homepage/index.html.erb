@@ -6,46 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   </head>
   <body>
-
-    <!-- Navbar -->
-      <div class="ui page grid">
-        <div class="computer tablet only row">
-            <div class="ui borderless fixed menu navbar">
-                <a href="index.html"> <%= image_tag("Logo.png") %> </a>
-                <div class="right menu">
-                    <a href="" class="item">Mentors</a>
-                    <a href="" class="item">Notes</a>
-                    <a href="" class="item">Tutorials</a>
-                    <a href="" class="item">Login / Sign Up</a>
-                </div>
-            </div>
-        </div>
-        <div class="mobile only narrow row">
-            <div class="ui borderless fixed menu navbar">
-                <div class="ui middle aligned image">
-                  <a href="index.html"><%= image_tag("Pencil.png") %> </a>
-                </div>
-                <div class="right menu open">
-                    <a href="" class="menu item">
-                        <i id="chevron" class="chevron down icon"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="ui borderless vertical fixed navbar menu shadow">
-                <div class="ui fitted divider"></div>
-                <div class="menu">
-                    <a href="" class="item">Mentors</a>
-                    <a href="" class="item">Notes</a>
-                    <a href="" class="item">Tutorials</a>
-                    <a href="" class="item">Login / Sign Up</a>
-                </div>
-            </div>
-        </div>
-      </div>
-    </header>
-    <div id="yellowbg" class="ui center aligned padded grid, grid yellow background">
-    <!-- Header -->
-  
+    <!-- header -->
 
     <!-- Yellow Box -->
     <div class="ui center aligned padded grid, grid yellow background">
@@ -67,27 +28,18 @@
             congue turpis, a tempus dui neque non ante.
           </h4>
         </div>
-    <!-- Blue Box -->
-    <div class="ui padded grid, grid blue background">
-      <div class="seven wide column centered main-block-text">
-        <h1>Trending Notes</h1>
-        <h4>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Donec malesuada, purus hendrerit fringilla auctor, dui ex
-          congue turpis, a tempus dui neque non ante.
-        </h4>
       </div>
       <div class="ui padded centered relaxed grid, grid background">
         <div class="two wide column right aligned">
           <div class="button_wrapper">
-            <button class="circular ui icon button prev-notes">
-              <i class="icon chevron left"></i>
+            <button class="button prev-notes">
+              <i class="huge icon chevron left"></i>
             </button>
           </div>
         </div>
         <div class="twelve wide column">
           <div class="note-cards">
-            <div class="ui card">
+            <div class="ui card note">
               <div class="image">
                 <%= image_tag("CS32.png") %>
               </div>
@@ -104,7 +56,7 @@
                 </div>
               </div>
             </div>
-            <div class="ui card">
+            <div class="ui card note">
               <div class="image">
                 <%= image_tag("CS32.png") %>
               </div>
@@ -121,7 +73,7 @@
                 </div>
               </div>
             </div>
-            <div class="ui card">
+            <div class="ui card note">
               <div class="image">
                 <%= image_tag("CS32.png") %>
               </div>
@@ -138,7 +90,7 @@
                 </div>
               </div>
             </div>
-            <div class="ui card">
+            <div class="ui card note">
               <div class="image">
                 <%= image_tag("CS32.png") %>
               </div>
@@ -155,7 +107,7 @@
                 </div>
               </div>
             </div>
-            <div class="ui card">
+            <div class="ui card note">
               <div class="image">
                 <%= image_tag("CS32.png") %>
               </div>
@@ -172,7 +124,7 @@
                 </div>
               </div>
             </div>
-            <div class="ui card">
+            <div class="ui card note">
               <div class="image">
                 <%= image_tag("CS32.png") %>
               </div>
@@ -193,13 +145,15 @@
         </div>
         <div class="two wide column left aligned">
           <div class="button_wrapper">
-            <button class="circular ui icon button next-notes">
-              <i class="icon chevron right"></i>
+            <button class="button next-notes">
+              <i class="huge icon chevron right"></i>
             </button>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Tutorials Section !-->
     <div class="tutorials">
       <div class="ui padded grid, grid background">
         <div class="seven wide column centered tutorials-header">
@@ -214,14 +168,14 @@
       <div class="ui padded centered relaxed grid, grid background">
         <div class="two wide column right aligned">
           <div class="button_wrapper">
-            <button class="circular ui icon button prev-tut">
-              <i class="icon chevron left"></i>
+            <button class="button prev-tut">
+              <i class="huge icon chevron left"></i>
             </button>
           </div>
         </div>
         <div class="twelve wide column">
           <div class="tutorial-cards">
-            <div class="ui card">
+            <div class="ui card tut">
               <div class="image">
                 <%= image_tag("ctut.png") %>
               </div>
@@ -244,7 +198,7 @@
                 </div>
               </div>
             </div>
-            <div class="ui card">
+            <div class="ui card tut">
               <div class="image">
                 <%= image_tag("Python.png") %>
               </div>
@@ -267,7 +221,7 @@
                 </div>
               </div>
             </div>
-            <div class="ui card">
+            <div class="ui card tut">
               <div class="image">
                 <%= image_tag("Python.png") %>
               </div>
@@ -290,7 +244,7 @@
                 </div>
               </div>
             </div>
-            <div class="ui card">
+            <div class="ui card tut">
               <div class="image">
                 <%= image_tag("ctut.png") %>
               </div>
@@ -313,7 +267,7 @@
                 </div>
               </div>
             </div>
-            <div class="ui card">
+            <div class="ui card tut">
               <div class="image">
                 <%= image_tag("ctut.png") %>
               </div>
@@ -336,7 +290,7 @@
                 </div>
               </div>
             </div>
-            <div class="ui card">
+            <div class="ui card tut">
               <div class="image">
                 <%= image_tag("Python.png") %>
               </div>
@@ -363,79 +317,13 @@
         </div>
         <div class="two wide column left aligned">
           <div class="button_wrapper">
-            <button class="circular ui icon button next-tut">
-              <i class="icon chevron right"></i>
+            <button class="button next-tut">
+              <i class="huge icon chevron right"></i>
             </button>
           </div>
         </div>
       </div>
     </div>
-    <script type="text/javascript">
-    $(document).ready(function(){
-      $('.note-cards').slick({
-    	  slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: false,
-        arrows: true,
-        prevArrow: $('.prev-notes'),
-        nextArrow: $('.next-notes'),
-        responsive: [
-        {
-          breakpoint: 1440,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-          }
-        },
-        {
-          breakpoint: 1000,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2
-          }
-        },
-        {
-          breakpoint: 700,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-      });
-      $('.tutorial-cards').slick({
-    	  slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: false,
-        arrows: true,
-        prevArrow: $('.prev-tut'),
-        nextArrow: $('.next-tut'),
-        responsive: [
-        {
-          breakpoint: 1440,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3,
-          }
-        },
-        {
-          breakpoint: 1000,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2
-          }
-        },
-        {
-          breakpoint: 700,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-      });
-    });
-    </script>
 
     <!-- Footer -->
     <footer>
