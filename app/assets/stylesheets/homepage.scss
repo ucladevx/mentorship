@@ -3,9 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 $import-google-fonts: false;
-@import "semantic-ui";
-@import "base/vars";
-@import "base/colors";
+@import "base/global";
 
 body{
   background-color: white;
