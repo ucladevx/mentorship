@@ -1,5 +1,7 @@
 $(document).ready(function(){
-	$('.right.menu.open').on("click",function(e){
+	$('.right.menu.open').unbind().click(function(e){
+
+		console.log('clicked')
         e.preventDefault();
 		$('.ui.vertical.menu').toggle();
 
@@ -18,7 +20,6 @@ $(document).ready(function(){
 			document.getElementById("yellowbg").style.paddingTop= "120px";
 		}
 	});
-    
 	$('.ui.dropdown').dropdown();
 
 	$('#link').click(function(){
