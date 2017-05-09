@@ -13,46 +13,28 @@
   </body>
 </html>
 
+<div class="notes-content">
+  <% if !flash[:notice].blank? %>
+     <div class = "alert alert-info">
+        <%= flash[:notice] %>
+     </div>
+  <% end %>
 
-<% if !flash[:notice].blank? %>
-   <div class = "alert alert-info">
-      <%= flash[:notice] %>
+<!--
+  <%= link_to "New Note", new_note_path, class: "btn btn-primary" %>
+
+
+  <% @notes.each do |note| %>
+   <div>
+      <p>Title: <%= note.title %></p>
+      <p><%= link_to "Download Note", note.ufile.url %></p>
+      <%= button_to "Delete",  note, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{note.title}?" %>
+      <%= link_to "^", upvote_path, remote: true %>
+      <div>
+        <%= note.reputation %>
+        <%= link_to "v", downvote_path, remote: true %>i
+      </div>
    </div>
-<% end %>
-
-<script>
-  function changeNumber() {
-    document.getElementbyId("Rep").innerHTML = typeof(document.getElementById("Rep").innerHTML) ;
-  }
-</script>
-
-<br />
-
-<%= link_to "New Note", new_note_path, class: "btn btn-primary" %>
-<br />
-<br />
-
-<table class = "table table-bordered table-striped">
-   <thead>.
-      <tr>
-         <th>Title</th>
-         <th>Download Link</th>
-         <th> </th>
-      </tr>
-   </thead>
-
-   <tbody>
-      <% @notes.each do |note| %>
-         <tr>
-            <td><%= note.title %></td>
-            <td><%= link_to "Download Note", note.ufile.url %></td>
-            <td><%= button_to "Delete",  note, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{note.title}?" %></td>
-            <td><%= link_to "^", upvote_path, remote: true %>
-            <td><%= note.reputation %></td>
-            <td><%= link_to "v", downvote_path, remote: true %>
-         </tr>
-
-      <% end %>
-   </tbody>
-
-</table>
+  <% end %>
+-->
+</div>
