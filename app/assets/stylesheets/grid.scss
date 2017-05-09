@@ -1,23 +1,91 @@
-$import-google-fonts: false;
-@import "semantic-ui";
-@import "base/vars";
-@import "base/colors";
+@import "base/global";
 
-.grid.yellow.background{
-	background-color: $color-secondary-1;
-	padding-top:120px;
-	padding-bottom:50px;
+.grid-container {
+  width : 100%;
+  margin: auto;
+
+
+  .clear {
+    &:after {
+      content: "";
+      display: block;
+      clear  : both;
+    }
+  }
+
+  .padded {
+    padding: 8px;
+  }
+
+  .grid-strict {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    &:after {
+      content: "";
+      display: block;
+      clear  : both;
+    }
+  }
+
+  .grid {
+    @extend .grid-strict;
+    margin: 0 auto;
+    max-width: $grid-width;
+    //width: $grid-width;
+    .col {
+      padding: $grid-vertical-padding $grid-gutter-padding;
+    }
+  }
+
+  .row {
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+
+    &:after {
+      content: "";
+      display: block;
+      clear  : both;
+    }
+  }
+
+  .col {
+    float    : left;
+    width    : 100%;
+    max-width: 100%;
+  }
+
 }
 
-.grid.green.background{
-	background-color: $color-secondary-2;
-	padding-top:50px;
-	padding-bottom:50px;
+@mixin col-list($columns, $prefix) {
+  @for $i from 1 through $columns {
+    .grid-container .col.#{$prefix}-#{$i} {
+      width: $i / $columns * 100%;
+    }
+  }
 }
 
-.grid.blue.background{
-	background-color: $color-primary;
-	padding-top:50px;
-	padding-bottom:50px;
+@include col-list(24, 'xs');
+
+@media (min-width: $grid-sm-breakpoint) {
+  @include col-list(24, 'sm');
+  .grid-container {
+    max-width: $grid-sm-breakpoint * 15 / 16;
+  }
 }
 
+@media (min-width: $grid-md-breakpoint) {
+  @include col-list(24, 'md');
+  .grid-container {
+    max-width: $grid-md-breakpoint * 15 / 16;
+  }
+}
+
+@media (min-width: $grid-lg-breakpoint) {
+  @include col-list(24, 'lg');
+  .grid-container {
+    max-width: $grid-lg-breakpoint * 15 / 16;
+  }
+}

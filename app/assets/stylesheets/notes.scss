@@ -11,3 +11,46 @@
 	color: white;
 
 }
+
+
+.grid-notes{
+
+	.col{
+		height: $grid-item-height;
+	}
+
+	.card.grid-item{
+		height: 100%;
+		max-width: 100%;
+		background: $color-tertiary-light;
+		margin: $grid-gutter-padding 0;
+		border-bottom: $card-bottom solid $color-primary;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		transition: all $transition-duration $transition-ease;
+
+		.title{
+			font-size: 14px;
+		}
+
+		.more.icons{
+			opacity: 0;
+			display: none;
+			transition: opacity $transition-duration $transition-ease;
+			color: white;
+		}
+
+		&:hover{
+			.title{display: none;}
+			.more.icons{
+				display: block;
+				opacity: 1;
+			}
+			border-bottom: calc(#{$grid-item-height} - #{$grid-gutter-padding} - #{$grid-gutter-padding}) solid $color-primary;
+		}
+	}
+
+}

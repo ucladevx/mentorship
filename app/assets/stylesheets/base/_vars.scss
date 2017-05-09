@@ -9,8 +9,30 @@ $type-main: 'Lato', sans-serif;
 $bp-mobile: 800px;
 
 
+// Transitions //
+
+$transition-duration: 0.4s;
+$transition-ease: ease;
+
+
 // Nav bar //
 
 $nav-height: 80px;
 $nav-spacing: 10px;
 $shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+
+// Grid //
+
+$grid-width           : 1200px !default;
+$grid-sm-breakpoint   : 768px !default;
+$grid-md-breakpoint   : 1200px !default;
+$grid-lg-breakpoint   : 1800px !default;
+
+$grid-gutter-padding  : 20px !default;
+$grid-vertical-padding: 20px !default;
+
+$grid-item-height     : 250px;
+
+// Card //
+
+$card-bottom: 10px;
