@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "base/global";
+@import "semantic-ui";
 @import "slick";
 
 
@@ -101,68 +102,99 @@ p {
   color: white;
 }
 
-/* NOTES CARDS */
-.ui.card:first-child {
-  margin: 1em 0em;
-  margin-left: 15px;
-  margin-right: 15px;
-}
-.ui.card{
-  margin-left: 15px;
-  margin-right: 15px;
-  max-height: inherit;
-  object-fit: contain;
-}
-.button.prev-tut{
-  background-color: rgba(255,255,255,0.7);
-}
-.button.next-tut{
-  background-color: rgba(255,255,255,0.7);
-}
 
-.button.prev:hover{
-  background-color: rgba(255,255,255,0.9);
-}
-
-.button.next:hover{
-  background-color: rgba(255,255,255,0.9);
-}
-
-.button_wrapper{
-  margin-top: 70%;
-}
-
-.notes-header h1{
-  font-size: 6.5vh;
-}
-.notes-header h4{
-  font-size: 3vh;
-}
-
+/* NOTES SECTION */
 .notes{
   padding-top: 30px;
   padding-bottom: 60px;
   background-color: #007cb1;
 }
 
+.notes-header h1{
+  font-size: 6.5vh;
+  color: #ffffff;
+}
+.notes-header h4{
+  font-size: 3vh;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* NOTES CARDS */
+.ui.card.note:first-child{
+  margin: 1em 0em;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.ui.card.note{
+  margin-left: 15px;
+  margin-right: 15px;
+  max-height: inherit;
+  object-fit: contain;
+}
+
+/* TUTORIAL SECTION */
 .tutorials-header h1{
   font-size: 6.5vh;
+  color: #ffffff;
 }
 .tutorials-header h4{
   font-size: 3vh;
+  color: #ffffff;
+  font-weight: 500;
 }
-
 .tutorials{
   padding-top: 30px;
   padding-bottom: 60px;
   background-color: #8b96da;
 }
 
+/* TUTORIAL CARDS */
+.ui.card.tut:first-child{
+  margin: 1em 0em;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.ui.card.tut{
+  margin-left: 15px;
+  margin-right: 15px;
+  max-height: inherit;
+  object-fit: contain;
+}
+
+
+
+/*.ui.icon.button:hover{
+  background-color: rgba(255,255,255,0.9);
+  //background-color: rgba(255,255,255,0.9);
+}
+.ui.icon.button:active{
+  background-color: rgba(255,255,255,0.9);
+  //background-color: rgba(255,255,255,0.9);
+}*/
+
+/* CAROUSEL BUTTONS */
+
+.icon.chevron{
+  color: white;
+}
+.button{
+  background-color: transparent;
+  border: 0px transparent;
+  outline: none;
+}
+.button_wrapper{
+  margin-top: 100%;
+}
+
 .meta{
   padding-top: 4px;
   color: #474747;
-
 }
+
+/* HEARTS */
 .upvotes {
   padding-top: 10px;
   color: #ff6666;
