@@ -25,16 +25,17 @@ class NotesController < ApplicationController
   end
 
   def upvote
+    #TODO: need to have user checking to ensure this is done only once
     @note = Note.find(params[:format])
     @note.reputation+=1
     @note.save
   end
 
   def downvote
+    #TODO: need to have user checking
     @note = Note.find(params[:format])
     @note.reputation-=1
     @note.save
-    redirect_to notes_path
   end
 
   private
