@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503043734) do
+ActiveRecord::Schema.define(version: 20170510190747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,10 +20,14 @@ ActiveRecord::Schema.define(version: 20170503043734) do
     t.string   "uclaclass"
     t.integer  "reputation"
     t.string   "ufile"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "author"
     t.string   "notetype"
+    t.string   "usertype",         default: "s"
+    t.string   "username"
+    t.integer  "ratingscore",      default: 0
+    t.string   "uploadednoteurls", default: [],               array: true
   end
 
   create_table "users", force: :cascade do |t|
