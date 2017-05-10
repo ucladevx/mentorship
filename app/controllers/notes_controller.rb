@@ -25,17 +25,16 @@ class NotesController < ApplicationController
   end
 
   def upvote
-    byebug
-    @note ||= Note.find(params[:id])
-    @note.reputation++
+    @note = Note.find(params[:format])
+    @note.reputation+=1
     @note.save
   end
 
   def downvote
-    byebug
-    @note ||= Note.find(params[:id])
-    @note.reputation
+    @note = Note.find(params[:format])
+    @note.reputation-=1
     @note.save
+    redirect_to notes_path
   end
 
   private
