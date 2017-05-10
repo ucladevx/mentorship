@@ -15,6 +15,7 @@
 # gem 'pg'
 #
 default: &default
+  host: /tmp
   adapter: postgresql
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
