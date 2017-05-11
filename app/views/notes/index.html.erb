@@ -23,17 +23,44 @@
   </head>
   <body>
 
+  <div class="grid-container">
+    <div class="grid grid-notes">
 
+       <div class="col lg-6 md-6 sm-12">
+        <div class="card grid-item">
+          <h3 class="title">Title of card here</h3>
+          <div class="more icons">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+            <i class="fa fa-download" aria-hidden="true"></i>
+          </div>
+        </div>
+       </div>
+      <div class="col lg-6 md-6 sm-12">
+        <div class="card grid-item">
+        </div>
+       </div>
+       <div class="col lg-6 md-6 sm-12">
+        <div class="card grid-item">
+        </div>
+       </div>
+       <div class="col lg-6 md-6 sm-12">
+        <div class="card grid-item">
+        </div>
+       </div>
+       <div class="col lg-6 md-6 sm-12">
+        <div class="card grid-item">
+        </div>
+       </div>
+       <div class="col lg-6 md-6 sm-12">
+        <div class="card grid-item">
+        </div>
+       </div>
 
-  </body>
-</html>
+    </div>
+  </div>
 
+  <%= link_to "New Note", new_note_path, class: "btn btn-primary" %>
 
-<% if !flash[:notice].blank? %>
-   <div class = "alert alert-info">
-      <%= flash[:notice] %>
-   </div>
-<% end %>
 <br />
 
 <!-- How to change depending on if User is signed in -->
@@ -71,3 +98,5 @@
    </tbody>
 
 </table>
+</body>
+</html>

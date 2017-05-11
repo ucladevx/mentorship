@@ -1,0 +1,92 @@
+@import "base/global";
+
+////////////main navbar////////////
+
+header{
+	height: 95px;
+}
+
+.navbar {
+
+	height: $nav-height;
+	box-sizing: border-box;
+
+	.item {
+		
+		span{
+			font-size: 12px;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+
+		&:hover{
+			background: white;
+		}
+	}
+
+	.login{
+		padding: 10px;
+	}
+
+}
+
+.navbar-main{
+	padding: $nav-spacing $nav-spacing * 2;
+}
+
+.btn-main{
+	color: white;
+	background: $color-primary;
+
+	&:hover{
+		opacity: 0.9;
+	}
+}
+
+.logo-wrapper-link{
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	color: $color-primary;
+
+	.logo{
+		height: $nav-spacing * 2;
+	}
+
+}
+
+////////////mobile////////////
+
+
+.ui.navbar{
+	font-size: 18px;
+	border: none;
+	font-family: $type-main;
+	border-bottom: 1px solid $color-tertiary-light;
+}
+
+.ui.vertical.menu{
+	width: 100%;
+	display: none;
+
+	.menu{
+		padding: $nav-spacing;
+		background: white;
+	}
+}
+
+@media (max-width: $bp-mobile) {
+
+  	.ui.grid.main{
+  		margin-top: $nav-height;
+	}
+	.ui.vertical.menu.navbar{
+		margin-top: $nav-height !important;
+	}
+
+	.logo-wrapper-link{
+		display: flex !important;
+		padding-left: $nav-spacing * 2;
+	}
+
+}
