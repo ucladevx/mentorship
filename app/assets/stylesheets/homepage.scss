@@ -202,11 +202,21 @@ p {
 /* HEARTS */
 .upvotes {
   padding-top: 10px;
-  color: #ff6666;
+}
+.notes .upvotes{
+  color: #55abe3;
+}
+.tutorials .upvotes{
+  color: #8b96da;
 }
 
-.likes{
+// Number of likes
+.value{
+  font-size: 15px;
+}
+.notes .value{
+  color: #55abe3;
+}
+.tutorials .value{
   color: #8b96da;
-  padding-top: 10px;
-  font-size: 17px;
 }
