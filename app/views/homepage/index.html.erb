@@ -43,100 +43,37 @@
         </div>
         <div class="twelve wide column">
           <div class="note-cards">
+            <% @sortednotes.first(9).each do |note| %>
             <div class="ui card note">
               <div class="image">
                 <%= image_tag("CS32_final.png") %>
               </div>
               <div class="content">
-                <a class="header">Midterm Study Guide</a>
+                <div class="title">
+                  <%= link_to note.title, note.ufile.url,  target: :_blank, class: 'note-title' %>
+                </div>
                 <div class="meta">
-                  <span class="date">Austin Lee</span>
+                  <span class="date"><%= note.author %></span>
+                </div>
+                <div class="description">
+                  <a class="ui label">
+                    Pointers
+                  </a>
+                  <a class="ui label">
+                    Class Construction
+                  </a>
+                  <a class="ui label">
+                    C++
+                  </a>
                 </div>
                 <div class="extra content">
                   <div class="value">
-                    <i class="heart icon upvotes"></i>152
+                    <div class="ui heart rating" data-rating="1" data-max-rating="1"></div><%= note.reputation %> likes
                   </div>
                 </div>
               </div>
             </div>
-            <div class="ui card note">
-              <div class="image">
-                <%= image_tag("CS31_final.png") %>
-              </div>
-              <div class="content">
-                <a class="header">Week 1 Notes</a>
-                <div class="meta">
-                  <span class="date">Helen Lee</span>
-                </div>
-                <div class="extra content">
-                  <div class="value">
-                    <i class="heart icon upvotes"></i>150
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="ui card note">
-              <div class="image">
-                <%= image_tag("CS35L_final.png") %>
-              </div>
-              <div class="content">
-                <a class="header">Final Cheat Sheet</a>
-                <div class="meta">
-                  <span class="date">Charlotte McGinn</span>
-                </div>
-                <div class="extra content">
-                  <div class="value">
-                    <i class="heart icon upvotes"></i>108
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="ui card note">
-              <div class="image">
-                <%= image_tag("CS32_final.png") %>
-              </div>
-              <div class="content">
-                <a class="header">Midterm Study Guide</a>
-                <div class="meta">
-                  <span class="date">Austin Lee</span>
-                </div>
-                <div class="extra content">
-                  <div class="value">
-                    <i class="heart icon upvotes"></i>98
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="ui card note">
-              <div class="image">
-                <%= image_tag("CS31_final.png") %>
-              </div>
-              <div class="content">
-                <a class="header">Midterm Study Guide</a>
-                <div class="meta">
-                  <span class="date">Austin Lee</span>
-                </div>
-                <div class="value">
-                  <i class="heart icon upvotes"></i>79
-                </div>
-              </div>
-            </div>
-            <div class="ui card note">
-              <div class="image">
-                <%= image_tag("CS31_final.png") %>
-              </div>
-              <div class="content">
-                <a class="header">Midterm Study Guide</a>
-                <div class="meta">
-                  <span class="date">Austin Lee</span>
-                </div>
-                <div class="extra content">
-                  <div class="value">
-                    <i class="heart icon upvotes"></i>39
-                  </div>
-                </div>
-              </div>
-            </div>
+            <% end %>
           </div>
         </div>
         <div class="two wide column left aligned">
