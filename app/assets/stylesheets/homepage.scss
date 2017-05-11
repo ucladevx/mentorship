@@ -34,9 +34,9 @@ footer {
 h1{
   font-family: $type-main;
   text-align: center;
-  font-weight: bolder;
   color: $color-tertiary-dark;
   padding-top: 35px;
+  letter-spacing: .05em;
   font-size: 6.5vh;
 }
 
@@ -66,7 +66,7 @@ h4{
   text-align: center;
   letter-spacing: .05em;
   padding-bottom: 5px;
-  font-size: 2.5vh;
+  font-size: 3vh;
 }
 
 h5 {
@@ -75,7 +75,7 @@ h5 {
   text-align: center;
   letter-spacing: .05em;
   font-size: 3vh;
-  //margin-bottom: -25px !important;
+  margin-bottom: -25px !important;
 }
 
 h6 {
@@ -101,7 +101,6 @@ p {
 .main-block-text > *{
   color: white;
 }
-
 
 /* NOTES SECTION */
 .notes{
