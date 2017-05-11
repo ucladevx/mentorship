@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
   <head>
     <title>Mentorship</title>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -7,11 +7,12 @@
 
     <meta name="viewport" content="width=device-width" />
 
+    <script src="https://use.fontawesome.com/eb20c96418.js"></script>
+
   </head>
   <body>
 
-    <!-- Header -->
-  
+    <!-- Navbar -->
 
     <!-- Yellow Box -->
     <div class="ui center aligned padded grid, grid yellow background">
@@ -22,69 +23,309 @@
       </div>
     </div>
 
-    <!-- Blue Box -->
-    <div class="ui padded grid, grid blue background">
-      <div class="seven wide column centered main-block-text">
-        <h1>Trending Notes</h1>
-        <h4>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Donec malesuada, purus hendrerit fringilla auctor, dui ex
-          congue turpis, a tempus dui neque non ante.
-        </h4>
+    <!-- Notes Section !-->
+    <div class="notes">
+      <div class="ui padded grid, grid background">
+        <div class="seven wide column centered notes-header">
+          <h1>Trending Notes</h1>
+          <h4>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Donec malesuada, purus hendrerit fringilla auctor, dui ex
+            congue turpis, a tempus dui neque non ante.
+          </h4>
+        </div>
+      </div>
+      <div class="ui padded centered relaxed grid, grid background">
+        <div class="two wide column right aligned">
+          <div class="button_wrapper">
+            <button class="button prev-notes">
+              <i class="huge icon chevron left"></i>
+            </button>
+          </div>
+        </div>
+        <div class="twelve wide column">
+          <div class="note-cards">
+            <div class="ui card note">
+              <div class="image">
+                <%= image_tag("CS32.png") %>
+              </div>
+              <div class="content">
+                <a class="header">Midterm Study Guide</a>
+                <div class="meta">
+                  <span class="date">Austin Lee</span>
+                </div>
+                <div class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                </div>
+                <div class="extra content">
+                  <i class="heart icon upvotes"></i>152
+                </div>
+              </div>
+            </div>
+            <div class="ui card note">
+              <div class="image">
+                <%= image_tag("CS32.png") %>
+              </div>
+              <div class="content">
+                <a class="header">Week 1 Notes</a>
+                <div class="meta">
+                  <span class="date">Helen Lee</span>
+                </div>
+                <div class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                </div>
+                <div class="extra content">
+                  <i class="heart icon upvotes"></i>128
+                </div>
+              </div>
+            </div>
+            <div class="ui card note">
+              <div class="image">
+                <%= image_tag("CS32.png") %>
+              </div>
+              <div class="content">
+                <a class="header">Final Cheat Sheet</a>
+                <div class="meta">
+                  <span class="date">Charlotte McGinn</span>
+                </div>
+                <div class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                </div>
+                <div class="extra content">
+                  <i class="heart icon upvotes"></i>100
+                </div>
+              </div>
+            </div>
+            <div class="ui card note">
+              <div class="image">
+                <%= image_tag("CS32.png") %>
+              </div>
+              <div class="content">
+                <a class="header">Midterm Study Guide</a>
+                <div class="meta">
+                  <span class="date">Austin Lee</span>
+                </div>
+                <div class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                </div>
+                <div class="extra content">
+                  <i class="heart icon upvotes"></i>79
+                </div>
+              </div>
+            </div>
+            <div class="ui card note">
+              <div class="image">
+                <%= image_tag("CS32.png") %>
+              </div>
+              <div class="content">
+                <a class="header">Midterm Study Guide</a>
+                <div class="meta">
+                  <span class="date">Austin Lee</span>
+                </div>
+                <div class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                </div>
+                <div class="extra content">
+                  <i class="heart icon upvotes"></i>50
+                </div>
+              </div>
+            </div>
+            <div class="ui card note">
+              <div class="image">
+                <%= image_tag("CS32.png") %>
+              </div>
+              <div class="content">
+                <a class="header">Midterm Study Guide</a>
+                <div class="meta">
+                  <span class="date">Austin Lee</span>
+                </div>
+                <div class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                </div>
+                <div class="extra content">
+                  <i class="heart icon upvotes"></i>34
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="two wide column left aligned">
+          <div class="button_wrapper">
+            <button class="button next-notes">
+              <i class="huge icon chevron right"></i>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="ui padded three column centered grid, grid blue background">
-      <div class="four wide column">
-        <div class="ui card">
-          <div class="image">
-            <img src="/images/CS32.png">
+
+    <!-- Tutorials Section !-->
+    <div class="tutorials">
+      <div class="ui padded grid, grid background">
+        <div class="seven wide column centered tutorials-header">
+          <h1>Best Tutorials</h1>
+          <h4>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Donec malesuada, purus hendrerit fringilla auctor, dui ex
+            congue turpis, a tempus dui neque non ante.
+          </h4>
+        </div>
+      </div>
+      <div class="ui padded centered relaxed grid, grid background">
+        <div class="two wide column right aligned">
+          <div class="button_wrapper">
+            <button class="button prev-tut">
+              <i class="huge icon chevron left"></i>
+            </button>
           </div>
-          <div class="content">
-            <a class="header">Midterm Study Guide</a>
-            <div class="meta">
-              <span class="date">Austin Lee</span>
+        </div>
+        <div class="twelve wide column">
+          <div class="tutorial-cards">
+            <div class="ui card tut">
+              <div class="image">
+                <%= image_tag("ctut.png") %>
+              </div>
+              <div class="content">
+                <a class="header">C++ Tutorial</a>
+                <div class="meta">
+                  <span class="date">Austin Lee</span>
+                </div>
+                <div class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                </div>
+                <div class="extra content">
+                  <div class="ui statistic">
+                    <div class="likes">
+                      <div class="value">
+                        150 <i class="big angle up icon uparrow"></i>|<i class="big angle down icon downarrow"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+            <div class="ui card tut">
+              <div class="image">
+                <%= image_tag("Python.png") %>
+              </div>
+              <div class="content">
+                <a class="header">Python Tutorial</a>
+                <div class="meta">
+                  <span class="date">Helen Lee</span>
+                </div>
+                <div class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                </div>
+                <div class="extra content">
+                  <div class="ui statistic">
+                    <div class="likes">
+                      <div class="value">
+                        104 <i class="big angle up icon uparrow"></i>|<i class="big angle down icon downarrow"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="extra content">
+            <div class="ui card tut">
+              <div class="image">
+                <%= image_tag("Python.png") %>
+              </div>
+              <div class="content">
+                <a class="header">Python Tutorial</a>
+                <div class="meta">
+                  <span class="date">Charlotte McGinn</span>
+                </div>
+                <div class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                </div>
+                <div class="extra content">
+                  <div class="ui statistic">
+                    <div class="likes">
+                      <div class="value">
+                        98 <i class="big angle up icon uparrow"></i>|<i class="big angle down icon downarrow"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui card tut">
+              <div class="image">
+                <%= image_tag("ctut.png") %>
+              </div>
+              <div class="content">
+                <a class="header">C++ Tutorial</a>
+                <div class="meta">
+                  <span class="date">Austin Lee</span>
+                </div>
+                <div class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                </div>
+                <div class="extra content">
+                  <div class="ui statistic">
+                    <div class="likes">
+                      <div class="value">
+                        60 <i class="big angle up icon uparrow"></i>|<i class="big angle down icon downarrow"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui card tut">
+              <div class="image">
+                <%= image_tag("ctut.png") %>
+              </div>
+              <div class="content">
+                <a class="header">C++ Tutorial</a>
+                <div class="meta">
+                  <span class="date">Austin Lee</span>
+                </div>
+                <div class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                </div>
+                <div class="extra content">
+                  <div class="ui statistic">
+                    <div class="likes">
+                      <div class="value">
+                        56 <i class="big angle up icon uparrow"></i>|<i class="big angle down icon downarrow"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui card tut">
+              <div class="image">
+                <%= image_tag("Python.png") %>
+              </div>
+              <div class="content">
+                <a class="header">Python Tutorial</a>
+                <div class="meta">
+                  <span class="date">Austin Lee</span>
+                </div>
+                <div class="description">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                </div>
+                <div class="extra content">
+                  <div class="ui statistic">
+                    <div class="likes">
+                      <div class="value">
+                        34 <i class="big angle up icon uparrow"></i>|<i class="big angle down icon downarrow"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="four wide column">
-        <div class="ui card">
-          <div class="image">
-            <img src="/images/CS111.png">
-          </div>
-          <div class="content">
-            <a class="header">Week 1 Notes</a>
-            <div class="meta">
-              <span class="date">Helen Lee</span>
-            </div>
-            <div class="description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
-            </div>
-            <div class="extra content">
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="four wide column">
-        <div class="ui card">
-          <div class="image">
-            <img src="/images/CS32.png">
-          </div>
-          <div class="content">
-            <a class="header">Final Cheat Sheet</a>
-            <div class="meta">
-              <span class="date">Charlotte McGinn</span>
-            </div>
-            <div class="description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
-            </div>
-            <div class="extra content">
-            </div>
+        <div class="two wide column left aligned">
+          <div class="button_wrapper">
+            <button class="button next-tut">
+              <i class="huge icon chevron right"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -125,7 +366,5 @@
         </div>
        </div>
     </footer>
-
-
   </body>
 </html>
