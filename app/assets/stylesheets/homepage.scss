@@ -8,6 +8,7 @@
 
 body{
   background-color: white;
+  margin: 0px;
 }
 
 .header{
@@ -100,6 +101,11 @@ p {
 
 .main-block-text > *{
   color: white;
+}
+
+.button.padding {
+	padding: 20px;
+	text-align: left;
 }
 
 /* NOTES SECTION */
