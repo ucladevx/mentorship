@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   get 'tutorials/destroy'
 
+  get 'users/password' => redirect('users/password/new')
+
   devise_for :users
   post '/upvote', to: 'notes#upvote'
   post '/downvote', to: 'notes#downvote'
