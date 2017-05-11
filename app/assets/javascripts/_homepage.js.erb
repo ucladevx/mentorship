@@ -1,5 +1,7 @@
 $(document).ready(function(){
-	$('.right.menu.open').on("click",function(e){
+	$('.right.menu.open').unbind().click(function(e){
+
+		console.log('clicked')
         e.preventDefault();
 		$('.ui.vertical.menu').toggle();
 
@@ -49,7 +51,8 @@ $(document).ready(function(){
 			}
 		}
 	]
-	});
+});
+
 	$('.tutorial-cards').not('.slick-initialized').slick({
 		slidesToShow: 3,
 		slidesToScroll: 3,

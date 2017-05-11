@@ -1,63 +1,92 @@
-$import-google-fonts: false;
-@import "semantic-ui";
-@import "base/vars";
-@import "base/colors";
+@import "base/global";
+
+////////////main navbar////////////
+
+header{
+	height: 95px;
+}
+
+.navbar {
+
+	height: $nav-height;
+	box-sizing: border-box;
+
+	.item {
+		
+		span{
+			font-size: 12px;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+
+		&:hover{
+			background: white;
+		}
+	}
+
+	.login{
+		padding: 10px;
+	}
+
+}
+
+.navbar-main{
+	padding: $nav-spacing $nav-spacing * 2;
+}
+
+.btn-main{
+	color: white;
+	background: $color-primary;
+
+	&:hover{
+		opacity: 0.9;
+	}
+}
+
+.logo-wrapper-link{
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	color: $color-primary;
+
+	.logo{
+		height: $nav-spacing * 2;
+	}
+
+}
+
+////////////mobile////////////
 
 
 .ui.navbar{
-	padding-left: 30px;
-	padding-right: 30px;
-	padding-bottom: 10px;
-	padding-top: 10px;
 	font-size: 18px;
 	border: none;
 	font-family: $type-main;
-	/* For shadow under navbar */
-	-webkit-box-shadow: $shadow;
-	-moz-box-shadow: $shadow;
-	box-shadow: $shadow;
-
-}
-
-.mobile.row{
-	padding-top: 0px !important;
-	margin-top: 0px !important;
-}
-
-.mobile.row .ui.menu{
-	border-radius: 0px !important;
-}
-
-.padding-reset{
-	padding: 0px !important;
-}
-
-.ui.message{
-	padding: 40px !important;
-}
-
-@media (max-width: 767px) {
-  	.ui.grid.main{
-  		margin-top: 70px;
-	}
-	.ui.vertical.menu.navbar{
-		margin-top: 70px !important;
-	}
+	border-bottom: 1px solid $color-tertiary-light;
 }
 
 .ui.vertical.menu{
-	margin-top: -15px !important;
 	width: 100%;
 	display: none;
+
+	.menu{
+		padding: $nav-spacing;
+		background: white;
+	}
 }
 
-.ui.menu.shadow{
-	/* For shadow under navbar */
-	-webkit-box-shadow: $shadow;
-	-moz-box-shadow: $shadow;
-	box-shadow: $shadow;
-}
+@media (max-width: $bp-mobile) {
 
-.ui.menu a.item:hover{
-	background-color: #f7f7f7;
+  	.ui.grid.main{
+  		margin-top: $nav-height;
+	}
+	.ui.vertical.menu.navbar{
+		margin-top: $nav-height !important;
+	}
+
+	.logo-wrapper-link{
+		display: flex !important;
+		padding-left: $nav-spacing * 2;
+	}
+
 }

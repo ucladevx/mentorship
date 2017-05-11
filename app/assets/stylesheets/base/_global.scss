@@ -1,0 +1,23 @@
+@import "reset";
+@import "vars";
+@import "colors";
+
+.wide-hidden, .wide-hidden-flex{
+	display: none !important;
+}
+
+@media (max-width: $bp-mobile) {
+
+	.mobile-hidden{
+		display: none !important;
+	}  	
+
+	.wide-hidden{
+		display: block !important;
+	}
+
+	.wide-hidden-flex{
+		display: flex !important;
+	}
+
+}

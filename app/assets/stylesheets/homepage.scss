@@ -1,12 +1,10 @@
 // Place all the styles related to the homepage controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-$import-google-fonts: false;
+@import "base/global";
 @import "semantic-ui";
 @import "slick";
-@import "base/vars";
-@import "base/colors";
+
 
 body{
   background-color: white;
@@ -48,7 +46,7 @@ h2 {
   color: $color-tertiary-dark;
   letter-spacing: .05em;
   font-size: 6.5vh;
-  margin-bottom: -25px !important;
+  //margin-bottom: -25px !important;
 }
 
 h3 {
@@ -58,7 +56,7 @@ h3 {
   text-align: center;
   letter-spacing: .05em;
   font-size: 4vh;
-  margin-bottom: 40px !important;
+  //margin-bottom: 40px !important;
 }
 
 h4{
@@ -78,7 +76,6 @@ h5 {
   letter-spacing: .05em;
   font-size: 3vh;
   margin-bottom: -25px !important;
-
 }
 
 h6 {
@@ -99,8 +96,6 @@ p {
 
 .container {
 	background: white;
-	padding-bottom: 100px;
-	padding-top: 20px;
 }
 
 .main-block-text > *{
