@@ -127,12 +127,14 @@ p {
 
 /* NOTES CARDS */
 .ui.card.note:first-child{
+  outline: none;
   margin: 1em 0em;
   margin-left: 15px;
   margin-right: 15px;
 }
 
 .ui.card.note{
+  outline: none;
   margin-left: 15px;
   margin-right: 15px;
   max-height: inherit;
@@ -199,6 +201,16 @@ p {
   color: #474747;
 }
 
+.download{
+  float: left;
+  color: #55abe3;
+  font-size: 25px;
+  padding-top: 10px;
+  display: inline;
+}
+.download_button{
+  color: white;
+}
 /* HEARTS */
 .upvotes {
   padding-top: 10px;
@@ -212,6 +224,8 @@ p {
 
 // Number of likes
 .value{
+  float: right;
+  display: inline;
   font-size: 15px;
 }
 .notes .value{
