@@ -4,10 +4,24 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag ('homepage.js') %>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-
+    <script>
+      var change = 0;
+      function decrementRep() {
+        if (change === 0 || change === 1)
+          document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)-1);
+        if (change === 1)
+          document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)-1)
+        change = -1;
+      }
+      function incrementRep() {
+        if (change === 0 || change === -1)
+          document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)+1);
+        if (change === -1)
+          document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)+1)
+        change = 1;      }
+    </script>
   </head>
   <body>
-
 
   <div class="grid-container">
     <div class="grid grid-notes">
@@ -44,35 +58,45 @@
 
     </div>
   </div>
-  
-<!--
-
-<div class="notes-content">
-  <% if !flash[:notice].blank? %>
-     <div class = "alert alert-info">
-        <%= flash[:notice] %>
-     </div>
-  <% end %>
-
 
   <%= link_to "New Note", new_note_path, class: "btn btn-primary" %>
 
+<br />
 
-  <% @notes.each do |note| %>
-   <div>
-      <p>Title: <%= note.title %></p>
-      <p><%= link_to "Download Note", note.ufile.url %></p>
-      <%= button_to "Delete",  note, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{note.title}?" %>
-      <%= link_to "^", upvote_path, remote: true %>
-      <div>
-        <%= note.reputation %>
-        <%= link_to "v", downvote_path, remote: true %>i
-      </div>
-   </div>
-  <% end %>
--->
-</div>
+<!-- How to change depending on if User is signed in -->
+<% if user_signed_in? %>
+<div> Hi, you are signed in user </div>
+<% else %>
+<div> You are not signed in </div>
+<% end %>
 
+<%= link_to "New Note", new_note_path, class: "btn btn-primary" %>
+<br />
+<br />
 
-  </body>
+<table class = "table table-bordered table-striped">
+   <thead>.
+      <tr>
+         <th>Title</th>
+         <th>Download Link</th>
+         <th> </th>
+      </tr>
+   </thead>
+
+   <tbody>
+      <% @notes.each do |note| %>
+         <tr>
+            <td><%= note.title %></td>
+            <td><%= link_to "Download Note", note.ufile.url %></td>
+            <td><%= button_to "Delete",  note, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{note.title}?" %></td>
+            <td onclick="incrementRep()"><%= link_to "^", upvote_path(note) %></td>
+            <td id = "Rep" ><%= note.reputation %></td>
+            <td onclick="decrementRep()"><%= link_to "v", downvote_path(note) %></td>
+         </tr>
+
+      <% end %>
+   </tbody>
+
+</table>
+</body>
 </html>

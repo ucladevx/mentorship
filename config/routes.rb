@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   get 'users/password' => redirect('users/password/new')
 
   devise_for :users
-  post '/upvote', to: 'notes#upvote'
-  post '/downvote', to: 'notes#downvote'
+  get '/upvote', to: 'notes#upvote'
+  get '/downvote', to: 'notes#downvote'
   # get 'notes/new'
   #
   # get 'notes/create'

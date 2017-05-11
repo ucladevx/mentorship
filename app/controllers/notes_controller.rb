@@ -25,16 +25,16 @@ class NotesController < ApplicationController
   end
 
   def upvote
-    byebug
-    @note ||= Note.find(params[:id])
-    @note.reputation++
+    #TODO: need to have user checking to ensure this is done only once
+    @note = Note.find(params[:format])
+    @note.reputation+=1
     @note.save
   end
 
   def downvote
-    byebug
-    @note ||= Note.find(params[:id])
-    @note.reputation
+    #TODO: need to have user checking
+    @note = Note.find(params[:format])
+    @note.reputation-=1
     @note.save
   end
 
