@@ -32,7 +32,10 @@ class NotesController < ApplicationController
       @user = User.find_by id:current_user
       @note = Note.find(params[:format])
       if @user.upvotednotes.include?(@note.id)
+        @note.reputation-=1
         @user.upvotednotes.delete(@note.id)
+        @note.save
+        @user.save
       else
         @note.reputation+=1
         @user.upvotednotes.push(@note.id)
