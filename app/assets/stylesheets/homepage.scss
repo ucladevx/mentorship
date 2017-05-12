@@ -11,12 +11,6 @@ body{
   margin: 0px;
 }
 
-.header{
-  font-size: 100px;
-  font-weight: lighter;
-  padding: 0px;
-}
-
 footer {
 	padding-top: 20px;
 	padding-bottom: -25px;
@@ -140,6 +134,15 @@ p {
   max-height: inherit;
   object-fit: contain;
 }
+.note-title{
+  font-size: 20px;
+  padding: 0px;
+  color: black;
+  outline: none;
+}
+.note-title:hover{
+  color: #55abe3;
+}
 
 /* TUTORIAL SECTION */
 .tutorials-header h1{
@@ -197,24 +200,36 @@ p {
 }
 
 .meta{
-  padding-top: 4px;
   color: #474747;
 }
+.ui.label{
+  margin-top: 5px;
+}
 
-.download{
-  float: left;
-  color: #55abe3;
-  font-size: 25px;
-  padding-top: 10px;
-  display: inline;
-}
-.download_button{
-  color: white;
-}
 /* HEARTS */
-.upvotes {
-  padding-top: 10px;
+.ui.heart.rating .icon {
+  width: 1.4em;
+  height: auto;
+  background: transparent;
+  color: rgba(0, 0, 0, 0.15);
+  text-shadow: none !important;
 }
+
+/* Active Heart */
+.ui.heart.rating .active.icon {
+  background: transparent !important;
+  color: #55abe3 !important;
+  text-shadow: 0px -1px 0px #55abe3, -1px 0px 0px #55abe3, 0px 1px 0px #55abe3, 1px 0px 0px #55abe3 !important;
+}
+
+/* Selected Heart */
+.ui.heart.rating .icon.selected,
+.ui.heart.rating .icon.selected.active {
+  background: transparent !important;
+  color: #55abe3 !important;
+  text-shadow: 0px -1px 0px #55abe3, -1px 0px 0px #55abe3, 0px 1px 0px #55abe3, 1px 0px 0px #55abe3 !important;
+}
+
 .notes .upvotes{
   color: #55abe3;
 }
@@ -225,8 +240,9 @@ p {
 // Number of likes
 .value{
   float: right;
-  display: inline;
-  font-size: 15px;
+  font-size: 16px;
+  color: #55abe3;
+  padding-top: 15px;
 }
 .notes .value{
   color: #55abe3;
