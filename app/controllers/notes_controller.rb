@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
   def index
       @notes = Note.all
+      @note = Note.new
       if user_signed_in?
         @user = User.find_by id:current_user.id
       end
