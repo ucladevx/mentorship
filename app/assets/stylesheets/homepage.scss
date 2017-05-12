@@ -112,7 +112,7 @@ p {
 
 .grid.float{
   position: absolute;
-  bottom: -100px;
+  bottom: -13%;
   margin-left: auto;
   margin-right: auto;
   left: 0;
@@ -127,6 +127,10 @@ p {
   display: flex;
 }
 
+.wide.segment{
+  min-width: 300px;
+  max-width: 300px;
+}
 
 /* NOTES SECTION */
 .notes{
@@ -284,4 +288,11 @@ p {
 }
 .tutorials .value{
   color: #8b96da;
+}
+
+/* Thank You */
+
+.thank-you{
+  padding-top: 30px;
+  padding-bottom: 60px;
 }
