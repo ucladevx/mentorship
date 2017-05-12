@@ -316,7 +316,14 @@ p {
 /* Footer */
 
 #footer{
-  font-size: 18px;
+  font-size: 14px;
   font-family: $type-main;
-  border-bottom: 1px solid $color-tertiary-light;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-right:100px;
+}
+
+#no-grid-padding{
+  padding:0px;
+  margin:0px;
 }

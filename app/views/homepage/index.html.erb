@@ -354,36 +354,37 @@
 
       </div>
 
+  <!-- Footer -->
   <footer>
-
-        <div class="ui center aligned grid">
+        <div id="footer" class="ui page grid">
           <div class="computer tablet only row">
-            <div class="footer">
-                <div class="four wide left aligned column">
+                <div class="four wide left floated column">
                       <b>BRUIN</b>ACADEMY © 2017
                 </div>
-                <div class="two wide right aligned column">   
-                  <%= link_to mentors_index_path, class:"item" do %>
-                    <span>ABOUT</span>
-                  <% end %>
+                <div class="twelve wide right aligned column">
+                  <div class="ui grid">
+                    <div class="right floated column">   
+                      <%= link_to "/", class:"item" do %>
+                        <span>ABOUT</span>
+                      <% end %>
+                    </div>
+                    <div class="right floated column">  
+                      <%= link_to "/", class:"item" do %>
+                          <span>CONTACT</span>
+                      <% end %>
+                    </div>
+                    <div class="four wide right aligned right floated column">  
+                      <%= link_to "/", class:"item" do %>
+                          <span>TERMS & CONDITIONS</span>
+                      <% end %>
+                    </div>
+                    <div class="left aligned right floated column">  
+                        <%= link_to "/", class:"item" do %>
+                            <span>PRIVACY</span>
+                        <% end %>
+                    </div>  
+                  </div>       
                 </div>
-                <div class="two wide right aligned column">  
-                  <%= link_to notes_path, class:"item" do %>
-                      <span>CONTACT</span>
-                  <% end %>
-                </div>
-                <div class="two wide right aligned column">  
-                  <%= link_to tutorials_index_path, class:"item" do %>
-                      <span>TERMS & CONDITIONS</span>
-                  <% end %>
-                </div>
-                <div class="two wide right aligned column">  
-                    <%= link_to tutorials_index_path, class:"item" do %>
-                        <span>PRIVACY</span>
-                    <% end %>
-                </div>
-                    
-            </div>
           </div>
 
           <div class="mobile only narrow row">
@@ -396,7 +397,6 @@
           </div>
         </div>
       </div>
-
   </footer>
   </body>
 </html>
