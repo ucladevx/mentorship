@@ -8,23 +8,21 @@
       /*basically instead of dynamically updating the webpage using info from the database
       I'm posting to the database and then seperately having javascript logic change it
       */
-      var isSignedIn = <%= user_signed_in? %>
-      var currentVoteState = 0; //unintialized 0, 1 upvoted, -1 novote
-      function incrementRep(initalState) {
-        if (currentVoteState === 0) //only care about initialState when unintialized
-          currentVoteState = initalState;
+      var currentVoteStates = new Object(); //unintialized 0, 1 upvoted, -1 novote
+      function incrementRep(initalState, noteID) {
+        if (!currentVoteStates.hasOwnProperty(noteID)) //only care about initialState when unintialized
+          currentVoteStates[noteID] = initalState;
 
-        if (isSignedIn) { //if not signed in do nothing
-          if (currentVoteState === 1) { //if upvoted, then unupvote
-            document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)-1);
-            currentVoteState = -1;
-            document.getElementById('upvoteButton').innerHTML = "^";
-          }
-          else { //upvote
-            document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)+1);
-            currentVoteState = 1;
-            document.getElementById('upvoteButton').innerHTML = "v";
-          }
+        RepID = "Rep"+String(noteID);
+        if (currentVoteStates[noteID] === 1) { //if upvoted, then unupvote
+          document.getElementById(RepID).innerHTML = String(Number(document.getElementById(RepID).innerHTML)-1);
+          currentVoteStates[noteID] = -1;
+          document.getElementById('upvoteButton').innerHTML = "^";
+        }
+        else { //upvote
+          document.getElementById(RepID).innerHTML = String(Number(document.getElementById(RepID).innerHTML)+1);
+          currentVoteStates[noteID] = 1;
+          document.getElementById('upvoteButton').innerHTML = "v";
         }
       }
     </script>
@@ -131,21 +129,12 @@
     </div>
   </div>
 
-<!-- How to change depending on if User is signed in -->
-
-<!--
-<% if user_signed_in? %>
-<div> Hi, you are signed in <%= @user.email %></div>
-<% else %>
-<div> You are not signed in </div>
-<% end %>
 
 <%= link_to "New Note", new_note_path, class: "btn btn-primary" %>
 <br />
 <br />
 
--->
-<!--
+
 <table class = "table table-bordered table-striped">
    <thead>.
       <tr>
@@ -161,24 +150,22 @@
             <td><%= note.title %></td>
             <td><%= link_to "Download Note", note.ufile.url %></td>
             <td><%= button_to "Delete",  note, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{note.title}?" %></td>
-            if signed in and didnt upvote it, allow upvoting. To input image as link, link_to image_tag("Search.png", border: 0), upvote_path....
             <td
               <% if user_signed_in? %>
                 <% if @user.upvotednotes.include?(note.id) %>
-                  onclick="incrementRep(1)">
+                  onclick="incrementRep(1, <%= note.id %>)">
                   <%= link_to "v", upvote_path(note), id: "upvoteButton" %>
-                  change "v" to what you want someone who already upvoted note to see 
                 <% else %>
-                  onclick="incrementRep(-1)">
-                  <%= link_to "^", upvote_path(note), id: "upvoteButton" %>
-                  change "^" to what you want someone who didnt vote it to see
+                  onclick="incrementRep(-1, <%= note.id %>)">
+                  <%= link_to "^", upvote_path(note), id: "upvoteButton"%>
                 <% end %>
-              <% else %> put what you want someone not logged in to see here
+              <% else %>
+                xx
               <% end %>
             </td>
-            <td id = "Rep" ><%= note.reputation %></td>
+            <td id = "Rep<%= note.id %>" ><%= note.reputation %></td>
          </tr>
-      <% end %>-->
+      <% end %>
    </tbody>
    </div>
 </table>
@@ -191,7 +178,7 @@
     </div>
 
     <div class="modal-field-content">
-     
+
 
 
     </div>
@@ -229,7 +216,7 @@
             <div class="actions">
               <%= f.submit "Log in", class: 'ui button login-submit', onclick: 'showModal();'%>
             </div>
-            
+
           <% end %>
         </div>
         <p class="password-reset-link"><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
