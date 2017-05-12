@@ -9,10 +9,13 @@
       I'm posting to the database and then seperately having javascript logic change it
       */
       var isSignedIn = <%= user_signed_in? %>
-      var upvoted = false;
-      function incrementRep() {
+      var currentVoteState = 0; //unintialized 0, 1 upvoted, -1 downvoted
+      function incrementRep(initalState) {
+        if (currentVoteState === 0) //only care about initialState when unintialized
+          currentVoteState = initalState;
+
         if (isSignedIn) { //if not signed in do nothing
-          if (upvoted) { //if upvoted, then unupvote
+          if () { //if upvoted, then unupvote
             document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)-1);
             upvoted = false;
           }
@@ -25,6 +28,48 @@
     </script>
   </head>
   <body>
+
+  <!-- For the search area -->
+    <div class="ui search big search-area">
+      <div class="ui icon input input-area">
+        <i class="fitted search icon big" id="search-icon"></i>
+        <input class="prompt" type="text" placeholder="Search for a class...">
+      </div>
+      <div class="results"></div>
+    </div>
+  <div class="filter-area">
+      <div class="ui compact menu">
+        <div class="ui simple dropdown item">
+          Classes
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item">CS 31</div>
+            <div class="item">CS 32</div>
+          </div>
+        </div>
+      </div>
+      <div class="ui compact menu">
+        <div class="ui simple dropdown item">
+          Professor
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item">Smallberg</div>
+            <div class="item">Nachenberg</div>
+          </div>
+        </div>
+      </div>
+      <div class="ui compact menu">
+        <div class="ui simple dropdown item">
+          Type
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <div class="item">Weekly Notes</div>
+            <div class="item">Midterm Cheetsheet</div>
+            <div class="item">Final Cheatsheet</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   <div class="grid-container">
     <div class="grid grid-notes">
@@ -95,11 +140,11 @@
             <!--if signed in and didnt upvote it, allow upvoting. To input image as link, link_to image_tag("Search.png", border: 0), upvote_path....-->
             <td
               <% if user_signed_in? %>
-                onclick="incrementRep()">
                 <% if @user.upvotednotes.include?(note.id) %>
-                  <%= link_to "^", upvote_path(note) %>
+                  onclick="incrementRep(1)"><%= link_to "^", upvote_path(note) %>
                   <!-- change "^" to what you want someone who already upvoted note to see -->
                 <% else %>
+                  onclick="incrementRep(-1)">
                   <%= link_to "v", upvote_path(note) %>
                   <!-- change "v" to what you want someone who didnt vote it to see -->
                 <% end %>
