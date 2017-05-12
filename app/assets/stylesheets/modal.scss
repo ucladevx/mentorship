@@ -51,6 +51,10 @@ body.locked{
 		img.icon{
 			height: 25px;
 		}
+
+		i{
+			color: $color-secondary-1;
+		}
 	}
 	.signup-link{
 		font-size: $type-small;

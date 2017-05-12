@@ -80,15 +80,29 @@
   <div class="grid-container">
     <div class="grid grid-notes">
 
-       <div class="col lg-6 md-6 sm-12">
+       <!--<div class="col lg-6 md-6 sm-12">
         <div class="card grid-item">
           <h3 class="title">Title of card here</h3>
           <div class="more icons">
             <i class="fa fa-eye" aria-hidden="true"></i>
             <i class="fa fa-download" aria-hidden="true"></i>
+            <a href="#">PREVIEW</a> | <a href="#">DOWNLOAD</a>
+          </div>
+        </div>
+       </div>-->
+        <% @notes.each do |note| %>
+        <div class="col lg-6 md-6 sm-12">
+        <div class="card grid-item">
+          <h3 class="title"><%= note.title %></h3>
+          <div class="more icons">
+            <i class="fa fa-eye" aria-hidden="true"></i>
+            <i class="fa fa-download" aria-hidden="true"></i>
+            <a href="#">PREVIEW</a> | <%= link_to "Download Note", note.ufile.url %>
           </div>
         </div>
        </div>
+         <% end %>
+         <!--
       <div class="col lg-6 md-6 sm-12">
         <div class="card grid-item">
         </div>
@@ -108,18 +122,14 @@
        <div class="col lg-6 md-6 sm-12">
         <div class="card grid-item">
         </div>
-       </div>
+       </div>-->
 
     </div>
   </div>
 
-  <%= link_to "New Note", new_note_path, class: "btn btn-primary" %>
-
-<br />
-
 <!-- How to change depending on if User is signed in -->
 
-
+<!--
 <% if user_signed_in? %>
 <div> Hi, you are signed in <%= @user.email %></div>
 <% else %>
@@ -130,6 +140,8 @@
 <br />
 <br />
 
+-->
+<!--
 <table class = "table table-bordered table-striped">
    <thead>.
       <tr>
@@ -145,25 +157,24 @@
             <td><%= note.title %></td>
             <td><%= link_to "Download Note", note.ufile.url %></td>
             <td><%= button_to "Delete",  note, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{note.title}?" %></td>
-            <!--if signed in and didnt upvote it, allow upvoting. To input image as link, link_to image_tag("Search.png", border: 0), upvote_path....-->
+            if signed in and didnt upvote it, allow upvoting. To input image as link, link_to image_tag("Search.png", border: 0), upvote_path....
             <td
               <% if user_signed_in? %>
                 <% if @user.upvotednotes.include?(note.id) %>
                   onclick="incrementRep(1)">
                   <%= link_to "v", upvote_path(note), id: "upvoteButton" %>
-                  <!-- change "v" to what you want someone who already upvoted note to see -->
+                  change "v" to what you want someone who already upvoted note to see 
                 <% else %>
                   onclick="incrementRep(-1)">
                   <%= link_to "^", upvote_path(note), id: "upvoteButton" %>
-                  <!-- change "^" to what you want someone who didnt vote it to see -->
+                  change "^" to what you want someone who didnt vote it to see
                 <% end %>
-              <% else %> <!--put what you want someone not logged in to see here-->
-                x
+              <% else %> put what you want someone not logged in to see here
               <% end %>
             </td>
             <td id = "Rep" ><%= note.reputation %></td>
          </tr>
-      <% end %>
+      <% end %>-->
    </tbody>
    </div>
 </table>
