@@ -17,11 +17,6 @@ footer {
 	color: $color-tertiary-dark;
 }
 
-.download{
-  float: right;
-  display: inline;
-}
-
 .date{
   color:black;
 }
@@ -147,13 +142,15 @@ p {
   max-height: inherit;
   object-fit: contain;
 }
-.note-title{
-  font-size: 20px;
-  padding: 0px;
-  color: black;
+.title{
+  font-size: 22px;
+  font-weight: bold;
+  font-family: $type-main;
+  color:  #474747;
+  margin-bottom: 5px;
   outline: none;
 }
-.note-title:hover{
+.title:hover{
   color: #55abe3;
 }
 
@@ -213,10 +210,14 @@ p {
 }
 
 .meta{
+  font-family: Lato;
+  font-size: 13px;
+  font-weight: 500;
   color: #474747;
 }
 .ui.label{
   margin-top: 5px;
+  outline: none;
 }
 
 /* HEARTS */
@@ -233,6 +234,10 @@ p {
   background: transparent !important;
   color: #55abe3 !important;
   text-shadow: 0px -1px 0px #55abe3, -1px 0px 0px #55abe3, 0px 1px 0px #55abe3, 1px 0px 0px #55abe3 !important;
+}
+
+.ui.primary.button{
+  margin-top: 12px;
 }
 
 /* Selected Heart */
@@ -253,9 +258,9 @@ p {
 // Number of likes
 .value{
   float: right;
-  font-size: 16px;
+  font-size: 18px;
   color: #55abe3;
-  padding-top: 15px;
+  padding-top: 20px;
 }
 .notes .value{
   color: #55abe3;

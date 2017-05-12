@@ -50,7 +50,7 @@
               </div>
               <div class="content">
                 <div class="title">
-                  <%= link_to note.title, note.ufile.url,  target: :_blank, class: 'note-title' %>
+                  <%= note.title %>
                 </div>
                 <div class="meta">
                   <span class="date"><%= note.author %></span>
@@ -67,8 +67,9 @@
                   </a>
                 </div>
                 <div class="extra content">
+                  <%= link_to "OPEN", note.ufile.url,  target: :_blank, class: 'ui primary button' %>
                   <div class="value">
-                    <div class="ui heart rating" data-rating="1" data-max-rating="1"></div><%= note.reputation %> likes
+                    <div class="ui heart rating" data-rating="1" data-max-rating="1"></div><%= note.reputation %>
                   </div>
                 </div>
               </div>
