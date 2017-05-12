@@ -15,27 +15,28 @@
     <!-- Yellow Box -->
     <div class="ui center aligned grid slide">
       <div class="sixteen wide column">
-        <div class="ui centered image" style="background-image: url('/assets/home_page_graphic_final-9f78efb25ce5cc76ff1f712aac7e8ab011b23e7ae9fc30eeb5400d2d8f9cefd4.png')">
-         <!-- <%= image_tag("home_page_graphic_final.png", :class => "ui centered image") %> -->
+        <div class="ui centered fluid image" style="background-image: url('/assets/home_page_graphic_final-9f78efb25ce5cc76ff1f712aac7e8ab011b23e7ae9fc30eeb5400d2d8f9cefd4.png')">
         </div>
       </div>
     </div>
     <!-- White Bar -->
     <div class="ui center aligned grid, grid float">
-      <div class="twelve wide column">
-        <div class="ui raised horizontal segments">
-          <div class="ui segment">
-            <%= image_tag("woman.png", :class => "ui left floated image" )%>
-              <b>Mentors</b> over 50 different personal tutors from UPE, ACM, and TBP
+      <div class="computer tablet only row">
+        <div class="twelve wide column">
+          <div class="ui raised horizontal segments">
+            <div class="ui wide segment">
+              <%= image_tag("woman.png", :class => "ui left floated image" )%>
+                <b>Mentors</b> over 50 different personal tutors from UPE, ACM, and TBP
+            </div>
+            <div class="ui wide segment">
+               <%= image_tag("clipboard.png", :class => "ui left floated image" )%>
+                 <b>Notes</b> personalized for you from past students. Over 30 classes available.
+            </div>
+            <div class="ui wide segment">
+               <%= image_tag("video.png", :class => "ui left floated image" )%>
+                 <b>Tutorials</b> from fellow students. Contribute and learn form one another through video lessons.
+            </div>        
           </div>
-          <div class="ui segment">
-             <%= image_tag("woman.png", :class => "ui left floated image" )%>
-               <b>Notes</b> personalized for you from past students. Over 30 classes available.
-          </div>
-          <div class="ui segment">
-             <%= image_tag("woman.png", :class => "ui left floated image" )%>
-               <b>Tutorials</b> from fellow students. Contribute and learn form one another through video lessons.
-          </div>        
         </div>
       </div>
     </div>
@@ -255,9 +256,9 @@
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-      <div class="ui center aligned padded stackable grid">
+    <!-- White Section -->
+    <div class="thank-you">
+      <div class="ui center aligned padded stackable grid thank-you">
         <div class="row">
           <div class="column">
             <a id="link"><i class="chevron up icon" style=" font-size: 48px;color: #999"></i></a>
@@ -289,6 +290,6 @@
           </div>
         </div>
        </div>
-    </footer>
+      </div>
   </body>
 </html>
