@@ -1,22 +1,40 @@
 <!-- Header -->
 <header>
 
+
       <!-- Navbar -->
-      <div class="ui page grid">
+        
+        <div class="ui page grid">
         <div class="computer tablet only row">
-            <div class="ui borderless fixed menu navbar">
-                <a href="/"> <%= image_tag("Logo.png") %> </a>
+            <div class="ui borderless fixed menu navbar navbar-main">
+                <a href="/" class="logo-wrapper-link">
+                    <%= image_tag("Pencil.png", class: "logo mobile-hidden" )%>
+                    <%= image_tag("Logo.png", class: "logo") %> </a>
+
+               
                 <div class="right menu">
-                    <%= link_to "Mentors", mentors_index_path, class:"item"%>
-                    <%= link_to "Notes", notes_path, class:"item"%>
-                    <%= link_to "Tutorials", tutorials_index_path, class:"item"%>
-                    <%= link_to "Login / Sign Up", user_session_path, class:"item"%>
+                    <%= link_to mentors_index_path, class:"item" do %>
+                        <span>Mentors</span>
+                    <% end %>
+                    <%= link_to notes_path, class:"item" do %>
+                        <span>Notes</span>
+                    <% end %>
+                    <%= link_to tutorials_index_path, class:"item" do %>
+                        <span>Tutorials</span>
+                    <% end %>
+                    <!--<%= link_to user_session_path, class:"item" do %>
+                        <span><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
+                    <% end %>-->
+                    <%= link_to user_session_path, class:"item" do %>
+                        <span class="login btn-main">LOG in</span>
+                    <% end %>
                 </div>
             </div>
+
         </div>
         <div class="mobile only narrow row">
-            <div class="ui borderless fixed menu navbar">
-                <div class="ui middle aligned image">
+            <div class="ui fixed menu navbar">
+                <div class="ui middle aligned image logo-wrapper-link">
                   <a href="/"><%= image_tag("Pencil.png") %> </a>
                 </div>
                 <div class="right menu open">
@@ -26,7 +44,6 @@
                 </div>
             </div>
             <div class="ui borderless vertical fixed navbar menu shadow">
-                <div class="ui fitted divider"></div>
                 <div class="menu">
                     <%= link_to "Mentors", mentors_index_path, class:"item"%>
                     <%= link_to "Notes", notes_path, class:"item"%>
@@ -35,4 +52,5 @@
                 </div>
             </div>
         </div>
+
 </header>
