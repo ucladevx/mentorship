@@ -1,4 +1,5 @@
-$(document).ready(function(){
+//called in onReady located in handlers.js
+function homepage(){
 	$('.right.menu.open').unbind().click(function(e){
 
 		console.log('clicked')
@@ -11,13 +12,11 @@ $(document).ready(function(){
 		var iconClass = icon.className;
 
 		if (iconClass == "navbar-chevron icon chevron down") {
-			document.getElementById("chevron").classList= "navbar-chevron icon chevron up";
-			document.getElementById("yellowbg").style.paddingTop= "262px";
+			document.getElementById("chevron").classList= "chevron up icon";
 		}
 
 		else {
-			document.getElementById("chevron").classList= "navbar-chevron icon chevron down";
-			document.getElementById("yellowbg").style.paddingTop= "120px";
+			document.getElementById("chevron").classList= "chevron down icon";
 		}
 	});
 	$('.ui.dropdown').dropdown();
@@ -90,4 +89,4 @@ $(document).ready(function(){
 	    return false;
  	});
 
-});
+}
