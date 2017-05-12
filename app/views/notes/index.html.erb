@@ -28,6 +28,7 @@
         }
       }
     </script>
+    <script src="https://use.fontawesome.com/eb20c96418.js"></script>
   </head>
   <body>
 
@@ -95,9 +96,12 @@
         <div class="card grid-item">
           <h3 class="title"><%= note.title %></h3>
           <div class="more icons">
-            <i class="fa fa-eye" aria-hidden="true"></i>
+            <a href="#">
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            </a>
+            <%= link_to note.ufile.url do %>
             <i class="fa fa-download" aria-hidden="true"></i>
-            <a href="#">PREVIEW</a> | <%= link_to "Download Note", note.ufile.url %>
+            <% end %>
           </div>
         </div>
        </div>
