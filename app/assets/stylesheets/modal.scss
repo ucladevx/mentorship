@@ -60,6 +60,7 @@ body.locked{
 		font-size: $type-small;
 		text-align: center;
 		a{
+			cursor: pointer;
 			text-decoration: underline;
 		}
 	}
