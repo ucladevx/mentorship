@@ -104,8 +104,6 @@ p {
 }
 
 .ui.centered.image{
-  height: 75%;
-  width: 75%;
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -135,6 +133,10 @@ p {
   position: absolute !important;
   top: 0 !important;
   transform: translateY(-50%) !important;
+}
+
+#stacked-padding{
+  padding-bottom:50px;
 }
 
 /* NOTES SECTION */
