@@ -96,10 +96,10 @@
         <div class="card grid-item">
           <h3 class="title"><%= note.title %></h3>
           <div class="more icons">
-            <a href="#">
-              <i class="fa fa-eye" aria-hidden="true"></i>
-            </a>
             <%= link_to note.ufile.url, target: :_blank do %>
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            <% end %>
+            <%= link_to note.ufile.url, target: :_blank, download: 'note.pdf' do %>
             <i class="fa fa-download" aria-hidden="true"></i>
             <% end %>
           </div>
