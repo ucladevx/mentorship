@@ -1,0 +1,30 @@
+@import "base/global";
+
+.new-note-modal-container{
+
+	.title i{
+		font-size: 28px;
+	}
+
+	.submit{
+		width: 100%;
+
+		.note-submit{
+			height: 40px;
+			width: 100%;
+			color: white;
+			transform-text: uppercase;
+			background-color: $color-secondary-1 !important;
+
+			&:hover{
+				color: white;
+				background-color: $color-secondary-1;
+			}
+		}
+	}
+
+
+
+}
+
+//<%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class: 'ui form' }) do |f| %>

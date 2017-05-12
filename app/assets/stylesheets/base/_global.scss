@@ -7,6 +7,25 @@
 }
 
 
+.ui.form input{
+	font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    margin: 0em;
+    outline: none;
+    -webkit-appearance: none;
+    tap-highlight-color: rgba(255, 255, 255, 0);
+    line-height: 1.21428571em;
+    padding: 0.67857143em 1em;
+    font-size: 1em;
+    background: #FFFFFF;
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    color: rgba(0, 0, 0, 0.87);
+    border-radius: 0.28571429rem;
+    box-shadow: 0em 0em 0em 0em transparent inset;
+    -webkit-transition: color 0.1s ease, border-color 0.1s ease;
+    transition: color 0.1s ease, border-color 0.1s ease;
+}
+
+
 .ui.form input:not([type]):focus,
 .ui.form input[type="date"]:focus,
 .ui.form input[type="datetime-local"]:focus,
@@ -18,7 +37,8 @@
 .ui.form input[type="time"]:focus,
 .ui.form input[type="text"]:focus,
 .ui.form input[type="file"]:focus,
-.ui.form input[type="url"]:focus {
+.ui.form input[type="url"]:focus,
+input:focus {
     color: rgba(0, 0, 0, 0.95);
     border-color: $color-secondary-1;
     border-radius: $item-border-radius;
