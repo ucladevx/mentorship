@@ -2,6 +2,7 @@
 // Typography //
 
 $type-main: 'Lato', sans-serif;
+$type-small: 14px;
 
 
 // Breakpoints //
@@ -32,7 +33,14 @@ $grid-gutter-padding  : 20px !default;
 $grid-vertical-padding: 20px !default;
 
 $grid-item-height     : 250px;
+$item-border-radius   : 5px;
 
 // Card //
 
 $card-bottom: 10px;
+
+// Modal //
+$modal-spacing: 30px;
+$modal-spacing-less: 15px;
+
+

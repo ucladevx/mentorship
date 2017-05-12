@@ -1,0 +1,99 @@
+@import "base/global";
+
+body.locked{
+	overflow: hidden;
+}
+
+.modal-container.hide{
+	display: none;
+}
+
+.modal-container{
+
+	z-index: 128;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	
+	#overlay{
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		background: rgba($color-tertiary-dark, 0.5);
+	}
+}
+
+.login-modal{
+	width: 400px;
+}
+
+.modal{
+	z-index: 140;
+	position: absolute;
+	background: white;
+	box-shadow: $shadow;
+	padding: $modal-spacing;
+	border-radius: $item-border-radius;
+
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+
+}
+
+.modal-header{
+	.title{
+		display: flex;
+		justify-content: center;
+		img.icon{
+			height: 25px;
+		}
+	}
+	.signup-link{
+		font-size: $type-small;
+		text-align: center;
+		a{
+			text-decoration: underline;
+		}
+	}
+}
+
+
+.modal-field-content{
+
+	margin-top: $modal-spacing-less;
+
+	.field{
+		input:focus{
+			outline: none !important;
+		}
+	}
+
+}
+
+.submit{
+
+	padding: $modal-spacing-less 0;
+	.login-submit{
+		height: 40px;
+		width: 100%;
+		color: white;
+		transform-text: uppercase;
+		background-color: $color-secondary-1;
+
+		&:hover{
+			color: white;
+			background-color: $color-secondary-1;
+		}
+	}
+
+}
+
+.password-reset-link{
+	font-size: $type-small;
+	text-align: center;
+}
+

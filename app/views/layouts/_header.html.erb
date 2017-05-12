@@ -22,17 +22,15 @@
                     <%= link_to tutorials_index_path, class:"item" do %>
                         <span>Tutorials</span>
                     <% end %>
-                    <!--<%= link_to user_session_path, class:"item" do %>
-                        <span><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
-                    <% end %>-->
-                    <% if user_signed_in? %> <!-- change login to logout when signed in -->
-                      <%= link_to destroy_user_session_path, method: :delete, class:"item" do %>
-                        <span class="login btn-main">LOG out</span>
-                      <% end %>
+                     <% if user_signed_in? %> 
+                         <%= link_to destroy_user_session_path, method: :delete, class:"item" do %>
+                            <span class="login btn-main">LOG out</span>
+                         <% end %>
+                    
                     <% else %>
-                      <%= link_to user_session_path, class:"item" do %>
-                        <span class="login btn-main">LOG in</span>
-                      <% end %>
+                        <a class="item" id="login-trigger-modal" >
+                            <span class="login btn-main">LOG in</span>
+                        </a>
                     <% end %>
                 </div>
             </div>
