@@ -17,7 +17,7 @@ body.locked{
 	top: 0;
 	left: 0;
 	
-	#overlay{
+	.overlay{
 		position: fixed;
 		height: 100%;
 		width: 100%;
@@ -25,7 +25,7 @@ body.locked{
 	}
 }
 
-.login-modal{
+.login-modal, .new-note-modal{
 	width: 400px;
 }
 

@@ -37,6 +37,7 @@ header{
 .btn-main{
 	color: white;
 	background: $color-primary;
+	border-radius: $item-border-radius;
 
 	&:hover{
 		opacity: 0.9;

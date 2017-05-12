@@ -32,7 +32,7 @@
   <body>
 
   <!-- For the search area -->
-  <div class="grid blue background">
+  <div class="grid background">
     <div class="ui search big search-area">
       <div class="ui icon input input-area">
         <i class="fitted search icon big" id="search-icon"></i>
@@ -72,6 +72,9 @@
           </div>
         </div>
       </div>
+       <div class="ui compact menu">
+        <button id="trigger-new-note">NEW NOTE</button>
+       </div>
     </div>
 
   <div class="grid-container">
@@ -115,6 +118,8 @@
 <br />
 
 <!-- How to change depending on if User is signed in -->
+
+
 <% if user_signed_in? %>
 <div> Hi, you are signed in <%= @user.email %></div>
 <% else %>
@@ -162,7 +167,24 @@
    </tbody>
    </div>
 </table>
-<div class="modal-container hide">
+
+<div class="modal-container hide new-note-modal-container">
+  <div class="modal new-note-modal">
+
+    <div class="modal-header">
+      <h4 class="title"><i class="fa fa-sticky-note-o" aria-hidden="true"></i>&nbspNew Note</h4>
+    </div>
+
+    <div class="modal-field-content">
+     
+
+
+    </div>
+
+  </div>
+  <div class="overlay" onClick="hideModal('new-note')"></div>
+</div>
+<div class="modal-container hide login-modal-container">
 
   <div class="modal login-modal">
 
@@ -186,11 +208,11 @@
             <%= f.check_box :remember_me%>
             <%= f.label :remember_me %>
           </div>
-        <% end -%>
+        <% end %>
 
         <div class="submit">
             <div class="actions">
-              <%= f.submit "Log in", class: 'ui button login-submit'%>
+              <%= f.submit "Log in", class: 'ui button login-submit', onclick: 'showModal();'%>
             </div>
             
           <% end %>
@@ -198,7 +220,7 @@
         <p class="password-reset-link"><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
     </div>
   </div>
-  <div id="overlay"></div>
+  <div class="overlay" onClick="hideModal('login')"></div>
 </div>
 </body>
 </html>

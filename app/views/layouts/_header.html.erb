@@ -52,7 +52,16 @@
                     <%= link_to "Mentors", mentors_index_path, class:"item"%>
                     <%= link_to "Notes", notes_path, class:"item"%>
                     <%= link_to "Tutorials", tutorials_index_path, class:"item"%>
-                    <%= link_to "Login / Sign Up", user_session_path, class:"item"%>
+                    <% if user_signed_in? %> 
+                         <%= link_to destroy_user_session_path, method: :delete, class:"item" do %>
+                            <span class="login btn-main">Logout</span>
+                         <% end %>
+                    
+                    <% else %>
+                        <a class="item" id="login-trigger-modal" >
+                            <span>Login</span>
+                        </a>
+                    <% end %>
                 </div>
             </div>
         </div>
