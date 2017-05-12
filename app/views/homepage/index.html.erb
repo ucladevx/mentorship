@@ -22,7 +22,7 @@
       </div>
     </div>
     <!-- White Bar -->
-    <div id="grid-float" class="ui center aligned grid">
+    <div id="grid-float" class="hide ui center aligned grid">
       <div id="bar-position" class="computer tablet only row">
         <div class="twelve wide column">
           <div class="ui raised horizontal segments">
@@ -314,8 +314,7 @@
        </div>
     </footer>
 
-    <div class="modal-container hide">
-
+<div class="modal-container hide login-modal-container">
       <div class="modal login-modal">
 
         <div class="modal-header">
@@ -350,7 +349,7 @@
             <p class="password-reset-link"><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
         </div>
       </div>
-      <div id="overlay"></div>
+      <div class="overlay" onClick="hideModal('login')"></div>
     </div>
 
       </div>

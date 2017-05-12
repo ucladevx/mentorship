@@ -1,7 +1,6 @@
 <h1>Mentors#index</h1>
 <p>Find me in app/views/mentors/index.html.erb</p>
-<div class="modal-container hide">
-
+<div class="modal-container hide login-modal-container">
   <div class="modal login-modal">
 
     <div class="modal-header">
@@ -36,5 +35,5 @@
         <p class="password-reset-link"><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
     </div>
   </div>
-  <div id="overlay"></div>
+  <div class="overlay" onClick="hideModal('login')"></div>
 </div>

@@ -4,6 +4,7 @@ var onReady = function(){
 
 	homepage();
 	initModal();
+	//initNotes();
 
 }
 $(document).on('turbolinks:load', onReady);
