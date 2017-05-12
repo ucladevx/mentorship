@@ -91,10 +91,12 @@ function homepage(){
 
  	$(document).scroll(function() {
 	  var y = $(this).scrollTop();
-	  if (y > 20) {
-	    $('#grid-float').fadeIn();
-	  } else {
-	    $('#grid-float').fadeOut();
+	  if (y > 50) {
+	  	$('#grid-float').removeClass('hide');
 	  }
+	  else{
+	  	$('#grid-float').addClass('hide');
+	  }
+	    
 	});
 }

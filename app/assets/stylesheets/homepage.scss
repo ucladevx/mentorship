@@ -111,11 +111,17 @@ p {
 }
 
 #grid-float{
+  opacity: 1;
   position: relative !important;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
+  transition: opacity $transition-duration $transition-ease;
+}
+
+#grid-float.hide{
+  opacity: 0;
 }
 
 .ui.raised.horizontal.segments{
