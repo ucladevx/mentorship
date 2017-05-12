@@ -110,6 +110,22 @@ p {
   background-position: 50% 50%;
 }
 
+.grid.float{
+  position: absolute;
+  bottom: -100px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+.ui.raised.horizontal.segments{
+  outline: none !important;
+  border-radius: 10px;
+  text-align:left;
+  color: $color-tertiary-dark;
+}
+
 /* NOTES SECTION */
 .notes{
   padding-top: 30px;
