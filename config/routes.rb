@@ -17,8 +17,7 @@ Rails.application.routes.draw do
   get 'tutorials/destroy'
 
   devise_for :users
-  post '/upvote', to: 'notes#upvote'
-  post '/downvote', to: 'notes#downvote'
+  get '/upvote', to: 'notes#upvote'
   # get 'notes/new'
   #
   # get 'notes/create'
@@ -30,7 +29,7 @@ Rails.application.routes.draw do
 
   root 'homepage#index'
 
-  resources :notes, only: [:index, :new, :create, :destroy, :upvote, :downvote]
+  resources :notes, only: [:index, :new, :create, :destroy, :upvote]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -2,16 +2,12 @@
 <header>
 
       <!-- Navbar -->
-        
-        <div class="ui page grid">
+      <div class="ui page grid">
         <div class="computer tablet only row">
-            <div class="ui borderless fixed menu navbar navbar-main">
-                <a href="/" class="logo-wrapper-link">
-                    <%= image_tag("Pencil.png", class: "logo mobile-hidden" )%>
-                    <%= image_tag("Logo.png", class: "logo") %> </a>
-
-               
+            <div class="ui borderless fixed menu navbar">
+                <a href="/"> <%= image_tag("Logo.png") %> </a>
                 <div class="right menu">
+<<<<<<< HEAD
                     <%= link_to mentors_index_path, class:"item" do %>
                         <span>Mentors</span>
                     <% end %>
@@ -27,13 +23,18 @@
                     <%= link_to user_session_path, class:"item" do %>
                         <span>Log in / Sign up</span>
                     <% end %>
+=======
+                    <%= link_to "Mentors", mentors_index_path, class:"item"%>
+                    <%= link_to "Notes", notes_path, class:"item"%>
+                    <%= link_to "Tutorials", tutorials_index_path, class:"item"%>
+                    <%= link_to "Login / Sign Up", user_session_path, class:"item"%>
+>>>>>>> master
                 </div>
             </div>
-
         </div>
         <div class="mobile only narrow row">
-            <div class="ui fixed menu navbar">
-                <div class="ui middle aligned image logo-wrapper-link">
+            <div class="ui borderless fixed menu navbar">
+                <div class="ui middle aligned image">
                   <a href="/"><%= image_tag("Pencil.png") %> </a>
                 </div>
                 <div class="right menu open">
@@ -43,6 +44,7 @@
                 </div>
             </div>
             <div class="ui borderless vertical fixed navbar menu shadow">
+                <div class="ui fitted divider"></div>
                 <div class="menu">
                     <%= link_to "Mentors", mentors_index_path, class:"item"%>
                     <%= link_to "Notes", notes_path, class:"item"%>
@@ -51,5 +53,4 @@
                 </div>
             </div>
         </div>
-
 </header>

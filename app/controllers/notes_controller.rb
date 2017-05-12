@@ -1,6 +1,9 @@
 class NotesController < ApplicationController
   def index
       @notes = Note.all
+      if user_signed_in?
+        @user = User.find_by id:current_user.id
+      end
     #   raise @notes.to_json
   end
 
@@ -25,17 +28,18 @@ class NotesController < ApplicationController
   end
 
   def upvote
-    byebug
-    @note ||= Note.find(params[:id])
-    @note.reputation++
-    @note.save
-  end
-
-  def downvote
-    byebug
-    @note ||= Note.find(params[:id])
-    @note.reputation
-    @note.save
+    if user_signed_in?
+      @user = User.find_by id:current_user
+      @note = Note.find(params[:format])
+      if @user.upvotednotes.include?(@note.id)
+        @user.upvotednotes.delete(@note.id)
+      else
+        @note.reputation+=1
+        @user.upvotednotes.push(@note.id)
+        @note.save
+        @user.save
+      end
+    end
   end
 
   private
