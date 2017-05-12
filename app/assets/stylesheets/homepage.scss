@@ -312,3 +312,18 @@ p {
   padding-top: 30px;
   padding-bottom: 60px;
 }
+
+/* Footer */
+
+#footer{
+  font-size: 14px;
+  font-family: $type-main;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-right:100px;
+}
+
+#no-grid-padding{
+  padding:0px;
+  margin:0px;
+}
