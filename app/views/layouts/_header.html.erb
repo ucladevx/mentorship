@@ -3,7 +3,7 @@
 
 
       <!-- Navbar -->
-        
+
         <div class="ui page grid">
         <div class="computer tablet only row">
             <div class="ui borderless fixed menu navbar navbar-main">
@@ -11,7 +11,7 @@
                     <%= image_tag("Pencil.png", class: "logo mobile-hidden" )%>
                     <%= image_tag("Logo.png", class: "logo") %> </a>
 
-               
+
                 <div class="right menu">
                     <%= link_to mentors_index_path, class:"item" do %>
                         <span>Mentors</span>
@@ -25,8 +25,14 @@
                     <!--<%= link_to user_session_path, class:"item" do %>
                         <span><i class="fa fa-user-circle-o" aria-hidden="true"></i></span>
                     <% end %>-->
-                    <%= link_to user_session_path, class:"item" do %>
+                    <% if user_signed_in? %> <!-- change login to logout when signed in -->
+                      <%= link_to destroy_user_session_path, method: :delete, class:"item" do %>
+                        <span class="login btn-main">LOG out</span>
+                      <% end %>
+                    <% else %>
+                      <%= link_to user_session_path, class:"item" do %>
                         <span class="login btn-main">LOG in</span>
+                      <% end %>
                     <% end %>
                 </div>
             </div>

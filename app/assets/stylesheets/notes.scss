@@ -4,6 +4,27 @@
 
 @import "base/global";
 
+.container {
+	background-color: #007cb1;
+}
+
+.search-area {
+	margin-left: 10%;
+	padding-top: 25px;
+}
+
+.input-area {
+	align-items: center;
+	align-content: center;
+	height: 75px;
+	width: 85%;
+}
+
+.filter-area {
+	margin-left: 10%;
+	padding-top: 20px;
+}
+
 .notes-content{
 
 	background: $color-tertiary-light;
