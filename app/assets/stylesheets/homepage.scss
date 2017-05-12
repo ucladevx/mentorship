@@ -222,16 +222,6 @@ p {
   object-fit: contain;
 }
 
-
-/*.ui.icon.button:hover{
-  background-color: rgba(255,255,255,0.9);
-  //background-color: rgba(255,255,255,0.9);
-}
-.ui.icon.button:active{
-  background-color: rgba(255,255,255,0.9);
-  //background-color: rgba(255,255,255,0.9);
-}*/
-
 /* CAROUSEL BUTTONS */
 
 .icon.chevron{
@@ -245,13 +235,15 @@ p {
 .button_wrapper{
   margin-top: 100%;
 }
-
+/* AUTHOR */
 .meta{
   font-family: Lato;
   font-size: 13px;
   font-weight: 500;
   color: #474747;
 }
+
+/* TAGS */
 .ui.label{
   margin-top: 5px;
   outline: none;
@@ -278,12 +270,31 @@ p {
 }
 
 /* Selected Heart */
-.ui.heart.rating .icon.selected,
-.ui.heart.rating .icon.selected.active {
+.notes .ui.heart.rating .icon.selected,
+.notes .ui.heart.rating .icon.selected.active {
   background: transparent !important;
   color: #55abe3 !important;
   text-shadow: 0px -1px 0px #55abe3, -1px 0px 0px #55abe3, 0px 1px 0px #55abe3, 1px 0px 0px #55abe3 !important;
 }
+
+/* Active tutorials Heart */
+.tutorials .ui.heart.rating .active.icon {
+  background: transparent !important;
+  color: #8b96da !important;
+  text-shadow: 0px -1px 0px #8b96da, -1px 0px 0px #8b96da, 0px 1px 0px #8b96da, 1px 0px 0px #8b96da !important;
+}
+
+/* Selected tutorials Heart */
+.tutorials .ui.heart.rating .icon.selected,
+.tutorials .ui.heart.rating .icon.selected.active {
+  background: transparent !important;
+  color: #8b96da !important;
+  text-shadow: 0px -1px 0px #8b96da, -1px 0px 0px #8b96da, 0px 1px 0px #8b96da, 1px 0px 0px #8b96da !important;
+}
+
+
+
+
 
 .notes .upvotes{
   color: #55abe3;
