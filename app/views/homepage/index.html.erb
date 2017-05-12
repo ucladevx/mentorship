@@ -300,7 +300,7 @@
           <div class="five wide column">
             <h5>Support our Community</h5>
             <h6>Want to contribute to the platform as a tutor? We are always looking to recruit more individuals!</h6>
-            <button class="ui button">SIGN UP NOW</button>
+            <button id="sign-up-trigger-modal" class="ui button">SIGN UP NOW</button>
           </div>
           <div class="two wide column">
             <div class="ui vertical divider">or</div>
@@ -314,12 +314,13 @@
        </div>
     </footer>
 
+<!-- Login Modal -->
 <div class="modal-container hide login-modal-container">
       <div class="modal login-modal">
-
         <div class="modal-header">
           <h4 class="title"><%= image_tag("icon-lock.svg", :class => "icon")%>&nbspLogin</h4>
-          <p class="signup-link">Don't have an account?&nbsp<%= link_to "Sign up", new_registration_path(resource_name) %></p>
+          <p class="signup-link">Don't have an account?&nbsp
+            <a class="item" id="sign-up-trigger-modal"><span>Sign up</span></a>
         </div>
 
         <div class="modal-field-content">
@@ -351,8 +352,51 @@
       </div>
       <div class="overlay" onClick="hideModal('login')"></div>
     </div>
+  </div>
 
-      </div>
+  <!-- Signup Modal -->
+  <div class="modal-container hide sign-up-modal-container">
+      <div class="modal sign-up-modal">
+        <div class="modal-header">
+          <h4 class="title"><%= image_tag("icon-lock.svg", :class => "icon")%>&nbspSign up</h4>
+          <p class="signup-link">Already have an account?&nbsp
+            <a class="item" id="login-trigger-modal"><span>Log in</span></a>
+        </div>
+
+        <div class="modal-field-content">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {class: 'ui form' }) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="field">
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password confirmation" %>
+          </div>
+
+            <div class="submit">
+                <div class="actions">
+                  <%= f.submit "Create Account", class: 'ui button login-submit'%>
+                </div>
+                
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <div class="overlay" onClick="hideModal('sign-up')"></div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>
