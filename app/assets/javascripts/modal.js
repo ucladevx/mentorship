@@ -30,25 +30,31 @@ function hideModal(modal){
 		case 'sign-up':
 			$('.sign-up-modal-container').addClass('hide');
 			break;
+		case 'all':
+			$('.modal-container').addClass('hide');
 	}
 	
 	$('body').removeClass('locked');
 }
 
+
+
 var initModal = function(){
 
 	$('#overlay').click(hideModal);
-	$('#login-trigger-modal').click(function(){
+
+	$('.login-trigger-modal').click(function(){
+		hideModal('all');
 		showModal('login');
-		hideModal('sign-up');
 	});
 
 	$('#trigger-new-note').click(function(){
+		hideModal('all');
 		showModal('new-note');
 	});
-	$('#sign-up-trigger-modal').click(function(){
+	$('.sign-up-trigger-modal').click(function(){
+		hideModal('all');
 		showModal('sign-up');
-		hideModal('login');
 	});
 
 
