@@ -89,4 +89,12 @@ function homepage(){
 	    return false;
  	});
 
+ 	$(document).scroll(function() {
+	  var y = $(this).scrollTop();
+	  if (y > 20) {
+	    $('#grid-float').fadeIn();
+	  } else {
+	    $('#grid-float').fadeOut();
+	  }
+	});
 }
