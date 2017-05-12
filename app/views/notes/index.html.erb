@@ -96,10 +96,10 @@
         <div class="card grid-item">
           <h3 class="title"><%= note.title %></h3>
           <div class="more icons">
-            <a href="#">
-              <i class="fa fa-eye" aria-hidden="true"></i>
-            </a>
             <%= link_to note.ufile.url, target: :_blank do %>
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            <% end %>
+            <%= link_to note.ufile.url, target: :_blank, download: 'note.pdf' do %>
             <i class="fa fa-download" aria-hidden="true"></i>
             <% end %>
           </div>
@@ -187,11 +187,46 @@
   <div class="modal new-note-modal">
 
     <div class="modal-header">
-      <h4 class="title"><i class="fa fa-sticky-note-o" aria-hidden="true"></i>&nbspNew Note</h4>
+      <h4 class="title"><i class="fa fa-sticky-note" aria-hidden="true"></i>&nbspNew Note</h4>
     </div>
 
     <div class="modal-field-content">
-     
+
+
+      <% if !@note.errors.empty? %>
+        <div class="alert alert-error">
+
+            <ul>
+               <% @note.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+               <% end %>
+            </ul>
+
+         </div>
+      <% end %>
+
+      <div class="">
+         <%= form_for @note, html: { multipart: true, class: 'ui form' } do |f| %>
+          <div class="field">
+            <%= f.text_field :title, :placeholder => "Title" %>
+          </div>
+          <div class="field">
+            <%= f.text_field :uclaclass, :placeholder => "UCLA Class" %>
+          </div>
+          <div class="field">
+            <%= f.text_field :author, :placeholder => "Author" %>
+          </div>
+          <div class="field">
+            <%= f.text_field :notetype, :placeholder => "Note Type" %>
+          </div>
+          <div class="field">
+            <%= f.file_field :ufile %>
+          </div>
+          <div class="submit">
+            <%= f.submit "Save", class: "note-submit" %>
+          </div>
+         <% end %>
+      </div>
 
 
     </div>

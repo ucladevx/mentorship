@@ -81,12 +81,12 @@ body.locked{
 .submit{
 
 	padding: $modal-spacing-less 0;
-	.login-submit{
+	.login-submit, {
 		height: 40px;
 		width: 100%;
-		color: white;
+		color: white !important;
 		transform-text: uppercase;
-		background-color: $color-secondary-1;
+		background-color: $color-secondary-1 !important;
 
 		&:hover{
 			color: white;

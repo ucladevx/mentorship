@@ -37,7 +37,7 @@
             <div class="ui wide segment">
                <%= image_tag("video.png", :class => "ui left floated image" )%>
                  <b>Tutorials</b> from fellow students. Contribute and learn form one another through video lessons.
-            </div>        
+            </div>
           </div>
         </div>
       </div>
@@ -56,12 +56,12 @@
             <div class="ui segment">
                <%= image_tag("video.png", :class => "ui left floated image" )%>
                  <b>Tutorials</b> from fellow students. Contribute and learn form one another through video lessons.
-            </div>        
+            </div>
           </div>
         </div>
       </div>
     </div>
- 
+
 
     <!-- Notes Section !-->
     <div class="notes">
@@ -162,11 +162,19 @@
                   <span class="date">Austin Lee</span>
                 </div>
                 <div class="description">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                  <a class="ui label">
+                    Pointers
+                  </a>
+                  <a class="ui label">
+                    Class Construction
+                  </a>
+                  <a class="ui label">
+                    C++
+                  </a>
                 </div>
                 <div class="extra content">
                   <div class="value">
-                    <i class="heart icon upvotes"></i>39
+                    <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>90
                   </div>
                 </div>
               </div>
@@ -181,11 +189,19 @@
                   <span class="date">Helen Lee</span>
                 </div>
                 <div class="description">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                  <a class="ui label">
+                    Pointers
+                  </a>
+                  <a class="ui label">
+                    Class Construction
+                  </a>
+                  <a class="ui label">
+                    C++
+                  </a>
                 </div>
                 <div class="extra content">
                   <div class="value">
-                    <i class="heart icon upvotes"></i>39
+                    <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>78
                   </div>
                 </div>
               </div>
@@ -200,11 +216,19 @@
                   <span class="date">Charlotte McGinn</span>
                 </div>
                 <div class="description">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                  <a class="ui label">
+                    Pointers
+                  </a>
+                  <a class="ui label">
+                    Class Construction
+                  </a>
+                  <a class="ui label">
+                    C++
+                  </a>
                 </div>
                 <div class="extra content">
                   <div class="value">
-                    <i class="heart icon upvotes"></i>39
+                    <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>61
                   </div>
                 </div>
               </div>
@@ -219,11 +243,19 @@
                   <span class="date">Austin Lee</span>
                 </div>
                 <div class="description">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                  <a class="ui label">
+                    Pointers
+                  </a>
+                  <a class="ui label">
+                    Class Construction
+                  </a>
+                  <a class="ui label">
+                    C++
+                  </a>
                 </div>
                 <div class="extra content">
                   <div class="value">
-                    <i class="heart icon upvotes"></i>39
+                    <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>50
                   </div>
                 </div>
               </div>
@@ -238,11 +270,19 @@
                   <span class="date">Austin Lee</span>
                 </div>
                 <div class="description">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                  <a class="ui label">
+                    Pointers
+                  </a>
+                  <a class="ui label">
+                    Class Construction
+                  </a>
+                  <a class="ui label">
+                    C++
+                  </a>
                 </div>
                 <div class="extra content">
                   <div class="value">
-                    <i class="heart icon upvotes"></i>39
+                    <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>21
                   </div>
                 </div>
               </div>
@@ -257,11 +297,19 @@
                   <span class="date">Austin Lee</span>
                 </div>
                 <div class="description">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada, purus hendrerit fringilla auctor, dui ex congue turpis, a tempus dui neque non ante. Nulla facilisi.
+                  <a class="ui label">
+                    Pointers
+                  </a>
+                  <a class="ui label">
+                    Class Construction
+                  </a>
+                  <a class="ui label">
+                    C++
+                  </a>
                 </div>
                 <div class="extra content">
                   <div class="value">
-                    <i class="heart icon upvotes"></i>39
+                    <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>1
                   </div>
                 </div>
               </div>
@@ -307,7 +355,7 @@
           </div>
           <div class="five wide column">
             <h5>Grow our Community</h5>
-            <h6>Have class notes form past quarters? Submit them into our database, and help us grow our platform.</h6>
+            <h6>Have class notes from past quarters? Submit them into our database, and help us grow our platform.</h6>
             <button class="ui button">SUBMIT</button>
           </div>
         </div>
@@ -344,7 +392,7 @@
                 <div class="actions">
                   <%= f.submit "Log in", class: 'ui button login-submit'%>
                 </div>
-                
+
               <% end %>
             </div>
             <p class="password-reset-link"><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
@@ -407,27 +455,27 @@
                 </div>
                 <div class="twelve wide right aligned column">
                   <div class="ui grid">
-                    <div class="right floated column">   
+                    <div class="right floated column">
                       <%= link_to "/", class:"item" do %>
                         <span>ABOUT</span>
                       <% end %>
                     </div>
-                    <div class="right floated column">  
+                    <div class="right floated column">
                       <%= link_to "/", class:"item" do %>
                           <span>CONTACT</span>
                       <% end %>
                     </div>
-                    <div class="four wide right aligned right floated column">  
+                    <div class="four wide right aligned right floated column">
                       <%= link_to "/", class:"item" do %>
                           <span>TERMS & CONDITIONS</span>
                       <% end %>
                     </div>
-                    <div class="left aligned right floated column">  
+                    <div class="left aligned right floated column">
                         <%= link_to "/", class:"item" do %>
                             <span>PRIVACY</span>
                         <% end %>
-                    </div>  
-                  </div>       
+                    </div>
+                  </div>
                 </div>
           </div>
 
@@ -435,7 +483,7 @@
               <div class="footer">
                 <div class="sixteen wide center aligned column">
                   <b>BRUIN</b>ACADEMY © 2017</a>
-                  
+
                 </div>
               </div>
           </div>
