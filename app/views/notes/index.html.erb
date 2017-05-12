@@ -5,20 +5,23 @@
     <%= javascript_include_tag ('homepage.js') %>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <script>
-      var change = 0;
-      function decrementRep() {
-        if (change === 0 || change === 1)
-          document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)-1);
-        if (change === 1)
-          document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)-1)
-        change = -1;
-      }
+      /*basically instead of dynamically updating the webpage using info from the database
+      I'm posting to the database and then seperately having javascript logic change it
+      */
+      var isSignedIn = <%= user_signed_in? %>
+      var upvoted = false;
       function incrementRep() {
-        if (change === 0 || change === -1)
-          document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)+1);
-        if (change === -1)
-          document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)+1)
-        change = 1;      }
+        if (isSignedIn) { //if not signed in do nothing
+          if (upvoted) { //if upvoted, then unupvote
+            document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)-1);
+            upvoted = false;
+          }
+          else { //upvote
+            document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)+1);
+            upvoted = true;
+          }
+        }
+      }
     </script>
   </head>
   <body>
@@ -65,7 +68,7 @@
 
 <!-- How to change depending on if User is signed in -->
 <% if user_signed_in? %>
-<div> Hi, you are signed in user </div>
+<div> Hi, you are signed in <%= @user.email %></div>
 <% else %>
 <div> You are not signed in </div>
 <% end %>
@@ -89,11 +92,23 @@
             <td><%= note.title %></td>
             <td><%= link_to "Download Note", note.ufile.url %></td>
             <td><%= button_to "Delete",  note, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{note.title}?" %></td>
-            <td onclick="incrementRep()"><%= link_to "^", upvote_path(note) %></td>
+            <!--if signed in and didnt upvote it, allow upvoting. To input image as link, link_to image_tag("Search.png", border: 0), upvote_path....-->
+            <td
+              <% if user_signed_in? %>
+                onclick="incrementRep()">
+                <% if @user.upvotednotes.include?(note.id) %>
+                  <%= link_to "^", upvote_path(note) %>
+                  <!-- change "^" to what you want someone who already upvoted note to see
+                <% else %>
+                  <%= link_to "v", upvote_path(note) %>
+                  <!-- change "v" to what you want someone who didnt vote it to see
+                <% end %>
+              <% else %> <!--put what you want someone not logged in to see here-->
+                > x
+              <% end %>
+            </td>
             <td id = "Rep" ><%= note.reputation %></td>
-            <td onclick="decrementRep()"><%= link_to "v", downvote_path(note) %></td>
          </tr>
-
       <% end %>
    </tbody>
 

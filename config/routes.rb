@@ -16,11 +16,8 @@ Rails.application.routes.draw do
 
   get 'tutorials/destroy'
 
-  get 'users/password' => redirect('users/password/new')
-
   devise_for :users
   get '/upvote', to: 'notes#upvote'
-  get '/downvote', to: 'notes#downvote'
   # get 'notes/new'
   #
   # get 'notes/create'
@@ -32,7 +29,7 @@ Rails.application.routes.draw do
 
   root 'homepage#index'
 
-  resources :notes, only: [:index, :new, :create, :destroy, :upvote, :downvote]
+  resources :notes, only: [:index, :new, :create, :destroy, :upvote]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
