@@ -10,13 +10,13 @@ $(document).ready(function(){
 		var icon = document.getElementById("chevron");
 		var iconClass = icon.className;
 
-		if (iconClass == "chevron down icon") {
-			document.getElementById("chevron").classList= "chevron up icon";
+		if (iconClass == "navbar-chevron icon chevron down") {
+			document.getElementById("chevron").classList= "navbar-chevron icon chevron up";
 			document.getElementById("yellowbg").style.paddingTop= "262px";
 		}
 
 		else {
-			document.getElementById("chevron").classList= "chevron down icon";
+			document.getElementById("chevron").classList= "navbar-chevron icon chevron down";
 			document.getElementById("yellowbg").style.paddingTop= "120px";
 		}
 	});
