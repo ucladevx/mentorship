@@ -98,10 +98,10 @@
                 onclick="incrementRep()">
                 <% if @user.upvotednotes.include?(note.id) %>
                   <%= link_to "^", upvote_path(note) %>
-                  <!-- change "^" to what you want someone who already upvoted note to see
+                  <!-- change "^" to what you want someone who already upvoted note to see -->
                 <% else %>
                   <%= link_to "v", upvote_path(note) %>
-                  <!-- change "v" to what you want someone who didnt vote it to see
+                  <!-- change "v" to what you want someone who didnt vote it to see -->
                 <% end %>
               <% else %> <!--put what you want someone not logged in to see here-->
                 > x
