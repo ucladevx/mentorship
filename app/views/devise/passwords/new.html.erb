@@ -19,7 +19,7 @@
 
        <div class="six wide left aligned column">
 	    	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'ui form' }) do |f| %>
-			<h3><%= devise_error_messages! %></h3>
+			<%= devise_error_messages!%>
 
 			<div class="field">
 			  <%= f.label :email %>
