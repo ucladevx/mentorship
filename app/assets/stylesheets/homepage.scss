@@ -90,7 +90,13 @@ p {
 }
 
 .container {
+  padding-top: 1px;
+  margin-top: -1px;
 	background: white;
+}
+
+.slide{
+  height: calc(100vh - #{$nav-height});
 }
 
 .main-block-text > *{
@@ -100,6 +106,13 @@ p {
 .button.padding {
 	padding: 20px;
 	text-align: left;
+}
+
+.ui.centered.image{
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
 /* NOTES SECTION */
