@@ -4,28 +4,6 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag ('homepage.js') %>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <script>
-      /*basically instead of dynamically updating the webpage using info from the database
-      I'm posting to the database and then seperately having javascript logic change it
-      */
-      var currentVoteStates = new Object(); //unintialized 0, 1 upvoted, -1 novote
-      function incrementRep(initalState, noteID) {
-        if (!currentVoteStates.hasOwnProperty(noteID)) //only care about initialState when unintialized
-          currentVoteStates[noteID] = initalState;
-
-        RepID = "Rep"+String(noteID);
-        if (currentVoteStates[noteID] === 1) { //if upvoted, then unupvote
-          document.getElementById(RepID).innerHTML = String(Number(document.getElementById(RepID).innerHTML)-1);
-          currentVoteStates[noteID] = -1;
-          document.getElementById('upvoteButton').innerHTML = "^";
-        }
-        else { //upvote
-          document.getElementById(RepID).innerHTML = String(Number(document.getElementById(RepID).innerHTML)+1);
-          currentVoteStates[noteID] = 1;
-          document.getElementById('upvoteButton').innerHTML = "v";
-        }
-      }
-    </script>
     <script src="https://use.fontawesome.com/eb20c96418.js"></script>
   </head>
   <body>

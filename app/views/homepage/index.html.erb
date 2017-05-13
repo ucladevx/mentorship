@@ -111,8 +111,24 @@
                 </div>
                 <div class="extra content">
                   <%= link_to "OPEN", note.ufile.url,  target: :_blank, class: 'ui primary button' %>
-                  <div class="value">
-                    <div class="ui heart rating" data-rating="1" data-max-rating="1"></div><%= note.reputation %>
+                  <div class="value"
+                    <% if user_signed_in? %>
+                      <% if @user.upvotednotes.include?(note.id) %>
+                        onclick="incrementRep(1, <%= note.id %>)">
+                        <%= link_to upvote_path(note) do %>
+                          <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
+                        <% end %>
+                      <% else %>
+                        onclick="incrementRep(-1, <%= note.id %>)">
+                        <%= link_to upvote_path(note) do %>
+                          <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
+                        <% end %>
+                      <% end %>
+                    <% else %>
+                      <!-- TODO: put what you want someone not logged in to see here -->
+                      <div class="ui heart rating" data-rating="1" data-max-rating="1"></div>
+                    <% end %>
+                    <div id = "Rep<%= note.id %>"> <%= note.reputation %> </div>
                   </div>
                 </div>
               </div>
