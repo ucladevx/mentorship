@@ -4,9 +4,9 @@ class Note < ApplicationRecord
     mount_uploader :ufile, NoteUploader
 
     def self.search(search)
-      where("title LIKE ?", "%#{search}%")
-      where("uclaclass LIKE ?", "%#{search}%")
-      where("author LIKE ?", "%#{search}%")
-      where("notetype LIKE ?", "%#{search}%")
+      where("title LIKE ? OR uclaclass LIKE ?
+         OR author LIKE ? OR notetype LIKE ?",
+         "%#{search}%", "%#{search}%",
+         "%#{search}%", "%#{search}%")
     end
 end

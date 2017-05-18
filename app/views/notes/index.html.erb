@@ -35,8 +35,12 @@
           Classes
           <i class="dropdown icon"></i>
           <div class="menu">
-            <div class="item">CS 31</div>
-            <div class="item">CS 32</div>
+            <%= link_to notes_path(search: "CS 31") do %>
+              <div class="item" >CS 31</div>
+            <% end %>
+            <%= link_to notes_path(search: "CS 32") do %>
+              <div class="item" >CS 32</div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -45,8 +49,12 @@
           Professor
           <i class="dropdown icon"></i>
           <div class="menu">
-            <div class="item">Smallberg</div>
-            <div class="item">Nachenberg</div>
+            <%= link_to notes_path(search: "Smallberg") do %>
+              <div class="item">Smallberg</div>
+            <% end %>
+            <%= link_to notes_path(search: "Nachenberg") do %>
+              <div class="item">Nachenberg</div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -55,9 +63,15 @@
           Type
           <i class="dropdown icon"></i>
           <div class="menu">
-            <div class="item">Weekly Notes</div>
-            <div class="item">Midterm Cheetsheet</div>
-            <div class="item">Final Cheatsheet</div>
+            <%= link_to notes_path(search: "Weekly Notes") do %>
+              <div class="item">Weekly Notes</div>
+            <% end %>
+            <%= link_to notes_path(search: "Midterm Cheetsheet") do %>
+              <div class="item">Midterm Cheetsheet</div>
+            <% end %>
+            <%= link_to notes_path(search: "Final Cheetsheet") do %>
+              <div class="item">Final Cheetsheet</div>
+            <% end %>
           </div>
         </div>
       </div>
