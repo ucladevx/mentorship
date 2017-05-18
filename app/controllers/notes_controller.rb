@@ -2,6 +2,7 @@ class NotesController < ApplicationController
   def index
       #note Note.search is defined in note model
       @notes = Note.search(params[:search])
+      #filter on top of search
       @notes = @notes.classes(params[:classes]) if params[:classes].present?
       @notes = @notes.professor(params[:professor]) if params[:professor].present?
       @notes = @notes.type(params[:type]) if params[:type].present?

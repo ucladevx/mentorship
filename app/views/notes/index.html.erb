@@ -32,13 +32,15 @@
   <div class="filter-area">
       <div class="ui compact menu">
         <div class="ui simple dropdown item">
-          Classes
+          <!-- trinary operator to set default or current search -->
+          <%= params[:classes].present? ? params[:classes] : "Classes" %>
           <i class="dropdown icon"></i>
           <div class="menu">
-            <%= link_to notes_path(classes: "CS 31") do %>
+            <!-- To have the previous search/filters compound pass all the current search terms even if null-->
+            <%= link_to notes_path(classes: "CS 31", search: params[:search], professor: params[:professor], type: params[:type]) do %>
               <div class="item" >CS 31</div>
             <% end %>
-            <%= link_to notes_path(classes: "CS 32") do %>
+            <%= link_to notes_path(classes: "CS 32", search: params[:search], professor: params[:professor], type: params[:type]) do %>
               <div class="item" >CS 32</div>
             <% end %>
           </div>
@@ -46,13 +48,13 @@
       </div>
       <div class="ui compact menu">
         <div class="ui simple dropdown item">
-          Professor
+          <%= params[:professor].present? ? params[:professor] : "Professor" %>
           <i class="dropdown icon"></i>
           <div class="menu">
-            <%= link_to notes_path(professor: "Smallberg") do %>
+            <%= link_to notes_path(professor: "Smallberg", search: params[:search], type: params[:type], classes: params[:classes]) do %>
               <div class="item">Smallberg</div>
             <% end %>
-            <%= link_to notes_path(professor: "Nachenberg") do %>
+            <%= link_to notes_path(professor: "Nachenberg", search: params[:search], type: params[:type], classes: params[:classes]) do %>
               <div class="item">Nachenberg</div>
             <% end %>
           </div>
@@ -60,16 +62,16 @@
       </div>
       <div class="ui compact menu">
         <div class="ui simple dropdown item">
-          Type
+          <%= params[:type].present? ? params[:type] : "Type" %>
           <i class="dropdown icon"></i>
           <div class="menu">
-            <%= link_to notes_path(type: "Weekly Notes") do %>
+            <%= link_to notes_path(type: "Weekly Notes", search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
               <div class="item">Weekly Notes</div>
             <% end %>
-            <%= link_to notes_path(type: "Midterm Cheatsheet") do %>
+            <%= link_to notes_path(type: "Midterm Cheatsheet", search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
               <div class="item">Midterm Cheatsheet</div>
             <% end %>
-            <%= link_to notes_path(type: "Final Cheatsheet") do %>
+            <%= link_to notes_path(type: "Final Cheatsheet", search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
               <div class="item">Final Cheatsheet</div>
             <% end %>
           </div>
