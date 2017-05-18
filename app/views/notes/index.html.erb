@@ -4,36 +4,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag ('homepage.js') %>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <script>
-      /*basically instead of dynamically updating the webpage using info from the database
-      I'm posting to the database and then seperately having javascript logic change it
-      */
-      var isSignedIn = <%= user_signed_in? %>
-      var currentVoteState = 0; //unintialized 0, 1 upvoted, -1 novote
-      function incrementRep(initalState) {
-        if (currentVoteState === 0) //only care about initialState when unintialized
-          currentVoteState = initalState;
-
-        if (isSignedIn) { //if not signed in do nothing
-          if (currentVoteState === 1) { //if upvoted, then unupvote
-            document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)-1);
-            currentVoteState = -1;
-            document.getElementById('upvoteButton').innerHTML = "^";
-          }
-          else { //upvote
-            document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)+1);
-            currentVoteState = 1;
-            document.getElementById('upvoteButton').innerHTML = "v";
-          }
-        }
-      }
-    </script>
     <script src="https://use.fontawesome.com/eb20c96418.js"></script>
   </head>
   <body>
 
   <!-- For the search area -->
+  <!-- <%= form_tag(notes_path, :method => "get") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+<%= submit_tag "Search" %>
+<% end %> -->
+
   <div class="grid background">
+    <!--Search Bar -->
     <div class="ui search big search-area">
       <div class="ui icon input input-area">
         <i class="fitted search icon big" id="search-icon"></i>
@@ -41,6 +23,8 @@
       </div>
       <div class="results"></div>
     </div>
+
+  <!-- Filter Area -->
   <div class="filter-area">
       <div class="ui compact menu">
         <div class="ui simple dropdown item">
@@ -131,57 +115,6 @@
     </div>
   </div>
 
-<!-- How to change depending on if User is signed in -->
-
-<!--
-<% if user_signed_in? %>
-<div> Hi, you are signed in <%= @user.email %></div>
-<% else %>
-<div> You are not signed in </div>
-<% end %>
-
-<%= link_to "New Note", new_note_path, class: "btn btn-primary" %>
-<br />
-<br />
-
--->
-<!--
-<table class = "table table-bordered table-striped">
-   <thead>.
-      <tr>
-         <th>Title</th>
-         <th>Download Link</th>
-         <th> </th>
-      </tr>
-   </thead>
-
-   <tbody>
-      <% @notes.each do |note| %>
-         <tr>
-            <td><%= note.title %></td>
-            <td><%= link_to "Download Note", note.ufile.url %></td>
-            <td><%= button_to "Delete",  note, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{note.title}?" %></td>
-            if signed in and didnt upvote it, allow upvoting. To input image as link, link_to image_tag("Search.png", border: 0), upvote_path....
-            <td
-              <% if user_signed_in? %>
-                <% if @user.upvotednotes.include?(note.id) %>
-                  onclick="incrementRep(1)">
-                  <%= link_to "v", upvote_path(note), id: "upvoteButton" %>
-                  change "v" to what you want someone who already upvoted note to see 
-                <% else %>
-                  onclick="incrementRep(-1)">
-                  <%= link_to "^", upvote_path(note), id: "upvoteButton" %>
-                  change "^" to what you want someone who didnt vote it to see
-                <% end %>
-              <% else %> put what you want someone not logged in to see here
-              <% end %>
-            </td>
-            <td id = "Rep" ><%= note.reputation %></td>
-         </tr>
-      <% end %>-->
-   </tbody>
-   </div>
-</table>
 
 <!--new note-->
 <div class="modal-container hide new-note-modal-container">
@@ -310,7 +243,7 @@
               <div class="actions">
                 <%= f.submit "Create Account", class: 'ui button login-submit'%>
               </div>
-              
+
             <% end %>
           </div>
         </div>
