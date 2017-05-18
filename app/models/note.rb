@@ -9,4 +9,8 @@ class Note < ApplicationRecord
          "%#{search}%", "%#{search}%",
          "%#{search}%", "%#{search}%")
     end
+
+    scope :classes, -> (cls) {where uclaclass: cls}
+    scope :professor, -> (prof) {where author: prof}
+    scope :type, -> (typ) {where notetype: typ}
 end
