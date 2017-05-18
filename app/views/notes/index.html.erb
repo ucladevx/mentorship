@@ -20,7 +20,9 @@
       <div class="ui search big search-area">
         <div class="ui icon input input-area">
           <%= text_field_tag :search, params[:search], class: "prompt", placeholder: "Search for a class..." %>
-          <i class="fitted search icon big" id="search-icon"></i>
+          <button type="submit">
+            <i class="fitted search icon big" id="search-icon"></i>
+          </button>
         </div>
         <div class="results"></div>
       </div>
