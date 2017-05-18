@@ -4,6 +4,6 @@ function changeNumber() {
 
 var initNotes = function(){
 
-	
+
 
 }

@@ -31,7 +31,6 @@
     <script src="https://use.fontawesome.com/eb20c96418.js"></script>
   </head>
   <body>
-
   <!-- For the search area -->
   <div class="grid background">
     <div class="ui search big search-area">
@@ -167,7 +166,7 @@
                 <% if @user.upvotednotes.include?(note.id) %>
                   onclick="incrementRep(1)">
                   <%= link_to "v", upvote_path(note), id: "upvoteButton" %>
-                  change "v" to what you want someone who already upvoted note to see 
+                  change "v" to what you want someone who already upvoted note to see
                 <% else %>
                   onclick="incrementRep(-1)">
                   <%= link_to "^", upvote_path(note), id: "upvoteButton" %>
@@ -310,7 +309,7 @@
               <div class="actions">
                 <%= f.submit "Create Account", class: 'ui button login-submit'%>
               </div>
-              
+
             <% end %>
           </div>
         </div>
