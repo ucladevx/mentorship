@@ -126,7 +126,9 @@
                       <% end %>
                     <% else %>
                       <!-- TODO: trigger model when the heart is clicked -->
-                      <div class="ui heart rating" data-rating="1" data-max-rating="1" ></div>
+                      <a class="item login-trigger-modal" >
+                        <div class="ui heart rating" data-rating="1" data-max-rating="1" ></div>
+                      </a>
                     <% end %>
                     <!-- TODO: Need someone to make this div on the same line as the heart -->
                     <div id = "Rep<%= note.id %>"> <%= note.reputation %> </div>
