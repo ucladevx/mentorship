@@ -4,12 +4,30 @@
 
 @import "base/global";
 
+.search input[type=text] {
+	padding: 15px 50px;
+}
+
+#search-button {
+	border: none;
+	background-color: white;
+	position: absolute;
+	height: 35px;
+	width: 35px;
+	padding: 0px;
+	margin: 0px;
+	margin-top: 23px;
+	margin-left: 10px;
+}
+
 .search-area {
+	position: absolute;
 	margin-left: 10%;
 	padding-top: 25px;
 }
 
 .input-area {
+	position: absolute;
 	align-items: center;
 	align-content: center;
 	height: 75px;
@@ -19,6 +37,12 @@
 .filter-area {
 	margin-left: 10%;
 	padding-top: 20px;
+}
+
+#trigger-new-note {
+	&:hover{
+		background: $color-tertiary-light;
+	}
 }
 
 .notes-content{
