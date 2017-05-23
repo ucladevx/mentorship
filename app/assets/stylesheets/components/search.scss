@@ -47,6 +47,7 @@
 
 .ui.compact.menu{
 	margin: 10px 1px;
+	border-radius: $item-border-radius !important;
 
 	a{
 		display: table;
