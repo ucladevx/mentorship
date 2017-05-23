@@ -73,9 +73,11 @@
           </div>
         </div>
       </div>
+      <% if user_signed_in? %>
        <div class="ui compact menu">
         <button id="trigger-new-note">NEW NOTE</button>
        </div>
+       <% end %>
     </div>
 
   <div class="grid-container">
@@ -192,8 +194,6 @@
     </div>
 
     <div class="modal-field-content">
-
-
       <% if !@note.errors.empty? %>
         <div class="alert alert-error">
 
@@ -238,6 +238,5 @@
   </div>
   <div class="overlay" onClick="hideModal('new-note')"></div>
 </div>
-
 </body>
 </html>
