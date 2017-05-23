@@ -1,0 +1,84 @@
+// Place all the styles related to the notes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "base/global";
+
+.notes-content{
+
+	background: $color-tertiary-light;
+	min-height: 100vh;
+	color: white;
+
+}
+
+.grid-notes{
+
+	.col{
+		height: $grid-item-height;
+	}
+
+	.card.grid-item{
+		height: 100%;
+		max-width: 100%;
+		background: $color-tertiary-light;
+		margin: $grid-gutter-padding 0;
+    	box-shadow: $shadow;
+    	background: white;
+
+		position: relative;
+		align-items: center;
+		justify-content: center;
+		//padding: $card-spacing;
+		overflow: hidden;
+
+		transition: all $transition-duration $transition-ease;
+
+		.card-inner{
+			padding: $card-spacing;
+			width: calc(100% - #{$card-side-width});
+		}
+
+		.class{
+			color: $color-primary;
+			font-weight: lighter;
+			font-size: 0.8rem;
+		}
+
+		.title{
+			text-align: left;
+			font-size: 1.5rem;
+			margin: 0;
+		}
+
+		.hover-icons{
+			position: absolute;
+			font-size: $card-spacing;
+			width: $card-side-width;
+			right: 0;
+    		bottom: $card-spacing;
+
+    		.icon{
+    			-webkit-transform: translateX(300%);
+    					transform: translateX(300%);
+
+    			display: table;
+    			margin-top: $card-spacing;
+
+    			transition: all $transition-duration $transition-ease;
+    		}
+
+    		.icon:nth-child(2){
+    			transition-delay: 0.1s;
+    		}
+		}
+
+		&:hover{
+			.icon{
+				transform: translateX(0%);
+			}
+		}
+
+	}
+
+}

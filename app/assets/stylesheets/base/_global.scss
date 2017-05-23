@@ -2,6 +2,10 @@
 @import "vars";
 @import "colors";
 
+*:active, *:focus{
+    outline: none;
+}
+
 .wide-hidden, .wide-hidden-flex{
 	display: none !important;
 }

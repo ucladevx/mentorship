@@ -70,60 +70,33 @@
         </div>
       </div>
        <div class="ui compact menu">
-        <div class="item" id="trigger-new-note">New Note</div>
+        <div class="btn-main" id="trigger-new-note"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNew Note</div>
        </div>
     </div>
 
   <div class="grid-container">
     <div class="grid grid-notes">
-
-       <!--<div class="col lg-6 md-6 sm-12">
-        <div class="card grid-item">
-          <h3 class="title">Title of card here</h3>
-          <div class="more icons">
-            <i class="fa fa-eye" aria-hidden="true"></i>
-            <i class="fa fa-download" aria-hidden="true"></i>
-            <a href="#">PREVIEW</a> | <a href="#">DOWNLOAD</a>
-          </div>
-        </div>
-       </div>-->
         <% @notes.each do |note| %>
-        <div class="col lg-6 md-6 sm-12">
-        <div class="card grid-item">
-          <h3 class="title"><%= note.title %></h3>
-          <div class="more icons">
-            <%= link_to note.ufile.url, target: :_blank do %>
-              <i class="fa fa-eye" aria-hidden="true"></i>
-            <% end %>
-            <%= link_to note.ufile.url, target: :_blank, download: 'note.pdf' do %>
-            <i class="fa fa-download" aria-hidden="true"></i>
-            <% end %>
+          <div class="col lg-6 md-6 sm-12">
+          
+          <div class="card grid-item">
+            <div class="card-inner">
+              <span class="class">CS 31 | Professor Smallberg</span>
+              <h3 class="title"><%= note.title %></h3>
+            </div>
+            <div class="hover-icons">
+              <%= link_to note.ufile.url, target: :_blank, :class => "icon" do %>
+                <i class="fa fa-search-plus" aria-hidden="true"></i>
+              <% end %>
+              <%= link_to note.ufile.url, target: :_blank, download: 'note.pdf', :class => "icon"  do %>
+              <i class="fa fa-download" aria-hidden="true"></i>
+              <% end %>
+            </div>
           </div>
-        </div>
-       </div>
-         <% end %>
-         <!--
-      <div class="col lg-6 md-6 sm-12">
-        <div class="card grid-item">
-        </div>
-       </div>
-       <div class="col lg-6 md-6 sm-12">
-        <div class="card grid-item">
-        </div>
-       </div>
-       <div class="col lg-6 md-6 sm-12">
-        <div class="card grid-item">
-        </div>
-       </div>
-       <div class="col lg-6 md-6 sm-12">
-        <div class="card grid-item">
-        </div>
-       </div>
-       <div class="col lg-6 md-6 sm-12">
-        <div class="card grid-item">
-        </div>
-       </div>-->
-
+         
+         </div>
+       
+      <% end %>
     </div>
   </div>
 
