@@ -51,6 +51,11 @@
 			margin: 0;
 		}
 
+		.reactions{
+			position: absolute;
+			bottom: $card-spacing;
+		}
+
 		.hover-icons{
 			position: absolute;
 			font-size: $card-spacing;

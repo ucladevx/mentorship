@@ -85,7 +85,25 @@
             <div class="card-inner">
               <span class="class">CS 31 | Professor Smallberg</span>
               <h3 class="title"><%= note.title %></h3>
-            </div>
+                <% if user_signed_in? %>
+                  <div class="reactions"
+                    <% if @user.upvotednotes.include?(note.id) %>
+                      onclick="incrementRep(1)">
+                      <span><%= note.reputation %></span>
+                      <%= link_to upvote_path(note), :id => "upvoteButton" do %>
+                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                      <% end %>
+                    <% else %>
+                      onclick="incrementRep(-1)">
+                      <span class="reputation"><%= note.reputation %>&nbsp</span>
+                      <%= link_to upvote_path(note), :id => "upvoteButton" do %>
+                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                      <% end %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+
             <div class="hover-icons">
               <%= link_to note.ufile.url, target: :_blank, :class => "icon" do %>
                 <i class="fa fa-search-plus" aria-hidden="true"></i>
