@@ -12,7 +12,7 @@ $bp-mobile: 800px;
 
 // Transitions //
 
-$transition-duration: 0.4s;
+$transition-duration: 0.2s;
 $transition-ease: ease;
 
 
@@ -20,7 +20,7 @@ $transition-ease: ease;
 
 $nav-height: 80px;
 $nav-spacing: 10px;
-$shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
+$shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 
 // Grid //
 
@@ -32,12 +32,13 @@ $grid-lg-breakpoint   : 1800px !default;
 $grid-gutter-padding  : 20px !default;
 $grid-vertical-padding: 20px !default;
 
-$grid-item-height     : 250px;
+$grid-item-height     : 200px;
 $item-border-radius   : 5px;
 
 // Card //
 
-$card-bottom: 10px;
+$card-spacing: 20px;
+$card-side-width: 30px;
 
 // Modal //
 $modal-spacing: 30px;
