@@ -4,132 +4,119 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag ('homepage.js') %>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <script>
-      /*basically instead of dynamically updating the webpage using info from the database
-      I'm posting to the database and then seperately having javascript logic change it
-      */
-      var isSignedIn = <%= user_signed_in? %>
-      var currentVoteState = 0; //unintialized 0, 1 upvoted, -1 novote
-      function incrementRep(initalState) {
-        if (currentVoteState === 0) //only care about initialState when unintialized
-          currentVoteState = initalState;
-
-        if (isSignedIn) { //if not signed in do nothing
-          if (currentVoteState === 1) { //if upvoted, then unupvote
-            document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)-1);
-            currentVoteState = -1;
-            document.getElementById('upvoteButton').innerHTML = "^";
-          }
-          else { //upvote
-            document.getElementById('Rep').innerHTML = String(Number(document.getElementById('Rep').innerHTML)+1);
-            currentVoteState = 1;
-            document.getElementById('upvoteButton').innerHTML = "v";
-          }
-        }
-      }
-    </script>
     <script src="https://use.fontawesome.com/eb20c96418.js"></script>
   </head>
   <body>
 
-  <!-- For the search area -->
   <div class="grid background">
-    <div class="ui search big search-area">
-      <div class="ui icon input input-area">
-        <i class="fitted search icon big" id="search-icon"></i>
-        <input class="prompt" type="text" placeholder="Search for a class...">
+    <!--Search Bar -->
+    <%= form_tag(notes_path, :method => "get") do %>
+      <div class="ui search big search-area">
+        <div class="ui input input-area">
+          <button type="submit" id="search-button" class="prompt"><%= image_tag("search.png", size: "35x30") %></button>
+          <%= text_field_tag :search, params[:search], class: "prompt", placeholder: "Search for a class..."%>
+        </div>
+        <div class="results"></div>
       </div>
-      <div class="results"></div>
-    </div>
+    <% end %>
+
+  <!-- Filter Area -->
   <div class="filter-area">
       <div class="ui compact menu">
         <div class="ui simple dropdown item">
-          Classes
+          <!-- trinary operator to set default or current search -->
+          <%= params[:classes].present? ? params[:classes] : "Classes" %>
           <i class="dropdown icon"></i>
           <div class="menu">
-            <div class="item">CS 31</div>
-            <div class="item">CS 32</div>
+            <!-- To have the previous search/filters compound, this passes all the current search terms even if null-->
+            <%= link_to notes_path(search: params[:search], professor: params[:professor], type: params[:type]) do %>
+              <div class="item" >All</div>
+            <% end %>
+            <%= link_to notes_path(classes: "CS 31", search: params[:search], professor: params[:professor], type: params[:type]) do %>
+              <div class="item" >CS 31</div>
+            <% end %>
+            <%= link_to notes_path(classes: "CS 32", search: params[:search], professor: params[:professor], type: params[:type]) do %>
+              <div class="item" >CS 32</div>
+            <% end %>
           </div>
         </div>
       </div>
       <div class="ui compact menu">
         <div class="ui simple dropdown item">
-          Professor
+          <%= params[:professor].present? ? params[:professor] : "Professor" %>
           <i class="dropdown icon"></i>
           <div class="menu">
-            <div class="item">Smallberg</div>
-            <div class="item">Nachenberg</div>
+            <%= link_to notes_path(search: params[:search], type: params[:type], classes: params[:classes]) do %>
+              <div class="item">All</div>
+            <% end %>
+            <%= link_to notes_path(professor: "Smallberg", search: params[:search], type: params[:type], classes: params[:classes]) do %>
+              <div class="item">Smallberg</div>
+            <% end %>
+            <%= link_to notes_path(professor: "Nachenberg", search: params[:search], type: params[:type], classes: params[:classes]) do %>
+              <div class="item">Nachenberg</div>
+            <% end %>
           </div>
         </div>
       </div>
       <div class="ui compact menu">
         <div class="ui simple dropdown item">
-          Type
+          <%= params[:type].present? ? params[:type] : "Type" %>
           <i class="dropdown icon"></i>
           <div class="menu">
-            <div class="item">Weekly Notes</div>
-            <div class="item">Midterm Cheetsheet</div>
-            <div class="item">Final Cheatsheet</div>
+            <%= link_to notes_path(search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
+              <div class="item">All</div>
+            <% end %>
+            <%= link_to notes_path(type: "Weekly Notes", search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
+              <div class="item">Weekly Notes</div>
+            <% end %>
+            <%= link_to notes_path(type: "Midterm Cheatsheet", search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
+              <div class="item">Midterm Cheatsheet</div>
+            <% end %>
+            <%= link_to notes_path(type: "Final Cheatsheet", search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
+              <div class="item">Final Cheatsheet</div>
+            <% end %>
           </div>
         </div>
       </div>
+      <% if user_signed_in? %>
        <div class="ui compact menu">
-        <button id="trigger-new-note">NEW NOTE</button>
+        <div class="btn-main" id="trigger-new-note"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNew Note</div>
        </div>
+       <% end %>
     </div>
 
-  <div class="grid-container">
-    <div class="grid grid-notes">
 
-       <!--<div class="col lg-6 md-6 sm-12">
-        <div class="card grid-item">
-          <h3 class="title">Title of card here</h3>
-          <div class="more icons">
-            <i class="fa fa-eye" aria-hidden="true"></i>
-            <i class="fa fa-download" aria-hidden="true"></i>
-            <a href="#">PREVIEW</a> | <a href="#">DOWNLOAD</a>
-          </div>
-        </div>
-       </div>-->
+    <div class="grid-container">
+      <div class="grid grid-notes">
         <% @notes.each do |note| %>
-        <div class="col lg-6 md-6 sm-12">
-        <div class="card grid-item">
-          <h3 class="title"><%= note.title %></h3>
-          <div class="more icons">
-            <%= link_to note.ufile.url, target: :_blank do %>
-              <i class="fa fa-eye" aria-hidden="true"></i>
-            <% end %>
-            <%= link_to note.ufile.url, target: :_blank, download: 'note.pdf' do %>
-            <i class="fa fa-download" aria-hidden="true"></i>
-            <% end %>
-          </div>
-        </div>
-       </div>
-         <% end %>
-         <!--
-      <div class="col lg-6 md-6 sm-12">
-        <div class="card grid-item">
-        </div>
-       </div>
-       <div class="col lg-6 md-6 sm-12">
-        <div class="card grid-item">
-        </div>
-       </div>
-       <div class="col lg-6 md-6 sm-12">
-        <div class="card grid-item">
-        </div>
-       </div>
-       <div class="col lg-6 md-6 sm-12">
-        <div class="card grid-item">
-        </div>
-       </div>
-       <div class="col lg-6 md-6 sm-12">
-        <div class="card grid-item">
-        </div>
-       </div>-->
+          <div class="col lg-6 md-6 sm-12">
+            <div class="card grid-item">
+              <div class="card-inner">
+                <span class="class"><%= note.uclaclass %>| <%= note.professor %> | <%= note.notetype %> </span>
+                <h3 class="title"><%= note.title %></h3>
+                <% if user_signed_in? %>
+                  <div class="reactions">
+                    <span class="reputation"><%= note.reputation %>&nbsp</span>
+                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                  </div>
+                <% end %>
+              </div>
 
+              <div class="hover-icons">
+                <%= link_to note.ufile.url, target: :_blank, :class => "icon" do %>
+                  <i class="fa fa-search-plus" aria-hidden="true"></i>
+                <% end %>
+                <%= link_to note.ufile.url, target: :_blank, download: 'note.pdf', :class => "icon"  do %>
+                  <i class="fa fa-download" aria-hidden="true"></i>
+                <% end %>
+              </div>
+            </div>
+
+          </div>
+
+        <% end %>
+      </div>
     </div>
-  </div>
 
 <!-- How to change depending on if User is signed in -->
 
@@ -141,47 +128,8 @@
 <% end %>
 
 <%= link_to "New Note", new_note_path, class: "btn btn-primary" %>
-<br />
-<br />
 
 -->
-<!--
-<table class = "table table-bordered table-striped">
-   <thead>.
-      <tr>
-         <th>Title</th>
-         <th>Download Link</th>
-         <th> </th>
-      </tr>
-   </thead>
-
-   <tbody>
-      <% @notes.each do |note| %>
-         <tr>
-            <td><%= note.title %></td>
-            <td><%= link_to "Download Note", note.ufile.url %></td>
-            <td><%= button_to "Delete",  note, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{note.title}?" %></td>
-            if signed in and didnt upvote it, allow upvoting. To input image as link, link_to image_tag("Search.png", border: 0), upvote_path....
-            <td
-              <% if user_signed_in? %>
-                <% if @user.upvotednotes.include?(note.id) %>
-                  onclick="incrementRep(1)">
-                  <%= link_to "v", upvote_path(note), id: "upvoteButton" %>
-                  change "v" to what you want someone who already upvoted note to see
-                <% else %>
-                  onclick="incrementRep(-1)">
-                  <%= link_to "^", upvote_path(note), id: "upvoteButton" %>
-                  change "^" to what you want someone who didnt vote it to see
-                <% end %>
-              <% else %> put what you want someone not logged in to see here
-              <% end %>
-            </td>
-            <td id = "Rep" ><%= note.reputation %></td>
-         </tr>
-      <% end %>-->
-   </tbody>
-   </div>
-</table>
 
 <!--new note-->
 <div class="modal-container hide new-note-modal-container">
@@ -192,8 +140,6 @@
     </div>
 
     <div class="modal-field-content">
-
-
       <% if !@note.errors.empty? %>
         <div class="alert alert-error">
 
@@ -238,6 +184,5 @@
   </div>
   <div class="overlay" onClick="hideModal('new-note')"></div>
 </div>
-
 </body>
 </html>

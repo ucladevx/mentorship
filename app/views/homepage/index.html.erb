@@ -1,11 +1,12 @@
 <html lang="en">
   <head>
     <title>Mentorship</title>
+    <meta name="viewport" content="width=device-width" />
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag ('homepage.js') %>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-    <meta name="viewport" content="width=device-width" />
+
 
     <script src="https://use.fontawesome.com/eb20c96418.js"></script>
 
@@ -125,13 +126,11 @@
                         <% end %>
                       <% end %>
                     <% else %>
-                      <!-- TODO: trigger model when the heart is clicked -->
                       <a class="item login-trigger-modal" >
                         <div class="ui heart rating" data-rating="1" data-max-rating="1" ></div>
                       </a>
                     <% end %>
-                    <!-- TODO: Need someone to make this div on the same line as the heart -->
-                    <div id = "Rep<%= note.id %>"> <%= note.reputation %> </div>
+                    <span id = "Rep<%= note.id %>"> <%= note.reputation %> </span>
                   </div>
                 </div>
               </div>
@@ -418,7 +417,6 @@
               <div class="footer">
                 <div class="sixteen wide center aligned column">
                   <b>BRUIN</b>ACADEMY © 2017</a>
-
                 </div>
               </div>
           </div>

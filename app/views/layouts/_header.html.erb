@@ -9,7 +9,6 @@
                     <%= image_tag("Pencil.png", class: "logo mobile-hidden" )%>
                     <%= image_tag("Logo.png", class: "logo") %> </a>
 
-
                 <div class="right menu">
                     <%= link_to mentors_index_path, class:"item" do %>
                         <span>Mentors</span>
@@ -74,13 +73,10 @@
                     <%= link_to "Tutorials", tutorials_index_path, class:"item"%>
                     <% if user_signed_in? %> 
                          <%= link_to destroy_user_session_path, method: :delete, class:"item" do %>
-                            <span class="login btn-main">Logout</span>
+                            Logout
                          <% end %>
-                    
                     <% else %>
-                        <a class="item" id="login-trigger-modal" >
-                            <span>Login</span>
-                        </a>
+                        <a class="item" id="login-trigger-modal">Login</a>
                     <% end %>
                 </div>
             </div>
