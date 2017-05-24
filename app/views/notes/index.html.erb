@@ -28,12 +28,15 @@
           <%= params[:classes].present? ? params[:classes] : "Classes" %>
           <i class="dropdown icon"></i>
           <div class="menu">
-            <!-- To have the previous search/filters compound pass all the current search terms even if null-->
+            <!-- To have the previous search/filters compound, this passes all the current search terms even if null-->
             <%= link_to notes_path(classes: "CS 31", search: params[:search], professor: params[:professor], type: params[:type]) do %>
               <div class="item" >CS 31</div>
             <% end %>
             <%= link_to notes_path(classes: "CS 32", search: params[:search], professor: params[:professor], type: params[:type]) do %>
               <div class="item" >CS 32</div>
+            <% end %>
+            <%= link_to notes_path(search: params[:search], professor: params[:professor], type: params[:type]) do %>
+              <div class="item" >All</div>
             <% end %>
           </div>
         </div>
@@ -48,6 +51,9 @@
             <% end %>
             <%= link_to notes_path(professor: "Nachenberg", search: params[:search], type: params[:type], classes: params[:classes]) do %>
               <div class="item">Nachenberg</div>
+            <% end %>
+            <%= link_to notes_path(search: params[:search], type: params[:type], classes: params[:classes]) do %>
+              <div class="item">All</div>
             <% end %>
           </div>
         </div>
@@ -66,6 +72,9 @@
             <%= link_to notes_path(type: "Final Cheatsheet", search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
               <div class="item">Final Cheatsheet</div>
             <% end %>
+            <%= link_to notes_path(search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
+              <div class="item">All</div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -80,7 +89,7 @@
     <div class="grid grid-notes">
         <% @notes.each do |note| %>
           <div class="col lg-6 md-6 sm-12">
-          
+
           <div class="card grid-item">
             <div class="card-inner">
               <span class="class">CS 31 | Professor Smallberg</span>
@@ -113,9 +122,9 @@
               <% end %>
             </div>
           </div>
-         
+
          </div>
-       
+
       <% end %>
     </div>
   </div>

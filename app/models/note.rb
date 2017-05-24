@@ -11,6 +11,6 @@ class Note < ApplicationRecord
     end
 
     scope :classes, -> (cls) {where uclaclass: cls}
-    scope :professor, -> (prof) {where author: prof}
+    scope :professor, -> (prof) {where professor: prof}
     scope :type, -> (typ) {where notetype: typ}
 end
