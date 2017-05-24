@@ -21,9 +21,31 @@
                         <span>Tutorials</span>
                     <% end %>
                      <% if user_signed_in? %> 
-                         <%= link_to destroy_user_session_path, method: :delete, class:"item" do %>
-                            <span class="login btn-main">LOG out</span>
-                         <% end %>
+                            <a class="item profile-trigger-modal">
+                                <span id="profile-btn"></span>
+                            </a>
+
+                            <div class="modal-container hide profile-modal-container">
+                                <div class="profile profile-modal">
+                                    <div class="profile-arrow-up"></div>
+                                    <span id="profile-icon"></span>
+                                    <div class="modal-header">
+                                        <span class="item">Name</span>
+                                    </div>
+                                    <div class="modal-field-content">
+                                        <%= link_to "My Account", mentors_index_path, class:"item"%>
+                                        <%= link_to "Help", notes_path, class:"item"%>
+                                        <% if user_signed_in? %> 
+                                            <%= link_to destroy_user_session_path, method: :delete, class:"item" do %>
+                                                <span class="login btn-main">LOG out</span>
+                                        <% end %>
+                                        
+                                    </div>
+                                </div>
+                                <div onClick="hideModal('profile')"></div>
+                            </div>
+                            
+                    <% end %>
                     
                     <% else %>
                         <a class="item login-trigger-modal" >
