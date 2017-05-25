@@ -38,8 +38,11 @@ header{
 	color: white;
 	background: $color-primary;
 	border-radius: $item-border-radius;
+	cursor: pointer;
+	padding: 10px 14px;;
 
 	&:hover{
+		background: $color-primary;
 		opacity: 0.9;
 	}
 }
@@ -70,16 +73,21 @@ header{
 	font-size: 18px;
 	border: none;
 	font-family: $type-main;
-	border-bottom: 1px solid $color-tertiary-light;
 }
 
 .ui.vertical.menu{
 	width: 100%;
+	height: auto;
 	display: none;
+	padding: 20px;
 
 	.menu{
 		padding: $nav-spacing;
 		background: white;
+
+		.item{
+			margin: 10px 0px;
+		}
 	}
 }
 

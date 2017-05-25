@@ -1,11 +1,12 @@
 <html lang="en">
   <head>
     <title>Mentorship</title>
+    <meta name="viewport" content="width=device-width" />
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag ('homepage.js') %>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 
-    <meta name="viewport" content="width=device-width" />
+
 
     <script src="https://use.fontawesome.com/eb20c96418.js"></script>
 
@@ -52,7 +53,6 @@
       </div>
     </div>
   </div>
-  <div class="dimmed pusher" id="content">
     <!-- Yellow Box -->
     <div class="grid yellow background">
       <div class="ui center aligned grid slide">
@@ -166,11 +166,11 @@
                         <% end %>
                       <% end %>
                     <% else %>
-                      <!-- TODO: trigger model when the heart is clicked -->
-                      <div class="ui heart rating" data-rating="1" data-max-rating="1" ></div>
+                      <a class="item login-trigger-modal" >
+                        <div class="ui heart rating" data-rating="1" data-max-rating="1" ></div>
+                      </a>
                     <% end %>
-                    <!-- TODO: Need someone to make this div on the same line as the heart -->
-                    <div id = "Rep<%= note.id %>"> <%= note.reputation %> </div>
+                    <span id = "Rep<%= note.id %>"> <%= note.reputation %> </span>
                   </div>
                 </div>
               </div>
@@ -418,94 +418,7 @@
           </div>
         </div>
        </div>
-     </div>
-   </div>
- </div>
-</footer>
-
-<!-- Login Modal -->
-<div class="modal-container hide login-modal-container">
-      <div class="modal login-modal">
-        <div class="modal-header">
-          <h4 class="title"><%= image_tag("icon-lock.svg", :class => "icon")%>&nbspLogin</h4>
-          <p class="signup-link">Don't have an account?&nbsp
-            <a class="item sign-up-trigger-modal"><span>Sign up</span></a>
-        </div>
-
-        <div class="modal-field-content">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class: 'ui form' }) do |f| %>
-            <div class="field">
-              <%= f.email_field :email, autofocus: true, placeholder: "Email"%>
-            </div>
-
-            <div class="field">
-              <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
-            </div>
-
-            <% if devise_mapping.rememberable? -%>
-              <div class="field, ui checkbox">
-                <%= f.check_box :remember_me%>
-                <%= f.label :remember_me %>
-              </div>
-            <% end -%>
-
-            <div class="submit">
-                <div class="actions">
-                  <%= f.submit "Log in", class: 'ui button login-submit'%>
-                </div>
-
-              <% end %>
-            </div>
-            <p class="password-reset-link"><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
-        </div>
-      </div>
-      <div class="overlay" onClick="hideModal('login')"></div>
-    </div>
-  </div>
-
-  <!-- Signup Modal -->
-  <div class="modal-container hide sign-up-modal-container">
-      <div class="modal sign-up-modal">
-        <div class="modal-header">
-          <h4 class="title"><%= image_tag("icon-lock.svg", :class => "icon")%>&nbspSign up</h4>
-          <p class="signup-link">Already have an account?&nbsp
-            <a class="item login-trigger-modal"><span>Log in</span></a>
-        </div>
-
-        <div class="modal-field-content">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {class: 'ui form' }) do |f| %>
-          <%= devise_error_messages! %>
-
-          <div class="field">
-            <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :password %>
-            <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %>
-            <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
-          </div>
-
-          <div class="field">
-            <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password confirmation" %>
-          </div>
-
-            <div class="submit">
-                <div class="actions">
-                  <%= f.submit "Create Account", class: 'ui button login-submit'%>
-                </div>
-
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <div class="overlay" onClick="hideModal('sign-up')"></div>
-    </div>
-  </div>
+    </footer>
 
   <!-- Footer -->
   <footer>
@@ -544,7 +457,6 @@
               <div class="footer">
                 <div class="sixteen wide center aligned column">
                   <b>BRUIN</b>ACADEMY © 2017</a>
-
                 </div>
               </div>
           </div>
