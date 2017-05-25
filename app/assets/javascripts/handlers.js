@@ -6,5 +6,14 @@ var onReady = function(){
 	initModal();
 	//initNotes();
 
+};
+
+var onBodyClick = function(e){
+
+	initNav(e);
+
 }
+
+
 $(document).on('turbolinks:load', onReady);
+$('body').click(onBodyClick);

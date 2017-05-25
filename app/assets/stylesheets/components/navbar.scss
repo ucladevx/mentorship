@@ -34,6 +34,83 @@ header{
 	padding: $nav-spacing $nav-spacing * 2;
 }
 
+
+/////////////Profile Dropdown/////////////////
+
+#profile-btn{
+	border-radius: $profile-radius;
+	height: $profile-size;
+	width: $profile-size;
+	background: $color-primary;
+	position: relative;
+}
+
+#profile-picture{
+	border-radius: $profile-radius;
+	height: 50px;
+	width: 50px;
+	background: $color-primary;
+}
+
+.profile-modal{
+	width: 200px;
+}
+
+.profile{
+	position: absolute;
+	background: white;
+	box-shadow: $profile-shadow;
+	padding: $modal-spacing;
+	border-radius: $item-border-radius;
+	right: 23px;
+	top: $nav-height;
+}
+
+.profile-item {
+	font-size: 12px;
+	letter-spacing: 1px;
+	line-height: 300%;
+	text-transform: uppercase;
+}
+
+.profile-item.short {
+	line-height:200%;
+}
+
+.profile-item.table {
+	width:30px;
+	display:table-cell;
+}
+
+.profile-item.right{
+	float:right;
+}
+
+.profile-arrow-up {
+	z-index: 140;
+	position: absolute;
+    z-index: -1;
+    top: 0px;
+    right: 25px;
+
+    height: 20px;
+    width: 20px;
+    -webkit-transform: rotate(45deg) translateY(-50%);
+    		transform: rotate(45deg) translateY(-50%);
+
+    background: white;
+    box-shadow: $profile-shadow;
+
+}
+
+.profile-arrow-up.no-shadow{
+	z-index: 12;
+	box-shadow: none;
+}
+
+
+/////////////////////////////////////////////
+
 .btn-main{
 	color: white;
 	background: $color-primary;
