@@ -63,6 +63,37 @@ p {
   margin-bottom: 40px !important;
 }
 
+.dark-secondary.positioned {
+  //Change this jank shiz
+  position:absolute;
+
+  left: 50%;
+  top: 40%;
+  -webkit-transform: translate(-50%, -40%);
+      transform: translate(-50%, -40%);
+}
+
+.positioned {
+    //Change this jank shiz
+  position:absolute;
+
+  left: 50%;
+  top: 48%;
+  -webkit-transform: translate(-50%, -48%);
+      transform: translate(-50%, -48%);
+}
+
+.positioned2 {
+    //Change this jank shiz
+  position:absolute;
+
+  left: 50%;
+  top: 55%;
+  -webkit-transform: translate(-50%, -55%);
+      transform: translate(-50%, -55%);
+}
+
+
 .dark-subheader {
   color: $color-tertiary-dark;
   font-family: $type-main;
