@@ -1,0 +1,63 @@
+@import "base/global";
+
+/* SIDEBAR */
+#sidebar{
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  transform: translateX(100vw);
+  transition: .3s ease;
+  background-color: white;
+}
+#content{
+  width: 100%;
+  transition: .3s ease;
+}
+.use-sidebar #sidebar{
+  width: 25%;
+  transform: translateX(75vw);
+}
+.open_navbar{
+  position: fixed;
+  right: 0;
+  margin-right: 10px;
+  margin-top: 10px;
+  z-index: 9;
+}
+.open_navbar.remove-button{
+  display: none;
+}
+.nav_title{
+  font-family: $type-main;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 15px;
+}
+.mentor-trigger-modal{
+  cursor: pointer;
+  color: #3f3f3f;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+.mentor_pic{
+  float: left;
+  max-width: 50px;
+  max-height: 50px;
+}
+.mentor_name{
+  padding-top: 12px;
+  padding-left: 12px;
+  font-family: $type-main;
+  display:inline-block;
+  font-size: 15px;
+}
+.large.street.view.icon{
+  padding: 0px 0px 0px 0px;
+  margin: 0px;
+  text-align: center;
+}

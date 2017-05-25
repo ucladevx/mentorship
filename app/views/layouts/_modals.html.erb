@@ -81,4 +81,24 @@
         </div>
       <div class="overlay" onClick="hideModal('sign-up')"></div>
     </div>
+
+<!-- Open chat with Mentor -->
+  <div class="modal-container hide mentor-modal-container">
+      <div class="modal mentor-modal">
+        <div class="modal-header">
+          <h4 class="title"><%= image_tag("shrink.jpg", :class => "ui avatar image")%>&nbspChat with me!</h4>
+        </div>
+
+        <div class="modal-field-content">
+          <div class="chat_modal">
+            <div class="ui buttons">
+              <button class="ui positive button">Accept</button>
+              <div class="or"></div>
+              <button class="ui negative button">Decline</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay" onClick="hideModal('mentor')"></div>
+    </div>
 </footer>

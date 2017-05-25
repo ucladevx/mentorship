@@ -1,5 +1,9 @@
 //called in onReady located in handlers.js
+
 function homepage(){
+//
+	var active;
+	$('ui.sidebar').sidebar('setting', 'transition','overlay');
 	$('.right.menu.open').unbind().click(function(e){
 
 		console.log('clicked')
@@ -52,6 +56,7 @@ function homepage(){
 	]
 });
 
+
 	$('.tutorial-cards').not('.slick-initialized').slick({
 		slidesToShow: 3,
 		slidesToScroll: 3,
@@ -89,6 +94,7 @@ function homepage(){
 	    return false;
  	});
 
+
  	$(document).scroll(function() {
 	  var y = $(this).scrollTop();
 	  if (y > 50) {
@@ -101,11 +107,12 @@ function homepage(){
 	});
 }
 
+
 /*basically instead of dynamically updating the webpage using info from the database
 I'm posting to the database and then seperately having javascript logic change it
 */
 var currentVoteStates = new Object(); //unintialized 0, 1 upvoted, -1 novote
-function incrementRep(initalState, noteID) {
+function changeRep(initalState, noteID) {
 	if (!currentVoteStates.hasOwnProperty(noteID)) //only care about initialState when unintialized
 		currentVoteStates[noteID] = initalState;
 
@@ -113,11 +120,39 @@ function incrementRep(initalState, noteID) {
 	if (currentVoteStates[noteID] === 1) { //if upvoted, then unupvote
 		document.getElementById(RepID).innerHTML = String(Number(document.getElementById(RepID).innerHTML)-1);
 		currentVoteStates[noteID] = -1;
-		document.getElementById('upvoteButton').innerHTML = "^";
 	}
 	else { //upvote
 		document.getElementById(RepID).innerHTML = String(Number(document.getElementById(RepID).innerHTML)+1);
 		currentVoteStates[noteID] = 1;
-		document.getElementById('upvoteButton').innerHTML = "v";
 	}
 }
+/*
+$(document).ready(function(){
+	var main_home = $('#main');
+	var main_content = $('#content');
+	var sidebarBtn = $('#open_nav');
+	// show sidebar
+	function showSidebar(){
+		main_home.addClass('use-sidebar');
+		sidebarBtn.addClass('remove-button');
+	}
+
+	// hide sidebar
+	function hideSidebar(){
+		main_home.removeClass('use-sidebar');
+		sidebarBtn.removeClass('remove-button');
+	}
+	main_content.unbind("click").click(function(){
+		hideSidebar();
+	});
+	sidebarBtn.unbind("click").click(function(e){
+		e.preventDefault();
+		if ( main_home.hasClass('use-sidebar') ){
+			hideSidebar();
+		}
+		else{
+			showSidebar();
+		}
+	})
+});
+*/

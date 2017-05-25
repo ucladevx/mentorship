@@ -26,26 +26,7 @@ h1{
   color: $color-tertiary-dark;
   padding-top: 35px;
   letter-spacing: .05em;
-  font-size: 6.5vh;
-}
-
-h2 {
-  font-family: $type-main;
-  text-align: center;
-  color: $color-tertiary-dark;
-  letter-spacing: .05em;
-  font-size: 6.5vh;
-  //margin-bottom: -25px !important;
-}
-
-h3 {
-  color: $color-tertiary-dark;
-  font-family: $type-main;
-  font-weight: lighter;
-  text-align: center;
-  letter-spacing: .05em;
-  font-size: 4vh;
-  //margin-bottom: 40px !important;
+  font-size: 48px;
 }
 
 h4{
@@ -55,33 +36,84 @@ h4{
   text-align: center;
   letter-spacing: .05em;
   padding-bottom: 5px;
-  font-size: 3vh;
-}
-
-h5 {
-  color: $color-tertiary-dark;
-  font-family: $type-main;
-  text-align: center;
-  letter-spacing: .05em;
-  font-size: 3vh;
-  margin-bottom: -25px !important;
-}
-
-h6 {
-  color: $color-tertiary-dark;
-  font-family: $type-main;
-  font-weight: lighter;
-  text-align: center;
-  letter-spacing: .05em;
-  font-size: 2.5vh;
-  margin-bottom: 15px !important;
-  line-height:130%;
+  font-size: 24px;
 }
 
 p {
 	font-family: $type-main;
 	font-size: 18px;
 }
+
+.dark-title {
+  font-family: $type-main;
+  text-align: center;
+  color: $color-tertiary-dark;
+  letter-spacing: .05em;
+  font-size: 48px;
+}
+
+.dark-secondary {
+  color: $color-tertiary-dark;
+  font-family: $type-main;
+  font-weight: lighter;
+  text-align: center;
+  letter-spacing: .05em;
+  font-size: 24px;
+  margin-bottom: 40px !important;
+}
+
+.dark-secondary.positioned {
+  //Change this jank shiz
+  position:absolute;
+
+  left: 50%;
+  top: 40%;
+  -webkit-transform: translate(-50%, -40%);
+      transform: translate(-50%, -40%);
+}
+
+.positioned {
+    //Change this jank shiz
+  position:absolute;
+
+  left: 50%;
+  top: 48%;
+  -webkit-transform: translate(-50%, -48%);
+      transform: translate(-50%, -48%);
+}
+
+.positioned2 {
+    //Change this jank shiz
+  position:absolute;
+
+  left: 50%;
+  top: 55%;
+  -webkit-transform: translate(-50%, -55%);
+      transform: translate(-50%, -55%);
+}
+
+
+.dark-subheader {
+  color: $color-tertiary-dark;
+  font-family: $type-main;
+  text-align: center;
+  letter-spacing: .05em;
+  font-size: 24px;
+  padding-bottom: 15px;
+  line-height: 120%;
+}
+
+.dark-small-secondary {
+  color: $color-tertiary-dark;
+  font-family: $type-main;
+  font-weight: lighter;
+  text-align: center;
+  letter-spacing: .05em;
+  font-size: 16px;
+  line-height:130%;
+  padding-bottom: 15px;
+}
+
 
 .container {
   padding-top: 1px;
@@ -103,11 +135,13 @@ p {
 }
 
 .ui.centered.image{
-  margin-top: 5%;
-  height: 75%;
-  width: 75%;
+  height: 100%;
+  width: 100%;
   background-size: cover;
   background-position: 50% 50%;
+}
+.open_nav{
+  z-index: 2;
 }
 
 #grid-float{
@@ -292,10 +326,6 @@ p {
   text-shadow: 0px -1px 0px #8b96da, -1px 0px 0px #8b96da, 0px 1px 0px #8b96da, 1px 0px 0px #8b96da !important;
 }
 
-
-
-
-
 .notes .upvotes{
   color: #55abe3;
 }
@@ -321,7 +351,6 @@ p {
 
 .thank-you{
   padding-top: 30px;
-  padding-bottom: 60px;
 }
 
 /* Footer */
@@ -329,8 +358,8 @@ p {
 #footer{
   font-size: 14px;
   font-family: $type-main;
+  padding-top:40px;
   padding-left: 20px;
-  padding-bottom: 20px;
   padding-right:100px;
 }
 

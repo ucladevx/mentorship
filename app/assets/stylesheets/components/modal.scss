@@ -4,7 +4,7 @@ body.locked{
 	overflow: hidden;
 }
 
-.modal-container.hide{
+.hide{
 	display: none;
 }
 
@@ -16,7 +16,7 @@ body.locked{
 	width: 100%;
 	top: 0;
 	left: 0;
-	
+
 	.overlay{
 		position: fixed;
 		height: 100%;
@@ -28,6 +28,7 @@ body.locked{
 .login-modal, .new-note-modal, .sign-up-modal{
 	width: 400px;
 }
+
 
 .modal{
 	z-index: 140;
@@ -66,6 +67,10 @@ body.locked{
 	}
 }
 
+.modal-header.table{
+	display:table;
+}
+
 
 .modal-field-content{
 
@@ -76,7 +81,14 @@ body.locked{
 			outline: none !important;
 		}
 	}
+	.chat_modal{
+		text-align: center;
+	}
 
+}
+
+.modal-field-content.padded{
+	padding-bottom: 10px;
 }
 
 .submit{
@@ -101,4 +113,3 @@ body.locked{
 	font-size: $type-small;
 	text-align: center;
 }
-
