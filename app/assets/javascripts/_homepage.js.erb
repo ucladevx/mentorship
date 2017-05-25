@@ -112,7 +112,7 @@ function homepage(){
 I'm posting to the database and then seperately having javascript logic change it
 */
 var currentVoteStates = new Object(); //unintialized 0, 1 upvoted, -1 novote
-function incrementRep(initalState, noteID) {
+function changeRep(initalState, noteID) {
 	if (!currentVoteStates.hasOwnProperty(noteID)) //only care about initialState when unintialized
 		currentVoteStates[noteID] = initalState;
 
@@ -120,12 +120,10 @@ function incrementRep(initalState, noteID) {
 	if (currentVoteStates[noteID] === 1) { //if upvoted, then unupvote
 		document.getElementById(RepID).innerHTML = String(Number(document.getElementById(RepID).innerHTML)-1);
 		currentVoteStates[noteID] = -1;
-		document.getElementById('upvoteButton').innerHTML = "^";
 	}
 	else { //upvote
 		document.getElementById(RepID).innerHTML = String(Number(document.getElementById(RepID).innerHTML)+1);
 		currentVoteStates[noteID] = 1;
-		document.getElementById('upvoteButton').innerHTML = "v";
 	}
 }
 /*

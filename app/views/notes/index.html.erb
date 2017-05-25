@@ -102,11 +102,11 @@
                     <% if user_signed_in? %>
                       <% if @user.upvotednotes.include?(note.id) %>
                         <%= link_to upvote_path(note) do %>
-                          <div class="ui heart rating" data-rating="1" data-max-rating="1" onclick="incrementRep(1, <%= note.id %>)"></div>
+                          <div class="ui heart rating" data-rating="1" data-max-rating="1" onclick="changeRep(1, <%= note.id %>)"></div>
                         <% end %>
                       <% else %>
                         <%= link_to upvote_path(note) do %>
-                          <div class="ui heart rating" data-rating="0" data-max-rating="1" onclick="incrementRep(-1, <%= note.id %>)"></div>
+                          <div class="ui heart rating" data-rating="0" data-max-rating="1" onclick="changeRep(-1, <%= note.id %>)"></div>
                         <% end %>
                       <% end %>
                     <% else %>
