@@ -27,11 +27,14 @@
                             <div class="profile profile-modal hide no-click-hide">
                                 <div class="profile-arrow-up no-click-hide"></div>
                                 <div class="profile-arrow-up no-shadow no-click-hide"></div>
-                                <div id="profile-item profile-picture no-click-hide"></div>
-                                <div class="modal-header no-click-hide">
-                                    <span class="profile-item no-click-hide">Name</span>
+                                <div class="modal-header table no-click-hide">
+                                    <div id="profile-picture" class="profile-item table no-click-hide"></div>
+                                    <div class="profile-item right short no-click-hide">Name</div>
+                                    <div class="profile-item right short"><%= link_to "Profile", mentors_index_path, class:"no-click-hide"%></div>
                                 </div>
+                                
                                 <div class="modal-field-content padded no-click-hide">
+                                    <hr>
                                     <div class="profile-item"><%= link_to "My Account", mentors_index_path, class:"no-click-hide"%></div>
                                     <div class="profile-item"><%= link_to "Help", notes_path, class:"no-click-hide"%></div>
                                      <% if user_signed_in? %> 

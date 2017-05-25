@@ -56,25 +56,34 @@ header{
 	width: 200px;
 }
 
-
 .profile{
 	position: absolute;
 	background: white;
 	box-shadow: $profile-shadow;
 	padding: $modal-spacing;
-	padding-top: $profile-spacing;
-	padding-bottom: $profile-spacing;
 	border-radius: $item-border-radius;
 	right: 23px;
 	top: $nav-height;
-
 }
 
 .profile-item {
 	font-size: 12px;
 	letter-spacing: 1px;
-	line-height: 400%;
+	line-height: 300%;
 	text-transform: uppercase;
+}
+
+.profile-item.short {
+	line-height:200%;
+}
+
+.profile-item.table {
+	width:30px;
+	display:table-cell;
+}
+
+.profile-item.right{
+	float:right;
 }
 
 .profile-arrow-up {
