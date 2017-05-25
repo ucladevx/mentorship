@@ -11,10 +11,13 @@ function showModal(modal){
 		case 'sign-up':
 			$('.sign-up-modal-container').removeClass('hide');
 			break;
+		case 'mentor':
+			$('.mentor-modal-container').removeClass('hide');
+			break;
 
 	}
 
-	
+
 	$('body').addClass('locked');
 }
 
@@ -30,10 +33,13 @@ function hideModal(modal){
 		case 'sign-up':
 			$('.sign-up-modal-container').addClass('hide');
 			break;
+		case 'mentor':
+			$('.mentor-modal-container').addClass('hide');
+			break;
 		case 'all':
 			$('.modal-container').addClass('hide');
 	}
-	
+
 	$('body').removeClass('locked');
 }
 
@@ -55,6 +61,10 @@ var initModal = function(){
 	$('.sign-up-trigger-modal').click(function(){
 		hideModal('all');
 		showModal('sign-up');
+	});
+	$('.mentor-trigger-modal').click(function(){
+		hideModal('all');
+		showModal('mentor');
 	});
 
 

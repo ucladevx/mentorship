@@ -110,6 +110,9 @@ p {
   background-size: cover;
   background-position: 50% 50%;
 }
+.open_nav{
+  z-index: 2;
+}
 
 #grid-float{
   opacity: 1;
@@ -292,10 +295,6 @@ p {
   color: #8b96da !important;
   text-shadow: 0px -1px 0px #8b96da, -1px 0px 0px #8b96da, 0px 1px 0px #8b96da, 1px 0px 0px #8b96da !important;
 }
-
-
-
-
 
 .notes .upvotes{
   color: #55abe3;

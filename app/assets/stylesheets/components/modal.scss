@@ -16,7 +16,7 @@ body.locked{
 	width: 100%;
 	top: 0;
 	left: 0;
-	
+
 	.overlay{
 		position: fixed;
 		height: 100%;
@@ -76,6 +76,9 @@ body.locked{
 			outline: none !important;
 		}
 	}
+	.chat_modal{
+		text-align: center;
+	}
 
 }
 
@@ -101,4 +104,3 @@ body.locked{
 	font-size: $type-small;
 	text-align: center;
 }
-
