@@ -16,12 +16,7 @@ function showModal(modal){
 			break;
 
 	}
-<<<<<<< HEAD
-	
-=======
 
-
->>>>>>> master
 	$('body').addClass('locked');
 }
 
@@ -66,13 +61,8 @@ var initModal = function(){
 		hideModal('all');
 		showModal('sign-up');
 	});
-<<<<<<< HEAD
-=======
 	$('.mentor-trigger-modal').click(function(){
 		hideModal('all');
 		showModal('mentor');
 	});
-
-
->>>>>>> master
 };
