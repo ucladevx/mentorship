@@ -128,24 +128,25 @@ function incrementRep(initalState, noteID) {
 		document.getElementById('upvoteButton').innerHTML = "v";
 	}
 }
-
+/*
 $(document).ready(function(){
 	var main_home = $('#main');
 	var main_content = $('#content');
+	var sidebarBtn = $('#open_nav');
 	// show sidebar
 	function showSidebar(){
 		main_home.addClass('use-sidebar');
-
+		sidebarBtn.addClass('remove-button');
 	}
 
 	// hide sidebar
 	function hideSidebar(){
 		main_home.removeClass('use-sidebar');
+		sidebarBtn.removeClass('remove-button');
 	}
 	main_content.unbind("click").click(function(){
 		hideSidebar();
 	});
-	var sidebarBtn = $('#open_nav');
 	sidebarBtn.unbind("click").click(function(e){
 		e.preventDefault();
 		if ( main_home.hasClass('use-sidebar') ){
@@ -156,3 +157,4 @@ $(document).ready(function(){
 		}
 	})
 });
+*/
