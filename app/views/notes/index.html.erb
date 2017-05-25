@@ -13,10 +13,9 @@
     <%= form_tag(notes_path, :method => "get") do %>
       <div class="ui search big search-area">
         <div class="ui input input-area">
-          <button type="submit" id="search-button" class="prompt"><%= image_tag("search.png", size: "35x30") %></button>
+          <button type="submit" id="search-button" class="prompt"><%= image_tag("search.png") %></button>
           <%= text_field_tag :search, params[:search], class: "prompt", placeholder: "Search for a class..."%>
         </div>
-        <div class="results"></div>
       </div>
     <% end %>
 
@@ -78,6 +77,11 @@
           </div>
         </div>
       </div>
+      <div class="ui compact menu">
+        <%= link_to notes_path(search: params[:search]) do %>
+        <div class="item">Clear All</div>
+        <% end %>
+      </div>
       <% if user_signed_in? %>
        <div class="ui compact menu">
         <div class="btn-main" id="trigger-new-note"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNew Note</div>
@@ -94,12 +98,24 @@
               <div class="card-inner">
                 <span class="class"><%= note.uclaclass %>| <%= note.professor %> | <%= note.notetype %> </span>
                 <h3 class="title"><%= note.title %></h3>
-                <% if user_signed_in? %>
                   <div class="reactions">
-                    <span class="reputation"><%= note.reputation %>&nbsp</span>
-                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+                    <% if user_signed_in? %>
+                      <% if @user.upvotednotes.include?(note.id) %>
+                        <%= link_to upvote_path(note) do %>
+                          <div class="ui heart rating" data-rating="1" data-max-rating="1" onclick="incrementRep(1, <%= note.id %>)"></div>
+                        <% end %>
+                      <% else %>
+                        <%= link_to upvote_path(note) do %>
+                          <div class="ui heart rating" data-rating="0" data-max-rating="1" onclick="incrementRep(-1, <%= note.id %>)"></div>
+                        <% end %>
+                      <% end %>
+                    <% else %>
+                      <a class="item login-trigger-modal" >
+                        <div class="ui heart rating" data-rating="1" data-max-rating="1" ></div>
+                      </a>
+                    <% end %>
+                    <span id = "Rep<%= note.id %>"> <%= note.reputation %> </span>
                   </div>
-                <% end %>
               </div>
 
               <div class="hover-icons">
@@ -126,9 +142,7 @@
 <% else %>
 <div> You are not signed in </div>
 <% end %>
-
 <%= link_to "New Note", new_note_path, class: "btn btn-primary" %>
-
 -->
 
 <!--new note-->

@@ -8,15 +8,15 @@
 	border: none;
 	background-color: white;
 	position: absolute;
-	height: 35px;
-	width: 35px;
 	padding: 0px;
 	margin: 0px;
+	margin-top: 20px;
 	margin-left: 10px;
+	height: 38px;
 
 	img{
-		height: 22px;
-    	width: 25px;
+		height: 30px;
+    	width: 35px;
 	}
 }
 
@@ -63,9 +63,4 @@
 	&:hover{
 		background: $color-tertiary-light !important;
 	}
-}
-
-i#search-icon {
-    font-size: 20px;
-    margin-right: 10px;
 }
