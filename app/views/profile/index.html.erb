@@ -10,7 +10,7 @@
 
   <div class="grid background">
     <div id="profile-picture-large"></div>
-    <div class="dark-secondary positioned">Name</div>
+    <div class="dark-secondary positioned"><%= User.find_by(id: current_user.id).username %></div>
     <div class="positioned"><%= link_to "Edit Profile", mentors_index_path, class:"btn-main profile-item"%></div>
     <div class="grid container">
       <div class="grid">
