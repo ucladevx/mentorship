@@ -17,7 +17,6 @@ function showModal(modal){
 
 	}
 
-
 	$('body').addClass('locked');
 }
 
@@ -66,6 +65,4 @@ var initModal = function(){
 		hideModal('all');
 		showModal('mentor');
 	});
-
-
 };
