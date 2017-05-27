@@ -8,6 +8,10 @@
   transform: translateX(100vw);
   transition: .3s ease;
   background-color: white;
+  overflow: hidden;
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
 }
 #content{
   width: 100%;

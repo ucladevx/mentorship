@@ -12,6 +12,14 @@
 
 }
 
+/* Selected Heart */
+.ui.heart.rating .icon.selected,
+.ui.heart.rating .icon.selected.active {
+  background: transparent !important;
+  color: #55abe3 !important;
+  text-shadow: 0px -1px 0px #55abe3, -1px 0px 0px #55abe3, 0px 1px 0px #55abe3, 1px 0px 0px #55abe3 !important;
+}
+
 .grid-notes{
 
 	.col{

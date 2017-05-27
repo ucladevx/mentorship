@@ -5,7 +5,6 @@
 @import "semantic-ui";
 @import "slick";
 
-
 body{
   background-color: white;
   margin: 0px;
@@ -287,14 +286,6 @@ p {
 }
 
 /* HEARTS */
-.ui.heart.rating .icon {
-  width: 1.4em;
-  height: auto;
-  background: transparent;
-  color: rgba(0, 0, 0, 0.15);
-  text-shadow: none !important;
-}
-
 /* Active Heart */
 .ui.heart.rating .active.icon {
   background: transparent !important;
