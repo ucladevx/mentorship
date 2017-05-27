@@ -1,3 +1,57 @@
+<script type="text/javascript" charset="utf-8">
+function addmsg(username, msgtime, body){
+    /* Simple helper to add a div.
+    type is the name of a CSS class (old/new/error).
+    msg is the contents of the div */
+    $(".ui .segment").append(
+        "<div class=\"item\">" +
+         "<div class=\"content\">" +
+          "<div class=\"header\"><strong>" + username + "</strong>" + msgtime + "</div>" +
+           "<div class=\"list\">" +
+            "<div class=\"item\">" +
+             "<i class=\"right triangle icon\"></i>" +
+              body +
+          "</div>" +
+        "</div>" +
+        "</div>" +
+      "</div>"
+    );
+}
+
+function waitForMsg(){
+    /* This requests the url "msgsrv.php"
+    When it complete (or errors)*/
+    $.ajax({
+        type: "GET",
+        url: "msgsrv.php",
+
+        async: true, /* If set to non-async, browser shows page as "Loading.."*/
+        cache: false,
+        timeout:1000, /* Timeout in ms */
+
+        success: function(data){ /* called when request to barge.php completes */
+            console.log(data);
+            addmsg(username, msgtime, body); /* Add response to a .msg div (with the "new" class)*/
+            setTimeout(
+                waitForMsg, /* Request next message */
+                1000 /* ..after 1 seconds */
+            );
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown){
+            addmsg("error", textStatus + " (" + errorThrown + ")");
+            setTimeout(
+                waitForMsg, /* Try again after.. */
+                1000); /* milliseconds (15seconds) */
+        }
+    });
+};
+
+$(document).ready(function(){
+    waitForMsg(); /* Start the inital request */
+});
+</script>
+
+
 <% if @over_ten %>
  <%= link_to 'Show Previous', '?m=all' %>
 <% end %>
