@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/upvote', to: 'notes#upvote'
 
   root 'homepage#index'
+  get 'profile/index'
 
   resources :notes, only: [:index, :new, :create, :destroy, :upvote]
 
