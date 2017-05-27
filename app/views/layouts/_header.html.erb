@@ -29,7 +29,7 @@
                                 <div class="profile-arrow-up no-shadow no-click-hide"></div>
                                 <div class="modal-header table no-click-hide">
                                     <div id="profile-picture" class="profile-item table no-click-hide"></div>
-                                    <div class="profile-item right short no-click-hide">Name</div>
+                                    <div class="profile-item right short no-click-hide"><%= User.find_by(id: current_user.id).username %></div>
                                     <div class="profile-item right short"><%= link_to "Profile", profile_index_path, class:"no-click-hide"%></div>
                                 </div>
                                 
