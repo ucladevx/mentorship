@@ -11,17 +11,22 @@
   <div class="grid background">
     <div id="profile-picture-large"></div>
     <div class="dark-secondary positioned"><%= User.find_by(id: current_user.id).username %></div>
-    <div class="positioned"><%= link_to "Edit Profile", mentors_index_path, class:"btn-main profile-item"%></div>
-    <div class="grid container">
-      <div class="grid">
-        <div class="col lg-4 positioned2">
-          <span class="profile-item"><%= link_to "Profile", mentors_index_path, class:"no-click-hide"%></span>
-          <span class="profile-item"><%= link_to "Skills", mentors_index_path, class:"no-click-hide"%></span>
-          <span class="profile-item"><%= link_to "Progress", mentors_index_path, class:"no-click-hide"%></span>
-          <span class="profile-item"><%= link_to "Messages", mentors_index_path, class:"no-click-hide"%></span>
-        </div>
-      </div>
-    </div>
+    <span class="positioned"><%= link_to "Edit Profile", mentors_index_path, class:"profile-item btn-main"%></span>
+    
+    <div class="profile-panel positioned2">
+            <nav>
+              <ul class="profile-tabs-list">
+                <li class="profile-tabs-list__tab active profile-tab profile-item"><a href="#">Profile</a></li>
+                <li class="profile-tabs-list__tab profile-tab profile-item"><a href="#">Skills</a></li>
+                <li class="profile-tabs-list__tab profile-tab profile-item"><a href="#">Progress</a></li>
+                <li class="profile-tabs-list__presentation-slider" role="presentation"></li>
+              </ul>
+            </nav>
+            <div class="profile-panel__body">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis sint, facere aut, mollitia nihil tenetur sed vitae alias dolorum delectus.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, earum.</p>
+            </div>
+          </div>
   </div>
 </body>
 </html>
