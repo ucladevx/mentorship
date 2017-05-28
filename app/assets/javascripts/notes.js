@@ -1,10 +1,7 @@
+
 function changeNumber() {
   document.getElementbyId("Rep").innerHTML = typeof(document.getElementById("Rep").innerHTML) ;
 }
-
-var initNotes = function(){
-}
-
 
 // Voting system -- Same as the one on the homepage
 var currentVoteStates = new Object(); //unintialized 0, 1 upvoted, -1 novote
@@ -24,3 +21,4 @@ function incrementRep(initalState, noteID) {
 		document.getElementById('upvoteButton').innerHTML = "v";
 	}
 }
+

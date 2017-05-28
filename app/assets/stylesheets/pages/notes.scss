@@ -57,6 +57,12 @@
 			text-align: left;
 			font-size: 1.5rem;
 			margin: 0;
+
+			//ellipsis
+			overflow: hidden;
+		    display: -webkit-box;
+		    -webkit-line-clamp: 3;
+		    -webkit-box-orient: vertical;
 		}
 
 		.reactions{

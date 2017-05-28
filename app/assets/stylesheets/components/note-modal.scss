@@ -23,6 +23,15 @@
 		}
 	}
 
+	.dropdown-selected{
+		padding: 13px 16px;
+    	box-sizing: border-box;
+    	width: 100%;
+    	text-overflow: ellipsis;
+    	overflow: hidden;
+    	white-space: nowrap;
+	}
+
 
 
 }
