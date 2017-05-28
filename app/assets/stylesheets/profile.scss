@@ -1,67 +1,19 @@
-@use postcss-nested;
 @import "base/global";
 
-.profile-panel {
-	width: 100%;
-	margin: 30px auto;
-	&__body {
-		background-color: #f2f2f2;
-		padding: 10px 20px;
-	}
+.profile-picture-large{
+	border-radius: $profile-radius;
+	height:120px;
+	width:120px;
+	background: $color-primary;	
+
+	margin: 0 auto;
 }
 
-.profile-tabs-list {
-	position: relative;
-	background-color: #fff;
-	&:after {
-		content: ' ';
-		display: table;
-		clear: both;
-	}
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	&__tab {
-		float: left;
-		width: 33.333%;
-		text-align: center;
-		&:first-child.active ~ .profile-tabs-list__presentation-slider {
-			left: 0;
-		}
-		&:nth-child(2).active ~ .profile-tabs-list__presentation-slider {
-			left: 33.333%;
-		}
-		&:nth-child(3).active ~ .profile-tabs-list__presentation-slider {
-			left: calc(33.333% * 2);
-		}
-	}
-	&__presentation-slider {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 33.333%;
-		height: 2px;
-		background-color: $color-primary;
-		transition: left .25s;
-	}
+.profile-pic{
+	padding-top:50px;
+		
 }
-
-.profile-tab {
-	> a {
-		display: block;
-		padding: 10px 12px;
-		text-decoration: none;
-		color: #666;
-		transition: color .15s;
-	}
-	&.active {
-		> a {
-			color: #222;
-		}
-	}
-	&:hover {
-		> a {
-			color: #222;
-		}
-	}
+.profile-content {
+	padding-top: 20px;
+	text-align:center;
 }
