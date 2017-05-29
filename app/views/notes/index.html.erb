@@ -169,10 +169,42 @@
       <div class="">
          <%= form_for @note, html: { multipart: true, class: 'ui form' } do |f| %>
           <div class="field">
-            <%= f.text_field :title, :placeholder => "Title" %>
+            <%= f.hidden_field :notetype, id: "note-type-hidden" %>
+            <div class="field">
+              <div class="ui menu">
+                <div class="ui simple dropdown item">
+                  <%= params[:type].present? ? params[:type] : "Note Type" %>
+                  <i class="dropdown icon"></i>
+                  <div class="menu" id="note-type">
+                      <div class="item dropdown-choice">Weekly Notes</div>
+                      <div class="item dropdown-choice">Midterm Cheatsheet</div>
+                      <div class="item dropdown-choice">Final Cheatsheet</div>
+                  </div>
+                </div>
+                <div class="dropdown-selected" id="note-type-selected">
+                </div>
+              </div>
+            </div>
           </div>
           <div class="field">
-            <%= f.text_field :uclaclass, :placeholder => "UCLA Class" %>
+            <%= f.hidden_field :uclaclass, id: "ucla-class-hidden" %>
+            <div class="field">
+              <div class="ui menu">
+                <div class="ui simple dropdown item">
+                  <%= params[:type].present? ? params[:type] : "UCLA Class" %>
+                  <i class="dropdown icon"></i>
+                  <div class="menu" id="ucla-class">
+                      <div class="item dropdown-choice">CS 31</div>
+                      <div class="item dropdown-choice">CS 32</div>
+                  </div>
+                </div>
+                <div class="dropdown-selected" id="ucla-class-selected">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <%= f.text_field :title, :placeholder => "Title" %>
           </div>
           <div class="field">
             <%= f.text_field :professor, :placeholder => "Professor" %>
@@ -180,14 +212,12 @@
           <div class="field">
             <%= f.text_field :author, :placeholder => "Author" %>
           </div>
-          <div class="field">
-            <%= f.text_field :notetype, :placeholder => "Note Type" %>
-          </div>
+
           <div class="field">
             <%= f.file_field :ufile %>
           </div>
           <div class="submit">
-            <%= f.submit "Save", class: "note-submit" %>
+            <%= f.submit "Save", class: "submit-btn" %>
           </div>
          <% end %>
       </div>

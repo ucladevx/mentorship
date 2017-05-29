@@ -1,17 +1,20 @@
 //to aggregate all code required on document.ready()
 
-var onReady = function(){
+var init = false;
 
-	homepage();
-	initModal();
-	//initNotes();
+if(!init){
+	var onReady = function(){
+		homepage();
+		initModal();
+		initMentors();
+		initNewNoteModal();
+	};
 
-};
+	var onBodyClick = function(e){
+		initNav(e);
+	}
 
-var onBodyClick = function(e){
-
-	initNav(e);
-
+	init = true;
 }
 
 
