@@ -20,6 +20,10 @@
   text-shadow: 0px -1px 0px #55abe3, -1px 0px 0px #55abe3, 0px 1px 0px #55abe3, 1px 0px 0px #55abe3 !important;
 }
 
+.grid-container{
+	margin-top: $filter-height;
+}
+
 .new-note-wrapper{
 	display: inline-block;
 	margin-top: $grid-vertical-padding;
