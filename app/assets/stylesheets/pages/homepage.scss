@@ -6,7 +6,6 @@
 @import "slick";
 
 body{
-  background-color: white;
   margin: 0px;
 }
 
@@ -93,7 +92,6 @@ p {
 .container {
   padding-top: 1px;
   margin-top: -1px;
-	background: white !important;
 }
 
 .slide{
@@ -262,7 +260,7 @@ p {
 /* Active Heart */
 .ui.heart.rating .active.icon {
   background: transparent !important;
-  color: #55abe3 !important;
+  color: $color-primary !important;
   text-shadow: 0px -1px 0px #55abe3, -1px 0px 0px #55abe3, 0px 1px 0px #55abe3, 1px 0px 0px #55abe3 !important;
 }
 
@@ -274,14 +272,14 @@ p {
 .notes .ui.heart.rating .icon.selected,
 .notes .ui.heart.rating .icon.selected.active {
   background: transparent !important;
-  color: #55abe3 !important;
+  color: $color-primary !important;
   text-shadow: 0px -1px 0px #55abe3, -1px 0px 0px #55abe3, 0px 1px 0px #55abe3, 1px 0px 0px #55abe3 !important;
 }
 
 /* Active tutorials Heart */
 .tutorials .ui.heart.rating .active.icon {
   background: transparent !important;
-  color: #8b96da !important;
+  color: $color-primary !important;
   text-shadow: 0px -1px 0px #8b96da, -1px 0px 0px #8b96da, 0px 1px 0px #8b96da, 1px 0px 0px #8b96da !important;
 }
 
@@ -289,29 +287,29 @@ p {
 .tutorials .ui.heart.rating .icon.selected,
 .tutorials .ui.heart.rating .icon.selected.active {
   background: transparent !important;
-  color: #8b96da !important;
+  color: $color-primary !important;
   text-shadow: 0px -1px 0px #8b96da, -1px 0px 0px #8b96da, 0px 1px 0px #8b96da, 1px 0px 0px #8b96da !important;
 }
 
 .notes .upvotes{
-  color: #55abe3;
+  color: $color-primary;
 }
 .tutorials .upvotes{
-  color: #8b96da;
+  color: $color-primary;
 }
 
 // Number of likes
 .value{
   float: right;
   font-size: 18px;
-  color: #55abe3;
+  color: $color-primary;
   padding-top: 20px;
 }
 .notes .value{
-  color: #55abe3;
+  color: $color-primary;
 }
 .tutorials .value{
-  color: #8b96da;
+  color: $color-primary;
 }
 
 /* Thank You */

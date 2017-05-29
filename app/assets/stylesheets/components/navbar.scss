@@ -61,10 +61,12 @@ header{
 	background: white;
 	box-shadow: $profile-shadow;
 	padding: $modal-spacing;
-	border-radius: $item-border-radius;
+	//border-radius: $item-border-radius;
 	right: 23px;
 	top: $nav-height;
+	margin-top: -10px;
 }
+
 
 .profile-item {
 	font-size: 12px;

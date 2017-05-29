@@ -16,8 +16,18 @@
 .ui.heart.rating .icon.selected,
 .ui.heart.rating .icon.selected.active {
   background: transparent !important;
-  color: #55abe3 !important;
+  color: $color-primary !important;
   text-shadow: 0px -1px 0px #55abe3, -1px 0px 0px #55abe3, 0px 1px 0px #55abe3, 1px 0px 0px #55abe3 !important;
+}
+
+.new-note-wrapper{
+	display: inline-block;
+	margin-top: $grid-vertical-padding;
+
+	.new-note-btn{
+		margin-top: $grid-vertical-padding;
+		margin-left: $grid-gutter-padding;
+	}
 }
 
 .grid-notes{
@@ -76,6 +86,7 @@
 			width: $card-side-width;
 			right: 0;
     		bottom: $card-spacing;
+    		color: $color-primary;
 
     		.icon{
     			-webkit-transform: translateX(300%);
