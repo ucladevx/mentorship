@@ -87,6 +87,14 @@
         <% @sortednotes.each do |note| %>
           <div class="col lg-6 md-6 sm-12">
             <div class="card grid-item">
+              <div class="note-preview-wrapper hide" id="<%= note.id %>-preview">
+                <div class="note-preview">
+                  <iframe src="<%= note.ufile.url %>#zoom=100" width="100%" height="100%" style="border: none;">
+                  This browser does not support PDFs. Please download the PDF to view it: <a href="<%= note.ufile.url %>" download="note.pdf">Download PDF</a>
+                  </iframe>
+                </div>
+                <div class="overlay trigger-preview-off" id="<%= note.id %>-overlay"></div>
+              </div>
               <div class="card-inner">
                 <span class="class"><%= note.uclaclass %>| <%= note.professor %> | <%= note.notetype %> </span>
                 <h3 class="title"><%= note.title %></h3>
@@ -111,9 +119,10 @@
               </div>
 
               <div class="hover-icons">
-                <%= link_to note.ufile.url, target: :_blank, :class => "icon" do %>
+                <!--<%= link_to note.ufile.url, target: :_blank, :class => "icon" do %>
                   <i class="fa fa-search-plus" aria-hidden="true"></i>
-                <% end %>
+                <% end %>-->
+                <a class="icon trigger-preview-on"><i class="fa fa-search-plus" aria-hidden="true" id="<%= note.id %>-trigger-preview-on"></i></a>
                 <%= link_to note.ufile.url, target: :_blank, download: 'note.pdf', :class => "icon"  do %>
                   <i class="fa fa-download" aria-hidden="true"></i>
                 <% end %>
