@@ -2,22 +2,19 @@
 
 var init = false;
 
-var onReady = function(){
-
-	if(!init){
+if(!init){
+	var onReady = function(){
 		homepage();
 		initModal();
 		initMentors();
 		initNewNoteModal();
-		init = true;
+	};
+
+	var onBodyClick = function(e){
+		initNav(e);
 	}
-	
-};
 
-var onBodyClick = function(e){
-
-	initNav(e);
-
+	init = true;
 }
 
 

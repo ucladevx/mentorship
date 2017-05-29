@@ -25,7 +25,7 @@ body.locked{
 	}
 }
 
-.login-modal, .new-note-modal, .sign-up-modal{
+.login-modal, .new-note-modal, .sign-up-modal, .forgot-password-modal{
 	width: 400px;
 }
 
@@ -81,6 +81,11 @@ body.locked{
 			outline: none !important;
 		}
 	}
+	.note-to-user{
+		color: $color-tertiary-dark;
+		font-style: italic;
+		font-size: 0.7em;
+	}
 	.chat_modal{
 		text-align: center;
 	}
@@ -94,7 +99,8 @@ body.locked{
 .submit{
 
 	padding: $modal-spacing-less 0;
-	.login-submit, {
+	
+	.submit-btn{
 		height: 40px;
 		width: 100%;
 		color: white !important;
@@ -113,3 +119,20 @@ body.locked{
 	font-size: $type-small;
 	text-align: center;
 }
+
+
+///errors///
+#error_explanation{
+	h2{
+		display: none;
+	}
+	ul{
+		list-style-type: none;
+	    padding: 0;
+	    font-style: italic;
+	    color: red;
+	    text-align: center;
+	}
+}
+
+

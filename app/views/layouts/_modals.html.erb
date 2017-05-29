@@ -11,7 +11,7 @@
           <div class="modal-field-content">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class: 'ui form' }) do |f| %>
               <div class="field">
-                <%= f.email_field :email, autofocus: true, placeholder: "Email"%>
+                <%= f.email_field :email, autofocus: true, placeholder: "UCLA Email"%>
               </div>
 
               <div class="field">
@@ -27,7 +27,7 @@
 
               <div class="submit">
                   <div class="actions">
-                    <%= f.submit "Log in", class: 'ui button login-submit'%>
+                    <%= f.submit "Log in", class: 'ui button submit-btn'%>
                   </div>
 
                 <% end %>
@@ -57,7 +57,8 @@
           </div>
 
           <div class="field">
-            <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+            <div class="note-to-user">*You must use your UCLA email to sign up</div>
+            <%= f.email_field :email, autofocus: true, placeholder: "UCLA Email" %>
           </div>
 
           <div class="field">
@@ -73,7 +74,7 @@
 
             <div class="submit">
                 <div class="actions">
-                  <%= f.submit "Create Account", class: 'ui button login-submit'%>
+                  <%= f.submit "Create Account", class: 'ui button submit-btn'%>
                 </div>
               <% end %>
             </div>
