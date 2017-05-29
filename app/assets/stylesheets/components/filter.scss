@@ -6,6 +6,8 @@
     z-index: 2;
     right: 0;
     left: 0;
+    height: $filter-height;
+    margin-top: -$filter-height;
 	margin-left: 0;
 	background: white;
 	text-align: center;
