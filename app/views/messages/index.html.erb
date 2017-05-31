@@ -1,10 +1,6 @@
 <script type="text/javascript" charset="utf-8">
 function addmsg(username, msgtime, body){
-    /* Simple helper to add a div.
-    type is the name of a CSS class (old/new/error).
-    msg is the contents of the div */
-    alert("adding " + body);
-    $(".ui .segment").append(
+    $("#messages").append(
         "<div class=\"item\">" +
          "<div class=\"content\">" +
           "<div class=\"header\"><strong>" + username + "</strong>" + msgtime + "</div>" +
@@ -62,7 +58,7 @@ $(document).ready(function(){
 <% if @over_ten %>
  <%= link_to 'Show Previous', '?m=all' %>
 <% end %>
-<div class="ui segment">
+<div class="ui segment" id="messages">
  <% @messages.each do |message| %>
   <% if message.body %>
    <% user = User.find(message.user_id) %>
