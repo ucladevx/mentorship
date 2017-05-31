@@ -2,8 +2,16 @@
 @import "vars";
 @import "colors";
 
+body{
+    background: $bg-light;
+}
+
 *:active, *:focus{
     outline: none;
+}
+
+a{
+    color: $color-primary;
 }
 
 .wide-hidden, .wide-hidden-flex{

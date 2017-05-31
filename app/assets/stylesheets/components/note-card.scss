@@ -1,0 +1,124 @@
+@import "base/global";
+
+//////////card//////////
+
+.grid-notes{
+
+	.col{
+		height: $grid-item-height;
+	}
+
+	.card.grid-item{
+		height: 100%;
+		max-width: 100%;
+		background: $color-tertiary-light;
+		margin: $grid-gutter-padding 0;
+    	box-shadow: $shadow;
+    	background: white;
+
+		position: relative;
+		align-items: center;
+		justify-content: center;
+		//padding: $card-spacing;
+		overflow: hidden;
+
+		transition: all $transition-duration $transition-ease;
+
+		.card-inner{
+			padding: $card-spacing;
+			width: calc(100% - #{$card-side-width});
+		}
+
+		.class{
+			color: $color-primary;
+			font-weight: lighter;
+			font-size: 0.8rem;
+		}
+
+		.title{
+			text-align: left;
+			font-size: 1.5rem;
+			margin: 0;
+
+			//ellipsis
+			overflow: hidden;
+		    display: -webkit-box;
+		    -webkit-line-clamp: 3;
+		    -webkit-box-orient: vertical;
+		}
+
+		.reactions{
+			position: absolute;
+			bottom: $card-spacing;
+		}
+
+		.hover-icons{
+			position: absolute;
+			font-size: $card-spacing;
+			width: $card-side-width;
+			right: 0;
+    		bottom: $card-spacing;
+    		color: $color-primary;
+
+    		.icon{
+    			-webkit-transform: translateX(300%);
+    					transform: translateX(300%);
+
+    			cursor: pointer;
+    			display: table;
+    			margin-top: $card-spacing;
+
+    			transition: all $transition-duration $transition-ease;
+    		}
+
+    		.icon:nth-child(2){
+    			transition-delay: 0.1s;
+    		}
+		}
+
+		&:hover{
+			.icon{
+				transform: translateX(0%);
+			}
+		}
+
+	}
+
+}
+
+//////////preview pdf//////
+
+.note-preview-wrapper{
+	position: fixed;
+	z-index: 120;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+
+	.note-preview{
+		position: absolute;
+	    top: 5%;
+	    left: 15%;
+	    width: 70%;
+	    height: 90%;
+	    border: 5px solid $color-tertiary-light;
+	}
+
+	.overlay{
+		position: absolute;
+		z-index: -1;
+		height: 100%;
+		width: 100%;
+		background: rgba(0,0,0,0.5);
+	}
+}
+
+
+
+
+
+
+
+
+

@@ -1,13 +1,19 @@
 
 //base colors
 
+$bg-light: #f3f3f3;
+
 $color-primary: #007cb0;	//blue
+//$color-primary: #3f2ab5;  //purple
 $color-secondary-1: #ffd161; 	//yellow
 $color-secondary-2: #37b4ac;	//green
 
 
 $color-tertiary-light: #f3f3f3;
 $color-tertiary-dark: #444444;
+$color-tertiary-med: rgba($color-tertiary-dark, 0.3);
+
+
 
 
 //derived colors

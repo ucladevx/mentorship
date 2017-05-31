@@ -33,11 +33,15 @@ $grid-sm-breakpoint   : 768px !default;
 $grid-md-breakpoint   : 1200px !default;
 $grid-lg-breakpoint   : 1800px !default;
 
-$grid-gutter-padding  : 20px !default;
-$grid-vertical-padding: 20px !default;
+$grid-gutter-padding  : 10px !default;
+$grid-vertical-padding: 10px !default;
 
 $grid-item-height     : 200px;
-$item-border-radius   : 5px;
+$item-border-radius   : 3px;
+
+// filter //
+$filter-height: 60px;
+
 
 // Card //
 

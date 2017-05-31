@@ -52,21 +52,6 @@ header{
 	background: $color-primary;
 }
 
-#profile-picture-large{
-	border-radius: $profile-radius;
-	height:120px;
-	width:120px;
-	background: $color-primary;
-
-	position:absolute;
-
-	left: 50%;
-	top: 20%;
-	-webkit-transform: translate(-50%, -20%);
-			transform: translate(-50%, -20%);
-
-}
-
 .profile-modal{
 	width: 200px;
 }
@@ -76,10 +61,12 @@ header{
 	background: white;
 	box-shadow: $profile-shadow;
 	padding: $modal-spacing;
-	border-radius: $item-border-radius;
+	//border-radius: $item-border-radius;
 	right: 23px;
 	top: $nav-height;
+	margin-top: -10px;
 }
+
 
 .profile-item {
 	font-size: 12px;
@@ -134,6 +121,7 @@ header{
 	padding: 10px 14px;;
 
 	&:hover{
+		color:white;
 		background: $color-primary;
 		opacity: 0.9;
 	}

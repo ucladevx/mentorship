@@ -7,21 +7,12 @@
     <script src="https://use.fontawesome.com/eb20c96418.js"></script>
   </head>
 <body>
-
-  <div class="grid background">
-    <div id="profile-picture-large"></div>
-    <div class="dark-secondary positioned">Name</div>
-    <div class="positioned"><%= link_to "Edit Profile", mentors_index_path, class:"btn-main profile-item"%></div>
-    <div class="grid container">
-      <div class="grid">
-        <div class="col lg-4 positioned2">
-          <span class="profile-item"><%= link_to "Profile", mentors_index_path, class:"no-click-hide"%></span>
-          <span class="profile-item"><%= link_to "Skills", mentors_index_path, class:"no-click-hide"%></span>
-          <span class="profile-item"><%= link_to "Progress", mentors_index_path, class:"no-click-hide"%></span>
-          <span class="profile-item"><%= link_to "Messages", mentors_index_path, class:"no-click-hide"%></span>
-        </div>
-      </div>
-    </div>
+  <div class="profile-content">
+    <div class="profile-picture-large"></div>
+  </div>
+  <div class="profile-content">
+    <div class="dark-secondary uppercase"><%= User.find_by(id: current_user.id).username %></div>
+    <span><%= link_to "Edit Profile", mentors_index_path, class:"profile-item btn-main"%></span>
   </div>
 </body>
 </html>

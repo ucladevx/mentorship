@@ -1,3 +1,4 @@
+
 function showModal(modal){
 
 	switch(modal){
@@ -43,7 +44,6 @@ function hideModal(modal){
 }
 
 
-
 var initModal = function(){
 
 	$('#overlay').click(hideModal);
@@ -66,3 +66,27 @@ var initModal = function(){
 		showModal('mentor');
 	});
 };
+
+
+function updateDropdownChoice(e){
+
+	//note-type, ucla-class
+	var id = $(e.target).parent()[0].id;
+
+	//option: e.g. CS 31, CS 32
+	var choiceText = $(e.target)[0].innerHTML;
+
+	//update view
+	var elementToUpdate = $('#' + id + '-selected');
+	elementToUpdate.html(choiceText);
+
+	//update hidden field for form
+	var hiddenField = $('#' + id + '-hidden');
+	hiddenField.val(choiceText);
+
+}
+
+
+var initNewNoteModal = function(){
+	$('.dropdown-choice').click(updateDropdownChoice);
+}
