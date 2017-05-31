@@ -3,6 +3,7 @@ function addmsg(username, msgtime, body){
     /* Simple helper to add a div.
     type is the name of a CSS class (old/new/error).
     msg is the contents of the div */
+    alert("adding " + body);
     $(".ui .segment").append(
         "<div class=\"item\">" +
          "<div class=\"content\">" +
@@ -18,36 +19,42 @@ function addmsg(username, msgtime, body){
     );
 }
 
-function waitForMsg(){
+function waitForMsg(oLength){
     /* This requests the url "msgsrv.php"
     When it complete (or errors)*/
+    let conId = <%= @conversation.id %>;
+
     $.ajax({
         type: "GET",
-        url: "msgsrv.php",
+        url: "/api/v1/messages/" + conId,
 
         async: true, /* If set to non-async, browser shows page as "Loading.."*/
         cache: false,
         timeout:1000, /* Timeout in ms */
 
         success: function(data){ /* called when request to barge.php completes */
-            console.log(data);
-            addmsg(username, msgtime, body); /* Add response to a .msg div (with the "new" class)*/
+            if(oLength != data.messages.length)
+            {
+                oLength = data.messages.length;
+                addmsg(data.messages[oLength - 1].user_id, data.messages[oLength-1].conversation_id, data.messages[oLength-1].body);
+            }
+        //    addmsg(username, msgtime, body); /* Add response to a .msg div (with the "new" class)*/
             setTimeout(
-                waitForMsg, /* Request next message */
+                waitForMsg(oLength), /* Request next message */
                 1000 /* ..after 1 seconds */
             );
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
             addmsg("error", textStatus + " (" + errorThrown + ")");
             setTimeout(
-                waitForMsg, /* Try again after.. */
+                waitForMsg(oLength), /* Try again after.. */
                 1000); /* milliseconds (15seconds) */
         }
     });
 };
 
 $(document).ready(function(){
-    waitForMsg(); /* Start the inital request */
+    waitForMsg(0); /* Start the inital request */
 });
 </script>
 
