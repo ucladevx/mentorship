@@ -1,23 +1,28 @@
 var initMentors = function(){
 	var drawer = $('.mentors-menu-container');
-	var main_content = $('#main');
+	var content = $('.whole_page_container');
 	var sidebarBtn = $('#open_nav');
+	var removeBtn = $('.remove-mentors-menu');
 	// show sidebar
 	function showSidebar(){
 		drawer.addClass('use-sidebar');
+		content.addClass('use-sidebar');
 		sidebarBtn.addClass('remove-button');
 	}
 
 	// hide sidebar
 	function hideSidebar(){
 		drawer.removeClass('use-sidebar');
+		content.removeClass('use-sidebar');
 		sidebarBtn.removeClass('remove-button');
 	}
-	main_content.unbind("click").click(function(){
+	// X BUTTON AT RIGHT OF MENTORS MENU
+	removeBtn.unbind("click").click(function(){
 		hideSidebar();
-	});
+	})
 	sidebarBtn.unbind("click").click(function(e){
 		e.preventDefault();
+		// NEVER HAPPENS SINCE BUTTON DISAPPEARS
 		if ( drawer.hasClass('use-sidebar') ){
 			hideSidebar();
 		}

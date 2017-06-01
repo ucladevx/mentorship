@@ -276,21 +276,6 @@ p {
   text-shadow: 0px -1px 0px #55abe3, -1px 0px 0px #55abe3, 0px 1px 0px #55abe3, 1px 0px 0px #55abe3 !important;
 }
 
-/* Active tutorials Heart */
-.tutorials .ui.heart.rating .active.icon {
-  background: transparent !important;
-  color: $color-primary !important;
-  text-shadow: 0px -1px 0px #8b96da, -1px 0px 0px #8b96da, 0px 1px 0px #8b96da, 1px 0px 0px #8b96da !important;
-}
-
-/* Selected tutorials Heart */
-.tutorials .ui.heart.rating .icon.selected,
-.tutorials .ui.heart.rating .icon.selected.active {
-  background: transparent !important;
-  color: $color-primary !important;
-  text-shadow: 0px -1px 0px #8b96da, -1px 0px 0px #8b96da, 0px 1px 0px #8b96da, 1px 0px 0px #8b96da !important;
-}
-
 .notes .upvotes{
   color: $color-primary;
 }

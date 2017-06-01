@@ -1,0 +1,152 @@
+@import "base/global";
+
+body.locked{
+	overflow: hidden;
+}
+
+.hide{
+	display: none;
+}
+
+.modal-container{
+
+	z-index: 128;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+
+	.overlay{
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		background: rgba($color-tertiary-dark, 0.5);
+	}
+}
+
+.login-modal, .new-note-modal, .sign-up-modal{
+	width: 400px;
+}
+
+
+.modal{
+	z-index: 140;
+	position: absolute;
+	background: white;
+	box-shadow: $shadow;
+	padding: $modal-spacing;
+	border-radius: $item-border-radius;
+
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+
+}
+
+.modal-header{
+	.title{
+		display: flex;
+		justify-content: center;
+		img.icon{
+			height: 25px;
+		}
+
+		i{
+			color: $color-secondary-1;
+		}
+	}
+	.signup-link{
+		font-size: $type-small;
+		text-align: center;
+		a{
+			cursor: pointer;
+			text-decoration: underline;
+		}
+	}
+}
+
+.modal-header.table{
+	display:table;
+}
+
+
+.modal-field-content{
+
+	margin-top: $modal-spacing-less;
+
+	.field{
+		input:focus{
+			outline: none !important;
+		}
+	}
+	.chat_modal{
+		text-align: center;
+	}
+
+}
+
+.modal-field-content.padded{
+	padding-bottom: 10px;
+}
+
+.submit{
+
+	padding: $modal-spacing-less 0;
+	.login-submit, {
+		height: 40px;
+		width: 100%;
+		color: white !important;
+		transform-text: uppercase;
+		background-color: $color-secondary-1 !important;
+
+		&:hover{
+			color: white;
+			background-color: $color-secondary-1;
+		}
+	}
+
+}
+
+.password-reset-link{
+	font-size: $type-small;
+	text-align: center;
+}
+
+/* Accept Chat Mentor */
+.modal_mentor_name{
+	float: left;
+}
+.modal_mentor_rating{
+	float: right;
+}
+.modal_mentor_bio{
+	max-width: 250px;
+	padding-top: 5px;
+	margin: auto;
+	border-top: 1px solid grey;
+	padding-bottom: 10px;
+	font-size: 13px;
+	color: #606060;
+
+}
+.modal_mentor_char{
+	margin: auto;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	border-top: 1px solid grey;
+	font-style: italic;
+	letter-spacing: 0.1em;
+}
+.modal_mentor_pic{
+	margin: auto;
+	margin-bottom: 10px;
+	align-items:center;
+	max-width: 85px;
+	max-height: 85px;
+}
+.modal_mentor_remove{
+	float: right;
+	display: block;
+}
