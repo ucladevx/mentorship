@@ -3,10 +3,12 @@
     <title>Mentorship</title>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag ('homepage.js') %>
+    <%= javascript_include_tag ('profile.js') %>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <script src="https://use.fontawesome.com/eb20c96418.js"></script>
   </head>
 <body>
+
   <div class="profile-content">
     <div class="profile-picture-large"></div>
   </div>
@@ -14,5 +16,61 @@
     <div class="dark-secondary uppercase"><%= User.find_by(id: current_user.id).username %></div>
     <span><%= link_to "Edit Profile", mentors_index_path, class:"profile-item btn-main"%></span>
   </div>
+  <div class="profile-content">
+  <!-- tabs -->
+    <div class="profile-tab">
+        <button class="profile-tab-links" onclick="openTab(event, 'Profile')" id="defaultOpen">Profile</button>
+        <button class="profile-tab-links" onclick="openTab(event, 'Skills')">Skills</button>
+        <button class="profile-tab-links" onclick="openTab(event, 'Progress')">Progress</button>
+        <button class="profile-tab-links" onclick="openTab(event, 'Messages')">Messages</button>
+    </div>
+
+  <!-- tab content -->
+    <div id="Profile" class="profile-tab-content">
+      <h3>Profile</h3>
+      <p>London is the capital city of England.</p>
+    </div>
+
+    <div id="Skills" class="profile-tab-content">
+      <h3>Skills</h3>
+      <p>Paris is the capital of France.</p> 
+    </div>
+
+    <div id="Progress" class="profile-tab-content">
+      <h3>Progress</h3>
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+
+    <div id="Messages" class="profile-tab-content">
+      <h3>Messages</h3>
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+  </div>
+
+  <!-- Inline until we figure out linking -->
+<script>
+  function openTab(evt, tabName) {
+      // Declare all variables
+      var i, tabcontent, tablinks;
+
+      // Get all elements with class="tabcontent" and hide them
+      tabcontent = document.getElementsByClassName("profile-tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+      }
+
+      // Get all elements with class="tablinks" and remove the class "active"
+      tablinks = document.getElementsByClassName("profile-tab-links");
+      for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+  }
+
+  document.getElementById("defaultOpen").click();
+</script>
 </body>
 </html>
