@@ -102,6 +102,13 @@ var initNewNoteModal = function(){
 
 function beginMessaging(){
 	alert("Accept");
+	$('.mentor-modal-container').addClass('hide');
 }
-$('.modal_mentor_accept').click(beginMessaging);
-$('.modal_mentor_decline').click(hideModal);
+function closeMentorModal(){
+	$('.mentor-modal-container').addClass('hide');
+}
+
+var initNewMentorModal = function(){
+	$('.modal_mentor_accept').click(beginMessaging);
+	$('.modal_mentor_decline').click(closeMentorModal);
+}

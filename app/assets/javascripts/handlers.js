@@ -8,7 +8,6 @@ var onReady = function(){
 	initNewNoteModal();
 	initNotePreview();
 	initProfileTab();
-
 	$('body').click(onBodyClick);
 };
 
