@@ -1,6 +1,5 @@
 //to aggregate all code required on document.ready()
 
-
 var onReady = function(){
 	homepage();
 	initModal();
@@ -8,6 +7,8 @@ var onReady = function(){
 	initNewNoteModal();
 	initNotePreview();
 	initNav();
+
+	$('body').click(onBodyClick);
 };
 
 var onBodyClick = function(e){
@@ -16,4 +17,3 @@ var onBodyClick = function(e){
 
 
 $(document).on('turbolinks:load', onReady);
-$('body').click(onBodyClick);
