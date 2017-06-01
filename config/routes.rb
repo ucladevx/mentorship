@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'skills/index'
+
   get 'mentors/index'
   get 'mentors/new'
   get 'mentors/create'

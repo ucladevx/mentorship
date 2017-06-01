@@ -21,6 +21,7 @@
 // Tabs-----------------------------
 .profile-tab {
     border-bottom: 1px solid $color-tertiary-med;
+    height:50px;
 }
 
 div.profile-tab button {
@@ -36,7 +37,7 @@ div.profile-tab button {
 }
 
 div.profile-tab button:hover {
-	 color: $color-tertiary-med;
+	 opacity: 0.7;
 }
 
 div.profile-tab button.selected {

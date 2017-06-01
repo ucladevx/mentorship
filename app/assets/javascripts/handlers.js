@@ -9,7 +9,7 @@ var onReady = function(){
 	initNotePreview();
 	initProfileTab();
 	initSkillsTab();
-
+	initNewMentorModal();
 	$('body').click(onBodyClick);
 };
 

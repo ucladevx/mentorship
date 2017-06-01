@@ -17,7 +17,7 @@
                         <span>Notes</span>
                     <% end %>
                     <%= link_to tutorials_index_path, class:"item" do %>
-                        <span>Tutorials</span>
+                        <span>Skills</span>
                     <% end %>
                      <% if user_signed_in? %> 
                             <a class="item profile-trigger-modal">
@@ -73,7 +73,7 @@
                 <div class="menu">
                     <%= link_to "Mentors", mentors_index_path, class:"item"%>
                     <%= link_to "Notes", notes_path, class:"item"%>
-                    <%= link_to "Tutorials", tutorials_index_path, class:"item"%>
+                    <%= link_to "Skills", tutorials_index_path, class:"item"%>
                     <% if user_signed_in? %> 
                          <%= link_to destroy_user_session_path, method: :delete, class:"item" do %>
                             Logout

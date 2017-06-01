@@ -61,7 +61,7 @@
       <%= form_tag(notes_path, :method => "get", :class => "search-bar-wrapper") do %>
         <div class="ui input input-area">
           <button type="submit" id="search-button" class="prompt"><%= image_tag("search.png") %></button>
-          <%= text_field_tag :search, params[:search], class: "prompt", placeholder: "Search for a class..."%>
+          <%= text_field_tag :search, params[:search], class: "prompt", placeholder: "Search for notes..."%>
         </div>
       <% end %>
     </div>

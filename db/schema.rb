@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 20170601191611) do
   enable_extension "plpgsql"
 
   create_table "concepts", force: :cascade do |t|
-    t.string   "Examples",    default: [],              array: true
-    t.string   "Description"
-    t.string   "Answers",     default: [],              array: true
-    t.string   "Questions",   default: [],              array: true
-    t.string   "Type"
+    t.string   "examples",    default: [],              array: true
+    t.string   "description"
+    t.string   "answers",     default: [],              array: true
+    t.string   "questions",   default: [],              array: true
+    t.string   "type"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 20170601191611) do
   end
 
   create_table "skills", force: :cascade do |t|
-    t.integer  "Difficulty"
-    t.integer  "Order"
-    t.string   "Topic"
+    t.integer  "difficulty"
+    t.integer  "order"
+    t.string   "topic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 20170601191611) do
     t.string   "uploadednoteurls",       default: [],               array: true
     t.integer  "upvotednotes",           default: [],               array: true
     t.string   "description"
-    t.integer  "Progress",               default: [],               array: true
     t.integer  "progress",               default: [],               array: true
     t.boolean  "mentor"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
