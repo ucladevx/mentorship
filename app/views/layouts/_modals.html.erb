@@ -2,6 +2,7 @@
   <!-- Login Modal -->
   <div class="modal-container hide login-modal-container">
         <div class="modal login-modal">
+
           <div class="modal-header">
             <h4 class="title"><%= image_tag("icon-lock.svg", :class => "icon")%>&nbspLogin</h4>
             <p class="signup-link">Don't have an account?&nbsp
@@ -42,6 +43,7 @@
   <!-- Signup Modal -->
   <div class="modal-container hide sign-up-modal-container">
       <div class="modal sign-up-modal">
+
         <div class="modal-header">
           <h4 class="title"><%= image_tag("icon-lock.svg", :class => "icon")%>&nbspSign up</h4>
           <p class="signup-link">Already have an account?&nbsp
@@ -70,6 +72,11 @@
 
           <div class="field">
             <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password confirmation" %>
+          </div>
+
+          <div class="field">
+            <!--@jorge @eric can you update this-->
+            <input placeholder="Mentor Code"></input>
           </div>
 
             <div class="submit">
@@ -150,7 +157,6 @@
 
                 <% end %>
               </div>
-              <!-- asdfasdfadsafadf-->
               <div class="modal-header">
                 <h4 class="title">Change your Password</h4>
               </div>

@@ -2,10 +2,13 @@
 
 var onReady = function(){
 	homepage();
+
 	initModal();
 	initMentors();
 	initNewNoteModal();
 	initNotePreview();
+	initProfileTab();
+
 	$('body').click(onBodyClick);
 };
 
