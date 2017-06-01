@@ -15,14 +15,37 @@ h4 {
     font-size: 1.4rem;
 }
 
+.tab-content.toggleOff {
+
+	.skill-pop-up{
+		display: none;
+	}
+
+	.skill-name{
+		display: block;
+	}
+}
+
+.tab-content{
+	.skill-pop-up{
+		display: block;
+	}
+
+	.skill-name{
+		display: none;
+	}
+}
+
+
 .skill-block {
 	height: 150px;
 	width: 100%;
 	position: relative;
 	background-color: #F9F9F9;
 
+
 	.skill-box {
-		height: 100px;
+		height: 40px;
 		/*width: 250px;*/
 		position: absolute;
 		bottom: 0px;
@@ -31,6 +54,7 @@ h4 {
 	}
 
 	.skill-circle {
+		cursor: pointer;
 		width: 60px;
 		/*height: 60px;*/
 		line-height: 46px;
@@ -55,15 +79,25 @@ h4 {
 		font-weight: bold;
 		text-align: right;
 
-		&.skill-pop-up {
-			border: 1px solid #D9D9D9;
-			width: 250px;
-			height: 100%;
-			background-color: white;
-			font-size: 20px;
-			color: #494949;
-			padding: 5px;
-		}
+	}
+
+	.skill-pop-up {
+
+		position: absolute;
+		left: 50%;
+	    top: 50%;
+	    z-index: 100;
+	    margin-top: -50px;
+
+		border: 1px solid #D9D9D9;
+		width: 250px;
+		height: 100%;
+		background-color: white;
+		font-size: 20px;
+		color: #494949;
+		padding: 5px;
+
+
 
 		.skill-percent {
 			position: absolute;
@@ -88,6 +122,8 @@ h4 {
 			border: 0.5px solid #D9D9D9;
 		}
 	}
+
+	
 
 	.progress-bar {
 		height: 90px;
@@ -121,6 +157,11 @@ h4 {
 			line-height: 5px;*/
 		}
 	}
+
+	.skill-pop-up{
+		-webkit-transform: translateX(-120%);
+				transform: translateX(-120%);
+	}
 }
 
 .skill-block:nth-of-type(odd) {
@@ -135,5 +176,10 @@ h4 {
 		margin-left: 45px;
 		left: 30px;
 		text-align: left;
+	}
+
+	.skill-pop-up{
+		-webkit-transform: translateX(20%);
+				transform: translateX(20%);
 	}
 }
