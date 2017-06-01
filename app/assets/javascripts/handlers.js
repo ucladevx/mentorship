@@ -6,6 +6,7 @@ var onReady = function(){
 	initMentors();
 	initNewNoteModal();
 	initNotePreview();
+	initNewMentorModal();
 	$('body').click(onBodyClick);
 };
 
