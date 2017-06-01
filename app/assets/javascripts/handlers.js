@@ -8,6 +8,7 @@ var onReady = function(){
 	initNewNoteModal();
 	initNotePreview();
 	initProfileTab();
+	initNewMentorModal();
 	$('body').click(onBodyClick);
 };
 

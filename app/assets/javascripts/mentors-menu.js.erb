@@ -33,14 +33,4 @@ var initMentors = function(){
 			showSidebar();
 		}
 	})
-
-	var heroBox = $('.hero');
-	heroBox.click(function(){
-		var otherMentors = document.getElementsByClassName("mentor-trigger-modal");
-		for(var i = 0; i < otherMentors.length; i++){
-			var other_mentor = otherMentors.item(i)
-			other_mentor.addClass("remove");
-		}
-
-	});
 }
