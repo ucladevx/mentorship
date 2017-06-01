@@ -1,11 +1,12 @@
 <script type="text/javascript" charset="utf-8">
 let users = {};
+let initialLoad = true;
 
 function addmsg(username, msgtime, body){
     $("#messages").append(
         "<div class=\"item\">" +
          "<div class=\"content\">" +
-          "<div class=\"header\"><strong>" + username + "</strong>" + msgtime + "</div>" +
+          "<div class=\"header\"><strong>" + username + " </strong>" + msgtime + "</div>" +
            "<div class=\"list\">" +
             "<div class=\"item\">" +
              "<i class=\"right triangle icon\"></i>" +
@@ -47,15 +48,21 @@ function waitForMsg(oLength){
 
         async: true, /* If set to non-async, browser shows page as "Loading.."*/
         cache: false,
-        timeout:1000, /* Timeout in ms */
+        timeout: 1000, /* Timeout in ms */
 
-        success: function(data){ /* called when request to barge.php completes */
-            if(oLength != data.messages.length)
+        success: function(data){
+            if(oLength != data.messages.length && !initialLoad)
             {
                 oLength = data.messages.length;
                 let user = users.users[data.messages[oLength - 1].user_id - 1];
+                let time = data.messages[oLength - 1].message_time;
 
-                addmsg(user.username, data.messages[oLength-1].conversation_id, data.messages[oLength-1].body);
+                addmsg(user.username, time, data.messages[oLength-1].body);
+            }
+            if(initialLoad)
+            {
+                oLength = data.messages.length;
+                initialLoad = false;
             }
         //    addmsg(username, msgtime, body); /* Add response to a .msg div (with the "new" class)*/
             setTimeout(
