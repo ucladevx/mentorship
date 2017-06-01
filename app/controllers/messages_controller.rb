@@ -29,10 +29,6 @@ class MessagesController < ApplicationController
         @message = @conversation.messages.new(message_params)
 
         @message.save
-         
-        if @message.save
-            redirect_to conversation_messages_path(@conversation)
-        end
     end
 
     private

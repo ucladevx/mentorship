@@ -16,6 +16,8 @@ function addmsg(username, msgtime, body){
         "</div>" +
       "</div>"
     );
+
+    document.getElementById("messageboxarea").value = "";
 }
 
 function initializeVars(){
@@ -25,7 +27,7 @@ function initializeVars(){
 
         async: false,
         cache: false,
-        timeout: 3000,
+        timeout: 1000,
 
         success: function(data){
             users = data;
@@ -41,7 +43,7 @@ function waitForMsg(oLength){
     /* This requests the url "msgsrv.php"
     When it complete (or errors)*/
     let conId = <%= @conversation.id %>;
-
+    $.rails.enableFormElements($($.rails.formSubmitSelector));
     $.ajax({
         type: "GET",
         url: "/api/v1/messages/" + conId,
@@ -67,7 +69,7 @@ function waitForMsg(oLength){
         //    addmsg(username, msgtime, body); /* Add response to a .msg div (with the "new" class)*/
             setTimeout(
                 waitForMsg(oLength), /* Request next message */
-                3000 /* ..after 1 seconds */
+                1000 /* ..after 1 seconds */
             );
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
@@ -82,12 +84,9 @@ $(document).ready(function(){
     initializeVars();
     waitForMsg(0); /* Start the inital request */
 });
+
 </script>
 
-
-<% if @over_ten %>
- <%= link_to 'Show Previous', '?m=all' %>
-<% end %>
 <div class="ui segment" id="messages">
  <% @messages.each do |message| %>
   <% if message.body %>
@@ -108,7 +107,7 @@ $(document).ready(function(){
 </div>
 <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
  <div class="field">
-   <%= f.text_area :body, class: "form-control" %>
+   <%= f.text_area :body, class: "form-control", id: "messageboxarea" %>
  </div>
  <%= f.text_field :user_id, value: current_user.id, type: "hidden" %>
  <div>

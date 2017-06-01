@@ -1,2 +1,30 @@
-<h1>Tutorials#index</h1>
-<p>Find me in app/views/tutorials/index.html.erb</p>
+<html>
+    <head>
+        <title>Mentorship</title>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag ('homepage.js') %>
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <script src="https://use.fontawesome.com/eb20c96418.js"></script>
+    </head>
+    <body>
+        <% for i in 0..9 do %>
+            <div class="skill-block">
+                <div class="skill-box"> 
+                    <a href="/">
+                        <div class="skill-circle">A</div>
+                    </a>
+                    <div class="skill-name skill-pop-up">
+                        <h4>Arrays</h4>
+                        <div class="skill-percent">65%</div>
+                        <div class="skill-submit">Submitted by John Doe, UPE</div>
+                        <div class="skill-click"></div>
+                    </div>
+                </div>
+                <% if i > 0 %>
+                    <div class="progress-bar">
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+    </body>
+</html>

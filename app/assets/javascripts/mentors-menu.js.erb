@@ -1,11 +1,13 @@
 var initMentors = function(){
 	var drawer = $('.mentors-menu-container');
-	var content = $('.whole_page_container');
+	var content = $('.container');
+	var searchBar = $('.filter-area');
 	var sidebarBtn = $('#open_nav');
 	var removeBtn = $('.remove-mentors-menu');
 	// show sidebar
 	function showSidebar(){
 		drawer.addClass('use-sidebar');
+		searchBar.addClass('use-sidebar');
 		content.addClass('use-sidebar');
 		sidebarBtn.addClass('remove-button');
 	}
@@ -13,6 +15,7 @@ var initMentors = function(){
 	// hide sidebar
 	function hideSidebar(){
 		drawer.removeClass('use-sidebar');
+		searchBar.removeClass('use-sidebar');
 		content.removeClass('use-sidebar');
 		sidebarBtn.removeClass('remove-button');
 	}
