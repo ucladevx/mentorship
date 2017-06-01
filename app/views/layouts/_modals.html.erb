@@ -122,39 +122,11 @@
     <!-- Edit Profile Modal -->
     <div class="modal-container hide edit-profile-modal-container">
         <div class="modal edit-profile-modal">
-          <div class="modal-header">
-            <h4 class="title">Edit Profile</h4>
-          </div>
-
-          <div class="modal-field-content">
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class: 'ui form' }) do |f| %>
-              <div class="field">
-                <%= f.email_field :email, autofocus: true, placeholder: "UCLA Email"%>
-              </div>
-
-              <div class="field">
-                <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
-              </div>
-
-              <% if devise_mapping.rememberable? -%>
-                <div class="field, ui checkbox">
-                  <%= f.check_box :remember_me%>
-                  <%= f.label :remember_me %>
-                </div>
-              <% end -%>
-
-              <div class="submit">
-                  <div class="actions">
-                    <%= f.submit "Log in", class: 'ui button submit-btn'%>
-                  </div>
-
-                <% end %>
-              </div>
-              <!-- asdfasdfadsafadf-->
               <div class="modal-header">
                 <h4 class="title">Change your Password</h4>
               </div>
 
+              <div class="modal-field-content">
               <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: 'ui form', method: :put }) do |f| %>
                 <%= devise_error_messages! %>
                 <%= f.hidden_field :reset_password_token %>
