@@ -14,7 +14,9 @@
   </div>
   <div class="profile-content">
     <div class="dark-secondary uppercase"><%= User.find_by(id: current_user.id).username %></div>
-    <span><%= link_to "Edit Profile", mentors_index_path, class:"profile-item btn-main"%></span>
+    <a class="item edit-profile-trigger-modal" >
+        <span class="profile-item btn-main">Edit Profile</span>
+    </a>
   </div>
   <div class="profile-content">
   <!-- tabs -->

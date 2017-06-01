@@ -15,6 +15,9 @@ function showModal(modal){
 		case 'mentor':
 			$('.mentor-modal-container').removeClass('hide');
 			break;
+		case 'edit-profile':
+			$('.edit-profile-modal-container').removeClass('hide');
+			break;
 
 	}
 
@@ -35,6 +38,9 @@ function hideModal(modal){
 			break;
 		case 'mentor':
 			$('.mentor-modal-container').addClass('hide');
+			break;
+		case 'edit-profile':
+			$('.edit-profile-modal-container').addClass('hide');
 			break;
 		case 'all':
 			$('.modal-container').addClass('hide');
@@ -64,6 +70,10 @@ var initModal = function(){
 	$('.mentor-trigger-modal').click(function(){
 		hideModal('all');
 		showModal('mentor');
+	});
+	$('.edit-profile-trigger-modal').click(function(){
+		hideModal('all');
+		showModal('edit-profile');
 	});
 };
 
