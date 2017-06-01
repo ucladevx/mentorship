@@ -29,9 +29,6 @@ class MessagesController < ApplicationController
         @message = @conversation.messages.new(message_params)
 
         @message.save
-
-        if @message.save
-        end
     end
 
     private

@@ -27,7 +27,7 @@ function initializeVars(){
 
         async: false,
         cache: false,
-        timeout: 3000,
+        timeout: 1000,
 
         success: function(data){
             users = data;
@@ -50,7 +50,7 @@ function waitForMsg(oLength){
 
         async: true, /* If set to non-async, browser shows page as "Loading.."*/
         cache: false,
-        timeout: 3000, /* Timeout in ms */
+        timeout: 1000, /* Timeout in ms */
 
         success: function(data){
             if(oLength != data.messages.length && !initialLoad)
@@ -69,13 +69,13 @@ function waitForMsg(oLength){
         //    addmsg(username, msgtime, body); /* Add response to a .msg div (with the "new" class)*/
             setTimeout(
                 waitForMsg(oLength), /* Request next message */
-                3000 /* ..after 1 seconds */
+                1000 /* ..after 1 seconds */
             );
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
             setTimeout(
                 waitForMsg(oLength), /* Try again after.. */
-                3000); /* milliseconds (15seconds) */
+                1000); /* milliseconds (15seconds) */
         }
     });
 };
@@ -87,10 +87,6 @@ $(document).ready(function(){
 
 </script>
 
-
-<% if @over_ten %>
- <%= link_to 'Show Previous', '?m=all' %>
-<% end %>
 <div class="ui segment" id="messages">
  <% @messages.each do |message| %>
   <% if message.body %>
@@ -109,7 +105,7 @@ $(document).ready(function(){
  <% end %>
 <% end %>
 </div>
-<%= form_for [@conversation, @message], method: :post, html: {class: "ui reply form"} do |f| %>
+<%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
  <div class="field">
    <%= f.text_area :body, class: "form-control", id: "messageboxarea" %>
  </div>
