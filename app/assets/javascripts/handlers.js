@@ -7,11 +7,11 @@ var onReady = function(){
 	initMentors();
 	initNewNoteModal();
 	initNotePreview();
+	initNav();
 };
 
-var initBody = false;
 var onBodyClick = function(e){
-	initNav(e);
+	triggerNav(e);
 }
 
 

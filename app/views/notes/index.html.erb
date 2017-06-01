@@ -54,11 +54,9 @@
           <% end %>
         </div>
       </div>
-      <div class="ui simple dropdown item no-menu">
         <%= link_to notes_path(search: params[:search]) do %>
-        <div class="item">Clear All</div>
+        <span class="item">Clear All</span>
         <% end %>
-      </div>
        <!--Search Bar -->
       <%= form_tag(notes_path, :method => "get", :class => "search-bar-wrapper") do %>
         <div class="ui input input-area">
@@ -88,7 +86,7 @@
                 <div class="overlay trigger-preview-off" id="<%= note.id %>-overlay"></div>
               </div>
               <div class="card-inner">
-                <span class="class"><%= note.uclaclass %>| <%= note.professor %> | <%= note.notetype %> </span>
+                <span class="class"><%= note.uclaclass %> | <%= note.professor %> | <%= note.notetype %> </span>
                 <h3 class="title"><%= note.title %></h3>
                   <div class="reactions">
                     <% if user_signed_in? %>
@@ -114,7 +112,6 @@
                 <!--<%= link_to note.ufile.url, target: :_blank, :class => "icon" do %>
                   <i class="fa fa-search-plus" aria-hidden="true"></i>
                 <% end %>-->
-                <a class="icon fdafd"></a>
                 <a class="icon trigger-preview-on"><i class="fa fa-search-plus" aria-hidden="true" id="<%= note.id %>-trigger-preview-on"></i></a>
                 <%= link_to note.ufile.url, target: :_blank, download: 'note.pdf', :class => "icon"  do %>
                   <i class="fa fa-download" aria-hidden="true"></i>
