@@ -16,88 +16,20 @@
 .ui.heart.rating .icon.selected,
 .ui.heart.rating .icon.selected.active {
   background: transparent !important;
-  color: #55abe3 !important;
+  color: $color-primary !important;
   text-shadow: 0px -1px 0px #55abe3, -1px 0px 0px #55abe3, 0px 1px 0px #55abe3, 1px 0px 0px #55abe3 !important;
 }
 
-.grid-notes{
+.grid-container{
+	margin-top: $filter-height;
+}
 
-	.col{
-		height: $grid-item-height;
+.new-note-wrapper{
+	display: inline-block;
+	margin-top: $grid-vertical-padding;
+
+	.new-note-btn{
+		margin-top: $grid-vertical-padding;
+		margin-left: $grid-gutter-padding;
 	}
-
-	.card.grid-item{
-		height: 100%;
-		max-width: 100%;
-		background: $color-tertiary-light;
-		margin: $grid-gutter-padding 0;
-    	box-shadow: $shadow;
-    	background: white;
-
-		position: relative;
-		align-items: center;
-		justify-content: center;
-		//padding: $card-spacing;
-		overflow: hidden;
-
-		transition: all $transition-duration $transition-ease;
-
-		.card-inner{
-			padding: $card-spacing;
-			width: calc(100% - #{$card-side-width});
-		}
-
-		.class{
-			color: $color-primary;
-			font-weight: lighter;
-			font-size: 0.8rem;
-		}
-
-		.title{
-			text-align: left;
-			font-size: 1.5rem;
-			margin: 0;
-
-			//ellipsis
-			overflow: hidden;
-		    display: -webkit-box;
-		    -webkit-line-clamp: 3;
-		    -webkit-box-orient: vertical;
-		}
-
-		.reactions{
-			position: absolute;
-			bottom: $card-spacing;
-		}
-
-		.hover-icons{
-			position: absolute;
-			font-size: $card-spacing;
-			width: $card-side-width;
-			right: 0;
-    		bottom: $card-spacing;
-
-    		.icon{
-    			-webkit-transform: translateX(300%);
-    					transform: translateX(300%);
-
-    			display: table;
-    			margin-top: $card-spacing;
-
-    			transition: all $transition-duration $transition-ease;
-    		}
-
-    		.icon:nth-child(2){
-    			transition-delay: 0.1s;
-    		}
-		}
-
-		&:hover{
-			.icon{
-				transform: translateX(0%);
-			}
-		}
-
-	}
-
 }
