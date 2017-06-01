@@ -86,7 +86,12 @@ function updateDropdownChoice(e){
 
 }
 
-
 var initNewNoteModal = function(){
 	$('.dropdown-choice').click(updateDropdownChoice);
 }
+
+function beginMessaging(){
+	alert("Accept");
+}
+$('.modal_mentor_accept').click(beginMessaging);
+$('.modal_mentor_decline').click(hideModal);
