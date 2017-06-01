@@ -8,19 +8,15 @@
 
 	.submit{
 		width: 100%;
+	}
 
-		.note-submit{
-			height: 40px;
-			width: 100%;
-			color: white;
-			transform-text: uppercase;
-			background-color: $color-secondary-1 !important;
-
-			&:hover{
-				color: white;
-				background-color: $color-secondary-1;
-			}
-		}
+	.dropdown-selected{
+		padding: 13px 16px;
+    	box-sizing: border-box;
+    	width: 100%;
+    	text-overflow: ellipsis;
+    	overflow: hidden;
+    	white-space: nowrap;
 	}
 
 

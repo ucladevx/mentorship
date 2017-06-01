@@ -25,7 +25,7 @@ body.locked{
 	}
 }
 
-.login-modal, .new-note-modal, .sign-up-modal{
+.login-modal, .new-note-modal, .sign-up-modal, .forgot-password-modal{
 	width: 400px;
 }
 
@@ -81,6 +81,11 @@ body.locked{
 			outline: none !important;
 		}
 	}
+	.note-to-user{
+		color: $color-tertiary-dark;
+		font-style: italic;
+		font-size: 0.7em;
+	}
 	.chat_modal{
 		text-align: center;
 	}
@@ -94,7 +99,8 @@ body.locked{
 .submit{
 
 	padding: $modal-spacing-less 0;
-	.login-submit, {
+	
+	.submit-btn{
 		height: 40px;
 		width: 100%;
 		color: white !important;
@@ -114,39 +120,19 @@ body.locked{
 	text-align: center;
 }
 
-/* Accept Chat Mentor */
-.modal_mentor_name{
-	float: left;
-}
-.modal_mentor_rating{
-	float: right;
-}
-.modal_mentor_bio{
-	max-width: 250px;
-	padding-top: 5px;
-	margin: auto;
-	border-top: 1px solid grey;
-	padding-bottom: 10px;
-	font-size: 13px;
-	color: #606060;
 
+///errors///
+#error_explanation{
+	h2{
+		display: none;
+	}
+	ul{
+		list-style-type: none;
+	    padding: 0;
+	    font-style: italic;
+	    color: red;
+	    text-align: center;
+	}
 }
-.modal_mentor_char{
-	margin: auto;
-	padding-top: 5px;
-	padding-bottom: 10px;
-	border-top: 1px solid grey;
-	font-style: italic;
-	letter-spacing: 0.1em;
-}
-.modal_mentor_pic{
-	margin: auto;
-	margin-bottom: 10px;
-	align-items:center;
-	max-width: 85px;
-	max-height: 85px;
-}
-.modal_mentor_remove{
-	float: right;
-	display: block;
-}
+
+

@@ -1,100 +1,92 @@
-<html>
-  <head>
-    <title>Mentorship</title>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag ('homepage.js') %>
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <script src="https://use.fontawesome.com/eb20c96418.js"></script>
-  </head>
-  <body>
+
 
   <div class="grid background">
-    <!--Search Bar -->
-    <%= form_tag(notes_path, :method => "get") do %>
-      <div class="ui search big search-area">
-        <div class="ui input input-area">
-          <button type="submit" id="search-button" class="prompt"><%= image_tag("search.png") %></button>
-          <%= text_field_tag :search, params[:search], class: "prompt", placeholder: "Search for a class..."%>
-        </div>
-      </div>
-    <% end %>
 
   <!-- Filter Area -->
   <div class="filter-area">
-      <div class="ui compact menu">
-        <div class="ui simple dropdown item">
-          <!-- trinary operator to set default or current search -->
-          <%= params[:classes].present? ? params[:classes] : "Classes" %>
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            <!-- To have the previous search/filters compound, this passes all the current search terms even if null-->
-            <%= link_to notes_path(search: params[:search], professor: params[:professor], type: params[:type]) do %>
-              <div class="item" >All</div>
-            <% end %>
-            <%= link_to notes_path(classes: "CS 31", search: params[:search], professor: params[:professor], type: params[:type]) do %>
-              <div class="item" >CS 31</div>
-            <% end %>
-            <%= link_to notes_path(classes: "CS 32", search: params[:search], professor: params[:professor], type: params[:type]) do %>
-              <div class="item" >CS 32</div>
-            <% end %>
-          </div>
+      <div class="ui simple dropdown item">
+        <!-- trinary operator to set default or current search -->
+        <%= params[:classes].present? ? params[:classes] : "Classes" %>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <!-- To have the previous search/filters compound, this passes all the current search terms even if null-->
+          <%= link_to notes_path(search: params[:search], professor: params[:professor], type: params[:type]) do %>
+            <div class="item" >All</div>
+          <% end %>
+          <%= link_to notes_path(classes: "CS 31", search: params[:search], professor: params[:professor], type: params[:type]) do %>
+            <div class="item" >CS 31</div>
+          <% end %>
+          <%= link_to notes_path(classes: "CS 32", search: params[:search], professor: params[:professor], type: params[:type]) do %>
+            <div class="item" >CS 32</div>
+          <% end %>
         </div>
       </div>
-      <div class="ui compact menu">
-        <div class="ui simple dropdown item">
-          <%= params[:professor].present? ? params[:professor] : "Professor" %>
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            <%= link_to notes_path(search: params[:search], type: params[:type], classes: params[:classes]) do %>
-              <div class="item">All</div>
-            <% end %>
-            <%= link_to notes_path(professor: "Smallberg", search: params[:search], type: params[:type], classes: params[:classes]) do %>
-              <div class="item">Smallberg</div>
-            <% end %>
-            <%= link_to notes_path(professor: "Nachenberg", search: params[:search], type: params[:type], classes: params[:classes]) do %>
-              <div class="item">Nachenberg</div>
-            <% end %>
-          </div>
+      <div class="ui simple dropdown item">
+        <%= params[:professor].present? ? params[:professor] : "Professor" %>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <%= link_to notes_path(search: params[:search], type: params[:type], classes: params[:classes]) do %>
+            <div class="item">All</div>
+          <% end %>
+          <%= link_to notes_path(professor: "Smallberg", search: params[:search], type: params[:type], classes: params[:classes]) do %>
+            <div class="item">Smallberg</div>
+          <% end %>
+          <%= link_to notes_path(professor: "Nachenberg", search: params[:search], type: params[:type], classes: params[:classes]) do %>
+            <div class="item">Nachenberg</div>
+          <% end %>
         </div>
       </div>
-      <div class="ui compact menu">
-        <div class="ui simple dropdown item">
-          <%= params[:type].present? ? params[:type] : "Type" %>
-          <i class="dropdown icon"></i>
-          <div class="menu">
-            <%= link_to notes_path(search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
-              <div class="item">All</div>
-            <% end %>
-            <%= link_to notes_path(type: "Weekly Notes", search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
-              <div class="item">Weekly Notes</div>
-            <% end %>
-            <%= link_to notes_path(type: "Midterm Cheatsheet", search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
-              <div class="item">Midterm Cheatsheet</div>
-            <% end %>
-            <%= link_to notes_path(type: "Final Cheatsheet", search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
-              <div class="item">Final Cheatsheet</div>
-            <% end %>
-          </div>
+      <div class="ui simple dropdown item">
+        <%= params[:type].present? ? params[:type] : "Type" %>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <%= link_to notes_path(search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
+            <div class="item">All</div>
+          <% end %>
+          <%= link_to notes_path(type: "Weekly Notes", search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
+            <div class="item">Weekly Notes</div>
+          <% end %>
+          <%= link_to notes_path(type: "Midterm Cheatsheet", search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
+            <div class="item">Midterm Cheatsheet</div>
+          <% end %>
+          <%= link_to notes_path(type: "Final Cheatsheet", search: params[:search], professor: params[:professor], classes: params[:classes]) do %>
+            <div class="item">Final Cheatsheet</div>
+          <% end %>
         </div>
       </div>
-      <div class="ui compact menu">
+      <div class="ui simple dropdown item no-menu">
         <%= link_to notes_path(search: params[:search]) do %>
         <div class="item">Clear All</div>
         <% end %>
       </div>
-      <% if user_signed_in? %>
-       <div class="ui compact menu">
-        <div class="btn-main" id="trigger-new-note"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNew Note</div>
-       </div>
-       <% end %>
+       <!--Search Bar -->
+      <%= form_tag(notes_path, :method => "get", :class => "search-bar-wrapper") do %>
+        <div class="ui input input-area">
+          <button type="submit" id="search-button" class="prompt"><%= image_tag("search.png") %></button>
+          <%= text_field_tag :search, params[:search], class: "prompt", placeholder: "Search for a class..."%>
+        </div>
+      <% end %>
     </div>
 
 
     <div class="grid-container">
+      <% if user_signed_in? %>
+      <div class="new-note-wrapper">
+        <div class="btn-main new-note-btn" id="trigger-new-note"><i class="fa fa-plus" aria-hidden="true"></i>&nbspNew Note</div>
+      </div>
+       <% end %>
       <div class="grid grid-notes">
         <% @sortednotes.each do |note| %>
           <div class="col lg-6 md-6 sm-12">
             <div class="card grid-item">
+              <div class="note-preview-wrapper hide" id="<%= note.id %>-preview">
+                <div class="note-preview">
+                  <iframe src="<%= note.ufile.url %>#zoom=100" width="100%" height="100%" style="border: none;">
+                  This browser does not support PDFs. Please download the PDF to view it: <a href="<%= note.ufile.url %>" download="note.pdf">Download PDF</a>
+                  </iframe>
+                </div>
+                <div class="overlay trigger-preview-off" id="<%= note.id %>-overlay"></div>
+              </div>
               <div class="card-inner">
                 <span class="class"><%= note.uclaclass %>| <%= note.professor %> | <%= note.notetype %> </span>
                 <h3 class="title"><%= note.title %></h3>
@@ -119,9 +111,10 @@
               </div>
 
               <div class="hover-icons">
-                <%= link_to note.ufile.url, target: :_blank, :class => "icon" do %>
+                <!--<%= link_to note.ufile.url, target: :_blank, :class => "icon" do %>
                   <i class="fa fa-search-plus" aria-hidden="true"></i>
-                <% end %>
+                <% end %>-->
+                <a class="icon trigger-preview-on"><i class="fa fa-search-plus" aria-hidden="true" id="<%= note.id %>-trigger-preview-on"></i></a>
                 <%= link_to note.ufile.url, target: :_blank, download: 'note.pdf', :class => "icon"  do %>
                   <i class="fa fa-download" aria-hidden="true"></i>
                 <% end %>
@@ -169,10 +162,42 @@
       <div class="">
          <%= form_for @note, html: { multipart: true, class: 'ui form' } do |f| %>
           <div class="field">
-            <%= f.text_field :title, :placeholder => "Title" %>
+            <%= f.hidden_field :notetype, id: "note-type-hidden" %>
+            <div class="field">
+              <div class="ui menu">
+                <div class="ui simple dropdown item">
+                  <%= params[:type].present? ? params[:type] : "Note Type" %>
+                  <i class="dropdown icon"></i>
+                  <div class="menu" id="note-type">
+                      <div class="item dropdown-choice">Weekly Notes</div>
+                      <div class="item dropdown-choice">Midterm Cheatsheet</div>
+                      <div class="item dropdown-choice">Final Cheatsheet</div>
+                  </div>
+                </div>
+                <div class="dropdown-selected" id="note-type-selected">
+                </div>
+              </div>
+            </div>
           </div>
           <div class="field">
-            <%= f.text_field :uclaclass, :placeholder => "UCLA Class" %>
+            <%= f.hidden_field :uclaclass, id: "ucla-class-hidden" %>
+            <div class="field">
+              <div class="ui menu">
+                <div class="ui simple dropdown item">
+                  <%= params[:type].present? ? params[:type] : "UCLA Class" %>
+                  <i class="dropdown icon"></i>
+                  <div class="menu" id="ucla-class">
+                      <div class="item dropdown-choice">CS 31</div>
+                      <div class="item dropdown-choice">CS 32</div>
+                  </div>
+                </div>
+                <div class="dropdown-selected" id="ucla-class-selected">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <%= f.text_field :title, :placeholder => "Title" %>
           </div>
           <div class="field">
             <%= f.text_field :professor, :placeholder => "Professor" %>
@@ -180,14 +205,12 @@
           <div class="field">
             <%= f.text_field :author, :placeholder => "Author" %>
           </div>
-          <div class="field">
-            <%= f.text_field :notetype, :placeholder => "Note Type" %>
-          </div>
+
           <div class="field">
             <%= f.file_field :ufile %>
           </div>
           <div class="submit">
-            <%= f.submit "Save", class: "note-submit" %>
+            <%= f.submit "Save", class: "submit-btn" %>
           </div>
          <% end %>
       </div>
@@ -198,5 +221,3 @@
   </div>
   <div class="overlay" onClick="hideModal('new-note')"></div>
 </div>
-</body>
-</html>

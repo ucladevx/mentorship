@@ -11,7 +11,7 @@
           <div class="modal-field-content">
             <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class: 'ui form' }) do |f| %>
               <div class="field">
-                <%= f.email_field :email, autofocus: true, placeholder: "Email"%>
+                <%= f.email_field :email, autofocus: true, placeholder: "UCLA Email"%>
               </div>
 
               <div class="field">
@@ -27,7 +27,7 @@
 
               <div class="submit">
                   <div class="actions">
-                    <%= f.submit "Log in", class: 'ui button login-submit'%>
+                    <%= f.submit "Log in", class: 'ui button submit-btn'%>
                   </div>
 
                 <% end %>
@@ -57,7 +57,8 @@
           </div>
 
           <div class="field">
-            <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+            <div class="note-to-user">*You must use your UCLA email to sign up</div>
+            <%= f.email_field :email, autofocus: true, placeholder: "UCLA Email" %>
           </div>
 
           <div class="field">
@@ -73,7 +74,7 @@
 
             <div class="submit">
                 <div class="actions">
-                  <%= f.submit "Create Account", class: 'ui button login-submit'%>
+                  <%= f.submit "Create Account", class: 'ui button submit-btn'%>
                 </div>
               <% end %>
             </div>
@@ -82,19 +83,35 @@
       <div class="overlay" onClick="hideModal('sign-up')"></div>
     </div>
 
-<!-- Open chat with Mentor -->
+  <!-- Open chat with Mentor -->
   <div class="modal-container hide mentor-modal-container">
       <div class="modal mentor-modal">
         <div class="modal-header">
-          <h4 class="title"><%= image_tag("shrink.jpg", :class => "ui avatar image")%>&nbspChat with me!</h4>
-        </div>
+          <div class="modal_mentor_pic">
+            <%= image_tag("shrink.jpg", :class => "ui circular image")%>
+          </div>
 
+          <div class="modal_mentor_char">
+            <div class="modal_mentor_name">
+              Austin Lee
+            </div>
+            <div class="modal_mentor_rating">
+              Rating: 1,234
+            </div>
+          </div>
+        </div>
         <div class="modal-field-content">
+          <div class="modal_mentor_bio">
+            &nbsp&nbsp&nbsp&nbspLorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Quisque in quam neque. Morbi maximus sem a turpis aliquam bibendum.
+            Donec iaculis mattis dictum. Sed vitae egestas lorem. Aenean ut orci id
+            libero rutrum condimentum
+          </div>
           <div class="chat_modal">
             <div class="ui buttons">
-              <button class="ui positive button">Accept</button>
+              <button class="ui positive button modal_mentor_accept">Accept</button>
               <div class="or"></div>
-              <button class="ui negative button">Decline</button>
+              <button class="ui button modal_mentor_decline">Cancel</button>
             </div>
           </div>
         </div>

@@ -7,47 +7,47 @@
 
     <meta name="viewport" content="width=device-width" />
 
+    <style>
+    header, .mentors-menu-container{display: none;}
+    </style>
+
   </head>
   <body>
+      <div class="modal login-modal">
+        <div class="modal-header">
+          <h4 class="title"><%= image_tag("icon-lock.svg", :class => "icon")%>&nbspLogin</h4>
+          <p class="signup-link">Don't have an account?&nbsp
+            <a href="/users/sign_up"><span>Sign up</span></a>
+        </div>
 
-    <!-- Yellow Box -->
-    
-    <div class="ui center aligned padded grid, grid login background">
-      <div class="sixteen wide column">
-       <h2>Log in</h2>
-       </div>
-
-       <div class="six wide left aligned column">
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class: 'ui form' }) do |f| %>
-          <div class="field">
-            <%= f.label :email %>
-            <%= f.email_field :email, autofocus: true, placeholder: "Email"%>
-          </div>
-
-          <div class="field">
-            <%= f.label :password %>
-            <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
-          </div>
-
-          <% if devise_mapping.rememberable? -%>
-            <div class="field, ui checkbox">
-              <%= f.check_box :remember_me%>
-              <%= f.label :remember_me %>
+        <div class="modal-field-content">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {class: 'ui form' }) do |f| %>
+          <%= devise_error_messages! %>
+            <div class="field">
+              <%= f.email_field :email, autofocus: true, placeholder: "UCLA Email"%>
             </div>
-          <% end -%>
 
+            <div class="field">
+              <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+            </div>
 
-          <div class="six wide left aligned column">
-              <div class="actions">
-                <%= f.submit "Log in", class: 'ui button'%>
+            <% if devise_mapping.rememberable? -%>
+              <div class="field, ui checkbox">
+                <%= f.check_box :remember_me%>
+                <%= f.label :remember_me %>
               </div>
-              
-            <% end %>
-            <%= render "devise/shared/links"%>
-          </div>
-      </div>
+            <% end -%>
 
-    </div>
+            <div class="submit">
+                <div class="actions">
+                  <%= f.submit "Log in", class: 'ui button submit-btn'%>
+                </div>
+
+              <% end %>
+            </div>
+            <p class="password-reset-link"><%= link_to "Forgot your password?", new_password_path(resource_name) %></p>
+        </div>
+      </div>
   </body>
 </html>
 
