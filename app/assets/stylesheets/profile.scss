@@ -17,3 +17,41 @@
 	padding-top: 20px;
 	text-align:center;
 }
+
+// Tabs-----------------------------
+.profile-tab {
+	overflow: hidden;
+    border-bottom: 1px solid $color-tertiary-med;
+    background-color: $bg-light;
+    height: 55px;
+}
+
+div.profile-tab button {
+	background-color: inherit;
+    margin: 0 auto;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.1s;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+div.profile-tab button:hover {
+	 color: $color-tertiary-med;
+}
+
+div.profile-tab button.active {
+	border-bottom: $color-primary;
+	border-bottom-style: solid;
+}
+
+.profile-tab-content {
+	display: none;
+    padding: 6px 12px;
+    padding-top: 20px;
+    border-top: none;
+}
+
+//------------------------------
