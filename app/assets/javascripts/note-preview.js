@@ -32,3 +32,10 @@ var initNotePreview = function(){
 	$('.trigger-preview-off').click(hidePreview);
 
 }
+
+
+
+
+
+
+
