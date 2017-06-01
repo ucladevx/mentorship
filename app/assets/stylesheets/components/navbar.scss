@@ -161,6 +161,12 @@ header{
 	display: none;
 	padding: 20px;
 
+	position:absolute;
+	left: 100% !important;
+	top: 0% !important;
+	-webkit-transform: translate(-100%, 0%);
+			transform: translate(-100%, 0%);
+
 	.menu{
 		padding: $nav-spacing;
 		background: white;
@@ -169,6 +175,10 @@ header{
 			margin: 10px 0px;
 		}
 	}
+}
+
+#mobile-menu{
+	display: none;
 }
 
 @media (max-width: $bp-mobile) {
