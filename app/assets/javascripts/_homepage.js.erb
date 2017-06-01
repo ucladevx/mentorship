@@ -8,14 +8,20 @@ function homepage(){
 
 		console.log('clicked')
         e.preventDefault();
-		$('.ui.vertical.menu').toggle();
+
+		var menu = document.getElementById('mobile-menu');
+	    if (menu.style.display == 'block') {
+	        menu.style.display = 'none';
+	    } else {
+	        menu.style.display = 'block';
+	    }
 
 		// Check to see the orientation of the chevron
 		// and alternate
 		var icon = document.getElementById("chevron");
 		var iconClass = icon.className;
 
-		if (iconClass == "navbar-chevron icon chevron down") {
+		if (iconClass == "chevron down icon") {
 			document.getElementById("chevron").classList= "chevron up icon";
 		}
 
