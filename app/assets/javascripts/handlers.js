@@ -1,19 +1,17 @@
 //to aggregate all code required on document.ready()
 
-
 var onReady = function(){
 	homepage();
 	initModal();
 	initMentors();
 	initNewNoteModal();
 	initNotePreview();
+	$('body').click(onBodyClick);
 };
 
-var initBody = false;
 var onBodyClick = function(e){
-	initNav(e);
+	triggerNav(e);
 }
 
 
 $(document).on('turbolinks:load', onReady);
-$('body').click(onBodyClick);
