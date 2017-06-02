@@ -20,8 +20,6 @@ TabNavigation.prototype._extractId = function(string){
 
 TabNavigation.prototype._handleClick = function(e){
 
-  console.log(e)
-
   var id = $(e.target)[0].id;
   id = this._extractId(id);
 

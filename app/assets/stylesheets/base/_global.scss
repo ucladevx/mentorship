@@ -12,6 +12,10 @@ body{
 
 a{
     color: $color-primary;
+
+    &:hover{
+        color: $color-primary;
+    }
 }
 
 .wide-hidden, .wide-hidden-flex{
@@ -24,7 +28,7 @@ a{
 
 
 .ui.form input{
-	font-family: "Lato", "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-family: $type-main;
     margin: 0em;
     outline: none;
     -webkit-appearance: none;

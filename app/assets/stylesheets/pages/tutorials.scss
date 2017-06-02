@@ -21,7 +21,7 @@ h4 {
 		display: none;
 	}
 
-	.skill-name{
+	.skill-hide-when-toggle{
 		display: block;
 	}
 }
@@ -31,7 +31,7 @@ h4 {
 		display: block;
 	}
 
-	.skill-name{
+	.skill-hide-when-toggle{
 		display: none;
 	}
 }
@@ -45,40 +45,51 @@ h4 {
 
 
 	.skill-box {
-		height: 40px;
-		/*width: 250px;*/
+		height: $skill-circle-size;
+		width: $skill-circle-size;
 		position: absolute;
 		bottom: 0px;
 		left: 50%;
-		/*border: 2px solid black;*/
 	}
 
 	.skill-circle {
+		position: absolute;
+		display: flex;
+	    align-items: center;
+	    justify-content: center;
 		cursor: pointer;
-		width: 60px;
-		/*height: 60px;*/
-		line-height: 46px;
+
+		width: $skill-circle-size;
+		height: $skill-circle-size;
+
 		padding: 5px;
 		border-radius: 50%;
-		background-color: #7AA6D6;
-		border: 2px solid #7AA6D6;
+		background-color: $color-primary;
+		border: 2px solid $color-primary;
 		background-clip: content-box;
-		margin: 0 auto;
-		position: absolute;
+		
 		text-align: center;
 		font-size: 25px;
 		font-weight: bold;
 		color: #fffff0;
+
+		transition: all 0.2s ease;
+
+		&:hover{
+			padding: 10px;
+		    color: $color-primary;
+		}
 	}
 
 	.skill-name {
-		color: #7AA6D6;
-		/*line-height: 45px;*/
 		position: absolute;
+		height: 100%;
+	    display: flex;
+	    align-items: center;
+
 		font-size: 20px;
 		font-weight: bold;
 		text-align: right;
-
 	}
 
 	.skill-pop-up {
@@ -87,39 +98,46 @@ h4 {
 		left: 50%;
 	    top: 50%;
 	    z-index: 100;
-	    margin-top: -50px;
+	    margin-top: -30px;
 
-		border: 1px solid #D9D9D9;
+		border: 1px solid $color-tertiary-light;
 		width: 250px;
 		height: 100%;
 		background-color: white;
 		font-size: 20px;
 		color: #494949;
-		padding: 5px;
+		padding: $skill-spacing;
 
-
-
-		.skill-percent {
-			position: absolute;
-			top: 45px;
-			font-size: 36px;
-			text-align: left;
+		h4{
+			padding: 0;
 		}
 
-		.skill-submit {
-			font-size: 10px;
+		h2.skill-percent {
+			margin-top: 0;
+			font-size: 70px;
+		}
+
+		p.skill-submit {
 			position: absolute;
-			bottom: 0px;
+			bottom: 0;
+			font-size: 0.7rem;
 		}
 
 		.skill-click {
-			height: 75px;
-			width: 60px;
-			background-color: #7AA6D6;
 			position: absolute;
-			left: 170px;
-			top: 12.5px;
-			border: 0.5px solid #D9D9D9;
+			top: $skill-spacing;
+			height: calc(100% - #{$skill-spacing} - #{$skill-spacing});
+			width: 60px;
+			background-color: $color-primary;
+			border: 1px solid $color-tertiary-light;
+			cursor: pointer;
+
+			display: flex;
+		    align-items: center;
+		    justify-content: center;
+
+			color: white;
+			font-size: 40px;
 		}
 	}
 
@@ -152,15 +170,28 @@ h4 {
 
 		&.skill-pop-up {
 			padding-right: 5px;
-			/*padding-right: 10px;
-			padding-top: 15px;
-			line-height: 5px;*/
+		}
+	}
+
+	.skill-click{
+		left: $skill-spacing;
+
+		.fa-chevron-right{
+			display: none;
 		}
 	}
 
 	.skill-pop-up{
 		-webkit-transform: translateX(-120%);
 				transform: translateX(-120%);
+
+		h2, h4, p{
+			text-align: right;
+		}
+
+		p.skill-submit{
+			right: $skill-spacing;
+		}
 	}
 }
 
@@ -177,6 +208,16 @@ h4 {
 		left: 30px;
 		text-align: left;
 	}
+
+	.skill-click{
+		right: $skill-spacing;
+
+		.fa-chevron-left{
+			display: none;
+		}
+	}
+
+
 
 	.skill-pop-up{
 		-webkit-transform: translateX(20%);

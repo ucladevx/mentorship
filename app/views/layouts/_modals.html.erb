@@ -55,15 +55,18 @@
           <%= devise_error_messages! %>
 
           <div class="field">
+            <div class="required">*</div>
             <%= f.text_field :username, autofocus: true, placeholder: "Username" %>
           </div>
 
           <div class="field">
-            <div class="note-to-user">*You must use your UCLA email to sign up</div>
+            <div class="required">*</div>
+            <div class="note-to-user">You must use your UCLA email to sign up</div>
             <%= f.email_field :email, autofocus: true, placeholder: "UCLA Email" %>
           </div>
 
           <div class="field">
+            <div class="required">*</div>
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> characters minimum)</em>
             <% end %>
@@ -71,12 +74,13 @@
           </div>
 
           <div class="field">
+            <div class="required">*</div>
             <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password confirmation" %>
           </div>
 
           <div class="field">
             <!--@jorge @eric can you update this-->
-            <input placeholder="Mentor Code"></input>
+            <input placeholder="Mentor Code (leave blank if not a mentor)"></input>
           </div>
 
             <div class="submit">
