@@ -77,7 +77,7 @@
         <% @sortednotes.each do |note| %>
           <div class="col lg-6 md-6 sm-12">
             <div class="card grid-item">
-              <div class="note-preview-wrapper hide" id="<%= note.id %>-preview">
+              <div class="modal-container note-preview-wrapper hide" id="<%= note.id %>-preview">
                 <div class="note-preview">
                   <iframe src="<%= note.ufile.url %>#zoom=100" width="100%" height="100%" style="border: none;">
                   This browser does not support PDFs. Please download the PDF to view it: <a href="<%= note.ufile.url %>" download="note.pdf">Download PDF</a>

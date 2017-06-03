@@ -1,5 +1,5 @@
 
-function showModal(modal){
+function showModal(modal, id){
 
 	switch(modal){
 
@@ -13,7 +13,9 @@ function showModal(modal){
 			$('.sign-up-modal-container').removeClass('hide');
 			break;
 		case 'mentor':
-			$('.mentor-modal-container').removeClass('hide');
+			$('#sidebar').addClass('show-modal');
+			$('#mentorModal-' + id).removeClass('hide');
+
 			break;
 		case 'edit-profile':
 			$('.edit-profile-modal-container').removeClass('hide');
@@ -37,6 +39,7 @@ function hideModal(modal){
 			$('.sign-up-modal-container').addClass('hide');
 			break;
 		case 'mentor':
+			$('#sidebar').removeClass('show-modal');
 			$('.mentor-modal-container').addClass('hide');
 			break;
 		case 'edit-profile':
@@ -47,6 +50,10 @@ function hideModal(modal){
 	}
 
 	$('body').removeClass('locked');
+}
+
+function extractId(string){
+	return string.substring(string.indexOf('-') + 1);
 }
 
 
@@ -67,9 +74,12 @@ var initModal = function(){
 		hideModal('all');
 		showModal('sign-up');
 	});
-	$('.mentor-trigger-modal').click(function(){
+	$('.mentor-trigger-modal').click(function(e){
+		var id = $(e.target)[0].id;
+		id = extractId(id);
+
 		hideModal('all');
-		showModal('mentor');
+		showModal('mentor', id);
 	});
 	$('.edit-profile-trigger-modal').click(function(){
 		hideModal('all');
@@ -100,12 +110,8 @@ var initNewNoteModal = function(){
 	$('.dropdown-choice').click(updateDropdownChoice);
 }
 
-function beginMessaging(){
-	alert("Accept");
-	$('.mentor-modal-container').addClass('hide');
-}
 function closeMentorModal(){
-	$('.mentor-modal-container').addClass('hide');
+	hideModal('mentor');
 }
 
 var initNewMentorModal = function(){

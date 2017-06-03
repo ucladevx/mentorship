@@ -1,22 +1,46 @@
 @import "base/global";
 
-/* SIDEBAR */
-#sidebar{
-  height: 100%;
-  position: fixed;
-  z-index: 3;
-  transform: translateX(100vw);
-  transition: .3s ease;
-  background-color: white;
-  overflow: hidden;
-  -webkit-box-shadow: $shadow;
-  -moz-box-shadow: $shadow;
-  box-shadow: $shadow;
-  padding-bottom: 100px;
+
+.hide-soft{
+  opacity: 0;
 }
+
+.mentor-wrapper{
+  transition: all 0.3s ease;
+}
+
+.open_navbar{
+
+  .open-chat-btn{
+
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 15px;
+    height: 48px;
+    background: none;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 0px;
+
+    transition: transform 0.1s ease;
+
+    &:hover{
+      transform: translateX(-10px);
+    }
+    
+  }
+
+}
+
+
+//////////////////////////////////////
+/* SIDEBAR */
+//////////////////////////////////////
+
+
 .use-sidebar #sidebar{
   width: $mentors-menu-width;
-  overflow-y: scroll;
   height:100vh;
   position: fixed;
   transform: translateX(calc(100vw - #{$mentors-menu-width}));
@@ -24,7 +48,6 @@
 .container.use-sidebar{
   width: calc(100vw - #{$mentors-menu-width});
   height: 100vh;
-  overflow-y: scroll;
   position: fixed;
 }
 .filter-area.use-sidebar{
@@ -44,23 +67,89 @@
 .open_navbar.remove-button{
   display: none;
 }
-.nav_title{
-  font-family: $type-main;
-  padding-top: 22px;
-  padding-bottom: 18px;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 15px;
+
+
+
+////////////////////////////////////////////////
+/* 
+* menu default listview
+*
+* view toggled chatview #sidebar.chatview
+* in chat.scss 
+*/
+///////////////////////////////////////////////
+
+//mentor listview
+#sidebar{
+
+  overflow: scroll !important;
+  height: 100%;
+  position: fixed;
+  z-index: 3;
+  transform: translateX(100vw);
+  transition: .3s ease;
+  background-color: white;
+  overflow: hidden;
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+  padding-bottom: 100px;
+
+  &.show-modal{
+    overflow: visible !important;
+  }
+
+  .nav_title{
+    background-color: $color-primary;
+    color: white;
+    font-family: $type-main;
+    padding: 10px;
+    font-size: 1rem;
+
+    &.list_show{
+      display: block;
+    }
+
+    &.chat_select_show{
+      display: none;
+
+      .back{
+        cursor: pointer;
+        & > *{
+          pointer-events: none;
+        }
+      }
+
+    }
+
+  }
+
+  .chatbox{
+    display: none;
+  }
+
 }
+
+//////////////////////////////////////
+/*modal*/
+//////////////////////////////////////
+
+
 .mentor-trigger-modal{
   cursor: pointer;
   color: #3f3f3f;
-  padding-top: 10px;
-  padding-bottom: 8px;
-  padding-left: 15px;
-  margin-bottom: 10px;
-  font-size: 15px;
+  padding: 15px 10px;
+  font-size: 1rem;
   border-top: 1px solid $color-tertiary-light;
+
+  &:hover{
+    background-color: $color-tertiary-light;
+  }
+
+  //prevent click event from capturing child element as event target
+  & > *{
+    pointer-events: none;
+  }
 }
 
 .mentor-trigger-modal.remove{
@@ -74,19 +163,85 @@
   padding-left: 12px;
   font-family: $type-main;
   display:inline-block;
-  font-size: 15px;
+  font-size: 1rem;
 }
 .mentor_rating{
   padding-top: 5px;
+  color: $text-color-light;
+  font-size: 0.8rem;
   font-family: $type-main;
   float: right;
-  font-style: italic;
   margin-right: 12px;
 }
 .large.street.view.icon{
   padding: 0px 0px 0px 10px;
   text-align: center;
 }
+
+
+/* Accept Chat Mentor */
+
+.modal-container.mentor-modal-container{
+  //super hacky but will do for now
+  width: 100vw;
+  height: 100vh;
+  left: $mentors-menu-width;
+  -webkit-transform: translate(-100%, -$nav-height);
+          transform: translate(-100%, -$nav-height);
+}
+
+.modal_mentor_name, .modal_mentor_rating{
+  text-align: center;
+  width: 100%;
+
+  h2, h4{
+    text-align: center;
+  }
+}
+.modal_mentor_rating h4{
+  font-size: 0.8rem;
+  color: $text-color-light;
+}
+.modal_mentor_bio{
+  max-width: 250px;
+  padding-top: 5px;
+  margin: auto;
+  padding-bottom: 10px;
+  font-size: 1rem;
+  color: #606060;
+}
+
+.chat_modal{
+  margin-top: $modal-spacing;
+}
+
+.modal_mentor_char{
+  margin: auto;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  letter-spacing: 0.1em;
+}
+.modal_mentor_pic{
+  margin: auto;
+  margin-bottom: 10px;
+  align-items:center;
+  max-width: 85px;
+  max-height: 85px;
+}
+.modal_mentor_remove{
+  float: right;
+  display: block;
+}
+
+.mentor-modal-container{
+
+  .modal-field-content{
+    margin-top: 0px;
+    margin-bottom: $modal-spacing;
+  }
+
+}
+
 
 @media screen and (max-width:450px){
   .use-sidebar #sidebar{

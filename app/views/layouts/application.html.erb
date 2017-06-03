@@ -15,7 +15,13 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+
+    <% if request.env['PATH_INFO'] != '/skills/index' %>
+      <%= render 'layouts/header' %>
+    <% else %>
+      <%= render 'layouts/header-skill' %>
+    <% end %>
+
     <% if request.env['PATH_INFO'] != '/' %>
       <%= render 'layouts/mentors-menu' %>
     <% end %>

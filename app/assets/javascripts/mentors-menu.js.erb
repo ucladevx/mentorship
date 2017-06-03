@@ -10,6 +10,9 @@ var initMentors = function(){
 		searchBar.addClass('use-sidebar');
 		content.addClass('use-sidebar');
 		sidebarBtn.addClass('remove-button');
+
+		//fix other modal filling page regardless of presence of sidebar
+		$('.modal-container').not($('.mentor-modal-container')).addClass('sidebar-view');
 	}
 
 	// hide sidebar
@@ -18,11 +21,14 @@ var initMentors = function(){
 		searchBar.removeClass('use-sidebar');
 		content.removeClass('use-sidebar');
 		sidebarBtn.removeClass('remove-button');
+
+		$('.modal-container').not($('.mentor-modal-container')).removeClass('sidebar-view');
+
 	}
 	// X BUTTON AT RIGHT OF MENTORS MENU
 	removeBtn.unbind("click").click(function(){
 		hideSidebar();
-	})
+	});
 	sidebarBtn.unbind("click").click(function(e){
 		e.preventDefault();
 		// NEVER HAPPENS SINCE BUTTON DISAPPEARS
@@ -32,5 +38,8 @@ var initMentors = function(){
 		else{
 			showSidebar();
 		}
-	})
+	});
+
+	//enable going back to all mentor list
+	$('.back').click(resetMentorSelect);
 }

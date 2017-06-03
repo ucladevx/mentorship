@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   resources :notes, only: [:index, :new, :create, :destroy, :upvote]
 
+  resources :skills
+
   namespace :api do
       namespace :v1 do
           resources :messages, only: [:index, :create, :show, :update, :destroy]

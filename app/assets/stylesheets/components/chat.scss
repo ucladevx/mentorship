@@ -1,0 +1,27 @@
+@import "base/global";
+
+//chatview
+#sidebar.chatview{
+
+	background: $color-tertiary-light;
+
+  .nav_title{
+    &.list_show{
+      display: none;
+    }
+
+    &.chat_select_show{
+      display: block;
+    }
+  }
+
+  .chatbox{
+  	display: block;
+  	background-color: white;
+  	height: 50%;
+  	width: 100%;
+  	padding: 10px;
+
+  }
+  
+}
