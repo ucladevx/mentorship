@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603094341) do
+ActiveRecord::Schema.define(version: 20170603190958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,8 +62,10 @@ ActiveRecord::Schema.define(version: 20170603094341) do
     t.integer  "difficulty"
     t.integer  "order"
     t.string   "topic"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "author"
+    t.integer  "concept_ids", default: [],              array: true
   end
 
   create_table "users", force: :cascade do |t|
