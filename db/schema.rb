@@ -10,19 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601191611) do
+ActiveRecord::Schema.define(version: 20170603094341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "concepts", force: :cascade do |t|
-    t.string   "examples",    default: [],              array: true
     t.string   "description"
-    t.string   "answers",     default: [],              array: true
-    t.string   "questions",   default: [],              array: true
     t.string   "type"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.text     "examples",    default: [],              array: true
+    t.text     "answers",     default: [],              array: true
+    t.text     "questions",   default: [],              array: true
+    t.integer  "skill_id"
+    t.integer  "order"
+    t.index ["skill_id"], name: "index_concepts_on_skill_id", using: :btree
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -82,6 +85,7 @@ ActiveRecord::Schema.define(version: 20170601191611) do
     t.string   "uploadednoteurls",       default: [],               array: true
     t.integer  "upvotednotes",           default: [],               array: true
     t.string   "description"
+    t.integer  "Progress",               default: [],               array: true
     t.integer  "progress",               default: [],               array: true
     t.boolean  "mentor"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
