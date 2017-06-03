@@ -30,7 +30,7 @@
 
 /* SIDEBAR */
 #sidebar{
-  overflow: visible !important;
+  overflow: scroll !important;
   height: 100%;
   position: fixed;
   z-index: 3;
@@ -43,9 +43,11 @@
   box-shadow: $shadow;
   padding-bottom: 100px;
 }
+#sidebar.show-modal{
+  overflow: visible !important;
+}
 .use-sidebar #sidebar{
   width: $mentors-menu-width;
-  overflow-y: scroll;
   height:100vh;
   position: fixed;
   transform: translateX(calc(100vw - #{$mentors-menu-width}));
@@ -53,7 +55,6 @@
 .container.use-sidebar{
   width: calc(100vw - #{$mentors-menu-width});
   height: 100vh;
-  overflow-y: scroll;
   position: fixed;
 }
 .filter-area.use-sidebar{
@@ -154,8 +155,12 @@
   padding-bottom: 10px;
   font-size: 1rem;
   color: #606060;
-
 }
+
+.chat_modal{
+  margin-top: $modal-spacing;
+}
+
 .modal_mentor_char{
   margin: auto;
   padding-top: 5px;

@@ -23,6 +23,10 @@ body.locked{
 		width: 100%;
 		background: rgba($color-tertiary-dark, 0.5);
 	}
+
+	&.sidebar-view{
+		width: calc(100% - #{$mentors-menu-width});
+	}
 }
 
 .login-modal, .new-note-modal, .sign-up-modal, .edit-profile-modal{
