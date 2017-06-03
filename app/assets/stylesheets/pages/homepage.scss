@@ -90,6 +90,7 @@ p {
 
 
 .container {
+  overflow: scroll;
   padding-top: 1px;
   margin-top: -1px;
 }
@@ -261,6 +262,7 @@ p {
 .ui.heart.rating .active.icon {
   background: transparent !important;
   color: $color-primary !important;
+  text-shadow: none !important;
 }
 
 .ui.primary.button{
@@ -272,6 +274,7 @@ p {
 .notes .ui.heart.rating .icon.selected.active {
   background: transparent !important;
   color: $color-primary !important;
+  text-shadow: none !important;
 }
 
 .notes .upvotes{
