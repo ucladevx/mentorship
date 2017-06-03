@@ -30,7 +30,7 @@
 		}
 
 		.class{
-			color: $color-primary;
+			color: $color-secondary-1;
 			font-weight: lighter;
 			font-size: 0.8rem;
 		}
@@ -58,7 +58,6 @@
 			width: $card-side-width;
 			right: 0;
     		bottom: $card-spacing;
-    		color: $color-primary;
 
     		.icon{
     			-webkit-transform: translateX(300%);
