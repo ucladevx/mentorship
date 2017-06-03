@@ -25,6 +25,8 @@ body.locked{
 	}
 
 	&.sidebar-view{
+		top: $nav-height;
+		height: calc(100% - #{$nav-height});
 		width: calc(100% - #{$mentors-menu-width});
 	}
 }

@@ -1,14 +1,24 @@
+
 <div class="mentors-menu-container">
   <div class=open_navbar id="open_nav">
     <div class="open-chat-btn"><i class="fa fa-commenting" aria-hidden="true"></i></div>
   </div>
   <div class="menu" id="sidebar">
     <div class="mentors">
-      <div class="nav_title">
-        <i class="fa fa-commenting" aria-hidden="true"></i>&nbspMentors Online
-        <i class="remove icon remove-mentors-menu"></i>
+      <div class="mentor-header">
+        <div class="nav_title list_show">
+          <i class="fa fa-commenting" aria-hidden="true"></i>&nbspMentors Online
+          <i class="remove icon remove-mentors-menu"></i>
+        </div>
+        <div class="nav_title chat_select_show">
+          <span class="back">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbspback
+          </span>
+          <i class="remove icon remove-mentors-menu"></i>
+        </div>
       </div>
       <% for i in 0..20 do %>
+      <div class="mentor-wrapper" id="mentorWrapper-<%= i %>">
         <div class="item mentor-trigger-modal" id="mentor-<%= i %>">
           <div class="mentor_pic">
             <img class="ui avatar image" src="/shrink.jpg">
@@ -44,7 +54,7 @@
               </div>
               <div class="chat_modal">
                 <div class="ui buttons">
-                  <button class="ui positive button modal_mentor_accept">Accept</button>
+                  <button class="ui positive button modal_mentor_accept" id="btn-<%= i %>">Accept</button>
                   <div class="or"></div>
                   <button class="ui button modal_mentor_decline">Cancel</button>
                 </div>
@@ -53,7 +63,12 @@
           </div>
           <div class="overlay" onClick="hideModal('mentor')"></div>
         </div>
+      </div>
       <% end %>
+    </div>
+
+    <div class="chatbox">
+      chatbox
     </div>
   </div>
 </div>

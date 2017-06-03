@@ -23,11 +23,12 @@ var initMentors = function(){
 		sidebarBtn.removeClass('remove-button');
 
 		$('.modal-container').not($('.mentor-modal-container')).removeClass('sidebar-view');
+
 	}
 	// X BUTTON AT RIGHT OF MENTORS MENU
 	removeBtn.unbind("click").click(function(){
 		hideSidebar();
-	})
+	});
 	sidebarBtn.unbind("click").click(function(e){
 		e.preventDefault();
 		// NEVER HAPPENS SINCE BUTTON DISAPPEARS
@@ -37,5 +38,8 @@ var initMentors = function(){
 		else{
 			showSidebar();
 		}
-	})
+	});
+
+	//enable going back to all mentor list
+	$('.back').click(resetMentorSelect);
 }
