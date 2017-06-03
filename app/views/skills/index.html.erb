@@ -1,30 +1,60 @@
-<div class="skills-content">
-	<div class="dark-small-subheader skills-title">Skill Name</div>
-</div>
 
-<div class="skills-content">
-	<div class="dark-small-subheader">Concept</div>
-	<div class="skills-content box">
+<style>
+</style>
+
+<div class="skill-page-wrapper">
+
+	<div class="carousel-nav side-left">
+		<button class="button prev">
+		  <i class="huge icon chevron left"></i>
+		</button>
+	</div>
+	<div class="skill-carousel">
+
+		<% for i in 0..5 do %>
+
+		<div class="skill-module">
+
+			<div class="skills-content">
+				<div class="dark-small-subheader skills-title">Skill Name</div>
+			</div>
+
+			<div class="skills-content">
+				<div class="dark-small-subheader">Concept</div>
+				<div class="skills-content box">
+
+				</div>
+
+			</div>
+
+			<div class="skills-content">
+				<div class="dark-small-subheader">Example</div>
+				<div class="skills-content box">
+
+				</div>
+			</div>
+
+			<div class="skills-content">
+				<div class="dark-small-subheader">Practice</div>
+				<div class="skills-content box">
+
+				</div>
+			</div>
+<!--
+			<div class="skills-progress-bar">
+				<progress value="22" max="100">
+				</progress>
+			</div>
+-->
+		</div>
+
+		<% end %>
 
 	</div>
-
-</div>
-
-<div class="skills-content">
-	<div class="dark-small-subheader">Example</div>
-	<div class="skills-content box">
-
+	<div class="carousel-nav side-right">
+		<button class="button next">
+		  <i class="huge icon chevron right"></i>
+		</button>
 	</div>
-</div>
 
-<div class="skills-content">
-	<div class="dark-small-subheader">Practice</div>
-	<div class="skills-content box">
-
-	</div>
-</div>
-
-<div class="skills-progress-bar">
-	<progress value="22" max="100">
-	</progress>
 </div>

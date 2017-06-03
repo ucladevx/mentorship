@@ -1,16 +1,46 @@
 @import "base/global";
 
+.skill-page-wrapper{
+	margin: $skill-side-spacing 0;
+}
+
+.skill-carousel{
+
+
+
+}
+
+.carousel-nav{
+	position: fixed;
+	z-index: 100;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    		transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    width: $skill-side-spacing;
+
+    &.side-left{
+    	left: 0;
+    }
+
+    &.side-right{
+    	right: 0;
+    }
+}
+
 .skill-module{
 
+	box-sizing: border-box;
 	background-color: white;
-	width: 80%;
-	height: 80%;
+	border: 1px solid $color-tertiary-light;
+	margin: 0 $skill-side-spacing;
+	border-radius: $item-border-radius;
 
 }
 
 .skills-content{
-	padding:50px;
-	padding-bottom:0px;
+	padding: $skill-spacing;
 }
 
 .skills-title{
@@ -35,6 +65,7 @@ progress{
 .skills-content.box{
 	background-color:white;
 	min-height:100px;
+	width: 100%;
 
 	margin-top:20px;
 	margin-right:100px;
