@@ -10,6 +10,8 @@ var onReady = function(){
 	initProfileTab();
 	initSkillsTab();
 	initNewMentorModal();
+	initSkills();
+	
 	$('body').click(onBodyClick);
 };
 

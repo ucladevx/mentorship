@@ -87,7 +87,6 @@ ActiveRecord::Schema.define(version: 20170603190958) do
     t.string   "uploadednoteurls",       default: [],               array: true
     t.integer  "upvotednotes",           default: [],               array: true
     t.string   "description"
-    t.integer  "Progress",               default: [],               array: true
     t.integer  "progress",               default: [],               array: true
     t.boolean  "mentor"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
