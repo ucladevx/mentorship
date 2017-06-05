@@ -1,2 +1,84 @@
-<h1>Skills#index</h1>
-<p>Find me in app/views/skills/index.html.erb</p>
+<p id="notice"><%= notice %></p>
+<!--
+<h1>Skills</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Difficulty</th>
+      <th>Order</th>
+      <th>Topic</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @skills.each do |skill| %>
+      <tr>
+        <td><%= skill.difficulty %></td>
+        <td><%= skill.order %></td>
+        <td><%= skill.topic %></td>
+        <td><%= skill.author %></td>
+        <td><%= link_to 'Show', skill %></td>
+        <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+        <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Skill', new_skill_path %>
+-->
+
+
+<!-- Am still working on getting concepts working under skills -->
+
+
+<div class="skill-page-wrapper">
+
+	<div class="carousel-nav side-left">
+		<button class="button prev">
+		  <i class="huge icon chevron left"></i>
+		</button>
+	</div>
+	<div class="skill-carousel">
+
+		<% for i in 0..5 do %>
+			<div class="skill-module">
+
+				<div class="skills-content">
+					<div class="dark-small-subheader skills-title">Skill Name</div>
+				</div>
+
+				<div class="skills-content">
+					<div class="dark-small-subheader">Concept</div>
+					<div class="skills-content box">
+
+					</div>
+
+				</div>
+
+				<div class="skills-content">
+					<div class="dark-small-subheader">Example</div>
+					<div class="skills-content box">
+
+					</div>
+				</div>
+
+				<div class="skills-content">
+					<div class="dark-small-subheader">Practice</div>
+					<div class="skills-content box">
+
+					</div>
+				</div>
+			</div>
+		<% end %>
+
+	</div>
+	<div class="carousel-nav side-right">
+		<button class="button next">
+		  <i class="huge icon chevron right"></i>
+		</button>
+	</div>
+
+</div>

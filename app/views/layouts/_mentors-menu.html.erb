@@ -1,127 +1,74 @@
+
 <div class="mentors-menu-container">
   <div class=open_navbar id="open_nav">
-    <div class="ui compact button">
-      <i class="large street view icon"></i>
-      <br />
-      Mentors
-    </div>
+    <div class="open-chat-btn"><i class="fa fa-commenting" aria-hidden="true"></i></div>
   </div>
   <div class="menu" id="sidebar">
     <div class="mentors">
-      <div class="nav_title">
-        MENTORS ONLINE
-        <i class="remove icon remove-mentors-menu"></i>
-      </div>
-      <div class="item mentor-trigger-modal">
-        <div class="mentor_pic">
-          <img class="ui avatar image" src="/shrink.jpg">
+      <div class="mentor-header">
+        <div class="nav_title list_show">
+          <i class="fa fa-commenting" aria-hidden="true"></i>&nbspMentors Online
+          <i class="remove icon remove-mentors-menu"></i>
         </div>
-        <div class="mentor_name">
-          <span>Austin Lee</span>
-        </div>
-        <div class="mentor_rating">
-          4.9
+        <div class="nav_title chat_select_show">
+          <span class="back">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbspback
+          </span>
+          <i class="remove icon remove-mentors-menu"></i>
         </div>
       </div>
-      <div class="item hero mentor-trigger-modal">
-        <div class="mentor_pic">
-          <img class="ui avatar image" src="/shrink.jpg">
+      <% for i in 0..20 do %>
+      <div class="mentor-wrapper" id="mentorWrapper-<%= i %>">
+        <div class="item mentor-trigger-modal" id="mentor-<%= i %>">
+          <div class="mentor_pic">
+            <img class="ui avatar image" src="/shrink.jpg">
+          </div>
+          <div class="mentor_name">
+            <span>Austin Lee</span>
+          </div>
+          <div class="mentor_rating">
+            <%= i %>&nbsprating
+          </div>
         </div>
-        <div class="mentor_name">
-          <span>Austin Lee</span>
-        </div>
-        <div class="mentor_rating">
-          4.7
-        </div>
-      </div>
-      <div class="item mentor-trigger-modal">
-        <div class="mentor_pic">
-          <img class="ui avatar image" src="/shrink.jpg">
-        </div>
-        <div class="mentor_name">
-          <span>Austin Lee</span>
-        </div>
-        <div class="mentor_rating">
-          4.7
-        </div>
-      </div>
-      <div class="item mentor-trigger-modal">
-        <div class="mentor_pic">
-          <img class="ui avatar image" src="/shrink.jpg">
-        </div>
-        <div class="mentor_name">
-          <span>Austin Lee</span>
-        </div>
-        <div class="mentor_rating">
-          4.7
-        </div>
-      </div>
-      <div class="item mentor-trigger-modal">
-        <div class="mentor_pic">
-          <img class="ui avatar image" src="/shrink.jpg">
-        </div>
-        <div class="mentor_name">
-          <span>Austin Lee</span>
-        </div>
-        <div class="mentor_rating">
-          4.7
-        </div>
-      </div>
-      <div class="item mentor-trigger-modal">
-        <div class="mentor_pic">
-          <img class="ui avatar image" src="/shrink.jpg">
-        </div>
-        <div class="mentor_name">
-          <span>Austin Lee</span>
-        </div>
-        <div class="mentor_rating">
-          4.7
+        <!-- Open chat with Mentor -->
+        <div class="modal-container hide mentor-modal-container" id="mentorModal-<%= i %>">
+          <div class="modal mentor-modal">
+            <div class="modal-header">
+              <div class="modal_mentor_rating">
+                <h4><%= i %>&nbsp<i class="fa fa-star" aria-hidden="true"></i></h4>
+              </div>
+              <div class="modal_mentor_pic">
+                <%= image_tag("shrink.jpg", :class => "ui circular image")%>
+              </div>
+
+              <div class="modal_mentor_char">
+                <div class="modal_mentor_name">
+                  <h2>Austin Lee</h2>
+                </div>
+              </div>
+            </div>
+            <div class="modal-field-content">
+              <div class="modal_mentor_bio">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Quisque in quam neque. Morbi maximus sem a turpis aliquam bibendum. Donec iaculis mattis dictum. Sed vitae egestas lorem. Aenean ut orci id libero rutrum condimentum
+              </div>
+              <div class="chat_modal">
+                <div class="ui buttons">
+                  <button class="ui positive button modal_mentor_accept" id="btn-<%= i %>">Accept</button>
+                  <div class="or"></div>
+                  <button class="ui button modal_mentor_decline">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="overlay" onClick="hideModal('mentor')"></div>
         </div>
       </div>
-      <div class="item mentor-trigger-modal">
-        <div class="mentor_pic">
-          <img class="ui avatar image" src="/shrink.jpg">
-        </div>
-        <div class="mentor_name">
-          <span>Austin Lee</span>
-        </div>
-        <div class="mentor_rating">
-          4.7
-        </div>
-      </div>
-      <div class="item mentor-trigger-modal">
-        <div class="mentor_pic">
-          <img class="ui avatar image" src="/shrink.jpg">
-        </div>
-        <div class="mentor_name">
-          <span>Austin Lee</span>
-        </div>
-        <div class="mentor_rating">
-          4.7
-        </div>
-      </div>
-      <div class="item mentor-trigger-modal">
-        <div class="mentor_pic">
-          <img class="ui avatar image" src="/shrink.jpg">
-        </div>
-        <div class="mentor_name">
-          <span>Austin Lee</span>
-        </div>
-        <div class="mentor_rating">
-          4.7
-        </div>
-      </div>
-      <div class="item mentor-trigger-modal">
-        <div class="mentor_pic">
-          <img class="ui avatar image" src="/shrink.jpg">
-        </div>
-        <div class="mentor_name">
-          <span>Austin Lee</span>
-        </div>
-        <div class="mentor_rating">
-          4.7
-        </div>
-      </div>
+      <% end %>
+    </div>
+
+    <div class="chatbox">
+      chatbox
     </div>
   </div>
 </div>

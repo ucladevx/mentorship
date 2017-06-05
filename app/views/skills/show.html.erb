@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Difficulty:</strong>
+  <%= @skill.difficulty %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @skill.order %>
+</p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @skill.topic %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @skill.author %>
+</p>
+
+<p>
+  <strong>Progress:</strong>
+  <%= @skill.progress %>
+</p>
+
+<%= link_to 'Edit', edit_skill_path(@skill) %> |
+<%= link_to 'Back', skills_path %>
+
+<!-- Am still working on getting concepts working under skills -->
+
+<!-- <div class="skills-content">
+ <div class="dark-small-subheader skills-title">Skill Name</div>
+</div>
+
+<div class="skills-content">
+ <div class="dark-small-subheader">Concept</div>
+ <div class="skills-content box">
+
+ </div>
+
+</div>
+
+<div class="skills-content">
+ <div class="dark-small-subheader">Example</div>
+ <div class="skills-content box">
+
+ </div>
+</div>
+
+<div class="skills-content">
+ <div class="dark-small-subheader">Practice</div>
+ <div class="skills-content box">
+
+ </div>
+</div>
+
+<div class="skills-progress-bar">
+ <progress value="22" max="100">
+ </progress>
+</div> -->

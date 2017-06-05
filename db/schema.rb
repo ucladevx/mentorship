@@ -16,13 +16,16 @@ ActiveRecord::Schema.define(version: 20170603011828) do
   enable_extension "plpgsql"
 
   create_table "concepts", force: :cascade do |t|
-    t.string   "examples",    default: [],              array: true
     t.string   "description"
-    t.string   "answers",     default: [],              array: true
-    t.string   "questions",   default: [],              array: true
     t.string   "type"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.text     "examples",    default: [],              array: true
+    t.text     "answers",     default: [],              array: true
+    t.text     "questions",   default: [],              array: true
+    t.integer  "skill_id"
+    t.integer  "order"
+    t.index ["skill_id"], name: "index_concepts_on_skill_id", using: :btree
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -59,8 +62,10 @@ ActiveRecord::Schema.define(version: 20170603011828) do
     t.integer  "difficulty"
     t.integer  "order"
     t.string   "topic"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "author"
+    t.integer  "concept_ids", default: [],              array: true
   end
 
   create_table "users", force: :cascade do |t|
