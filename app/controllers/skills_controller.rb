@@ -5,6 +5,8 @@ class SkillsController < ApplicationController
   # GET /skills.json
   def index
     @skills = Skill.all
+    @users = User.all
+    @conversations = Conversation.all
   end
 
   # GET /skills/1

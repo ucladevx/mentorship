@@ -1,5 +1,8 @@
 class NotesController < ApplicationController
   def index
+      @users = User.all
+      @conversations = Conversation.all
+
       #note Note.search is defined in note model
       @notes = Note.search(params)
       #filter on top of search
