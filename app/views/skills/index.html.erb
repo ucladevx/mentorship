@@ -3,6 +3,7 @@
 <div class="skills-tab-content">
     <% for i in 0..9 do %>
         <div class="skill-block tab-content-custom toggleOff" id="item-<%= i =%>">
+          <% if user_signed_in? %>
             <div class="skill-box">
                 <div class="skill-circle tab" id="tab-<%= i =%>">A</div>
                 <div class="skill-hide-when-toggle">
@@ -17,6 +18,17 @@
                 <p class="skill-submit">Submitted by John Doe, UPE</p>
                 <div class="skill-click"><i class="fa fa-chevron-right" aria-hidden="true"></i><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
             </div>
+           <% else %>
+             <div class="skill-box">
+                <a class="item save-progress-trigger-modal">
+                        <!-- <div class="ui heart rating" data-rating="1" data-max-rating="1" ></div> -->
+                  <div class="skill-circle tab" id="tab-<%= i =%>">A</div>
+                  <div class="skill-name">
+                    <h4>Arrays</h4>
+                  </div>
+                </a>
+              </div>
+           <% end %>
             <% if i > 0 %>
                 <div class="progress-bar">
                 </div>
