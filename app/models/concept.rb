@@ -1,6 +1,6 @@
 class Concept < ApplicationRecord
-  belongs_to :skills
-  validates :skill_id, presence: true
+  belongs_to :skill
+  # validates :skill_id, presence: true
 
   #retrieve concepts in ascending order by order by default
   default_scope -> { order(:order) }

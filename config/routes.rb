@@ -5,10 +5,6 @@ Rails.application.routes.draw do
   get 'mentors/new'
   get 'mentors/create'
   get 'mentors/destroy'
-  get 'tutorials/index'
-  get 'tutorials/new'
-  get 'tutorials/create'
-  get 'tutorials/destroy'
 
   resources :conversations do
       resources :messages
