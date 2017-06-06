@@ -1,7 +1,9 @@
+@import 'mixins/fontface';
+//@include fontFace('Roboto', '/assets/QuaverSans');
 
 // Typography //
 
-$type-main: 'Lato', sans-serif;
+$type-main: 'Roboto', sans-serif;
 $type-small: 14px;
 
 

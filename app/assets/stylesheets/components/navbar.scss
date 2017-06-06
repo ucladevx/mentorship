@@ -15,7 +15,6 @@ header{
 	.item {
 		
 		span{
-			font-weight: bold;
 			font-size: 1rem;
 			letter-spacing: 1px;
 		}
@@ -85,11 +84,6 @@ header{
 	text-transform: uppercase;
 }
 
-/*.profile-item.table {
-	width:30px;
-	display:table-cell;
-}*/
-
 .profile-item.icon {
 	background-color: $color-primary;
 	color: $color-tertiary-dark;
@@ -149,7 +143,11 @@ header{
 	color: $color-primary;
 
 	.logo{
-		height: $nav-spacing * 2;
+		height: 40px;
+	    position: absolute;
+	    left: 50%;
+	    -webkit-transform: translateX(-50%);
+	    		transform: translateX(-50%);
 	}
 
 }
@@ -211,7 +209,10 @@ header{
 
 	.logo-wrapper-link{
 		display: flex !important;
-		padding-left: $nav-spacing * 2;
+		margin-left: $nav-spacing * 2;
+		a{
+			margin-left: 60px;
+		}
 	}
 
 }

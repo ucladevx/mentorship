@@ -19,6 +19,11 @@ a{
     }
 }
 
+h2, h3, h4, h5, h6, p, span{
+    font-family: $type-main;
+    font-weight: light;
+}
+
 input{
     border-radius: $item-border-radius !important;
 }

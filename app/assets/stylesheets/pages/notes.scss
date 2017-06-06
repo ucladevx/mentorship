@@ -12,6 +12,16 @@
 
 }
 
+#notes-page{
+	.notes-link{
+		color: $color-primary;
+	}
+}
+
+.notes-container{
+	padding-bottom: 100px;
+}
+
 /* Selected Heart */
 .ui.heart.rating .icon.selected,
 .ui.heart.rating .icon.selected.active {

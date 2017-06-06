@@ -1,13 +1,18 @@
-<div class="profile-content">
-    <div class="profile-picture-large bg-image" style="background-image: url(<%= @user.image %>)"></div>
+<div class="profile-header">
+  <div class="profile-content">
+      <div class="profile-picture-large bg-image" style="background-image: url(<%= @user.image %>)"></div>
   </div>
   <div class="profile-content">
-    <div class="dark-secondary uppercase"><%= @user.username %></div>
+    <div class="username uppercase">
+      <h2><%= @user.username %></h2>
+    </div>
     <a class="item edit-profile-trigger-modal" >
         <span class="profile-item btn-main">Edit Profile</span>
     </a>
   </div>
-  <div class="profile-content">
+</div>
+
+  <div class="profile-content profile-tab-container">
   <!-- tabs -->
     <div class="profile-tab">
         <button class="reset profile-tab-links tab selected" id="tab-1">Profile</button>
