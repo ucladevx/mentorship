@@ -16,10 +16,10 @@
 
   <body>
 
-    <% if request.env['PATH_INFO'] != '/skills/1' %>
-      <%= render 'layouts/header' %>
-    <% else %>
+    <% if request.env['PATH_INFO'].include? "skills" and !request.env['PATH_INFO'].include? "index" %>
       <%= render 'layouts/header-skill' %>
+    <% else %>
+      <%= render 'layouts/header' %>
     <% end %>
 
     <% if request.env['PATH_INFO'] != '/' %>
