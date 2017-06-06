@@ -4,7 +4,7 @@
         <div class="modal login-modal">
 
           <div class="modal-header">
-            <h4 class="title"><%= image_tag("icon-lock.svg", :class => "icon")%>&nbspLogin</h4>
+            <h4 class="title"><%= image_tag("icon-lock.svg", :class => "icon")%>&nbspLog in</h4>
             <p class="signup-link">Don't have an account?&nbsp
             <a class="item sign-up-trigger-modal"><span>Sign up</span></a>
           </div>
@@ -28,7 +28,7 @@
 
               <div class="submit">
                   <div class="actions">
-                    <%= f.submit "Log in", class: 'ui button submit-btn'%>
+                    <%= f.submit "Log in", class: 'reset ui button submit-btn'%>
                   </div>
 
                 <% end %>
@@ -85,7 +85,7 @@
 
             <div class="submit">
                 <div class="actions">
-                  <%= f.submit "Create Account", class: 'ui button submit-btn'%>
+                  <%= f.submit "Create Account", class: 'reset ui button submit-btn'%>
                 </div>
               <% end %>
             </div>
@@ -118,7 +118,7 @@
                 </div>
                 <div class="submit">
                   <div class="actions">
-                    <%= f.submit "Change my password", class: 'ui button submit-btn' %>
+                    <%= f.submit "Change my password", class: 'reset ui button submit-btn' %>
                   </div>
 
                 <% end %>
@@ -136,11 +136,13 @@
             </div>
             <div class="save-progress-buttons">
                 <a class="item sign-up-trigger-modal">
-                    <button class="btn-main bottom-submit">SIGN UP</button>
+                  <span class="login btn-main bottom-submit">SIGN UP</span>
+                    <!-- <button class="btn-main bottom-submit">SIGN UP</button> -->
                 </a>
                 <h4>or</h4>
                 <a class="item login-trigger-modal">
-                    <button class="btn-main bottom-submit">LOGIN</button>
+                  <span class="login btn-main bottom-submit">LOG IN</span>
+                    <!-- <button class="btn-main bottom-submit">LOG IN</button> -->
                 </a>
             </div>
         </div>

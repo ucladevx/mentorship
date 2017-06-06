@@ -49,6 +49,10 @@ body.locked{
 	-webkit-transform: translate(-50%, -50%);
 			transform: translate(-50%, -50%);
 
+	.submit input:hover{
+		background: $color-secondary-1 !important;
+	}
+
 }
 
 .modal-header{
@@ -131,15 +135,12 @@ body.locked{
 }
 
 .bottom-submit {
-	border: none;
-	border-radius: $item-border-radius !important;
-	box-shadow: $shadow;
-	margin-top: 10px;
 	margin-left: 10px;
 	margin-right: 10px;
 }
 
 .save-progress-buttons {
+	margin-top: 20px;
 	display: flex;
     align-items: center;
     justify-content: center;

@@ -6,7 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
   def create
       build_resource(sign_up_params)
       imgid = 1 + rand(10)
-      resource.image = '/public/profileimage/' + imgid.to_s + '.png'
+      resource.image = '/profileimage/' + imgid.to_s + '.png'
 
       resource.save
       yield resource if block_given?

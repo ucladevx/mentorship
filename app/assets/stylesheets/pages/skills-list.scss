@@ -26,6 +26,15 @@ h4 {
     font-size: 1.4rem;
 }
 
+.container{
+	min-height: calc(100vh - #{$nav-height});
+}
+
+.container.skills-container{
+    //padding-top: $nav-height;
+    background-image: url('/assets/actionshot2.jpg');
+}
+
 .tab-content-custom.toggleOff {
 
 	.skill-pop-up{
@@ -99,6 +108,10 @@ h4 {
 		font-size: 20px;
 		font-weight: bold;
 		text-align: right;
+
+		h4{
+			color: white;
+		}
 	}
 
 	.skill-pop-up {
@@ -123,7 +136,7 @@ h4 {
 
 		h2.skill-percent {
 			margin-top: 0;
-			font-size: 70px;
+			font-size: 60px;
 		}
 
 		p.skill-submit {
@@ -160,6 +173,12 @@ h4 {
 		left: 50%;
 		-webkit-transform: translateX(-50%);
 		z-index: 0;
+	}
+}
+
+.skill-block:first-child{
+	.progress-bar{
+		display: none;
 	}
 }
 

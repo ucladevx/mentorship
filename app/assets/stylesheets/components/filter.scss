@@ -12,6 +12,12 @@
 	background: white;
 	text-align: center;
 	border-bottom: 1px solid $color-tertiary-med;
+	background: $color-tertiary-dark;
+	color: white;
+
+	a{
+		color: white;
+	}
 
 	.dropdown.item{
 		padding: 20px 40px 20px 0;
