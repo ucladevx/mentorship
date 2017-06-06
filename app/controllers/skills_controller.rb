@@ -15,7 +15,7 @@ class SkillsController < ApplicationController
     @users = User.all
     @conversations = Conversation.all
     @skill = Skill.find(params[:id])
-    @concepts = @skill.concepts
+    @concepts = @skill.concept
   end
 
   # GET /skills/new
