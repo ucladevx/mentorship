@@ -32,3 +32,43 @@ i = 0
   }
   i += 1
 end
+
+sample = Skill.create!(
+  order: 1,
+  topic: "Loops",
+  author: "Apurva Panse"
+)
+
+conceptOne = sample.concept.create!(
+  description: "Loops allow us to execute a statement or a group of statements multiple times<br>
+The statements are executed sequentially<br>
+A conditional is checked, and if it passes the loop runs and executes the specified statements<br>
+The basic structure is as follows:<br>
+    Set Up
+Test Expression/Conditional
+        Statements
+        Increment",
+  examples: ["// Pseudocode
+    Flip a coin
+    Coin landed on heads
+        Print “Heads”
+        Flip the coin again
+    Print “Done”
+In this loop, we continue to flip the coin until it does not land on heads, so it lands on tails
+This allows us to count how many times we rolled heads
+It is more efficient to do a loop, because otherwise we could copy code
+"])
+
+conceptOne.question.create!(
+  content: "If we wanted to print every letter in the word “Happy”, how many times would the loop to do so run?",
+  question_type: "Multiple Choice",
+  answers: ["N Times where n depends on the number of computer cores", "3", "4", "5", "6", "150"],
+  final_answer: "D"
+)
+conceptOne.question.create!(
+  content: "If coin did not return heads in the initial example, what would happen?",
+  question_type: "Multiple Choice",
+  answers: ["The loop continues and the coin is flipped again", "\"Heads\" is printed",
+            "The loop ends and it prints \"Done\""],
+  final_answer: "B"
+)
