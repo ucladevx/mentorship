@@ -67,13 +67,16 @@ header{
 	position: absolute;
 	background: white;
 	box-shadow: $profile-shadow;
-	padding: $modal-spacing;
+	padding: none;
 	//border-radius: $item-border-radius;
 	right: 103px;
 	top: $nav-height;
 	margin-top: -10px;
 }
 
+.profile-item-wrapper {
+
+}
 
 .profile-item {
 	font-size: 12px;
@@ -82,17 +85,22 @@ header{
 	text-transform: uppercase;
 }
 
-.profile-item.short {
-	line-height:200%;
-}
-
-.profile-item.table {
+/*.profile-item.table {
 	width:30px;
 	display:table-cell;
+}*/
+
+.profile-item.icon {
+	background-color: $color-primary;
+	color: $color-tertiary-dark;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	text-align: left;
 }
 
-.profile-item.right{
-	float:right;
+.profile-item.content{
+	text-align: left;
 }
 
 .profile-arrow-up {
