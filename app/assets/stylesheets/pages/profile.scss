@@ -1,5 +1,10 @@
 @import "base/global";
 
+.profile-header{
+    background: $color-tertiary-dark;
+    padding-bottom: 20px;
+}
+
 .profile-picture-large{
 	border-radius: $profile-radius;
 	height:120px;
@@ -16,6 +21,18 @@
 .profile-content {
 	padding-top: 20px;
 	text-align:center;
+
+    .username{
+        h2{
+            color: white;
+            letter-spacing: 1px;
+        }
+        padding-bottom: 20px;
+    }    
+
+    &.profile-tab-container{
+        padding-top: 0px;
+    }
 }
 
 // Tabs-----------------------------
