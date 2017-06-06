@@ -23,14 +23,14 @@
                     <% end %>
                      <% if user_signed_in? %>
                             <a class="item profile-trigger-modal">
-                                <div id="profile-btn"></div>
+                                <div id="profile-btn" class="bg-image" style="background-image: url(<%= @user.image %>)"></div>
                             </a>
 
                             <div class="profile profile-modal hide no-click-hide">
                                 <div class="profile-arrow-up no-click-hide"></div>
                                 <div class="profile-arrow-up no-shadow no-click-hide"></div>
                                 <div class="modal-header table no-click-hide">
-                                    <div id="profile-picture" class="profile-item table no-click-hide"></div>
+                                    <div id="profile-picture" class="profile-item table no-click-hide bg-image" style="background-image: url(<%= @user.image %>)"></div>
                                     <div class="profile-item right short no-click-hide"><%= User.find_by(id: current_user.id).username %></div>
                                     <div class="profile-item right short"><%= link_to "Profile", profile_index_path, class:"no-click-hide"%></div>
                                 </div>

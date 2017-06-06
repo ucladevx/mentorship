@@ -46,6 +46,12 @@ header{
 	position: relative;
 }
 
+.bg-image{
+	background-size: cover !important;
+	background-position: 50% 50% !important;
+	background-repeat: no-repeat !important;
+}
+
 #profile-picture{
 	border-radius: $profile-radius;
 	height: 50px;

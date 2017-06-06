@@ -1,8 +1,8 @@
 <div class="profile-content">
-    <div class="profile-picture-large"></div>
+    <div class="profile-picture-large bg-image" style="background-image: url(<%= @user.image %>)"></div>
   </div>
   <div class="profile-content">
-    <div class="dark-secondary uppercase"><%= User.find_by(id: current_user.id).username %></div>
+    <div class="dark-secondary uppercase"><%= @user.username %></div>
     <a class="item edit-profile-trigger-modal" >
         <span class="profile-item btn-main">Edit Profile</span>
     </a>
