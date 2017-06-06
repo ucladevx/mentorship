@@ -1,12 +1,10 @@
 @import "base/global";
 
 .skill-page-wrapper{
-	margin: $skill-side-spacing 0;
+	//margin: $skill-side-spacing 0;
 }
 
 .skill-carousel{
-
-
 
 }
 
@@ -46,10 +44,12 @@
 .skills-title{
 	font-size:24px;
 }
+
 /*
 progress{
 	//background-color:$color-primary;
 }
+>>>>>>> master
 
 .skills-progress-bar{
 	float:right;
@@ -76,3 +76,6 @@ progress{
 	border-radius:5px;
 }
 
+.radio-skill {
+	line-height: 150%;
+}
