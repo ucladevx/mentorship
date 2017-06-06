@@ -5,6 +5,8 @@ class SkillsController < ApplicationController
   # GET /skills.json
   def index
     @skills = Skill.all
+    @users = User.all
+    @conversations = Conversation.all
   end
 
   # GET /skills/1
@@ -70,6 +72,6 @@ class SkillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def skill_params
-      params.require(:skill).permit(:difficulty, :order, :topic)
+      params.require(:skill).permit(:difficulty, :order, :topic, :author)
     end
 end

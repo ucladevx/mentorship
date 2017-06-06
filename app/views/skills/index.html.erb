@@ -18,6 +18,7 @@
         <td><%= skill.difficulty %></td>
         <td><%= skill.order %></td>
         <td><%= skill.topic %></td>
+        <td><%= skill.author %></td>
         <td><%= link_to 'Show', skill %></td>
         <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
         <td><%= link_to 'Destroy', skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,7 +28,6 @@
 </table>
 <br>
 <%= link_to 'New Skill', new_skill_path %>
-
 -->
 
 
@@ -82,4 +82,3 @@
 	</div>
 
 </div>
-

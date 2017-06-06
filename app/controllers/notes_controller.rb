@@ -1,5 +1,8 @@
 class NotesController < ApplicationController
   def index
+      @users = User.all
+      @conversations = Conversation.all
+
       #note Note.search is defined in note model
       @notes = Note.search(params)
       #filter on top of search
@@ -24,7 +27,7 @@ class NotesController < ApplicationController
       if @note.save
           redirect_to notes_path, notice: "The note #{@note.title} has been uploaded."
       else
-          render "new"
+          redirect_to notes_path, notice: "The note #{@note.title} was invalid"
       end
   end
 
@@ -54,7 +57,7 @@ class NotesController < ApplicationController
 
   private
     def note_params
-        params.require(:note).permit(:title, :uclaclass, :author, :notetype, :ufile)
+        params.require(:note).permit(:title, :uclaclass, :author, :notetype, :ufile, :professor)
     end
 
 end
