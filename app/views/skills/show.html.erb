@@ -4,7 +4,7 @@
 
 	<div class="carousel-nav side-left">
 		<button class="reset button prev">
-		  <i class="huge icon chevron left"></i>
+		  <i class="icon chevron left"></i>
 		</button>
 	</div>
 	<div class="skill-carousel">
@@ -19,7 +19,7 @@
 				<div class="skills-content">
 					<div class="dark-small-subheader"><%= concept.name %></div>
 					<div class="skills-content box">
-            <%= concept.description %>
+            			<%= concept.description %>
 					</div>
 
 				</div>
@@ -27,24 +27,24 @@
 				<div class="skills-content">
 					<div class="dark-small-subheader">Example</div>
 					<div class="skills-content box">
-            <% concept.examples.each do |ex| %>
-              <%= ex %>
-            <% end %>
+			            <% concept.examples.each do |ex| %>
+			              <%= ex %>
+			            <% end %>
 					</div>
 				</div>
 
 				<div class="skills-content">
 					<div class="dark-small-subheader">Practice</div>
 					<div class="skills-content box">
-            <% concept.question.each do |q| %>
-              <p>
-                <%= q.question_type %>
-                <%= q.content %>
-                <% q.answers.each do |a| %>
-                  <%= a %>
-                <% end %>
-              </p>
-            <% end %>
+			            <% concept.question.each do |q| %>
+			              <p>
+			                <%= q.question_type %>
+			                <%= q.content %>
+			                <% q.answers.each do |a| %>
+			                  <%= a %>
+			                <% end %>
+			              </p>
+			            <% end %>
 					</div>
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 	</div>
 	<div class="carousel-nav side-right">
 		<button class="reset button next">
-		  <i class="huge icon chevron right"></i>
+		  <i class="icon chevron right"></i>
 		</button>
 	</div>
 

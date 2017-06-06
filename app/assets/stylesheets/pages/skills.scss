@@ -1,12 +1,23 @@
 @import "base/global";
 
+.container.skills-container-item{
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	background-image: url('/assets/skill-bg.jpg');
+	background-size: cover;
+	background-position: 50% 50%;
+	height: 100vh;
+	width: 100vw;
+	overflow-y: scroll;
+}
+
 .skill-page-wrapper{
-	margin: $skill-side-spacing 0;
+	//margin: $skill-side-spacing 0;
 }
 
 .skill-carousel{
-
-
 
 }
 
@@ -46,33 +57,29 @@
 .skills-title{
 	font-size:24px;
 }
-/*
-progress{
-	//background-color:$color-primary;
+
+/*carousel stuff*/
+.slick-arrow{
+	border-radius: 50% !important;
+    border: 2px solid white;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 0;
+
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+
+    &:hover{
+    	background-color: $color-primary !important;
+    }
+
+    .chevron{
+    	margin: 0;
+    }
 }
 
-.skills-progress-bar{
-	float:right;
-	position:fixed;
-	bottom:80px;
-	right:0;
-
-	// make vertical
-	-webkit-transform: rotate(270deg);
-			transform: rotate(270deg);
+.radio-skill {
+	line-height: 150%;
 }
-*/
-.skills-content.box{
-	background-color:white;
-	min-height:100px;
-	width: 100%;
-
-	margin-top:20px;
-	margin-right:100px;
-
-	border-style:solid;
-	border-color:$color-tertiary-dark;
-	border-width:1px;
-	border-radius:5px;
-}
-

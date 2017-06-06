@@ -41,14 +41,14 @@
     background-color: rgba(0,0,0,0) !important;
     background-image: none !important;
     border-radius: 0;
-    text-shadow: none;
+    text-shadow: none !important;
     font-weight: normal;
     i{
     	text-shadow: none;
     }
 }
 
-button.reset{
+button.reset, input.reset{
 	@extend .override-button;
 
     &:hover, &:active{

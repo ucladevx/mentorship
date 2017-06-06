@@ -1,26 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <div class="skills-tab-content">
-    <% for i in 0..9 do %>
-        <div class="skill-block tab-content-custom toggleOff" id="item-<%= i =%>">
-            <div class="skill-box">
-                <div class="skill-circle tab" id="tab-<%= i =%>">A</div>
+    <% @skills.each do |skill| %>
+        <div class="skill-block tab-content-custom toggleOff" id="item-<%= skill.id =%>">    
+         <% if user_signed_in? %>
+            <div class="skill-box item save-progress-trigger-modal">
+                <div class="skill-circle tab" id="tab-<%= skill.id =%>"><%= skill.topic[0] %></div>
                 <div class="skill-hide-when-toggle">
                     <div class="skill-name">
-                        <h4>Arrays</h4>
+                        <h4><%= skill.topic %></h4>
                     </div>
                 </div>
             </div>
             <div class="skill-pop-up">
-                <h4>Arrays</h4>
+                <h4><%= skill.topic %></h4>
                 <h2 class="skill-percent">65%</h2>
-                <p class="skill-submit">Submitted by John Doe, UPE</p>
-                <div class="skill-click"><i class="fa fa-chevron-right" aria-hidden="true"></i><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+                <p class="skill-submit">Submitted by <%= skill.author %></p>
+                <%= link_to skill do %>
+                  <div class="skill-click"><i class="fa fa-chevron-right" aria-hidden="true"></i><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+                <% end %>
             </div>
-            <% if i > 0 %>
-                <div class="progress-bar">
-                </div>
-            <% end %>
+            <div class="progress-bar">
+            </div>
+          <% end %>
         </div>
     <% end %>
 </div>
