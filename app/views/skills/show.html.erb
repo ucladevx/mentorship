@@ -36,8 +36,14 @@
 				<div class="skills-content">
 					<div class="dark-small-subheader">Practice</div>
 					<div class="skills-content box">
-            <% concept.questions.each do |q| %>
-              <%= q %>
+            <% concept.question.each do |q| %>
+              <p>
+                <%= q.question_type %>
+                <%= q.content %>
+                <% q.answers.each do |a| %>
+                  <%= a %>
+                <% end %>
+              </p>
             <% end %>
 					</div>
 				</div>
