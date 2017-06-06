@@ -12,6 +12,13 @@
 
 }
 
+#notes-page{
+	.notes-link{
+		background: $color-primary;
+		color: white;
+	}
+}
+
 /* Selected Heart */
 .ui.heart.rating .icon.selected,
 .ui.heart.rating .icon.selected.active {

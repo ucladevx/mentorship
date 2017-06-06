@@ -26,6 +26,13 @@ h4 {
     font-size: 1.4rem;
 }
 
+#skills-page{
+	.skills-link{
+		background: $color-primary;
+		color: white;
+	}
+}
+
 .container{
 	min-height: calc(100vh - #{$nav-height});
 }

@@ -9,20 +9,21 @@
                     <!--<%= image_tag("Pencil.png", class: "logo mobile-hidden" )%>
                     <%= image_tag("Logo.png", class: "logo") %> </a>-->
 
-                    <h3>POINTERS</h3>
+                <%= image_tag("logo-blue.png", class: "logo" )%>
+                 <%= link_to notes_path, class:"item notes-link" do %>
+                    <span>Notes</span>
+                <% end %>
+                <%= link_to skills_index_path, class:"item skills-link" do %>
+                    <span>Skills</span>
+                <% end %>
 
                 <div class="right menu">
                     <!--<%= link_to mentors_index_path, class:"item" do %>
                         <span>Mentors</span>
                     <% end %>-->
-                    <%= link_to notes_path, class:"item" do %>
-                        <span>Notes</span>
-                    <% end %>
-                    <%= link_to skills_index_path, class:"item" do %>
-                        <span>Skills</span>
-                    <% end %>
                      <% if user_signed_in? %>
                             <a class="item profile-trigger-modal">
+                                <div class="username"><%= @user.username %></div>
                                 <div id="profile-btn" class="bg-image" style="background-image: url(<%= @user.image %>)"></div>
                             </a>
 

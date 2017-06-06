@@ -14,7 +14,15 @@
     <script src="https://use.fontawesome.com/eb20c96418.js"></script>
   </head>
 
-  <body>
+  <% if request.env['PATH_INFO'].include? "notes" %>
+      <body id="notes-page">
+  <% else %>
+      <% if request.env['PATH_INFO'].include? "skills" %>
+        <body id="skills-page">
+      <% else %>
+        <body>
+      <% end %>
+  <% end %>
 
     <% if request.env['PATH_INFO'].include? "skills" and !request.env['PATH_INFO'].include? "index" %>
       <%= render 'layouts/header-skill' %>

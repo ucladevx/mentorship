@@ -15,7 +15,6 @@ header{
 	.item {
 		
 		span{
-			font-weight: bold;
 			font-size: 1rem;
 			letter-spacing: 1px;
 		}
@@ -82,6 +81,10 @@ header{
 	text-transform: uppercase;
 }
 
+.username{
+	margin-right: $nav-spacing;
+}
+
 .profile-item.short {
 	line-height:200%;
 }
@@ -141,7 +144,11 @@ header{
 	color: $color-primary;
 
 	.logo{
-		height: $nav-spacing * 2;
+		height: 40px;
+	    position: absolute;
+	    left: 50%;
+	    -webkit-transform: translateX(-50%);
+	    		transform: translateX(-50%);
 	}
 
 }
