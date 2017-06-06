@@ -3,10 +3,21 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "base/global";
 
-/*text-align: left;
-    margin: 0;
-    text-transform: uppercase;
-    font-size: 1.4rem;*/
+/*.skill-bottom-box {
+	height: 150px;
+	width: 450px;
+	border: 1px solid #E9E9E9;
+	position: absolute;
+	background-color: white;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	box-shadow: $shadow;
+
+	h4{
+		text-align: center;
+		margin: 15px;
+	}
+}*/
 
 h4 {
 	text-align: left;

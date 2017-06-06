@@ -14,7 +14,7 @@
 }
 
 .skill-page-wrapper{
-	margin: $skill-side-spacing 0;
+	//margin: $skill-side-spacing 0;
 }
 
 .skill-carousel{
@@ -58,21 +58,6 @@
 	font-size:24px;
 }
 
-
-.skills-content.box{
-	background-color:white;
-	min-height:100px;
-	width: 100%;
-
-	margin-top:20px;
-	margin-right:100px;
-
-	border-style:solid;
-	border-color:$color-tertiary-dark;
-	border-width:1px;
-	border-radius:5px;
-}
-
 /*carousel stuff*/
 .slick-arrow{
 	border-radius: 50% !important;
@@ -95,3 +80,6 @@
     }
 }
 
+.radio-skill {
+	line-height: 150%;
+}
