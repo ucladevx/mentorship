@@ -1,20 +1,25 @@
 @import "base/global";
 
-.container.skills-container-item{
-	position: absolute;
-	top: 0;
-	left: 0;
+.container.skills-container-item, .container.skills-container{
 
-	background-image: url('/assets/skill-bg.jpg');
 	background-size: cover;
 	background-position: 50% 50%;
-	height: 100vh;
-	width: 100vw;
+	
 	overflow-y: scroll;
 }
 
+.container.skills-container-item{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('/assets/skill-bg.jpg');
+}
+
+
 .skill-page-wrapper{
-	//margin: $skill-side-spacing 0;
+	margin: $skill-side-spacing 0;
 }
 
 .skill-carousel{
@@ -23,7 +28,7 @@
 
 .carousel-nav{
 	position: fixed;
-	z-index: 100;
+	z-index: 1;
     top: 50%;
     -webkit-transform: translateY(-50%);
     		transform: translateY(-50%);
