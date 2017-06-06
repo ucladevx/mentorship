@@ -10,13 +10,14 @@ header{
 
 	height: $nav-height;
 	box-sizing: border-box;
+	padding: 0 100px !important;
 
 	.item {
 		
 		span{
-			font-size: 12px;
+			font-weight: bold;
+			font-size: 1rem;
 			letter-spacing: 1px;
-			text-transform: uppercase;
 		}
 
 		&:hover{
@@ -62,7 +63,7 @@ header{
 	box-shadow: $profile-shadow;
 	padding: $modal-spacing;
 	//border-radius: $item-border-radius;
-	right: 23px;
+	right: 103px;
 	top: $nav-height;
 	margin-top: -10px;
 }

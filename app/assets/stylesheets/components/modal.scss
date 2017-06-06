@@ -49,6 +49,10 @@ body.locked{
 	-webkit-transform: translate(-50%, -50%);
 			transform: translate(-50%, -50%);
 
+	.submit input:hover{
+		background: $color-secondary-1 !important;
+	}
+
 }
 
 .modal-header{

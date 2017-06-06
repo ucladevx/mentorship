@@ -28,7 +28,23 @@
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <div class="container">
+
+
+
+    <% if request.env['PATH_INFO'].include? "notes" %>
+      <div class="container notes-container">
+    <% else %>
+      <% if request.env['PATH_INFO'].include? "skills" %>
+        <% if request.env['PATH_INFO'] =~ /\d/ %>
+          <div class="container skills-container-item">
+        <% else %>
+          <div class="container skills-container">
+        <% end %>
+      <% else %>
+        <div class="container">
+      <% end %>
+    <% end %>
+
     <%= yield %>
     </div>
     <%= render 'layouts/modals' %>

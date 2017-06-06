@@ -19,6 +19,10 @@ a{
     }
 }
 
+input{
+    border-radius: $item-border-radius !important;
+}
+
 .wide-hidden, .wide-hidden-flex{
 	display: none !important;
 }
