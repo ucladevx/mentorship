@@ -190,6 +190,10 @@ header{
 
 @media (max-width: $bp-mobile) {
 
+	.navbar{
+		padding: 0 !important;
+	}
+
   	.ui.grid.main{
   		margin-top: $nav-height;
 	}
