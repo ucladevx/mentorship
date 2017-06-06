@@ -6,8 +6,6 @@
 
 .skill-carousel{
 
-
-
 }
 
 .carousel-nav{
@@ -47,10 +45,6 @@
 	font-size:24px;
 }
 
-progress{
-	//background-color:$color-primary;
-}
-
 .skills-progress-bar{
 	float:right;
 	position:fixed;
@@ -76,3 +70,6 @@ progress{
 	border-radius:5px;
 }
 
+.radio-skill {
+	line-height: 150%;
+}

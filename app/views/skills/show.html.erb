@@ -19,7 +19,7 @@
 				<div class="skills-content">
 					<div class="dark-small-subheader"><%= concept.name %></div>
 					<div class="skills-content box">
-            <%= concept.description %>
+            			<%= concept.description %>
 					</div>
 
 				</div>
@@ -27,18 +27,20 @@
 				<div class="skills-content">
 					<div class="dark-small-subheader">Example</div>
 					<div class="skills-content box">
-            <% concept.examples.each do |ex| %>
-              <%= ex %>
-            <% end %>
+			            <% concept.examples.each do |ex| %>
+			              <%= ex %>
+			            <% end %>
 					</div>
 				</div>
 
 				<div class="skills-content">
 					<div class="dark-small-subheader">Practice</div>
 					<div class="skills-content box">
-            <% concept.questions.each do |q| %>
-              <%= q %>
-            <% end %>
+						<form>
+				            <% concept.questions.each do |q| %>
+				            	<input class="radio-skill" type="radio" name="gender" value="male"> <%= q %><br>
+				            <% end %>
+			            </form>
 					</div>
 				</div>
 			</div>
