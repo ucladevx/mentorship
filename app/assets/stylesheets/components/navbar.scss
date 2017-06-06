@@ -66,13 +66,20 @@ header{
 	position: absolute;
 	background: white;
 	box-shadow: $profile-shadow;
-	padding: $modal-spacing;
+	padding: 0px;
 	//border-radius: $item-border-radius;
 	right: 103px;
 	top: $nav-height;
 	margin-top: -10px;
 }
 
+.profile-item-wrapper {
+	margin:0px;
+
+	&:hover{
+		opacity: 0.9;
+	}
+}
 
 .profile-item {
 	font-size: 12px;
@@ -81,21 +88,20 @@ header{
 	text-transform: uppercase;
 }
 
-.username{
-	margin-right: $nav-spacing;
+.profile-item.icon {
+	background-color: $color-primary;
+	color: white;
+	font-size: 20px;
+	text-align: center;
+	width: 60px;
+	height: 60px;
+	display:inline-block
 }
 
-.profile-item.short {
-	line-height:200%;
-}
-
-.profile-item.table {
-	width:30px;
-	display:table-cell;
-}
-
-.profile-item.right{
-	float:right;
+.profile-item.content{
+	padding-left:10px;
+	display:inline-block;
+	max-height:20px;
 }
 
 .profile-arrow-up {
@@ -118,6 +124,13 @@ header{
 .profile-arrow-up.no-shadow{
 	z-index: 12;
 	box-shadow: none;
+}
+
+.profile-line {
+	font-size:0px; 
+	height:1px; 
+	width:200px; 
+	background-color:$color-tertiary-dark;
 }
 
 

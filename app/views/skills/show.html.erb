@@ -37,13 +37,17 @@
 					<div class="dark-small-subheader">Practice</div>
 					<div class="skills-content box">
 			            <% concept.question.each do |q| %>
-			              <p>
-			                <%= q.question_type %>
-			                <%= q.content %>
-			                <% q.answers.each do |a| %>
-			                  <%= a %>
-			                <% end %>
-			              </p>
+			              	<div class="skills-question-header">
+				               <span>Type: <%= q.question_type %></span>
+				               <span>Question: <%= q.content %></span>
+				            </div>
+				            <form>
+				                <% q.answers.each do |a| %>
+				                	<input type="radio" name="gender" value="male"> <%= a %><br>
+				                <% end %>
+			                </form>
+			                <br>
+			                <hr>
 			            <% end %>
 					</div>
 				</div>
