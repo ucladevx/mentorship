@@ -12,7 +12,10 @@ class SkillsController < ApplicationController
   # GET /skills/1
   # GET /skills/1.json
   def show
-    @concepts = @skill.concepts
+    @users = User.all
+    @conversations = Conversation.all
+    @skill = Skill.find(params[:id])
+    @concepts = @skill.concept
   end
 
   # GET /skills/new

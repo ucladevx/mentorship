@@ -121,6 +121,11 @@ ActiveRecord::Schema.define(version: 20170606023010) do
     t.integer  "progress",               default: [],                                        array: true
     t.boolean  "mentor"
     t.string   "image",                  default: "/public/profileimage/1.png"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
