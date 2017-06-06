@@ -87,14 +87,13 @@ ActiveRecord::Schema.define(version: 20170604075330) do
     t.string   "uploadednoteurls",       default: [],                                        array: true
     t.integer  "upvotednotes",           default: [],                                        array: true
     t.string   "description"
-    t.integer  "Progress",               default: [],                                        array: true
     t.integer  "progress",               default: [],                                        array: true
     t.boolean  "mentor"
+    t.string   "image",                  default: "/public/profileimage/1.png"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "image",                  default: "/public/profileimage/1.png"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
