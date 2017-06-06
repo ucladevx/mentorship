@@ -50,7 +50,7 @@ body.locked{
 			transform: translate(-50%, -50%);
 
 	.submit input:hover{
-		background: $color-secondary-1 !important;
+		background: $color-primary !important;
 	}
 
 }
@@ -64,7 +64,7 @@ body.locked{
 		}
 
 		i{
-			color: $color-secondary-1;
+			color: $color-primary;
 		}
 	}
 	.signup-link{
@@ -84,7 +84,7 @@ body.locked{
 .required{
 	position: absolute;
     left: -8px;
-    color: $color-secondary-1;
+    color: $color-primary;
 }
 
 
@@ -115,11 +115,11 @@ body.locked{
 		width: 100%;
 		color: white !important;
 		transform-text: uppercase;
-		background-color: $color-secondary-1 !important;
+		background-color: $color-primary !important;
 
 		&:hover{
 			color: white;
-			background-color: $color-secondary-1;
+			background-color: $color-primary;
 		}
 	}
 
