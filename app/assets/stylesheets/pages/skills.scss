@@ -1,12 +1,10 @@
 @import "base/global";
 
 .skill-page-wrapper{
-	margin: $skill-side-spacing 0;
+	//margin: $skill-side-spacing 0;
 }
 
 .skill-carousel{
-
-
 
 }
 
@@ -47,9 +45,11 @@
 	font-size:24px;
 }
 
+/*
 progress{
 	//background-color:$color-primary;
 }
+>>>>>>> master
 
 .skills-progress-bar{
 	float:right;
@@ -61,7 +61,7 @@ progress{
 	-webkit-transform: rotate(270deg);
 			transform: rotate(270deg);
 }
-
+*/
 .skills-content.box{
 	background-color:white;
 	min-height:100px;
@@ -76,3 +76,6 @@ progress{
 	border-radius:5px;
 }
 
+.radio-skill {
+	line-height: 150%;
+}

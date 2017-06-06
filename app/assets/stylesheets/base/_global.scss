@@ -12,6 +12,7 @@ body{
 
 a{
     color: $color-primary;
+    text-decoration: none !important;
 
     &:hover{
         color: $color-primary;

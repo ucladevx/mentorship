@@ -34,3 +34,26 @@
 	box-shadow: none;
     border-radius: 0px;
 }
+
+.override-button{
+	background: none;
+    box-shadow: none !important;
+    background-color: rgba(0,0,0,0) !important;
+    background-image: none !important;
+    border-radius: 0;
+    text-shadow: none;
+    font-weight: normal;
+    i{
+    	text-shadow: none;
+    }
+}
+
+button.reset{
+	@extend .override-button;
+
+    &:hover, &:active{
+    	@extend .override-button;
+    }
+}
+
+

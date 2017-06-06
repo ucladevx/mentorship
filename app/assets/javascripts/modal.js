@@ -20,6 +20,9 @@ function showModal(modal, id){
 		case 'edit-profile':
 			$('.edit-profile-modal-container').removeClass('hide');
 			break;
+		case 'save-progress':
+			$('.save-progress-modal-container').removeClass('hide');
+			break;
 
 	}
 
@@ -27,6 +30,8 @@ function showModal(modal, id){
 }
 
 function hideModal(modal){
+
+	$('.save-progress-notice').addClass('hide');
 
 	switch(modal){
 		case 'login':
@@ -44,6 +49,9 @@ function hideModal(modal){
 			break;
 		case 'edit-profile':
 			$('.edit-profile-modal-container').addClass('hide');
+			break;
+		case 'save-progress':
+			$('.save-progress-modal-container').addClass('hide');
 			break;
 		case 'all':
 			$('.modal-container').addClass('hide');
@@ -85,6 +93,11 @@ var initModal = function(){
 		hideModal('all');
 		showModal('edit-profile');
 	});
+
+	$('.save-progress-trigger-modal').click(function(){
+		hideModal('all');
+		showModal('save-progress');
+	})
 };
 
 
