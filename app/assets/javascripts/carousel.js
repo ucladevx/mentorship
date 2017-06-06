@@ -1,5 +1,9 @@
 
-function initCarousel(selector, config){
+function initCarousel(selector, config, callback){
+
+	if(typeof callback != 'undefined'){
+		$('.carousel-nav').click(callback);
+	}
 
 	var defaults = {
 		numToShow: [3, 2, 1],

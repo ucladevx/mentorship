@@ -10,14 +10,25 @@ AdminUser.create!(email: 'admin@example.com', password: 'password', password_con
 skills = Skill.take(3)
 i = 0
 6.times do
-  content = "Lorem ipsum dolor sit amet, in donec lacinia tellus, ipsum dolor vehicula arcu, nibh diam sit. Diam phasellus egestas in lorem. Lorem pellentesque in auctor wisi, eget vel fusce, velit ligula vel lacinia."
-  skills.each { |skill| skill.concept.create!(
+  content = "Lorem ipsum dolor sit amet, in donec lacinia tellus, ipsum dolor vehicula arcu, nibh diam sit.
+  Diam phasellus egestas in lorem. Lorem pellentesque in auctor wisi, eget vel fusce, velit ligula vel lacinia."
+  skills.each { |skill|
+    newConcept = skill.concept.create!(
       description: "Testing Description",
       name: "Concept" + i.to_s,
       examples: [content],
-      questions: [content, content, content],
-      answers: [content, content, content],
       order: i
-    ) }
-    i += 1
+    )
+    j = 1
+    2.times do
+      newConcept.question.create!(
+        content: "Question" + j.to_s + content,
+        question_type: "Multiple Choice",
+        final_answer: "A",
+        answers: [content, content, content, content]
+      )
+      j+=1
+    end
+  }
+  i += 1
 end

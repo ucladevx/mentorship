@@ -48,14 +48,11 @@ ActiveRecord::Schema.define(version: 20170606025606) do
 
   create_table "concepts", force: :cascade do |t|
     t.string   "description"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.text     "examples",      default: [],              array: true
-    t.text     "answers",       default: [],              array: true
-    t.text     "questions",     default: [],              array: true
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.text     "examples",    default: [],              array: true
     t.integer  "skill_id"
     t.integer  "order"
-    t.string   "question_type"
     t.string   "name"
     t.index ["skill_id"], name: "index_concepts_on_skill_id", using: :btree
   end
@@ -90,14 +87,24 @@ ActiveRecord::Schema.define(version: 20170606025606) do
     t.string   "professor"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.string   "answers",       default: [],              array: true
+    t.string   "question_type"
+    t.string   "final_answer"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.text     "content"
+    t.integer  "concept_id"
+    t.index ["concept_id"], name: "index_questions_on_concept_id", using: :btree
+  end
+
   create_table "skills", force: :cascade do |t|
     t.integer  "difficulty"
     t.integer  "order"
     t.string   "topic"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "author"
-    t.integer  "concept_ids", default: [],              array: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -126,6 +133,7 @@ ActiveRecord::Schema.define(version: 20170606025606) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "image",                  default: "/public/profileimage/1.png"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

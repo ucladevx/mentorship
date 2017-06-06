@@ -3,7 +3,7 @@
 <div class="skill-page-wrapper">
 
 	<div class="carousel-nav side-left">
-		<button class="button prev">
+		<button class="reset button prev">
 		  <i class="huge icon chevron left"></i>
 		</button>
 	</div>
@@ -36,11 +36,15 @@
 				<div class="skills-content">
 					<div class="dark-small-subheader">Practice</div>
 					<div class="skills-content box">
-						<form>
-				            <% concept.questions.each do |q| %>
-				            	<input class="radio-skill" type="radio" name="gender" value="male"> <%= q %><br>
-				            <% end %>
-			            </form>
+			            <% concept.question.each do |q| %>
+			              <p>
+			                <%= q.question_type %>
+			                <%= q.content %>
+			                <% q.answers.each do |a| %>
+			                  <%= a %>
+			                <% end %>
+			              </p>
+			            <% end %>
 					</div>
 				</div>
 			</div>
@@ -48,7 +52,7 @@
 
 	</div>
 	<div class="carousel-nav side-right">
-		<button class="button next">
+		<button class="reset button next">
 		  <i class="huge icon chevron right"></i>
 		</button>
 	</div>
