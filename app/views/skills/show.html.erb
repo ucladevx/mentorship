@@ -1,5 +1,59 @@
 <p id="notice"><%= notice %></p>
 
+<div class="skill-page-wrapper">
+
+	<div class="carousel-nav side-left">
+		<button class="button prev">
+		  <i class="huge icon chevron left"></i>
+		</button>
+	</div>
+	<div class="skill-carousel">
+
+		<% @concepts.each do |concept|  %>
+			<div class="skill-module">
+
+				<div class="skills-content">
+					<div class="dark-small-subheader skills-title"><%= @skill.topic %></div>
+				</div>
+
+				<div class="skills-content">
+					<div class="dark-small-subheader"><%= concept.name %></div>
+					<div class="skills-content box">
+            <%= concept.description %>
+					</div>
+
+				</div>
+
+				<div class="skills-content">
+					<div class="dark-small-subheader">Example</div>
+					<div class="skills-content box">
+            <% concept.examples.each do |ex| %>
+              <%= ex %>
+            <% end %>
+					</div>
+				</div>
+
+				<div class="skills-content">
+					<div class="dark-small-subheader">Practice</div>
+					<div class="skills-content box">
+            <% concept.questions.each do |q| %>
+              <%= q %>
+            <% end %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+
+	</div>
+	<div class="carousel-nav side-right">
+		<button class="button next">
+		  <i class="huge icon chevron right"></i>
+		</button>
+	</div>
+
+</div>
+
+<!--
 <p>
   <strong>Difficulty:</strong>
   <%= @skill.difficulty %>
@@ -31,54 +85,4 @@
 </p>
 
 <%= link_to 'Edit', edit_skill_path(@skill) %> |
-<%= link_to 'Back', skills_path %>
-
-
-<div class="skill-page-wrapper">
-
-	<div class="carousel-nav side-left">
-		<button class="button prev">
-		  <i class="huge icon chevron left"></i>
-		</button>
-	</div>
-	<div class="skill-carousel">
-
-		<% for i in 0..5 do %>
-			<div class="skill-module">
-
-				<div class="skills-content">
-					<div class="dark-small-subheader skills-title"><%= @skill.topic %></div>
-				</div>
-
-				<div class="skills-content">
-					<div class="dark-small-subheader">Concept</div>
-					<div class="skills-content box">
-
-					</div>
-
-				</div>
-
-				<div class="skills-content">
-					<div class="dark-small-subheader">Example</div>
-					<div class="skills-content box">
-
-					</div>
-				</div>
-
-				<div class="skills-content">
-					<div class="dark-small-subheader">Practice</div>
-					<div class="skills-content box">
-
-					</div>
-				</div>
-			</div>
-		<% end %>
-
-	</div>
-	<div class="carousel-nav side-right">
-		<button class="button next">
-		  <i class="huge icon chevron right"></i>
-		</button>
-	</div>
-
-</div>
+<%= link_to 'Back', skills_path %> -->
