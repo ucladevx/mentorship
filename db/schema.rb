@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170606042757) do
+ActiveRecord::Schema.define(version: 20170606025606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20170606042757) do
     t.string   "description"
     t.integer  "progress",               default: [],                                        array: true
     t.boolean  "mentor"
+    t.string   "image",                  default: "/public/profileimage/1.png"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"

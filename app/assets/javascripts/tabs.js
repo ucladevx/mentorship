@@ -28,7 +28,7 @@ TabNavigation.prototype._handleClick = function(e){
   tabs.removeClass('selected');
 
   //add hide to all tabContent
-  var tabContent = $(this._selector + ' .tab-content');
+  var tabContent = $(this._selector + ' .tab-content-custom');
   tabContent.addClass(this._config.contentClassToToggle);
 
   //update tab selected

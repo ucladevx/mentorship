@@ -124,4 +124,29 @@ body.locked{
 .password-reset-link{
 	font-size: $type-small;
 	text-align: center;
+
+	h4{
+		float: left;
+	}
+}
+
+.bottom-submit {
+	border: none;
+	border-radius: $item-border-radius !important;
+	box-shadow: $shadow;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.save-progress-buttons {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	& > *{
+		display: inline-block;
+	}
+	h4{
+		margin-top: 10px;
+	}
 }

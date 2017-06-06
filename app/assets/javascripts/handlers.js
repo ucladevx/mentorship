@@ -1,6 +1,7 @@
 //to aggregate all code required on document.ready()
 
 var onReady = function(){
+
 	homepage();
 
 	initModal();
@@ -11,6 +12,7 @@ var onReady = function(){
 	initSkillsTab();
 	initNewMentorModal();
 	initSkills();
+	//initSkillsList();
 	
 	$('body').click(onBodyClick);
 };

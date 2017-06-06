@@ -10,9 +10,9 @@
                     <%= image_tag("Logo.png", class: "logo") %> </a>
 
                 <div class="right menu">
-                    <%= link_to mentors_index_path, class:"item" do %>
+                    <!--<%= link_to mentors_index_path, class:"item" do %>
                         <span>Mentors</span>
-                    <% end %>
+                    <% end %>-->
                     <%= link_to notes_path, class:"item" do %>
                         <span>Notes</span>
                     <% end %>
@@ -41,10 +41,9 @@
                                         <div class="profile-item"><%= link_to destroy_user_session_path, method: :delete, class:"no-click-hide" do %></div>
                                             <span class="profile-item no-click-hide">LOG out</span>
                                     <% end %>
-                                </div>
 
-
-
+                                </div>  
+                                
                             </div>
 
                     <% end %>
@@ -71,7 +70,7 @@
             </div>
             <div id="mobile-menu" class="ui borderless vertical fixed navbar menu shadow">
                 <div class="menu">
-                    <%= link_to "Mentors", mentors_index_path, class:"item"%>
+                   <!-- <%= link_to "Mentors", mentors_index_path, class:"item"%>-->
                     <%= link_to "Notes", notes_path, class:"item"%>
                     <%= link_to "Skills", skills_index_path, class:"item"%>
                     <% if user_signed_in? %>
