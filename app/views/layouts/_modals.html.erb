@@ -6,7 +6,7 @@
           <div class="modal-header">
             <h4 class="title"><%= image_tag("icon-lock.svg", :class => "icon")%>&nbspLogin</h4>
             <p class="signup-link">Don't have an account?&nbsp
-              <a class="item sign-up-trigger-modal"><span>Sign up</span></a>
+            <a class="item sign-up-trigger-modal"><span>Sign up</span></a>
           </div>
 
           <div class="modal-field-content">
@@ -127,4 +127,24 @@
         </div>
         <div class="overlay" onClick="hideModal('edit-profile')"></div>
       </div>
+
+    <!-- Login to save your progress -->
+      <div class="modal-container hide save-progress-modal-container">
+        <div class="modal save-progress-modal">
+            <div class="modal-header">
+                <h4 class="title">Sign up to save your progress!</h4>
+            </div>
+            <div class="save-progress-buttons">
+                <a class="item sign-up-trigger-modal">
+                    <button class="btn-main bottom-submit">SIGN UP</button>
+                </a>
+                <h4>or</h4>
+                <a class="item login-trigger-modal">
+                    <button class="btn-main bottom-submit">LOGIN</button>
+                </a>
+            </div>
+        </div>
+        <div class="overlay" onClick="hideModal('save-progress')"></div>
+      </div>
+
 </footer>

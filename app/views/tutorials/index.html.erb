@@ -1,25 +1,46 @@
-
 <div class="skills-tab-content">
-    <% for i in 0..9 do %>
+<!--  -->
+    <% for i in 0..3 do %>
         <div class="skill-block tab-content toggleOff" id="item-<%= i =%>">
-            <div class="skill-box">
-                <div class="skill-circle tab" id="tab-<%= i =%>">A</div>
-                <div class="skill-hide-when-toggle">
-                    <div class="skill-name">
-                        <h4>Arrays</h4>
+            <% if user_signed_in? %>
+                <div class="skill-box">
+                    <div class="skill-circle tab" id="tab-<%= i =%>">A</div>
+                    <div class="skill-hide-when-toggle">
+                        <div class="skill-name">
+                            <h4>Arrays</h4>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="skill-pop-up">
-                <h4>Arrays</h4>
-                <h2 class="skill-percent">65%</h2>
-                <p class="skill-submit">Submitted by John Doe, UPE</p>
-                <div class="skill-click"><i class="fa fa-chevron-right" aria-hidden="true"></i><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
-            </div>
+                <div class="skill-pop-up">
+                    <h4>Arrays</h4>
+                    <h2 class="skill-percent">65%</h2>
+                    <p class="skill-submit">Submitted by John Doe, UPE</p>
+                    <div class="skill-click"><i class="fa fa-chevron-right" aria-hidden="true"></i><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+                </div>
+            <% else %>
+                <div class="skill-box">
+                    <a class="item save-progress-trigger-modal">
+                        <div class="skill-circle tab" id="tab-<%= i =%>">A</div>
+                        <div class="skill-name">
+                            <h4>Arrays</h4>
+                        </div>
+                    </a>
+                </div>
+
+            <% end %>
             <% if i > 0 %>
                 <div class="progress-bar">
                 </div>
             <% end %>
         </div>
     <% end %>
+    <div class="skill-block"></div>
+    <!-- <div class="skill-block">
+        <div class="skill-bottom-box">
+            <h4>Sign up to save your progress!</h4>
+            <button class="btn-main bottom-submit">SIGN UP</button>
+            <button class="btn-main bottom-submit">LOGIN</button>
+        </div>
+    </div>
+    <div class="skill-block"></div> -->
 </div>

@@ -11,6 +11,7 @@ var onReady = function(){
 	initSkillsTab();
 	initNewMentorModal();
 	initSkills();
+	//initSkillsList();
 	
 	$('body').click(onBodyClick);
 };
