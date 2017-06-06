@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   get 'skills/index'
 
   get 'mentors/index'
   get 'mentors/new'
   get 'mentors/create'
   get 'mentors/destroy'
-  get 'tutorials/index'
-  get 'tutorials/new'
-  get 'tutorials/create'
-  get 'tutorials/destroy'
 
   resources :conversations do
       resources :messages

@@ -26,7 +26,7 @@ h4 {
     font-size: 1.4rem;
 }
 
-.tab-content.toggleOff {
+.tab-content-custom.toggleOff {
 
 	.skill-pop-up{
 		display: none;
@@ -37,7 +37,7 @@ h4 {
 	}
 }
 
-.tab-content{
+.tab-content-custom{
 	.skill-pop-up{
 		display: block;
 	}
@@ -52,8 +52,6 @@ h4 {
 	height: 150px;
 	width: 100%;
 	position: relative;
-	background-color: #F9F9F9;
-
 
 	.skill-box {
 		height: $skill-circle-size;

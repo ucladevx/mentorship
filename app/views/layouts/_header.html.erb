@@ -10,16 +10,16 @@
                     <%= image_tag("Logo.png", class: "logo") %> </a>
 
                 <div class="right menu">
-                    <%= link_to mentors_index_path, class:"item" do %>
+                    <!--<%= link_to mentors_index_path, class:"item" do %>
                         <span>Mentors</span>
-                    <% end %>
+                    <% end %>-->
                     <%= link_to notes_path, class:"item" do %>
                         <span>Notes</span>
                     <% end %>
-                    <%= link_to tutorials_index_path, class:"item" do %>
+                    <%= link_to skills_index_path, class:"item" do %>
                         <span>Skills</span>
                     <% end %>
-                     <% if user_signed_in? %> 
+                     <% if user_signed_in? %>
                             <a class="item profile-trigger-modal">
                                 <div id="profile-btn"></div>
                             </a>
@@ -32,23 +32,22 @@
                                     <div class="profile-item right short no-click-hide"><%= User.find_by(id: current_user.id).username %></div>
                                     <div class="profile-item right short"><%= link_to "Profile", profile_index_path, class:"no-click-hide"%></div>
                                 </div>
-                                
+
                                 <div class="modal-field-content padded no-click-hide">
                                     <hr>
                                     <div class="profile-item"><%= link_to "My Account", mentors_index_path, class:"no-click-hide"%></div>
                                     <div class="profile-item"><%= link_to "Help", notes_path, class:"no-click-hide"%></div>
-                                     <% if user_signed_in? %> 
+                                     <% if user_signed_in? %>
                                         <div class="profile-item"><%= link_to destroy_user_session_path, method: :delete, class:"no-click-hide" do %></div>
                                             <span class="profile-item no-click-hide">LOG out</span>
                                     <% end %>
-                                </div>
-                                   
-                                    
+
+                                </div>  
                                 
                             </div>
-                            
+
                     <% end %>
-                    
+
                     <% else %>
                         <a class="item login-trigger-modal" >
                             <span class="login btn-main">LOG in</span>
@@ -71,10 +70,10 @@
             </div>
             <div id="mobile-menu" class="ui borderless vertical fixed navbar menu shadow">
                 <div class="menu">
-                    <%= link_to "Mentors", mentors_index_path, class:"item"%>
+                   <!-- <%= link_to "Mentors", mentors_index_path, class:"item"%>-->
                     <%= link_to "Notes", notes_path, class:"item"%>
-                    <%= link_to "Skills", tutorials_index_path, class:"item"%>
-                    <% if user_signed_in? %> 
+                    <%= link_to "Skills", skills_index_path, class:"item"%>
+                    <% if user_signed_in? %>
                          <%= link_to destroy_user_session_path, method: :delete, class:"item" do %>
                             Logout
                          <% end %>

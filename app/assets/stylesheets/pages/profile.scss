@@ -41,8 +41,7 @@ div.profile-tab button:hover {
 }
 
 div.profile-tab button.selected {
-	border-bottom: $color-primary;
-	border-bottom-style: solid;
+	border-bottom: 2px solid $color-primary;
 }
 
 .profile-tab-content {

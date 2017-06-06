@@ -10,6 +10,7 @@ end
 gem 'rails', '~> 5.0.2'
 gem 'active_model_serializers', '~> 0.9.4'
 gem 'active_hash_relation'
+gem 'activeadmin'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'

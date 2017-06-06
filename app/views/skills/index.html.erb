@@ -1,4 +1,30 @@
 <p id="notice"><%= notice %></p>
+
+<div class="skills-tab-content">
+    <% for i in 0..9 do %>
+        <div class="skill-block tab-content-custom toggleOff" id="item-<%= i =%>">
+            <div class="skill-box">
+                <div class="skill-circle tab" id="tab-<%= i =%>">A</div>
+                <div class="skill-hide-when-toggle">
+                    <div class="skill-name">
+                        <h4>Arrays</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-pop-up">
+                <h4>Arrays</h4>
+                <h2 class="skill-percent">65%</h2>
+                <p class="skill-submit">Submitted by John Doe, UPE</p>
+                <div class="skill-click"><i class="fa fa-chevron-right" aria-hidden="true"></i><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+            </div>
+            <% if i > 0 %>
+                <div class="progress-bar">
+                </div>
+            <% end %>
+        </div>
+    <% end %>
+</div>
+
 <!--
 <h1>Skills</h1>
 
@@ -32,53 +58,3 @@
 
 
 <!-- Am still working on getting concepts working under skills -->
-
-
-<div class="skill-page-wrapper">
-
-	<div class="carousel-nav side-left">
-		<button class="button prev">
-		  <i class="huge icon chevron left"></i>
-		</button>
-	</div>
-	<div class="skill-carousel">
-
-		<% for i in 0..5 do %>
-			<div class="skill-module">
-
-				<div class="skills-content">
-					<div class="dark-small-subheader skills-title">Skill Name</div>
-				</div>
-
-				<div class="skills-content">
-					<div class="dark-small-subheader">Concept</div>
-					<div class="skills-content box">
-
-					</div>
-
-				</div>
-
-				<div class="skills-content">
-					<div class="dark-small-subheader">Example</div>
-					<div class="skills-content box">
-
-					</div>
-				</div>
-
-				<div class="skills-content">
-					<div class="dark-small-subheader">Practice</div>
-					<div class="skills-content box">
-
-					</div>
-				</div>
-			</div>
-		<% end %>
-
-	</div>
-	<div class="carousel-nav side-right">
-		<button class="button next">
-		  <i class="huge icon chevron right"></i>
-		</button>
-	</div>
-
-</div>
