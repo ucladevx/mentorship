@@ -63,6 +63,10 @@
 	font-size:24px;
 }
 
+.skills-subtitle{
+    font-size: 16px;
+}
+
 .skills-content.box{
 	background-color:white;
 	min-height:100px;
@@ -104,10 +108,27 @@
 	line-height: 150%;
 }
 
-.skills-question-header {
-	color:#color-primary;
-	span{
-		display: block;
-		margin-bottom: 20px;
-	}
+.skills-header {
+	color:$color-primary;
+}
+
+.skills-practice {
+    padding-bottom: $skill-spacing;
+}
+
+.skills-line {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size:0px; 
+    height:1px; 
+    width:100%; 
+    background-color:$color-tertiary-med;
+}
+
+.skills-correct {
+    background-color: $color-skill-correct;
+}
+
+.skills-wrong {
+    background-color: $color-skill-wrong;
 }
