@@ -36,6 +36,7 @@
 				<div class="skills-content">
 					<div class="skills-subtitle skills-header">Practice</div>
 					<div class="skills-content box">
+<!-- <<<<<<< HEAD -->
 			            <% concept.question.each do |q| %>
 				            <div class="skills-practice">
 				            	<span class="skills-header">Type: </span>
@@ -58,6 +59,27 @@
 			                <% if q != concept.question.last %>
 			                	<div class="skills-line"></div>
 			                <% end %>
+<!-- ======= -->
+			            <% concept.question.each do |qst| %>
+			              	<div class="skills-question-header">
+				               <span>Type: <%= qst.question_type %></span>
+				               <span>Question: <%= qst.content %></span>
+				            </div>
+										<%= form_tag("/check", remote: true, method: "get") do %>
+											<!-- Define an i here to give each answer a number for checking -->
+											<% i = 0 %>
+											<%= hidden_field_tag(:question_id, qst.id) %>
+											<% qst.answers.each do |a| %>
+												<%= radio_button_tag(:answer, i) %>
+												<%= label_tag(:answer, a) %>
+												<br>
+												<% i+=1 %>
+				    					<% end %>
+											<%= submit_tag("Submit") %>
+				              <br>
+				              <hr>
+										<% end %>
+<!-- >>>>>>> master -->
 			            <% end %>
 					</div>
 				</div>
