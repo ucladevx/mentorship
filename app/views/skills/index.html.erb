@@ -2,7 +2,7 @@
 
 <div class="skills-tab-content">
     <% @skills.each do |skill| %>
-        <div class="skill-block tab-content-custom toggleOff" id="item-<%= skill.id =%>">    
+        <div class="skill-block tab-content-custom toggleOff" id="item-<%= skill.id =%>">
          <% if user_signed_in? %>
             <div class="skill-box item">
         <% else %>
@@ -34,7 +34,7 @@
             <% if user_signed_in? %>
               <div class="skill-pop-up">
                   <h4><%= skill.topic %></h4>
-                  <h2 class="skill-percent">65%</h2>
+                  <h2 class="skill-percent"><%= skill.progress %>%</h2>
                   <p class="skill-submit">Submitted by <%= skill.author %></p>
                   <%= link_to skill do %>
                     <div class="skill-click"><i class="fa fa-chevron-right" aria-hidden="true"></i><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
