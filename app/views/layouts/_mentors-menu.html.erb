@@ -1,119 +1,124 @@
 
-<div class="mentors-menu-container">
-  <div class=open_navbar id="open_nav">
-    <div class="open-chat-btn"><i class="fa fa-commenting" aria-hidden="true"></i></div>
-  </div>
-  <div class="menu" id="sidebar">
-    <div class="mentors">
-      <div class="mentor-header">
-        <div class="nav_title list_show">
-          <i class="fa fa-commenting" aria-hidden="true"></i>&nbspMentors Online
-          <i class="remove icon remove-mentors-menu"></i>
-        </div>
-        <div class="nav_title chat_select_show">
-          <span class="back">
-            <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbspBack
-          </span>
-          <i class="remove icon remove-mentors-menu"></i>
-        </div>
-      </div>
-      <% for i in 0..0 do %>
-      <div class="mentor-wrapper" id="mentorWrapper-<%= i %>">
-        <div class="item mentor-trigger-modal" id="mentor-<%= i %>">
-          <div class="mentor_pic">
-            <img class="ui avatar image" src="/shrink.jpg">
-          </div>
-          <div class="mentor_name">
-            <span>Austin Lee</span>
-          </div>
-          <div class="mentor_rating">
-            <%= i %>&nbsprating
-          </div>
-        </div>
-        <!-- Open chat with Mentor -->
-        <div class="modal-container hide mentor-modal-container" id="mentorModal-<%= i %>">
-          <div class="modal mentor-modal">
-            <div class="modal-header">
-              <div class="modal_mentor_rating">
-                <h4><%= i %>&nbsp<i class="fa fa-star" aria-hidden="true"></i></h4>
-              </div>
-              <div class="modal_mentor_pic">
-                <%= image_tag("shrink.jpg", :class => "ui circular image")%>
-              </div>
-
-              <div class="modal_mentor_char">
-                <div class="modal_mentor_name">
-                  <h2>Austin Lee</h2>
-                </div>
-              </div>
-            </div>
-            <div class="modal-field-content">
-              <div class="modal_mentor_bio">
-                &nbsp&nbsp&nbsp&nbspI am a second year Computer Science student who is not qualified to mentor anyone.
-                I have taken CS 31, CS 32, CS 33, and CS 35L. Feel free to ask me any questions.
-              </div>
-              <div class="chat_modal">
-                <div class="ui buttons">
-                  <button class="ui positive button modal_mentor_accept" id="btn-<%= i %>">Accept</button>
-                  <div class="or"></div>
-                  <button class="ui button modal_mentor_decline">Cancel</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="overlay" onClick="hideModal('mentor')"></div>
-        </div>
-      </div>
-      <% end %>
+<% if user_signed_in? %>
+  <div class="mentors-menu-container">
+    <div class=open_navbar id="open_nav">
+      <div class="open-chat-btn"><i class="fa fa-commenting" aria-hidden="true"></i></div>
     </div>
+    <div class="menu" id="sidebar">
+      <div class="mentors">
+        <div class="mentor-header">
+          <div class="nav_title list_show">
+            <i class="fa fa-commenting" aria-hidden="true"></i>&nbspMentors Online
+            <i class="remove icon remove-mentors-menu"></i>
+          </div>
+          <div class="nav_title chat_select_show">
+            <span class="back">
+              <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbspBack
+            </span>
+            <i class="remove icon remove-mentors-menu"></i>
+          </div>
+        </div>
+        <% for i in 0..0 do %>
+        <div class="mentor-wrapper" id="mentorWrapper-<%= i %>">
+          <div class="item mentor-trigger-modal" id="mentor-<%= i %>">
+            <div class="mentor_pic">
+              <img class="ui avatar image" src="/shrink.jpg">
+            </div>
+            <div class="mentor_name">
+              <span>Austin Lee</span>
+            </div>
+            <div class="mentor_rating">
+              <%= i %>&nbsprating
+            </div>
+          </div>
+          <!-- Open chat with Mentor -->
+          <div class="modal-container hide mentor-modal-container" id="mentorModal-<%= i %>">
+            <div class="modal mentor-modal">
+              <div class="modal-header">
+                <div class="modal_mentor_rating">
+                  <h4><%= i %>&nbsp<i class="fa fa-star" aria-hidden="true"></i></h4>
+                </div>
+                <div class="modal_mentor_pic">
+                  <%= image_tag("shrink.jpg", :class => "ui circular image")%>
+                </div>
 
-    <% if user_signed_in? %>
-    <div class="chatbox">
-      <div class="chat">
-        <ol class="discussion">
-          <li class="self">
-            <div class="avatar">
-              <%= image_tag(@user.image) %>
+                <div class="modal_mentor_char">
+                  <div class="modal_mentor_name">
+                    <h2>Austin Lee</h2>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-field-content">
+                <div class="modal_mentor_bio">
+                  &nbsp&nbsp&nbsp&nbspI am a second year Computer Science student who is not qualified to mentor anyone.
+                  I have taken CS 31, CS 32, CS 33, and CS 35L. Feel free to ask me any questions.
+                </div>
+                <div class="chat_modal">
+                  <div class="ui buttons">
+                    <button class="ui positive button modal_mentor_accept" id="btn-<%= i %>">Accept</button>
+                    <div class="or"></div>
+                    <button class="ui button modal_mentor_decline">Cancel</button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="messages">
-              <p>Hey, I was wondering if you could help me with pointers.</p>
-              <p>I don't understand how they work.</p>
-              <time datetime="2009-11-13T20:14">37 mins</time>
-            </div>
-          </li>
-          <li class="other">
-            <div class="avatar">
-              <%= image_tag("shrink.jpg")%>
-            </div>
-            <div class="messages">
-              <p>Sure, how can I help?</p>
-              <time datetime="2009-11-13T20:14">30 mins</time>
-            </div>
-          </li>
-          <li class="self">
-            <div class="avatar">
-              <%= image_tag(@user.image) %>
-            </div>
-            <div class="messages">
-              <p>What do they do in their most basic sense.</p>
-              <time datetime="2009-11-13T20:14">25 mins</time>
-            </div>
-          </li>
-          <li class="other">
-            <div class="avatar">
-              <%= image_tag("shrink.jpg") %>
-            </div>
-            <div class="messages">
-              <p>In C, a pointer is a variable whose value is the address of another variable</p>
-              <time datetime="2009-11-13T20:14">9 mins</time>
-            </div>
-          </li>
-        </ol>
+            <div class="overlay" onClick="hideModal('mentor')"></div>
+          </div>
+        </div>
+        <% end %>
       </div>
-      <div class="send_message">
-        <textarea rows="2" cols="34"></textarea>
+
+      <div class="chatbox">
+        <div class="chat">
+          <ol class="discussion">
+            <li class="self">
+              <div class="avatar">
+                <% if user_signed_in? %>
+                  <%= image_tag(@user.image) %>
+                <% end %>
+              </div>
+              <div class="messages">
+                <p>Hey, I was wondering if you could help me with pointers.</p>
+                <p>I don't understand how they work.</p>
+                <time datetime="2009-11-13T20:14">37 mins</time>
+              </div>
+            </li>
+            <li class="other">
+              <div class="avatar">
+                <%= image_tag("shrink.jpg")%>
+              </div>
+              <div class="messages">
+                <p>Sure, how can I help?</p>
+                <time datetime="2009-11-13T20:14">30 mins</time>
+              </div>
+            </li>
+            <li class="self">
+              <div class="avatar">
+                <% if user_signed_in? %>
+                  <%= image_tag(@user.image) %>
+                <% end %>
+              </div>
+              <div class="messages">
+                <p>What do they do in their most basic sense.</p>
+                <time datetime="2009-11-13T20:14">25 mins</time>
+              </div>
+            </li>
+            <li class="other">
+              <div class="avatar">
+                <%= image_tag("shrink.jpg") %>
+              </div>
+              <div class="messages">
+                <p>In C, a pointer is a variable whose value is the address of another variable</p>
+                <time datetime="2009-11-13T20:14">9 mins</time>
+              </div>
+            </li>
+          </ol>
+        </div>
+        <div class="send_message">
+          <textarea rows="2" cols="34"></textarea>
+        </div>
       </div>
     </div>
     <% end %>
   </div>
-</div>
+<% end %>
