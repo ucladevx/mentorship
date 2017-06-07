@@ -43,9 +43,9 @@ class SkillsController < ApplicationController
       user = User.find_by id:current_user.id
       user.progress.push(params[:question_id])
       user.save
-      redirect_back fallback_location: "/skills", notice: "You are correct"
+      redirect_to controller: "skills", action: "show", id: params[:id], answered_question: params[:question_id], inputted_answer: params[:answer], correct: 1
     else
-      redirect_back fallback_location: "/skills", notice: "That is incorrect, try again"
+      redirect_to controller: "skills", action: "show", id: params[:id], answered_question: params[:question_id], inputted_answer: params[:answer], correct: 0
     end
   end
 

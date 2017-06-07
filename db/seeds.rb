@@ -7,6 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
+Skill.create!(
+  order: 2,
+  topic: "Strings",
+  author: "Jorge Fuentes"
+)
+Skill.create!(
+  order: 3,
+  topic: "Classes",
+  author: "Gene Block"
+)
 skills = Skill.take(3)
 i = 0
 6.times do
@@ -40,35 +50,62 @@ sample = Skill.create!(
 )
 
 conceptOne = sample.concept.create!(
+  name: "Introduction",
   description: "Loops allow us to execute a statement or a group of statements multiple times<br>
 The statements are executed sequentially<br>
 A conditional is checked, and if it passes the loop runs and executes the specified statements<br>
 The basic structure is as follows:<br>
-    Set Up
-Test Expression/Conditional
-        Statements
-        Increment",
-  examples: ["// Pseudocode
-    Flip a coin
-    Coin landed on heads
-        Print “Heads”
-        Flip the coin again
-    Print “Done”
+    Set Up -> Test Expression/Conditional -> Statements -> Increment",
+  examples: ["", "// Pseudocode<br>
+    Flip a coin<br>
+    Coin landed on heads<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Print “Heads”<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;Flip the coin again<br>
+    Print “Done”<br>
 In this loop, we continue to flip the coin until it does not land on heads, so it lands on tails
-This allows us to count how many times we rolled heads
-It is more efficient to do a loop, because otherwise we could copy code
-"])
+This allows us to count how many times we rolled heads.<br>
+It is more efficient to do a loop, because otherwise we could copy code"
+])
 
 conceptOne.question.create!(
   content: "If we wanted to print every letter in the word “Happy”, how many times would the loop to do so run?",
   question_type: "Multiple Choice",
   answers: ["N Times where n depends on the number of computer cores", "3", "4", "5", "6", "150"],
-  final_answer: "D"
+  final_answer: "3"
 )
 conceptOne.question.create!(
-  content: "If coin did not return heads in the initial example, what would happen?",
+  content: "If the coin did not return heads in the initial example, what would happen?",
   question_type: "Multiple Choice",
   answers: ["The loop continues and the coin is flipped again", "\"Heads\" is printed",
             "The loop ends and it prints \"Done\""],
-  final_answer: "B"
+  final_answer: "2"
 )
+
+conceptTwo = sample.concept.create!(
+  name: "While",
+  description: "&nbsp;&nbsp;&nbsp;&nbsp;A <b>while</b> loop repeats a statement or group of statements while a given condition is true. It tests the condition before executing the loop body.
+    Inside the while loop, condition needs to be updated, otherwise it will result in an infinite loop and the program will crash. This is because the condition never become false.",
+    examples: ["int x = 5;<br>
+    while (x < 10) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cout << “Less than 10” << endl;<br>
+    }<br><br>",
+    "If the code is left as is, it will result in an infinite loop. The conditional will never be false, because the 5 < 10, and x is never updated. To fix the infinite loop, we add an increment (x += 1) within the loop body<br>
+Now the loop will look like this:<br>",
+    "int x = 5;<br>
+    while (x < 10) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cout << “Less than 10” << endl;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;x += 1;<br>
+    }<br>"
+  ])
+
+conceptTwo.question.create!(
+  content: "What would we need to add to the following code block to fix the infinite loop?<br>
+    int x = 6;<br>
+    while (x > 0) {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;cout << “X is positive” << endl;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;// Add code here<br>
+    }",
+  question_type: "Multiple Choice",
+  answers: ["x += 1", "x -= 1", "x = x+1", "x++"],
+  final_answer: "1"
+  )
