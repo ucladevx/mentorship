@@ -67,6 +67,7 @@
       <% end %>
     </div>
 
+    <% if user_signed_in? %>
     <div class="chatbox">
       <div class="chat">
         <ol class="discussion">
@@ -113,5 +114,6 @@
         <textarea rows="2" cols="34"></textarea>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
