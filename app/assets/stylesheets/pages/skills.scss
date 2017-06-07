@@ -104,10 +104,18 @@
 	line-height: 150%;
 }
 
-.skills-question-header {
-	color:#color-primary;
-	span{
-		display: block;
-		margin-bottom: 20px;
-	}
+.skills-header {
+	color:$color-primary;
+}
+
+.skills-practice {
+    padding-bottom: $skill-spacing;
+}
+
+.skills-line {
+    margin-bottom: 20px;
+    font-size:0px; 
+    height:1px; 
+    width:100%; 
+    background-color:$color-tertiary-med;
 }

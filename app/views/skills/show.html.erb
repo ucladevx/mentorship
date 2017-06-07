@@ -17,7 +17,7 @@
 				</div>
 
 				<div class="skills-content">
-					<div class="dark-small-subheader"><%= concept.name %></div>
+					<div class="skills-header"><%= concept.name %></div>
 					<div class="skills-content box">
             			<%= concept.description %>
 					</div>
@@ -25,7 +25,7 @@
 				</div>
 
 				<div class="skills-content">
-					<div class="dark-small-subheader">Example</div>
+					<div class="skills-header">Example</div>
 					<div class="skills-content box">
 			            <% concept.examples.each do |ex| %>
 			              <%= ex %>
@@ -34,12 +34,16 @@
 				</div>
 
 				<div class="skills-content">
-					<div class="dark-small-subheader">Practice</div>
+					<div class="skills-header">Practice</div>
 					<div class="skills-content box">
 			            <% concept.question.each do |q| %>
-			              	<div class="skills-question-header">
-				               <span>Type: <%= q.question_type %></span>
-				               <span>Question: <%= q.content %></span>
+				            <div class="skills-practice">
+				            	<span class="skills-header">Type: </span>
+				            	<%= q.question_type %>
+				            </div>
+				            <div class="skills-practice">
+				            	<span class="skills-header">Question: </span>
+				            	<%= q.content %>
 				            </div>
 				            <form>
 				                <% q.answers.each do |a| %>
@@ -47,7 +51,9 @@
 				                <% end %>
 			                </form>
 			                <br>
-			                <hr>
+			                <% if q != concept.question.last %>
+			                	<div class="skills-line"></div>
+			                <% end %>
 			            <% end %>
 					</div>
 				</div>
