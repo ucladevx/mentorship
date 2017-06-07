@@ -27,7 +27,7 @@
 				<div class="skills-content">
 					<div class="skills-subtitle skills-header"><%= concept.name %></div>
 					<div class="skills-content box">
-            			<%= concept.description %>
+            			<%= concept.description.html_safe %>
 					</div>
 
 				</div>
@@ -36,7 +36,7 @@
 					<div class="skills-subtitle skills-header">Example</div>
 					<div class="skills-content box">
 			            <% concept.examples.each do |ex| %>
-			              <%= ex %>
+			              <%= ex.html_safe %>
 			            <% end %>
 					</div>
 				</div>
@@ -47,12 +47,8 @@
 			            <% concept.question.each do |q| %>
 										<!-- Add if @user.progress.include?(q.id) to check if already answered -->
 				            <div class="skills-practice">
-				            	<span class="skills-header">Type: </span>
-				            	<%= q.question_type %>
-				            </div>
-				            <div class="skills-practice">
 				            	<span class="skills-header">Question: </span>
-				            	<%= q.content %>
+				            	<%= q.content.html_safe %>
 				            </div>
 										<!-- So quizzes work through the check method in the skills controller which
 										checks the answer in the backend and redirects back to this page with params
@@ -63,7 +59,7 @@
 											<%= hidden_field_tag(:id, @skill.id) %>
 											<% q.answers.each do |a| %>
 												<!-- Correct Answer(if just got it right, or once got it right) -->
-												<% if q.final_answer.to_s == params[:inputted_answer] and q.id.to_s == params[:answered_question]%>
+												<% if i.to_s == params[:inputted_answer] and q.final_answer.to_s == params[:inputted_answer] and q.id.to_s == params[:answered_question]%>
 													<div class="skills-correct">
 														<%= radio_button_tag(:answer, i, true) %>
 														<%= label_tag(:answer, a) %>
