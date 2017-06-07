@@ -1,9 +1,10 @@
-
-<div class="header">
-    <div class="progress-bar">
-    	<div id="progress-circle-initial"></div>
-        <div id="progress" style="width: 0%"></div>
-    </div>
+<div class="header-skill-wrapper">
+	<div class="header">
+	    <div class="progress-bar">
+	    	<div id="progress-circle-initial"></div>
+	        <div id="progress" style="width: 0%"></div>
+	    </div>
+	</div>
 </div>
 <p id="notice"><%= notice %></p>
 
@@ -20,11 +21,11 @@
 			<div class="skill-module">
 
 				<div class="skills-content">
-					<div class="dark-small-subheader skills-title"><%= @skill.topic %></div>
+					<div class="skills-title"><%= @skill.topic %></div>
 				</div>
 
 				<div class="skills-content">
-					<div class="dark-small-subheader"><%= concept.name %></div>
+					<div class="skills-subtitle skills-header"><%= concept.name %></div>
 					<div class="skills-content box">
             			<%= concept.description %>
 					</div>
@@ -32,7 +33,7 @@
 				</div>
 
 				<div class="skills-content">
-					<div class="dark-small-subheader">Example</div>
+					<div class="skills-subtitle skills-header">Example</div>
 					<div class="skills-content box">
 			            <% concept.examples.each do |ex| %>
 			              <%= ex %>
@@ -41,20 +42,32 @@
 				</div>
 
 				<div class="skills-content">
-					<div class="dark-small-subheader">Practice</div>
+					<div class="skills-subtitle skills-header">Practice</div>
 					<div class="skills-content box">
+
 			            <% concept.question.each do |q| %>
-			              	<div class="skills-question-header">
-				               <span>Type: <%= q.question_type %></span>
-				               <span>Question: <%= q.content %></span>
+				            <div class="skills-practice">
+				            	<span class="skills-header">Type: </span>
+				            	<%= q.question_type %>
 				            </div>
-				            <form>
-				                <% q.answers.each do |a| %>
-				                	<input type="radio" name="gender" value="male"> <%= a %><br>
-				                <% end %>
-			                </form>
-			                <br>
-			                <hr>
+				            <div class="skills-practice">
+				            	<span class="skills-header">Question: </span>
+				            	<%= q.content %>
+				            </div>
+				            <%= form_tag("/check", remote: true, method: "get") do %>
+								<% i = 0 %>
+								<%= hidden_field_tag(:question_id, qst.id) %>
+								<% qst.answers.each do |a| %>
+									<%= radio_button_tag(:answer, i) %>
+									<%= label_tag(:answer, a) %>
+									<br>
+									<% i+=1 %>
+	    						<% end %>
+			                <% end %>
+			                <% if q != concept.question.last %>
+			                	<div class="skills-line"></div>
+			                <% end %>
+			                <%= submit_tag("Submit") %>
 			            <% end %>
 					</div>
 				</div>
