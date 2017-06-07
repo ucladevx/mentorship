@@ -1,9 +1,102 @@
 <!-- Header -->
-<header class="header-skill-wrapper">
-      <div class="header">
-        <div class="progress-bar">
-        	<div id="progress-circle-initial"></div>
-            <div id="progress" style="width: 0%"></div>
+<header class="header-skill-show">
+      <!-- Navbar -->
+
+        <div class="ui page grid" id="main-navbar">
+        <div class="computer tablet only row">
+            <div class="ui borderless fixed menu navbar navbar-main">
+                <a href="/" class="logo-wrapper-link">
+                    <%= image_tag("logo-blue-lg.png", class: "logo" )%>
+                </a>
+                 <%= link_to notes_path, class:"item notes-link" do %>
+                    <span>Notes</span>
+                <% end %>
+                <%= link_to skills_index_path, class:"item skills-link" do %>
+                    <span>Skills</span>
+                <% end %>
+
+                <div class="right menu">
+                    <% if user_signed_in? %>
+                    <a class="item profile-trigger-modal">
+                        <div class="username"><%= @user.username %></div>
+                        <div id="profile-btn" class="bg-image" style="background-image: url(<%= @user.image %>)"></div>
+                    </a>
+                    <div class="profile profile-modal hide no-click-hide">
+                    <!-- White arrow at top -->
+                        <div class="profile-arrow-up no-click-hide"></div>
+                        <div class="profile-arrow-up no-shadow no-click-hide"></div>
+                    <!-- .................. -->
+
+                        <div class="no-click-hide">
+                            <%= link_to profile_index_path, class:"no-click-hide" do%>
+                                <div class="profile-item-wrapper">
+                                    <div class="profile-item icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+                                    <div class="profile-item content">Profile</div>
+                                </div>
+                             <% end %>
+                            <div class="profile-line"></div>
+                            <%= link_to profile_index_path, class:"no-click-hide" do%>
+                                <div class="profile-item-wrapper">
+                                    <div class="profile-item icon"><i class="fa fa-pencil" aria-hidden="true"></i></div>
+                                    <div class="profile-item content">My Account</div>
+                                </div>
+                            <% end %>
+                           <div class="profile-line"></div>
+                           <%= link_to profile_index_path, class:"no-click-hide" do%>
+                                <div class="profile-item-wrapper">
+                                    <div class="profile-item icon"><i class="fa fa-question-circle" aria-hidden="true"></i></div>
+                                    <div class="profile-item content">Help</div>
+                                </div>
+                            <% end %>
+                            <div class="profile-line"></div>
+                            <% if user_signed_in? %>
+                                <%= link_to destroy_user_session_path, method: :delete, class:"no-click-hide" do %>
+                                    <div class="profile-item-wrapper">
+                                        <div class="profile-item icon"><i class="fa fa-sign-out" aria-hidden="true"></i></div>
+                                        <div class="profile-item content">Log Out</div>
+                                    </div>
+                                <% end %>
+                        </div>
+                    </div>  
+
+                    <% end %>
+
+                    <% else %>
+                        <a class="item login-trigger-modal" >
+                            <span class="login btn-main">Login</span>
+                        </a>
+                    <% end %>
+                </div>
+            </div>
+
         </div>
-      </div>
+        <div class="mobile only narrow row">
+            <div class="ui fixed menu navbar">
+                <div class="ui middle aligned image logo-wrapper-link">
+                  <a href="/" class="logo-wrapper-link">
+                    <%= image_tag("logo-blue-lg.png", class: "logo" )%>
+                </a>
+                </div>
+                <div class="right menu open">
+                    <a href="" class="menu item">
+                        <i id="chevron" class="chevron down icon"></i>
+                    </a>
+                </div>
+            </div>
+            <div id="mobile-menu" class="ui borderless vertical fixed navbar menu shadow">
+                <div class="menu">
+                   <!-- <%= link_to "Mentors", mentors_index_path, class:"item"%>-->
+                    <%= link_to "Notes", notes_path, class:"item"%>
+                    <%= link_to "Skills", skills_index_path, class:"item"%>
+                    <% if user_signed_in? %>
+                         <%= link_to destroy_user_session_path, method: :delete, class:"item" do %>
+                            Logout
+                         <% end %>
+                    <% else %>
+                        <a class="item" id="login-trigger-modal">Login</a>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
 </header>

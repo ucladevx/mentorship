@@ -1,3 +1,11 @@
+<div class="header-skill-wrapper">
+	<div class="header">
+	    <div class="progress-bar">
+	    	<div id="progress-circle-initial"></div>
+	        <div id="progress" style="width: 0%"></div>
+	    </div>
+	</div>
+</div>
 <p id="notice"><%= notice %></p>
 
 <div class="skill-page-wrapper">
@@ -36,7 +44,7 @@
 				<div class="skills-content">
 					<div class="skills-subtitle skills-header">Practice</div>
 					<div class="skills-content box">
-<!-- <<<<<<< HEAD -->
+
 			            <% concept.question.each do |q| %>
 				            <div class="skills-practice">
 				            	<span class="skills-header">Type: </span>
@@ -46,40 +54,20 @@
 				            	<span class="skills-header">Question: </span>
 				            	<%= q.content %>
 				            </div>
-				            <form>
-				                <% q.answers.each do |a| %>
-				                	<!-- JORGE EDIT ME -->
-				                	<!-- <div class="skills-correct"> -->
-				                	<!-- <div class="skills-wrong"> -->
-				                		<input type="radio"> <%= a %>
-				                	</div>
-				                <% end %>
-			                </form>
-			                
+				            <%= form_tag("/check", remote: true, method: "get") do %>
+								<% i = 0 %>
+								<%= hidden_field_tag(:question_id, qst.id) %>
+								<% qst.answers.each do |a| %>
+									<%= radio_button_tag(:answer, i) %>
+									<%= label_tag(:answer, a) %>
+									<br>
+									<% i+=1 %>
+	    						<% end %>
+			                <% end %>
 			                <% if q != concept.question.last %>
 			                	<div class="skills-line"></div>
 			                <% end %>
-<!-- ======= -->
-			            <% concept.question.each do |qst| %>
-			              	<div class="skills-question-header">
-				               <span>Type: <%= qst.question_type %></span>
-				               <span>Question: <%= qst.content %></span>
-				            </div>
-										<%= form_tag("/check", remote: true, method: "get") do %>
-											<!-- Define an i here to give each answer a number for checking -->
-											<% i = 0 %>
-											<%= hidden_field_tag(:question_id, qst.id) %>
-											<% qst.answers.each do |a| %>
-												<%= radio_button_tag(:answer, i) %>
-												<%= label_tag(:answer, a) %>
-												<br>
-												<% i+=1 %>
-				    					<% end %>
-											<%= submit_tag("Submit") %>
-				              <br>
-				              <hr>
-										<% end %>
-<!-- >>>>>>> master -->
+			                <%= submit_tag("Submit") %>
 			            <% end %>
 					</div>
 				</div>

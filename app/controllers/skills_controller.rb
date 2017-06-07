@@ -19,6 +19,9 @@ class SkillsController < ApplicationController
       @user = User.find_by id:current_user.id
     end
     @users = User.all
+    if user_signed_in?
+      @user = User.find_by id:current_user.id
+    end
     @conversations = Conversation.all
     @skill = Skill.find(params[:id])
     @concepts = @skill.concept

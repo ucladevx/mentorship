@@ -1,13 +1,30 @@
 @import "base/global";
 
+.header-skill-show{
+	position: absolute;
+	
+	.navbar{
+		height: 30px;
+	}
+
+	.logo{
+		height: 20px !important;
+	}
+
+	.profile-modal{
+		top: 60px;
+	}
+}
+
 .header-skill-wrapper{
 
 	.header{
 		position: fixed;
-		z-index: 120;
+		z-index: 24;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		top: 30px;
 		height: $nav-height;
 		width: 100%;
 		background-color: white;
