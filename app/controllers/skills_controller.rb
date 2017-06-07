@@ -16,6 +16,9 @@ class SkillsController < ApplicationController
   # GET /skills/1.json
   def show
     @users = User.all
+    if user_signed_in?
+      @user = User.find_by id:current_user.id
+    end
     @conversations = Conversation.all
     @skill = Skill.find(params[:id])
     @concepts = @skill.concept

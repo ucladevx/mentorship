@@ -19,6 +19,10 @@ header{
 			letter-spacing: 1px;
 		}
 
+		.username{
+			margin-right: $nav-spacing;
+		}
+
 		&:hover{
 			background: white;
 		}
