@@ -126,18 +126,24 @@
 }
 
 .skills-correct {
-    background-color: $color-skill-correct;
-    margin-bottom: 10px;
+    color: $color-skill-correct;
 }
 
 .skills-wrong {
-    background-color: $color-skill-wrong;
-    margin-bottom: 10px;
+    color: $color-skill-wrong;
 }
 
-.skills-neutral {
+.skills-options {
     background-color: none;
     margin-bottom: 10px;
 }
 
+.skills-response {
+    background-color: $color-tertiary-light;
+    border: 1px solid $color-tertiary-med;
+    padding: 5px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
 
