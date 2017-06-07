@@ -124,3 +124,11 @@
     width:100%; 
     background-color:$color-tertiary-med;
 }
+
+.skills-correct {
+    background-color: $color-skill-correct;
+}
+
+.skills-wrong {
+    background-color: $color-skill-wrong;
+}
