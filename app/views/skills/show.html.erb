@@ -59,7 +59,7 @@
 											<%= hidden_field_tag(:id, @skill.id) %>
 											<% q.answers.each do |a| %>
 												<!-- Correct Answer(if just got it right, or once got it right) -->
-												<% if i.to_s == params[:inputted_answer] and q.final_answer.to_s == params[:inputted_answer] and q.id.to_s == params[:answered_question]%>
+												<% if @user.progress.include?(q.id) and i==q.final_answer%>
 													<div class="skills-correct">
 														<%= radio_button_tag(:answer, i, true) %>
 														<%= label_tag(:answer, a) %>
@@ -74,14 +74,19 @@
 														</div>
 													<% else %>
 													<!-- Default Answer -->
-														<%= radio_button_tag(:answer, i) %>
-														<%= label_tag(:answer, a) %>
+														<div class="skills-neutral">
+															<%= radio_button_tag(:answer, i) %>
+															<%= label_tag(:answer, a) %>
+														</div>
 													<% end %>
 												<% end %>
-												<br>
 												<% i+=1 %>
 											<% end %>
-			                <%= submit_tag("Submit") %>
+								<% if !@user.progress.include?(q.id) %>
+			                		<%= submit_tag("Submit", :class=>"btn-main")%>
+			                	<% else %>
+
+			                	<% end %>
 											<% if q != concept.question.last %>
 												<div class="skills-line"></div>
 											<% end %>
