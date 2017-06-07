@@ -127,11 +127,19 @@
 
 .skills-correct {
     background-color: $color-skill-correct;
-    padding-bottom: 0px;
+    margin-bottom: 10px;
 }
 
 .skills-wrong {
     background-color: $color-skill-wrong;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
 
+.skills-neutral {
+    background-color: none;
+    margin-bottom: 10px;
+}
+
+input[type=radio] + label:before{
+  border-radius:200%;
+}
