@@ -29,7 +29,11 @@
   color: $color-primary !important;
   text-shadow: 0px -1px 0px #55abe3, -1px 0px 0px #55abe3, 0px 1px 0px #55abe3, 1px 0px 0px #55abe3 !important;
 }
-
+.ui.heart.rating .active.icon{
+	background: transparent !important;
+	color: $color-primary !important;
+	text-shadow: 0px -1px 0px #55abe3, -1px 0px 0px #55abe3, 0px 1px 0px #55abe3, 1px 0px 0px #55abe3 !important;
+}
 .grid-container{
 	margin-top: $filter-height;
 }

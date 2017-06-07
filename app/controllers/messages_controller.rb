@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
     end
 
     def index
+        @user = User.find_by id:current_user.id
         @messages = @conversation.messages
 
         if params[:m]
