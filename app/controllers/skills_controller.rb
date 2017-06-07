@@ -15,6 +15,9 @@ class SkillsController < ApplicationController
   # GET /skills/1
   # GET /skills/1.json
   def show
+    if user_signed_in?
+      @user = User.find_by id:current_user.id
+    end
     @users = User.all
     @conversations = Conversation.all
     @skill = Skill.find(params[:id])
@@ -28,6 +31,19 @@ class SkillsController < ApplicationController
 
   # GET /skills/1/edit
   def edit
+  end
+
+  # GET /skills/check
+  def check
+    q = Question.find(params[:question_id])
+    if q.final_answer == params[:answer]
+      user = User.find_by id:current_user.id
+      user.progress.push(params[:question_id])
+      user.save
+      redirect_back fallback_location: "/skills", notice: "You are correct"
+    else
+      redirect_back fallback_location: "/skills", notice: "That is incorrect, try again"
+    end
   end
 
   # POST /skills

@@ -5,5 +5,6 @@ class ProfileController < ApplicationController
 		end
     @users = User.all
     @conversations = Conversation.all
+    @skills = Skill.all
   end
 end

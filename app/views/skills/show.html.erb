@@ -36,18 +36,25 @@
 				<div class="skills-content">
 					<div class="dark-small-subheader">Practice</div>
 					<div class="skills-content box">
-			            <% concept.question.each do |q| %>
+			            <% concept.question.each do |qst| %>
 			              	<div class="skills-question-header">
-				               <span>Type: <%= q.question_type %></span>
-				               <span>Question: <%= q.content %></span>
+				               <span>Type: <%= qst.question_type %></span>
+				               <span>Question: <%= qst.content %></span>
 				            </div>
-				            <form>
-				                <% q.answers.each do |a| %>
-				                	<input type="radio" name="gender" value="male"> <%= a %><br>
-				                <% end %>
-			                </form>
-			                <br>
-			                <hr>
+										<%= form_tag("/check", remote: true, method: "get") do %>
+											<!-- Define an i here to give each answer a number for checking -->
+											<% i = 0 %>
+											<%= hidden_field_tag(:question_id, qst.id) %>
+											<% qst.answers.each do |a| %>
+												<%= radio_button_tag(:answer, i) %>
+												<%= label_tag(:answer, a) %>
+												<br>
+												<% i+=1 %>
+				    					<% end %>
+											<%= submit_tag("Submit") %>
+				              <br>
+				              <hr>
+										<% end %>
 			            <% end %>
 					</div>
 				</div>
