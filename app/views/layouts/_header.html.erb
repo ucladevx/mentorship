@@ -2,87 +2,97 @@
 <header>
       <!-- Navbar -->
 
-        <div class="ui page grid" id="main-navbar">
-        <div class="computer tablet only row">
-            <div class="ui borderless fixed menu navbar navbar-main">
-                <a href="/" class="logo-wrapper-link">
-                    <!--<%= image_tag("Pencil.png", class: "logo mobile-hidden" )%>
-                    <%= image_tag("Logo.png", class: "logo") %> </a>-->
+        <div class=“ui page grid” id=“main-navbar”>
+        <div class=“computer tablet only row”>
+            <div class=“ui borderless fixed menu navbar navbar-main”>
+                <a href=“/” class=“logo-wrapper-link”>
+                    <%= image_tag(“logo-blue-lg.png”, class: “logo” )%>
+                </a>
+                 <%= link_to notes_path, class:“item notes-link” do %>
+                    <span>Notes</span>
+                <% end %>
+                <%= link_to skills_index_path, class:“item skills-link” do %>
+                    <span>Skills</span>
+                <% end %>
 
-                    <h3>POINTERS</h3>
-
-                <div class="right menu">
-                    <!--<%= link_to mentors_index_path, class:"item" do %>
-                        <span>Mentors</span>
-                    <% end %>-->
-                    <%= link_to notes_path, class:"item" do %>
-                        <span>Notes</span>
-                    <% end %>
-                    <%= link_to skills_index_path, class:"item" do %>
-                        <span>Skills</cd <math>
-
-                        </math></span>
-                    <% end %>
-                     <% if user_signed_in? %>
-                            <a class="item profile-trigger-modal">
-                                <div id="profile-btn" class="bg-image" style="background-image: url(<%= @user.image %>)"></div>
-                            </a>
-
-                            <div class="profile profile-modal hide no-click-hide">
-                                <div class="profile-arrow-up no-click-hide"></div>
-                                <div class="profile-arrow-up no-shadow no-click-hide"></div>
-                                <div class="modal-header table no-click-hide">
-                                    <div id="profile-picture" class="profile-item table no-click-hide bg-image" style="background-image: url(<%= @user.image %>)"></div>
-                                    <div class="profile-item right short no-click-hide"><%= User.find_by(id: current_user.id).username %></div>
-                                    <div class="profile-item right short"><%= link_to "Profile", profile_index_path, class:"no-click-hide"%></div>
+                <div class=“right menu”>
+                    <% if user_signed_in? %>
+                    <a class=“item profile-trigger-modal”>
+                        <div class=“username”><%= @user.username %></div>
+                        <div id=“profile-btn” class=“bg-image” style=“background-image: url(<%= @user.image %>)“></div>
+                    </a>
+                    <div class=“profile profile-modal hide no-click-hide”>
+                    <!-- White arrow at top -->
+                        <div class=“profile-arrow-up no-click-hide”></div>
+                        <div class=“profile-arrow-up no-shadow no-click-hide”></div>
+                    <!-- .................. -->
+                        <div class=“no-click-hide”>
+                            <%= link_to profile_index_path, class:“no-click-hide” do%>
+                                <div class=“profile-item-wrapper”>
+                                    <div class=“profile-item icon”><i class=“fa fa-user” aria-hidden=“true”></i></div>
+                                    <div class=“profile-item content”>Profile</div>
                                 </div>
-
-                                <div class="modal-field-content padded no-click-hide">
-                                    <hr>
-                                    <div class="profile-item"><%= link_to "My Account", mentors_index_path, class:"no-click-hide"%></div>
-                                    <div class="profile-item"><%= link_to "Help", notes_path, class:"no-click-hide"%></div>
-                                     <% if user_signed_in? %>
-                                        <div class="profile-item"><%= link_to destroy_user_session_path, method: :delete, class:"no-click-hide" do %></div>
-                                            <span class="profile-item no-click-hide">LOG out</span>
-                                    <% end %>
-
+                             <% end %>
+                            <div class=“profile-line”></div>
+                            <%= link_to profile_index_path, class:“no-click-hide” do%>
+                                <div class=“profile-item-wrapper”>
+                                    <div class=“profile-item icon”><i class=“fa fa-pencil” aria-hidden=“true”></i></div>
+                                    <div class=“profile-item content”>My Account</div>
                                 </div>
-
-                            </div>
+                            <% end %>
+                           <div class=“profile-line”></div>
+                           <%= link_to profile_index_path, class:“no-click-hide” do%>
+                                <div class=“profile-item-wrapper”>
+                                    <div class=“profile-item icon”><i class=“fa fa-question-circle” aria-hidden=“true”></i></div>
+                                    <div class=“profile-item content”>Help</div>
+                                </div>
+                            <% end %>
+                            <div class=“profile-line”></div>
+                            <% if user_signed_in? %>
+                                <%= link_to destroy_user_session_path, method: :delete, class:“no-click-hide” do %>
+                                    <div class=“profile-item-wrapper”>
+                                        <div class=“profile-item icon”><i class=“fa fa-sign-out” aria-hidden=“true”></i></div>
+                                        <div class=“profile-item content”>Log Out</div>
+                                    </div>
+                                <% end %>
+                        </div>
+                    </div>  
 
                     <% end %>
 
                     <% else %>
-                        <a class="item login-trigger-modal" >
-                            <span class="login btn-main">Login</span>
+                        <a class=“item login-trigger-modal” >
+                            <span class=“login btn-main”>Login</span>
                         </a>
                     <% end %>
                 </div>
             </div>
 
         </div>
-        <div class="mobile only narrow row">
-            <div class="ui fixed menu navbar">
-                <div class="ui middle aligned image logo-wrapper-link">
-                  <a href="/"><%= image_tag("Pencil.png") %> </a>
+        <div class=“mobile only narrow row”>
+            <div class=“ui fixed menu navbar”>
+                <div class=“ui middle aligned image logo-wrapper-link”>
+                  <a href=“/” class=“logo-wrapper-link”>
+                    <%= image_tag(“logo-blue-lg.png”, class: “logo” )%>
+                </a>
                 </div>
-                <div class="right menu open">
-                    <a href="" class="menu item">
-                        <i id="chevron" class="chevron down icon"></i>
+                <div class=“right menu open”>
+                    <a href=“” class=“menu item”>
+                        <i id=“chevron” class=“chevron down icon”></i>
                     </a>
                 </div>
             </div>
-            <div id="mobile-menu" class="ui borderless vertical fixed navbar menu shadow">
-                <div class="menu">
-                   <!-- <%= link_to "Mentors", mentors_index_path, class:"item"%>-->
-                    <%= link_to "Notes", notes_path, class:"item"%>
-                    <%= link_to "Skills", skills_index_path, class:"item"%>
+            <div id=“mobile-menu” class=“ui borderless vertical fixed navbar menu shadow”>
+                <div class=“menu”>
+                   <!-- <%= link_to “Mentors”, mentors_index_path, class:“item”%>-->
+                    <%= link_to “Notes”, notes_path, class:“item”%>
+                    <%= link_to “Skills”, skills_index_path, class:“item”%>
                     <% if user_signed_in? %>
-                         <%= link_to destroy_user_session_path, method: :delete, class:"item" do %>
+                         <%= link_to destroy_user_session_path, method: :delete, class:“item” do %>
                             Logout
                          <% end %>
                     <% else %>
-                        <a class="item" id="login-trigger-modal">Login</a>
+                        <a class=“item” id=“login-trigger-modal”>Login</a>
                     <% end %>
                 </div>
             </div>
