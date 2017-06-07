@@ -9,12 +9,28 @@
             <div class="skill-box item save-progress-trigger-modal">
         <% end %>
                 <div class="skill-circle tab" id="tab-<%= skill.id =%>"><%= skill.topic[0] %></div>
-                <div class="skill-hide-when-toggle">
-                    <div class="skill-name">
-                        <h4><%= skill.topic %></h4>
-                    </div>
-                </div>
+                <% if user_signed_in? %>
+                  <div class="skill-hide-when-toggle">
+                      <div class="skill-name">
+                          <h4><%= skill.topic %></h4>
+                      </div>
+                  </div>
+                <% else %>
+                  <div class="skill-name">
+                          <h4><%= skill.topic %></h4>
+                      </div>
+                <% end %>
             </div>
+          <% if user_signed_in? %>
+            <div class="skill-pop-up">
+                <h4><%= skill.topic %></h4>
+                <h2 class="skill-percent">65%</h2>
+                <p class="skill-submit">Submitted by <%= skill.author %></p>
+                <%= link_to skill do %>
+                  <div class="skill-click"><i class="fa fa-chevron-right" aria-hidden="true"></i><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
+                <% end %>
+            </div>
+          <% end %>
             <% if user_signed_in? %>
               <div class="skill-pop-up">
                   <h4><%= skill.topic %></h4>
@@ -25,7 +41,6 @@
                   <% end %>
               </div>
             <% end %>
-
             <div class="progress-bar">
             </div>
 
