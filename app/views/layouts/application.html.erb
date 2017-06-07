@@ -35,7 +35,9 @@
     <% end %>
 
     <% if request.env['PATH_INFO'] != '/' %>
-      <%= render 'layouts/mentors-menu' %>
+      <% if user_signed_in? %>
+        <%= render 'layouts/mentors-menu' %>
+      <% end %>
     <% end %>
 
     <p class="notice"><%= notice %></p>
