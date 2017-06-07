@@ -13,11 +13,11 @@
 			<div class="skill-module">
 
 				<div class="skills-content">
-					<div class="dark-small-subheader skills-title"><%= @skill.topic %></div>
+					<div class="skills-title"><%= @skill.topic %></div>
 				</div>
 
 				<div class="skills-content">
-					<div class="skills-header"><%= concept.name %></div>
+					<div class="skills-subtitle skills-header"><%= concept.name %></div>
 					<div class="skills-content box">
             			<%= concept.description %>
 					</div>
@@ -25,7 +25,7 @@
 				</div>
 
 				<div class="skills-content">
-					<div class="skills-header">Example</div>
+					<div class="skills-subtitle skills-header">Example</div>
 					<div class="skills-content box">
 			            <% concept.examples.each do |ex| %>
 			              <%= ex %>
@@ -34,7 +34,7 @@
 				</div>
 
 				<div class="skills-content">
-					<div class="skills-header">Practice</div>
+					<div class="skills-subtitle skills-header">Practice</div>
 					<div class="skills-content box">
 			            <% concept.question.each do |q| %>
 				            <div class="skills-practice">
@@ -50,7 +50,7 @@
 				                	<input type="radio" name="gender" value="male"> <%= a %><br>
 				                <% end %>
 			                </form>
-			                <br>
+			                
 			                <% if q != concept.question.last %>
 			                	<div class="skills-line"></div>
 			                <% end %>
