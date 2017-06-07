@@ -7,6 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
+Skill.create!(
+  order: 2,
+  topic: "Strings",
+  author: "Jorge Fuentes"
+)
+Skill.create!(
+  order: 3,
+  topic: "Classes",
+  author: "Gene Block"
+)
 skills = Skill.take(3)
 i = 0
 6.times do

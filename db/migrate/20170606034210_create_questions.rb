@@ -11,5 +11,4 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
 
   remove_column :concepts, :question_type, :string
 
-
 end
