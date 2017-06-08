@@ -18,7 +18,11 @@ class Skill < ApplicationRecord
           user_completed_questions += 1
         end
       }
-      return user_completed_questions *100 / skill_questions.length
+      if skill_questions.length != 0
+        return user_completed_questions *100 / skill_questions.length
+      else
+        return 0;
+      end
     end
 
     return 0
