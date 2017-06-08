@@ -3,8 +3,10 @@
 <div class="skills-tab-content">
     <% @skills.each do |skill| %>
         <div class="skill-block tab-content-custom toggleOff" id="item-<%= skill.id =%>">
-         <% if user_signed_in? %>
+
+        <% if user_signed_in? %>
             <div class="skill-box item">
+
         <% else %>
             <div class="skill-box item save-progress-trigger-modal">
         <% end %>
@@ -31,6 +33,7 @@
                 <% end %>
             </div>
           <% end %>
+
             <div class="progress-bar">
             </div>
 

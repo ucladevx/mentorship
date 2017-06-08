@@ -129,7 +129,7 @@ h4 {
 	    margin-top: -30px;
 
 		border: 1px solid $color-tertiary-light;
-		width: 250px;
+		width: 260px;
 		height: 100%;
 		background-color: white;
 		font-size: 20px;
@@ -141,13 +141,13 @@ h4 {
 		}
 
 		h2.skill-percent {
-			margin-top: 0;
+			margin-top: -5px;
 			font-size: 60px;
 		}
 
 		p.skill-submit {
 			position: absolute;
-			bottom: 0;
+			bottom: 10px;
 			font-size: 0.7rem;
 		}
 
@@ -155,7 +155,7 @@ h4 {
 			position: absolute;
 			top: $skill-spacing;
 			height: calc(100% - #{$skill-spacing} - #{$skill-spacing});
-			width: 60px;
+			width: 55px;
 			background-color: $color-primary;
 			border: 1px solid $color-tertiary-light;
 			cursor: pointer;
@@ -174,7 +174,7 @@ h4 {
 	.progress-bar {
 		height: 90px;
 		width: 2px;
-		background-color: #7AA6D6;
+		background-color: $color-primary;
 		position: absolute;
 		left: 50%;
 		-webkit-transform: translateX(-50%);
