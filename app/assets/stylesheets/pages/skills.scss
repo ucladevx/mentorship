@@ -60,7 +60,13 @@
 }
 
 .skills-title{
-	font-size:24px;
+    text-align: center;
+    color: $color-primary;
+	font-size: 4rem;
+    text-transform: uppercase;
+    font-family: 'roboto';
+    margin-top: 20px;
+    font-weight: bold;
 }
 
 .skills-subtitle{
@@ -76,9 +82,12 @@
 	margin-right:100px;
 
 	border-style:solid;
-	border-color:$color-tertiary-dark;
+	border-color: $color-tertiary-light;
 	border-width:1px;
 	border-radius:5px;
+
+    background: $color-tertiary-light;
+    border-radius: $item-border-radius;
 }
 
 /*carousel stuff*/
@@ -108,8 +117,20 @@
 	line-height: 150%;
 }
 
-.skills-header {
-	color:$color-primary;
+.skills-header{
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 5px 10px;
+    background: $color-primary;
+    color: white;
+    border-radius: $item-border-radius;
+    opacity: 0.5;
+    letter-spacing: 1px;
+}
+
+.skills-subtitle.skills-header {
+    opacity: 1;
+    
 }
 
 .skills-practice {
@@ -127,6 +148,7 @@
 
 .skills-correct {
     color: $color-skill-correct;
+    margin-bottom: 10px;
 }
 
 .skills-wrong {
@@ -136,6 +158,10 @@
 .skills-options {
     background-color: none;
     margin-bottom: 10px;
+
+    label{
+        padding-left: 5px;
+    }
 }
 
 .skills-response {
