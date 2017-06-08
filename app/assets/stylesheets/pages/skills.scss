@@ -62,9 +62,9 @@
 .skills-title{
     text-align: center;
     color: $color-primary;
-	font-size: 4rem;
+	font-size: 40px;
     text-transform: uppercase;
-    font-family: 'roboto';
+    font-family: $type-main;
     margin-top: 20px;
     font-weight: bold;
 }
@@ -121,20 +121,22 @@
     text-transform: uppercase;
     display: inline-block;
     padding: 5px 10px;
-    background: $color-primary;
+    background: $color-tertiary-med;
     color: white;
-    border-radius: $item-border-radius;
-    opacity: 0.5;
+    border-radius: 10px;
     letter-spacing: 1px;
+    height: 30px;
 }
 
 .skills-subtitle.skills-header {
+    background: $color-primary;
     opacity: 1;
     
 }
 
 .skills-practice {
     padding-bottom: $skill-spacing;
+    display:flex;
 }
 
 .skills-line {
@@ -171,6 +173,13 @@
     border-radius: 10px;
     display: inline-block;
     margin-bottom: 10px;
+}
+
+.skills-question {
+    display: inline-block;
+    padding-left: 20px;
+    width:flex;
+    padding-top:5px;
 }
 
 #btn-submit-skill{
