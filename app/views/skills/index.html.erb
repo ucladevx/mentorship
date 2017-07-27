@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<div class="new-note-wrapper">
+        <div class="btn-main new-note-btn" id="trigger-new-note">CS 31</div>
+</div>
+<div class="new-note-wrapper">
+        <div class="btn-main new-note-btn" id="trigger-new-note">CS 32</div>
+</div>
+
 <div class="skills-tab-content">
     <% @skills.each do |skill| %>
         <div class="skill-block tab-content-custom toggleOff" id="item-<%= skill.id =%>">
