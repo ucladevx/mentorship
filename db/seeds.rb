@@ -5,14 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 Skill.create!(
+  ucla_class: "CS 31",
   order: 2,
   topic: "Strings",
   author: "Jorge Fuentes"
 )
 Skill.create!(
+  ucla_class: "CS 32",
   order: 3,
   topic: "Classes",
   author: "Gene Block"
@@ -44,6 +46,7 @@ i = 0
 end
 
 sample = Skill.create!(
+  ucla_class: "CS 31",
   order: 1,
   topic: "Loops",
   author: "Apurva Panse"

@@ -1,10 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <div class="new-note-wrapper">
-        <div class="btn-main new-note-btn" id="trigger-new-note">CS 31</div>
+  <%= link_to skills_path(ucla_class: "CS 31") do %>
+    <div class="btn-main new-note-btn" id="trigger-new-note">CS 31</div>
+  <% end %>
 </div>
 <div class="new-note-wrapper">
-        <div class="btn-main new-note-btn" id="trigger-new-note">CS 32</div>
+  <%= link_to skills_path(ucla_class: "CS 32") do %>
+    <div class="btn-main new-note-btn" id="trigger-new-note">CS 32</div>
+  <% end %>
 </div>
 
 <div class="skills-tab-content">

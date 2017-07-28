@@ -28,4 +28,5 @@ class Skill < ApplicationRecord
     return 0
   end
 
+  scope :classes, -> (cls) {where ucla_class: cls}
 end
