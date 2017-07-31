@@ -16,7 +16,7 @@
   <!-- tabs -->
     <div class="profile-tab">
         <button class="reset profile-tab-links tab selected" id="tab-1">Profile</button>
-        <button class="reset profile-tab-links tab" id="tab-2">Skills</button>
+        <button class="reset profile-tab-links tab" id="tab-2">Badges</button>
         <button class="reset profile-tab-links tab" id="tab-3">Progress</button>
         <button class="reset profile-tab-links tab" id="tab-4">Messages</button>
     </div>
@@ -28,8 +28,24 @@
     </div>
 
     <div id="item-2" class="profile-tab-content tab-content-custom hide">
-      <h3>Skills</h3>
-      <p>No skills added.</p>
+      <h3>Badges</h3>
+      <!-- THIS IS WHERE MY CODE GOES -->
+      <div id="badge-container" class="grid-container">
+        <div class="grid">
+          <% for i in 0..9 do %>
+            <div class="badge-block">
+              <div class="badge">
+                <div class="badge-name"> A </div>
+                <div class="hover-block">
+                  Hello
+                  <div class="triangle triangle-top">
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
 
     <div id="item-3" class="profile-tab-content tab-content-custom hide">
