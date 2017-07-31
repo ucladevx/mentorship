@@ -8,4 +8,7 @@ class User < ApplicationRecord
   UCLA_EMAIL_REGEX = /\A[\w+\-.]+@(g.)?ucla.edu\z/i
   validates :email, presence: true, length: { maximum: 255 },
                          format: { with: UCLA_EMAIL_REGEX }
+
+  def skill_progress(class_name)
+  end
 end
