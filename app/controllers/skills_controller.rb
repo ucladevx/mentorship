@@ -4,7 +4,13 @@ class SkillsController < ApplicationController
   # GET /skills
   # GET /skills.json
   def index
-    @skills = Skill.all
+    @skills = Skill.all.order(:order)
+    if params[:ucla_class].present?
+      @skills = @skills.classes(params[:ucla_class])
+    else #default to CS31
+      @skills = @skills.classes("CS 31")
+    end
+
     if user_signed_in?
       @user = User.find_by id:current_user.id
     end
