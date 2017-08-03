@@ -189,3 +189,12 @@
     border: none !important;
 }
 
+.class-toggle-wrapper{
+    display: inline-block;
+    margin-top: 0px;
+
+    .class-toggle-btn{
+        margin-top: 0px;
+        margin-left: 20px;
+    }
+}
