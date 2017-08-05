@@ -34,4 +34,5 @@ class Skill < ApplicationRecord
   end
 
   scope :classes, -> (cls) {where ucla_class: cls}
+  default_scope -> { order(:order) }
 end
