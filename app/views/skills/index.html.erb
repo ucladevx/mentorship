@@ -1,5 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<div class="new-note-wrapper">
+  <%= link_to skills_path(ucla_class: "CS 31") do %>
+    <div class="btn-main new-note-btn" id="trigger-new-note">CS 31</div>
+  <% end %>
+</div>
+<div class="new-note-wrapper">
+  <%= link_to skills_path(ucla_class: "CS 32") do %>
+    <div class="btn-main new-note-btn" id="trigger-new-note">CS 32</div>
+  <% end %>
+</div>
+
 <div class="skills-tab-content">
     <% @skills.each do |skill| %>
         <div class="skill-block tab-content-custom toggleOff" id="item-<%= skill.id =%>">
