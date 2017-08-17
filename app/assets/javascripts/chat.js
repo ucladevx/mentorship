@@ -7,10 +7,21 @@ function beginMessaging(e){
 	selectMentor(id);
 }
 
+function closeChat() {
+	hideModal('exit-conversation');
+	showModal('rate-mentor');
+	console.log('open up the rating modal');
+}
+
+function rateMentor() {
+	console.log('rateMentor');
+	hideModal('rate-mentor');
+	$('#sidebar').removeClass('chatview');
+}
 function selectMentor(id){
 
 	var selection = $('.mentor-wrapper').not($('#mentorWrapper-' + id));
-	
+
 	//updating mentor choice
 	selection.addClass('hide-soft');
 	setTimeout(function(){

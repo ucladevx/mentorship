@@ -23,7 +23,14 @@ function showModal(modal, id){
 		case 'save-progress':
 			$('.save-progress-modal-container').removeClass('hide');
 			break;
-
+		case 'exit-conversation':
+			$('#sidebar').addClass('show-modal');
+			$('#exit-conversation').removeClass('hide');
+			break;
+		case 'rate-mentor':
+			$('#sidebar').addClass('show-modal');
+			$('#rate-mentor').removeClass('hide');
+			break;
 	}
 
 	$('body').addClass('locked');
@@ -53,6 +60,13 @@ function hideModal(modal){
 		case 'save-progress':
 			$('.save-progress-modal-container').addClass('hide');
 			break;
+		case 'exit-conversation':
+			$('#sidebar').removeClass('show-modal');
+			$('.exit-conversation-modal-container').addClass('hide');
+			break;
+		case 'rate-mentor':
+			$('#sidebar').removeClass('show-modal');
+			$('.rate-mentor-modal-container').addClass('hide');
 		case 'all':
 			$('.modal-container').addClass('hide');
 	}
@@ -97,7 +111,16 @@ var initModal = function(){
 	$('.save-progress-trigger-modal').click(function(){
 		hideModal('all');
 		showModal('save-progress');
-	})
+	});
+
+	$('.exit-conversation-trigger-modal').click(function(){
+		hideModal('all');
+		showModal('exit-conversation');
+	});
+	// $('.exit-conversation-trigger-modal').click(function(){
+	// 	hideModal('all');
+	// 	showModal('exit-conversation');
+	// });
 };
 
 
@@ -127,7 +150,24 @@ function closeMentorModal(){
 	hideModal('mentor');
 }
 
+function closeExitChatModal() {
+	hideModal('exit-conversation');
+}
+
+function closeRateMentorModal() {
+	hideModal('rate-mentor');
+}
 var initNewMentorModal = function(){
 	$('.modal_mentor_accept').click(beginMessaging);
 	$('.modal_mentor_decline').click(closeMentorModal);
+}
+
+var initExitMentorChatModal = function() {
+	$('.exit-conversation-accept').click(closeChat);
+	$('.exit-conversation-decline').click(closeExitChatModal);
+}
+
+var initRateMentorModal = function() {
+	$('.rate-modal-accept').click(rateMentor);
+	$('.rate-modal-decline').click(closeRateMentorModal);
 }
