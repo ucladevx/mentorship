@@ -47,4 +47,12 @@ var initMentors = function(){
 
 	//enable going back to all mentor list
 	$('.back').click(resetMentorSelect);
+
+	// Rating
+	$('[type*="radio"]').change(function () {
+		var me = $(this);
+		console.log(me.attr('value'));
+		hideModal('rate-mentor');
+
+	});
 }
