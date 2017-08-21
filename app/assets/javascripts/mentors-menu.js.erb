@@ -4,6 +4,8 @@ var initMentors = function(){
 	var searchBar = $('.filter-area');
 	var sidebarBtn = $('#open_nav');
 	var removeBtn = $('.remove-mentors-menu');
+	var menu = $('#sidebar');
+
 	// show sidebar
 	function showSidebar(){
 		drawer.addClass('use-sidebar');
@@ -17,12 +19,15 @@ var initMentors = function(){
 
 	// hide sidebar
 	function hideSidebar(){
-		drawer.removeClass('use-sidebar');
-		searchBar.removeClass('use-sidebar');
-		content.removeClass('use-sidebar');
-		sidebarBtn.removeClass('remove-button');
-
-		$('.modal-container').not($('.mentor-modal-container')).removeClass('sidebar-view');
+		if (menu.hasClass('chatview')) {
+			showModal('exit-conversation');
+		} else {
+			drawer.removeClass('use-sidebar');
+			searchBar.removeClass('use-sidebar');
+			content.removeClass('use-sidebar');
+			sidebarBtn.removeClass('remove-button');
+			$('.modal-container').not($('.mentor-modal-container')).removeClass('sidebar-view');
+		}
 
 	}
 	// X BUTTON AT RIGHT OF MENTORS MENU

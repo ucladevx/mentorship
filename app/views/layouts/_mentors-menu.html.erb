@@ -14,7 +14,7 @@
             <span class="back">
               <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbspBack
             </span>
-            <i class="remove icon remove-mentors-menu"></i>
+            <i class="remove icon remove-mentors-menu exit-conversation-trigger-modal"></i>
           </div>
         </div>
         <% for i in 0..0 do %>
@@ -81,7 +81,7 @@
                 <p>I don't understand how they work.</p>
                 <time datetime="2009-11-13T20:14">37 mins</time>
               </div>
-            </li>
+            </li>sept
             <li class="other">
               <div class="avatar">
                 <%= image_tag("shrink.jpg")%>
@@ -117,5 +117,61 @@
           <textarea rows="2" cols="34"></textarea>
         </div>
       </div>
+    </div>
+    <div class="modal-container hide exit-conversation-modal-container" id="exit-conversation">
+      <div class="modal mentor-modal">
+        <div class="modal-header">
+          <div class="modal_mentor_pic">
+            <%= image_tag("shrink.jpg", :class => "ui circular image")%>
+          </div>
+
+          <div class="modal_mentor_char">
+            <div class="modal_mentor_name">
+              <h2>Austin Lee</h2>
+            </div>
+          </div>
+        </div>
+        <div class="modal-field-content">
+          <div class="modal_mentor_bio">
+            Exit conversation with Austin Lee?
+          </div>
+          <div class="chat_modal">
+            <div class="ui buttons">
+              <button class="ui negative button exit-conversation-accept">Exit</button>
+              <div class="or"></div>
+              <button class="ui button exit-conversation-decline">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay" onClick="hideModal('exit-conversation')"></div>
+    </div>
+    <div class="modal-container hide rate-mentor-modal-container" id="rate-mentor">
+      <div class="modal mentor-modal">
+        <div class="modal-header">
+          <div class="modal_mentor_pic">
+            <%= image_tag("shrink.jpg", :class => "ui circular image")%>
+          </div>
+
+          <div class="modal_mentor_char">
+            <div class="modal_mentor_name">
+              <h2>Austin Lee</h2>
+            </div>
+          </div>
+        </div>
+        <div class="modal-field-content">
+          <div class="modal_mentor_bio">
+            Rate Austin Lee
+          </div>
+          <div class="chat_modal">
+            <div class="ui buttons">
+              <button class="ui positive button rate-modal-accept">Rate</button>
+              <div class="or"></div>
+              <button class="ui button rate-modal-decline">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay" onClick="hideModal('rate-mentor')"></div>
     </div>
   </div>
