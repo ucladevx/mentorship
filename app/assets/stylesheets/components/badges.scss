@@ -2,6 +2,8 @@
 
 #badge-container {
 	max-width: 700px;
+	margin-top: 0;
+	margin-bottom: 60px;
 }
 
 .triangle {
@@ -53,6 +55,14 @@
 		color: white;
 		padding: 10px;
 		font-size:14px;
+		a {
+			color: white;
+		}
+	}
+
+	&.incomplete {
+		opacity: 0.3;
+		pointer-events: none;
 	}
 
 	&:hover{
