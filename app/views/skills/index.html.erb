@@ -12,6 +12,18 @@
 </div>
 
 <div class="skills-tab-content">
+
+  <div class="class-progress-box"> CS 31
+    <div class="class-progress-bar-outer">
+      <div id="progress-circle-initial"></div>
+      <div id="progress" style="width: 0%"></div>
+    </div>
+    <div class="class-progress-bar-white"> Strengthen Skills
+    </div>
+    <div class="class-progress-bar-white"> Switch Course
+    </div>
+  </div>
+  
     <% @skills.each do |skill| %>
         <div class="skill-block tab-content-custom toggleOff" id="item-<%= skill.id =%>">
 
