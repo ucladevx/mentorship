@@ -11,9 +11,11 @@ var onReady = function(){
 	initProfileTab();
 	initSkillsTab();
 	initNewMentorModal();
+	initExitMentorChatModal();
+	initRateMentorModal();
 	initSkills();
 	//initSkillsList();
-	
+
 	$('body').click(onBodyClick);
 };
 

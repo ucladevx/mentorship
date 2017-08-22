@@ -1,0 +1,7 @@
+@mixin col-list($columns, $prefix) {
+  @for $i from 1 through $columns {
+    .grid-container .col.#{$prefix}-#{$i} {
+      width: $i / $columns * 100%;
+    }
+  }
+}

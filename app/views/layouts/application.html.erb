@@ -12,8 +12,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width" />
 
-
-
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <script src="https://use.fontawesome.com/eb20c96418.js"></script>
   </head>
@@ -28,10 +26,10 @@
       <% end %>
   <% end %>
 
-    <% if request.env['PATH_INFO'].include? "skills" and !request.env['PATH_INFO'].include? "index" %>
-      <%= render 'layouts/header-skill' %>
-    <% else %>
+    <% if /skills\/[0-9]/i.match(request.env['PATH_INFO']).nil? %>
       <%= render 'layouts/header' %>
+    <% else %>
+      <%= render 'layouts/header-skill' %>
     <% end %>
 
     <% if request.env['PATH_INFO'] != '/' %>
@@ -42,8 +40,6 @@
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-
-
 
     <% if request.env['PATH_INFO'].include? "notes" %>
       <div class="container notes-container">
