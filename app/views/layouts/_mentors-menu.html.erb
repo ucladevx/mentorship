@@ -1,3 +1,8 @@
+<% @mentors = User.where(usertype: 'm') %>
+<script>
+    let sender_id = -1;
+    let recipient_id = -1;
+</script>
 
   <div class="mentors-menu-container">
     <div class=open_navbar id="open_nav">
@@ -17,7 +22,6 @@
             <i class="remove icon remove-mentors-menu exit-conversation-trigger-modal"></i>
           </div>
         </div>
-        <% @mentors = User.where(usertype: 'm') %>
         <% @mentors.each_with_index do |mentor, i| %>
         <div class="mentor-wrapper" id="mentorWrapper-<%= i %>">
           <div class="item mentor-trigger-modal" id="mentor-<%= i %>">
@@ -53,7 +57,13 @@
                 </div>
                 <div class="chat_modal">
                   <div class="ui buttons">
-                    <button class="ui positive button modal_mentor_accept" id="btn-<%= i %>">Accept</button>
+                    <button class="ui positive button modal_mentor_accept" id="<%= mentor.id %>">Accept</button>
+                    <script>
+                    $("button").click(function() {
+                        recipient_id = parseInt(this.id); // or alert($(this).attr('id'));
+                        sender_id = <%= current_user.id %>;
+                    });
+                    </script>
                     <div class="or"></div>
                     <button class="ui button modal_mentor_decline">Cancel</button>
                   </div>
@@ -69,7 +79,7 @@
       <div class="chatbox">
         <div class="chat">
           <ol class="discussion">
-            <% @convo = Conversation.find_by(sender_id: 2, recipient_id: 1) %>
+            <% @convo = Conversation.first %>
             <% @messages = @convo.messages %>
             <% @messages.each_with_index do |message, i| %>
                 <% if message.user_id == 2 %>
