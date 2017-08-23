@@ -1,0 +1,35 @@
+<div class="skill-block tab-content-custom toggleOff" id="item-<%= skill.id =%>">
+
+<% if user_signed_in? %>
+    <div class="skill-box item">
+
+<% else %>
+    <div class="skill-box item save-progress-trigger-modal">
+<% end %>
+        <div class="skill-circle tab" id="tab-<%= skill.id =%>"><%= skill.topic[0] %></div>
+        <% if user_signed_in? %>
+          <div class="skill-hide-when-toggle">
+              <div class="skill-name">
+                  <h4><%= skill.topic %></h4>
+              </div>
+          </div>
+        <% else %>
+          <div class="skill-name">
+                  <h4><%= skill.topic %></h4>
+              </div>
+        <% end %>
+    </div>
+  <% if user_signed_in? %>
+    <%= link_to skill do %>
+    <div class="skill-pop-up">
+        <h4><%= skill.topic %></h4>
+        <h2 class="skill-percent"><%= skill.progress(@user.id) %>%</h2>
+        <p class="skill-submit">Submitted by <%= skill.author %></p>
+    </div>
+    <% end %>
+  <% end %>
+
+    <div class="timeline-bar">
+    </div>
+
+</div>
