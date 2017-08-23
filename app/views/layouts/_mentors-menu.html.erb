@@ -17,17 +17,18 @@
             <i class="remove icon remove-mentors-menu exit-conversation-trigger-modal"></i>
           </div>
         </div>
-        <% for i in 0..0 do %>
+        <% @mentors = User.where(usertype: 'm') %>
+        <% @mentors.each_with_index do |mentor, i| %>
         <div class="mentor-wrapper" id="mentorWrapper-<%= i %>">
           <div class="item mentor-trigger-modal" id="mentor-<%= i %>">
             <div class="mentor_pic">
-              <img class="ui avatar image" src="/shrink.jpg">
+              <img class="ui avatar image" src="<%= mentor.image %>">
             </div>
             <div class="mentor_name">
-              <span>Austin Lee</span>
+              <span><%= mentor.username %></span>
             </div>
             <div class="mentor_rating">
-              <%= i %>&nbsprating
+              <%= mentor.ratingscore %>&nbsprating
             </div>
           </div>
           <!-- Open chat with Mentor -->
@@ -35,22 +36,20 @@
             <div class="modal mentor-modal">
               <div class="modal-header">
                 <div class="modal_mentor_rating">
-                  <h4><%= i %>&nbsp<i class="fa fa-star" aria-hidden="true"></i></h4>
+                  <h4><%= mentor.ratingscore %>&nbsp<i class="fa fa-star" aria-hidden="true"></i></h4>
                 </div>
                 <div class="modal_mentor_pic">
-                  <%= image_tag("shrink.jpg", :class => "ui circular image")%>
+                  <img class="ui circular image" src="<%= mentor.image %>">
                 </div>
-
                 <div class="modal_mentor_char">
                   <div class="modal_mentor_name">
-                    <h2>Austin Lee</h2>
+                    <h2><%= mentor.username %></h2>
                   </div>
                 </div>
               </div>
               <div class="modal-field-content">
                 <div class="modal_mentor_bio">
-                  &nbsp&nbsp&nbsp&nbspI am a second year Computer Science student who is not qualified to mentor anyone.
-                  I have taken CS 31, CS 32, CS 33, and CS 35L. Feel free to ask me any questions.
+                  &nbsp&nbsp&nbsp&nbsp<%= mentor.description %>
                 </div>
                 <div class="chat_modal">
                   <div class="ui buttons">
