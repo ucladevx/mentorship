@@ -69,47 +69,33 @@
       <div class="chatbox">
         <div class="chat">
           <ol class="discussion">
-            <li class="self">
-              <div class="avatar">
-                <% if user_signed_in? %>
-                  <%= image_tag(@user.image) %>
+            <% @convo = Conversation.find_by(sender_id: 2, recipient_id: 1) %>
+            <% @messages = @convo.messages %>
+            <% @messages.each_with_index do |message, i| %>
+                <% if message.user_id == 2 %>
+                <li class="self">
+                  <div class="avatar">
+                    <% if user_signed_in? %>
+                      <%= image_tag(@user.image) %>
+                    <% end %>
+                  </div>
+                  <div class="messages">
+                    <p><%= message.body %></p>
+                    <time datetime="2009-11-13T20:14"><% message.created_at %></time>
+                  </div>
+                </li>
+                <% else %>
+                <li class="other">
+                  <div class="avatar">
+                    <img src="<%= User.find(1).image %>">
+                  </div>
+                  <div class="messages">
+                    <p><%= message.body %></p>
+                    <time datetime="2009-11-13T20:14"><% message.created_at %></time>
+                  </div>
+                </li>
                 <% end %>
-              </div>
-              <div class="messages">
-                <p>Hey, I was wondering if you could help me with pointers.</p>
-                <p>I don't understand how they work.</p>
-                <time datetime="2009-11-13T20:14">37 mins</time>
-              </div>
-            </li>sept
-            <li class="other">
-              <div class="avatar">
-                <%= image_tag("shrink.jpg")%>
-              </div>
-              <div class="messages">
-                <p>Sure, how can I help?</p>
-                <time datetime="2009-11-13T20:14">30 mins</time>
-              </div>
-            </li>
-            <li class="self">
-              <div class="avatar">
-                <% if user_signed_in? %>
-                  <%= image_tag(@user.image) %>
-                <% end %>
-              </div>
-              <div class="messages">
-                <p>What do they do in their most basic sense.</p>
-                <time datetime="2009-11-13T20:14">25 mins</time>
-              </div>
-            </li>
-            <li class="other">
-              <div class="avatar">
-                <%= image_tag("shrink.jpg") %>
-              </div>
-              <div class="messages">
-                <p>In C, a pointer is a variable whose value is the address of another variable</p>
-                <time datetime="2009-11-13T20:14">9 mins</time>
-              </div>
-            </li>
+            <% end %>
           </ol>
         </div>
         <div class="send_message">

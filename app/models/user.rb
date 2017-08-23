@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                          format: { with: UCLA_EMAIL_REGEX }
 
+  has_many :conversations, dependent: :destroy
+
   def class_progress(class_name)
     skills = Skill.all.classes(class_name)
     if skills.blank?

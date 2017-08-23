@@ -1,5 +1,5 @@
-class Api::V1::MessageSerializer < Api::V1::BaseSerializer
-    attributes :id, :body, :conversation_id, :user_id, :message_time
+class Api::V1::ConversationSerializer < Api::V1::BaseSerializer
+    attributes :id, :sender_id, :recipient_id, :messages
 
     def created_at
         object.created_at.in_time_zone.iso8601 if object.created_at
