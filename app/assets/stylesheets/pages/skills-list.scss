@@ -38,7 +38,8 @@ h4 {
 
 .container.skills-container{
     //padding-top: $nav-height;
-    background-image: url('/assets/actionshot2.jpg');
+   // background-image: url('/assets/actionshot2.jpg');
+   background: smokegrey;
 }
 
 .tab-content-custom.toggleOff {
@@ -62,6 +63,16 @@ h4 {
 	}
 }
 
+.skills-tab-content {
+	background: white;
+	border-radius: 10px;
+	margin-bottom: 40px;
+	border: 1px solid #e2e2e2;
+}
+
+.spacing {
+	height: 10px;
+}
 
 .skill-block {
 	height: 150px;
@@ -128,13 +139,18 @@ h4 {
 	    z-index: 100;
 	    margin-top: -30px;
 
-		border: 1px solid $color-tertiary-light;
-		width: 260px;
+		border: 1px solid #e2e2e2;
+		border-radius: 10px;
+		width: 160px;
 		height: 100%;
 		background-color: white;
 		font-size: 20px;
 		color: #494949;
 		padding: $skill-spacing;
+
+		&:hover {
+			border: 2px solid #e2e2e2;
+		}
 
 		h4{
 			padding: 0;
@@ -142,7 +158,8 @@ h4 {
 
 		h2.skill-percent {
 			margin-top: -5px;
-			font-size: 60px;
+			font-size: 40px;
+			color: $color-secondary-1;
 		}
 
 		p.skill-submit {
@@ -171,7 +188,7 @@ h4 {
 
 	
 
-	.progress-bar {
+	.timeline-bar {
 		height: 90px;
 		width: 2px;
 		background-color: $color-primary;
@@ -183,7 +200,7 @@ h4 {
 }
 
 .skill-block:first-child{
-	.progress-bar{
+	.timeline-bar{
 		display: none;
 	}
 }
@@ -216,8 +233,8 @@ h4 {
 	}
 
 	.skill-pop-up{
-		-webkit-transform: translateX(-120%);
-				transform: translateX(-120%);
+		-webkit-transform: translateX(-130%);
+				transform: translateX(-130%);
 
 		h2, h4, p{
 			text-align: right;
@@ -254,7 +271,7 @@ h4 {
 
 
 	.skill-pop-up{
-		-webkit-transform: translateX(20%);
-				transform: translateX(20%);
+		-webkit-transform: translateX(30%);
+				transform: translateX(30%);
 	}
 }

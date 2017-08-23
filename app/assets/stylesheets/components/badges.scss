@@ -61,7 +61,8 @@
 	}
 
 	&.incomplete {
-		opacity: 0.3;
+		background: #dadada;
+		border-color: #c5c5c5;
 		pointer-events: none;
 	}
 
