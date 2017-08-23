@@ -33,6 +33,35 @@
 </div>
 
 
+
+<div class="modal-container class-modal hide">
+    <div class="modal login-modal">
+    <div class="class-header">Select a class:</div>
+
+    <% if !params[:ucla_class].present? || params[:ucla_class] == 'CS 31'%>
+      <div class="class-selection disabled">
+    <% else %>
+      <div class="class-selection">
+    <% end %>
+      <%= link_to skills_path(ucla_class: "CS 31") do %>
+        <div class="btn-main new-note-btn" id="trigger-new-note">CS 31</div>
+      <% end %>
+    </div>
+
+     <% if params[:ucla_class] == 'CS 32'%>
+      <div class="class-selection disabled">
+      <% else %>
+      <div class="class-selection">
+      <% end %>
+      
+      <%= link_to skills_path(ucla_class: "CS 32") do %>
+       <div class="btn-main new-note-btn" id="trigger-new-note">CS 32</div>
+      <% end %>
+      </div>
+    </div>
+    <div class="overlay" onClick="hideModal('class-modal')"></div>
+</div>  
+
 <!--
 <h1>Skills</h1>
 
