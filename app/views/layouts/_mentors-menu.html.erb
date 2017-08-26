@@ -2,6 +2,107 @@
 <script>
     let sender_id = -1;
     let recipient_id = -1;
+    let conversationData = {};
+    let usericonpath = '';
+    let correctConversation = {};
+
+    function queryOnce(sender, recipient) {
+        $('ol').empty();
+        $.ajax({
+            url: '/api/v1/conversation',
+            dataType: 'json',
+            success: function(data) {
+                conversationData = data;
+                setupInitialChat();
+            },
+             error: function() {
+                alert('error');
+            }
+        });
+    }
+
+    function setupInitialChat() {
+        $('ol').empty();
+        for(var i = 0, len = conversationData.conversations.length; i < len; i++){
+            if((conversationData.conversations[i].sender_id == sender_id && conversationData.conversations[i].recipient_id == recipient_id) || (conversationData.conversations[i].sender_id == recipient_id && conversationData.conversations[i].recipient_id == sender_id)){
+                correctConversation = conversationData.conversations[i];
+                break;
+            }
+        }
+
+        $.ajax({
+            url: '/api/v1/user/' + recipient_id,
+            dataType: 'json',
+            success: function(data) {
+                usericonpath = data.users[0].image;
+            },
+            error: function() {
+                alert('error getting user icon');
+            }
+        });
+
+        let ol = document.getElementById("chatdiscussion");
+        for(var i = 0, len = correctConversation.messages.length; i < len; i++){
+            if(correctConversation.messages[i].user_id == sender_id){
+                let messageBody = correctConversation.messages[i].body;
+                var li = document.createElement("li");
+                li.className = 'self';
+
+                let avatardiv = document.createElement("div");
+                avatardiv.className = 'avatar';
+
+                let useravatarimg = document.createElement("img");
+                useravatarimg.src = '<%= @user.image %>';
+
+                ol.appendChild(li);
+                li.appendChild(avatardiv);
+                avatardiv.appendChild(useravatarimg);
+
+                let messagesdiv = document.createElement("div");
+                messagesdiv.className = "messages";
+
+                let pbody = document.createElement("p");
+                pbody.innerHTML = messageBody;
+
+                let timemessage = document.createElement("datetime");
+                timemessage.datetime = "2009-11-13T20:14";
+                timemessage.innerHTML = correctConversation.messages[i].created_at;
+
+                li.appendChild(messagesdiv);
+                messagesdiv.appendChild(pbody);
+                messagesdiv.appendChild(timemessage);
+            }
+            else {
+                let messageBody = correctConversation.messages[i].body;
+                var li = document.createElement("li");
+                li.className = 'other';
+
+                let avatardiv = document.createElement("div");
+                avatardiv.className = 'avatar';
+
+                let useravatarimg = document.createElement("img");
+                useravatarimg.src = usericonpath;
+
+                ol.appendChild(li);
+                li.appendChild(avatardiv);
+                avatardiv.appendChild(useravatarimg);
+
+                let messagesdiv = document.createElement("div");
+                messagesdiv.className = "messages";
+
+                let pbody = document.createElement("p");
+                pbody.innerHTML = messageBody;
+
+                let timemessage = document.createElement("datetime");
+                timemessage.datetime = "2009-11-13T20:14";
+                timemessage.innerHTML = correctConversation.messages[i].created_at;
+
+                li.appendChild(messagesdiv);
+                messagesdiv.appendChild(pbody);
+                messagesdiv.appendChild(timemessage);
+            }
+        }
+    }
 </script>
 
   <div class="mentors-menu-container">
@@ -62,6 +163,7 @@
                     $("button").click(function() {
                         recipient_id = parseInt(this.id); // or alert($(this).attr('id'));
                         sender_id = <%= current_user.id %>;
+                        queryOnce(sender_id, recipient_id);
                     });
                     </script>
                     <div class="or"></div>
@@ -75,10 +177,9 @@
         </div>
         <% end %>
       </div>
-
       <div class="chatbox">
         <div class="chat">
-          <ol class="discussion">
+          <ol class="discussion" id="chatdiscussion">
             <% @convo = Conversation.first %>
             <% @messages = @convo.messages %>
             <% @messages.each_with_index do |message, i| %>
@@ -119,7 +220,6 @@
           <div class="modal_mentor_pic">
             <%= image_tag("shrink.jpg", :class => "ui circular image")%>
           </div>
-
           <div class="modal_mentor_char">
             <div class="modal_mentor_name">
               <h2>Austin Lee</h2>
