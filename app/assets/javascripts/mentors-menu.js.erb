@@ -53,6 +53,11 @@ var initMentors = function(){
 		var me = $(this);
 		console.log(me.attr('value'));
 		hideModal('rate-mentor');
+		drawer.removeClass('use-sidebar');
+		searchBar.removeClass('use-sidebar');
+		content.removeClass('use-sidebar');
+		$('#sidebar').removeClass('show-modal');
+		$('#sidebar').removeClass('chatview');
 
 	});
 }
