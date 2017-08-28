@@ -5,6 +5,87 @@
     let conversationData = {};
     let usericonpath = '';
     let correctConversation = {};
+    let newConversation = {};
+    let oldConversation = {};
+    let messagetosend = "";
+    let checked = false;
+
+    function checkForUpdates() {
+        oldConversation = newConversation;
+        $.ajax({
+            url: '/api/v1/conversation/' + oldConversation.id,
+            dataType: 'json',
+            success: function(data) {
+                correctConversation = data;
+                newConversation = correctConversation.conversations[0];
+                if(JSON.stringify(oldConversation) === JSON.stringify(newConversation)) {
+                } else {
+                    let ol = document.getElementById("chatdiscussion");
+                    if(newConversation.messages[newConversation.messages.length - 1].user_id == sender_id){
+                        let messageBody = newConversation.messages[newConversation.messages.length - 1].body;
+                        messageBody = messageBody.substring(0, messageBody.length - 1);
+                        var li = document.createElement("li");
+                        li.className = 'self';
+
+                        let avatardiv = document.createElement("div");
+                        avatardiv.className = 'avatar';
+
+                        let useravatarimg = document.createElement("img");
+                        useravatarimg.src = '<%= @user.image %>';
+
+                        ol.appendChild(li);
+                        li.appendChild(avatardiv);
+                        avatardiv.appendChild(useravatarimg);
+
+                        let messagesdiv = document.createElement("div");
+                        messagesdiv.className = "messages";
+
+                        let pbody = document.createElement("p");
+                        pbody.innerHTML = messageBody;
+
+                        let timemessage = document.createElement("datetime");
+                        timemessage.datetime = "2009-11-13T20:14";
+                        timemessage.innerHTML = newConversation.messages[newConversation.messages.length - 1].created_at;
+
+                        li.appendChild(messagesdiv);
+                        messagesdiv.appendChild(pbody);
+                        messagesdiv.appendChild(timemessage);
+                    } else {
+                        let messageBody = newConversation.messages[newConversation.messages.length - 1].body;
+                        messageBody = messageBody.substring(0, messageBody.length - 1);
+                        var li = document.createElement("li");
+                        li.className = 'other';
+
+                        let avatardiv = document.createElement("div");
+                        avatardiv.className = 'avatar';
+
+                        let useravatarimg = document.createElement("img");
+                        useravatarimg.src = usericonpath;
+
+                        ol.appendChild(li);
+                        li.appendChild(avatardiv);
+                        avatardiv.appendChild(useravatarimg);
+
+                        let messagesdiv = document.createElement("div");
+                        messagesdiv.className = "messages";
+
+                        let pbody = document.createElement("p");
+                        pbody.innerHTML = messageBody;
+
+                        let timemessage = document.createElement("datetime");
+                        timemessage.datetime = "2009-11-13T20:14";
+                        timemessage.innerHTML = newConversation.messages[newConversation.messages.length - 1].created_at;
+
+                        li.appendChild(messagesdiv);
+                        messagesdiv.appendChild(pbody);
+                        messagesdiv.appendChild(timemessage);
+                    }
+                }
+            },
+            error: function() {
+            }
+        });
+    }
 
     function queryOnce(sender, recipient) {
         $('ol').empty();
@@ -21,86 +102,102 @@
         });
     }
 
-    function setupInitialChat() {
-        $('ol').empty();
-        for(var i = 0, len = conversationData.conversations.length; i < len; i++){
-            if((conversationData.conversations[i].sender_id == sender_id && conversationData.conversations[i].recipient_id == recipient_id) || (conversationData.conversations[i].sender_id == recipient_id && conversationData.conversations[i].recipient_id == sender_id)){
-                correctConversation = conversationData.conversations[i];
-                break;
-            }
-        }
-
-        $.ajax({
-            url: '/api/v1/user/' + recipient_id,
-            dataType: 'json',
-            success: function(data) {
-                usericonpath = data.users[0].image;
-            },
-            error: function() {
-                alert('error getting user icon');
+    function sendMessage() {
+        $.post("/api/v1/messages",
+        {
+            message: {
+                body: messagetosend,
+                conversation_id: newConversation.id,
+                user_id: sender_id
             }
         });
+    }
 
-        let ol = document.getElementById("chatdiscussion");
-        for(var i = 0, len = correctConversation.messages.length; i < len; i++){
-            if(correctConversation.messages[i].user_id == sender_id){
-                let messageBody = correctConversation.messages[i].body;
-                var li = document.createElement("li");
-                li.className = 'self';
-
-                let avatardiv = document.createElement("div");
-                avatardiv.className = 'avatar';
-
-                let useravatarimg = document.createElement("img");
-                useravatarimg.src = '<%= @user.image %>';
-
-                ol.appendChild(li);
-                li.appendChild(avatardiv);
-                avatardiv.appendChild(useravatarimg);
-
-                let messagesdiv = document.createElement("div");
-                messagesdiv.className = "messages";
-
-                let pbody = document.createElement("p");
-                pbody.innerHTML = messageBody;
-
-                let timemessage = document.createElement("datetime");
-                timemessage.datetime = "2009-11-13T20:14";
-                timemessage.innerHTML = correctConversation.messages[i].created_at;
-
-                li.appendChild(messagesdiv);
-                messagesdiv.appendChild(pbody);
-                messagesdiv.appendChild(timemessage);
+    function setupInitialChat() {
+        if(!checked) {
+            $('ol').empty();
+            for(var i = 0, len = conversationData.conversations.length; i < len; i++){
+                if((conversationData.conversations[i].sender_id == sender_id && conversationData.conversations[i].recipient_id == recipient_id) || (conversationData.conversations[i].sender_id == recipient_id && conversationData.conversations[i].recipient_id == sender_id)){
+                    correctConversation = conversationData.conversations[i];
+                    newConversation = correctConversation;
+                    break;
+                }
             }
-            else {
-                let messageBody = correctConversation.messages[i].body;
-                var li = document.createElement("li");
-                li.className = 'other';
 
-                let avatardiv = document.createElement("div");
-                avatardiv.className = 'avatar';
+            $.ajax({
+                url: '/api/v1/user/' + recipient_id,
+                dataType: 'json',
+                success: function(data) {
+                    usericonpath = data.users[0].image;
+                },
+                error: function() {
+                    alert('error getting user icon');
+                }
+            });
 
-                let useravatarimg = document.createElement("img");
-                useravatarimg.src = usericonpath;
+            let ol = document.getElementById("chatdiscussion");
+            for(var i = 0, len = correctConversation.messages.length; i < len; i++){
+                if(correctConversation.messages[i].user_id == sender_id){
+                    let messageBody = correctConversation.messages[i].body;
+                    var li = document.createElement("li");
+                    li.className = 'self';
 
-                ol.appendChild(li);
-                li.appendChild(avatardiv);
-                avatardiv.appendChild(useravatarimg);
+                    let avatardiv = document.createElement("div");
+                    avatardiv.className = 'avatar';
 
-                let messagesdiv = document.createElement("div");
-                messagesdiv.className = "messages";
+                    let useravatarimg = document.createElement("img");
+                    useravatarimg.src = '<%= @user.image %>';
 
-                let pbody = document.createElement("p");
-                pbody.innerHTML = messageBody;
+                    ol.appendChild(li);
+                    li.appendChild(avatardiv);
+                    avatardiv.appendChild(useravatarimg);
 
-                let timemessage = document.createElement("datetime");
-                timemessage.datetime = "2009-11-13T20:14";
-                timemessage.innerHTML = correctConversation.messages[i].created_at;
+                    let messagesdiv = document.createElement("div");
+                    messagesdiv.className = "messages";
 
-                li.appendChild(messagesdiv);
-                messagesdiv.appendChild(pbody);
-                messagesdiv.appendChild(timemessage);
+                    let pbody = document.createElement("p");
+                    pbody.innerHTML = messageBody;
+
+                    let timemessage = document.createElement("datetime");
+                    timemessage.datetime = "2009-11-13T20:14";
+                    timemessage.innerHTML = correctConversation.messages[i].created_at;
+
+                    li.appendChild(messagesdiv);
+                    messagesdiv.appendChild(pbody);
+                    messagesdiv.appendChild(timemessage);
+                } else {
+                    let messageBody = correctConversation.messages[i].body;
+                    var li = document.createElement("li");
+                    li.className = 'other';
+
+                    let avatardiv = document.createElement("div");
+                    avatardiv.className = 'avatar';
+
+                    let useravatarimg = document.createElement("img");
+                    useravatarimg.src = usericonpath;
+
+                    ol.appendChild(li);
+                    li.appendChild(avatardiv);
+                    avatardiv.appendChild(useravatarimg);
+
+                    let messagesdiv = document.createElement("div");
+                    messagesdiv.className = "messages";
+
+                    let pbody = document.createElement("p");
+                    pbody.innerHTML = messageBody;
+
+                    let timemessage = document.createElement("datetime");
+                    timemessage.datetime = "2009-11-13T20:14";
+                    timemessage.innerHTML = correctConversation.messages[i].created_at;
+
+                    li.appendChild(messagesdiv);
+                    messagesdiv.appendChild(pbody);
+                    messagesdiv.appendChild(timemessage);
+                }
             }
+
+            setInterval(checkForUpdates, 2000);
+            checked = true;
         }
     }
 </script>
@@ -180,37 +277,19 @@
       <div class="chatbox">
         <div class="chat">
           <ol class="discussion" id="chatdiscussion">
-            <% @convo = Conversation.first %>
-            <% @messages = @convo.messages %>
-            <% @messages.each_with_index do |message, i| %>
-                <% if message.user_id == 2 %>
-                <li class="self">
-                  <div class="avatar">
-                    <% if user_signed_in? %>
-                      <%= image_tag(@user.image) %>
-                    <% end %>
-                  </div>
-                  <div class="messages">
-                    <p><%= message.body %></p>
-                    <time datetime="2009-11-13T20:14"><% message.created_at %></time>
-                  </div>
-                </li>
-                <% else %>
-                <li class="other">
-                  <div class="avatar">
-                    <img src="<%= User.find(1).image %>">
-                  </div>
-                  <div class="messages">
-                    <p><%= message.body %></p>
-                    <time datetime="2009-11-13T20:14"><% message.created_at %></time>
-                  </div>
-                </li>
-                <% end %>
-            <% end %>
           </ol>
         </div>
         <div class="send_message">
-          <textarea rows="2" cols="34"></textarea>
+          <textarea id="messagebox" class="messagebox" rows="2" cols="34"></textarea>
+          <script>
+            $(".messagebox").on('keyup', function(e) {
+                if(e.keyCode == 13) {
+                    messagetosend = document.getElementById("messagebox").value;
+                    document.getElementById("messagebox").value = "";
+                    sendMessage();
+                }
+            });
+          </script>
         </div>
       </div>
     </div>

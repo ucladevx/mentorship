@@ -16,7 +16,7 @@ class Api::V1::ConversationController < Api::V1::BaseController
     end
 
     def show
-        conversation = Conversation.where("recipient_id = #{params[:id]}")
+        conversation = Conversation.where("id = #{params[:id]}")
 
         render(
             json: ActiveModel::ArraySerializer.new(
