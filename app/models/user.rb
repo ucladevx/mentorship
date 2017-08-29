@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
                          format: { with: UCLA_EMAIL_REGEX }
 
+  has_many :conversations, dependent: :destroy
+
   def class_progress(class_name)
     skills = Skill.all.classes(class_name)
     if skills.blank?
@@ -19,6 +21,21 @@ class User < ApplicationRecord
       total_progress += s.progress(self.id)
     }
     return ((total_progress*100.0) / (skills.length * 100.0)).round
+  end
+
+  def completed_skill_by_class(class_name)
+    skills = Skill.all.classes(class_name)
+    completed_skills = 0
+    skills.each do |s|
+      if s.progress(self.id) == 100
+        completed_skills += 1
+      end
+    end
+    return completed_skills;
+  end
+
+  def total_skills_by_class(class_name)
+    return Skill.all.classes(class_name).length;
   end
 
 end

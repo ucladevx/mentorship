@@ -26,8 +26,11 @@ Rails.application.routes.draw do
 
   namespace :api do
       namespace :v1 do
-          resources :messages, only: [:index, :create, :show, :update, :destroy]
+          resources :conversation, only: [:index, :create, :show, :update, :destroy]
           resources :user, only: [:index, :create, :show, :update, :destroy]
+          scope '/messages' do
+              post '/' => 'messages#create'
+          end
       end
   end
 
