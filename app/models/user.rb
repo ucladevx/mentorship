@@ -27,7 +27,7 @@ class User < ApplicationRecord
     skills = Skill.all.classes(class_name)
     completed_skills = 0
     skills.each do |s|
-      if s.progress(self.id) == 1
+      if s.progress(self.id) == 100
         completed_skills += 1
       end
     end
