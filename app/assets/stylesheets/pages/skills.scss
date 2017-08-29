@@ -4,7 +4,7 @@
 
 	background-size: cover;
 	background-position: 50% 50%;
-	
+
 	overflow-y: scroll;
 }
 
@@ -131,7 +131,7 @@
 .skills-subtitle.skills-header {
     background: $color-primary;
     opacity: 1;
-    
+
 }
 
 .skills-practice {
@@ -142,9 +142,9 @@
 .skills-line {
     margin-top: 20px;
     margin-bottom: 20px;
-    font-size:0px; 
-    height:1px; 
-    width:100%; 
+    font-size:0px;
+    height:1px;
+    width:100%;
     background-color:$color-tertiary-med;
 }
 
@@ -189,6 +189,7 @@
     border: none !important;
 }
 
+<<<<<<< HEAD
 .class-toggle-wrapper{
     display: inline-block;
     margin-top: 0px;
@@ -197,4 +198,13 @@
         margin-top: 0px;
         margin-left: 20px;
     }
+=======
+.skills-code-section {
+    font-family: $type-code;
+
+}
+
+.skills-indent {
+    margin-left: 40px;
+>>>>>>> master
 }
