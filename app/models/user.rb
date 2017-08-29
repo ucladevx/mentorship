@@ -23,4 +23,19 @@ class User < ApplicationRecord
     return ((total_progress*100.0) / (skills.length * 100.0)).round
   end
 
+  def completed_skill_by_class(class_name)
+    skills = Skill.all.classes(class_name)
+    completed_skills = 0
+    skills.each do |s|
+      if s.progress(self.id) == 1
+        completed_skills += 1
+      end
+    end
+    return completed_skills;
+  end
+
+  def total_skills_by_class(class_name)
+    return Skill.all.classes(class_name).length;
+  end
+
 end

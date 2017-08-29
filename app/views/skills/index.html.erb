@@ -16,17 +16,25 @@
           <i class="fa fa-pencil" aria-hidden="true"></i> Change class
         </div>
       </div>
-      <div class="class-progress-bar-outer">
-        <div id="progress-circle-initial"></div>
-        <div id="progress" style="width: 0%"></div>
-      </div>
+      <% if user_signed_in? %>
+        <div class="class-progress-bar-outer">
+          <div id="progress-circle-initial"></div>
+            <div id="progress" style="width: <%=@user.class_progress(params[:ucla_class]) %>%"></div>
+        </div>
+      <% else %>
+        You must login to save and view progress.
+      <% end %>
     </div>
     <div class="skills-class-stats-box">
       <div class="class-header"><i class="fa fa-bar-chart" aria-hidden="true"></i> Current Statistics</div>
-      <div class="stat-block">
-        <p class="stat-header">Skills completed</p>
-        <p class="stat-body">0/2</p>
-      </div>
+      <% if user_signed_in? %>
+        <div class="stat-block">
+            <p class="stat-header">Skills completed</p>
+            <p class="stat-body"><%=@user.completed_skill_by_class(params[:ucla_class])%>/<%=@user.total_skills_by_class(params[:ucla_class])%></p>
+        </div>
+      <% else %>
+        You must login to see your current statistics for this class.
+      <% end %>
     </div>
   </div>
 
