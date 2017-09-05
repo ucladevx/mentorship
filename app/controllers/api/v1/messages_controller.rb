@@ -5,7 +5,7 @@ class Api::V1::MessagesController < Api::V1::BaseController
         if @message.save
             render json: @message
         else
-            render nothing: true, status: :bad_request
+            render body: nil, status: :bad_request
         end
     end
 

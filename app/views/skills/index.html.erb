@@ -11,7 +11,7 @@
   <div class="col lg-10 md-10 sm-10">
     <div class="skills-class-box">
       <div class="class-header">
-        <i class="fa fa-bookmark" aria-hidden="true"></i> <%= params[:ucla_class].present? ? params[:ucla_class] : "CS 31" %>
+        <i class="fa fa-bookmark" aria-hidden="true"></i>&nbsp<%= params[:ucla_class].present? ? params[:ucla_class] : "CS 31" %>
         <div class="change-class-btn class-trigger-modal">
           <i class="fa fa-pencil" aria-hidden="true"></i> Change class
         </div>
@@ -19,18 +19,22 @@
       <% if user_signed_in? %>
         <div class="class-progress-bar-outer">
           <div id="progress-circle-initial"></div>
-            <div id="progress" style="width: <%=@user.class_progress(params[:ucla_class]) %>%"></div>
+            <div id="progress" style="width: <%= params[:ucla_class].present? ? @user.class_progress(params[:ucla_class]) : @user.class_progress("CS 31"); %>%"></div>
         </div>
       <% else %>
         You must login to save and view progress.
       <% end %>
     </div>
     <div class="skills-class-stats-box">
-      <div class="class-header"><i class="fa fa-bar-chart" aria-hidden="true"></i> Current Statistics</div>
+      <div class="class-header"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbspCurrent Statistics</div>
       <% if user_signed_in? %>
         <div class="stat-block">
             <p class="stat-header">Skills completed</p>
-            <p class="stat-body"><%=@user.completed_skill_by_class(params[:ucla_class])%>/<%=@user.total_skills_by_class(params[:ucla_class])%></p>
+            <% if params[:ucla_class].present? %>
+              <p class="stat-body"><span class="number-lg"><%=@user.completed_skill_by_class(params[:ucla_class])%></span>/<span class="number-sm"><%=@user.total_skills_by_class(params[:ucla_class])%></span></p>
+            <% else %>
+              <p class="stat-body"><span class="number-lg"><%=@user.completed_skill_by_class("CS 31")%></span>/<span class="number-sm"><%=@user.total_skills_by_class("CS 31")%></span></p>
+            <% end %>
         </div>
       <% else %>
         You must login to see your current statistics for this class.
