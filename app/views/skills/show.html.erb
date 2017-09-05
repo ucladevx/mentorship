@@ -47,7 +47,7 @@
 			            <% concept.question.each do |q| %>
 										<!-- Add if @user.progress.include?(q.id) to check if already answered -->
 				            <div class="skills-practice">
-				            	<div class="skills-header">Question: </div>
+				            	<div class="skills-question-header skills-header">Question: </div>
 				            	<div class="skills-question"><%= q.content.html_safe %></div>
 				            </div>
 										<!-- So quizzes work through the check method in the skills controller which
