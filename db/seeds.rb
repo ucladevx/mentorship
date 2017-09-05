@@ -69,7 +69,6 @@ Expression/Conditional<br>
 		</div>
 </div>",
   examples: ["", "<div class='skills-code-section skills-indent'>
-	<div class='skills-indent'>
 	// Pseudocode <br>
 	Flip a coin <br>
 	Coin landed on heads <br>

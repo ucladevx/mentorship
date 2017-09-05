@@ -1,0 +1,11 @@
+//The javascript that runs when the check question function is called
+//@question is question model, @answer_id is answer number, @is_correct is bool
+for (var i = 0; i < <%= @question.answers.length %>; i++) {
+  $("#q<%= @question.id %>-a" + i.toString() + "-right").css('display', 'none');
+  $("#q<%= @question.id %>-a" + i.toString() + "-wrong").css('display', 'none');
+}
+if (<%= @is_correct %>) {
+  $("#q<%= @question.id %>-a<%= @answer_id %>-right").toggle();
+} else {
+  $("#q<%= @question.id %>-a<%= @answer_id %>-wrong").toggle();
+}
