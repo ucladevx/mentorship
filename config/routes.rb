@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       resources :messages
   end
 
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions"}
 
   get '/upvote', to: 'notes#upvote'
 

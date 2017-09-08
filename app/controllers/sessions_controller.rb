@@ -1,4 +1,8 @@
 class SessionsController < Devise::SessionsController
+    prepend_before_action :require_no_authentication, only: [:new, :create]
+    prepend_before_action :allow_params_authentication!, only: :create
+    prepend_before_action :verify_signed_out_user, only: :destroy
+
     def new
         self.resource = resource_class.new(sign_in_params)
 
@@ -11,7 +15,6 @@ class SessionsController < Devise::SessionsController
 
     def create
         self.resource = warden.authenticate!(auth_options)
-        raise self.resource.to_json
         self.resource.online = true
         self.resource.save
         set_flash_message!(:notice, :signed_in)
