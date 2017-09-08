@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170823004203) do
+ActiveRecord::Schema.define(version: 20170908120742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -125,7 +125,6 @@ ActiveRecord::Schema.define(version: 20170823004203) do
     t.datetime "updated_at",                                                    null: false
     t.string   "usertype",               default: "s"
     t.string   "username"
-    t.integer  "ratingscore",            default: 0
     t.string   "uploadednoteurls",       default: [],                                        array: true
     t.integer  "upvotednotes",           default: [],                                        array: true
     t.string   "description"
@@ -136,7 +135,13 @@ ActiveRecord::Schema.define(version: 20170823004203) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.integer  "conversations_id",       default: [],                                        array: true
+    t.integer  "conversationsarray_id",  default: [],                                        array: true
+    t.decimal  "ratingscore"
+    t.boolean  "online",                 default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["conversations_id"], name: "index_users_on_conversations_id", using: :btree
+    t.index ["conversationsarray_id"], name: "index_users_on_conversationsarray_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

@@ -1,4 +1,4 @@
-<% @mentors = User.where(usertype: 'm') %>
+<% @mentors = User.where(usertype: 'm', online: true) %>
 <% @conversations = Conversation.all %>
 <script>
     let sender_id = -1;

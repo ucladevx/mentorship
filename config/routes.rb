@@ -27,9 +27,14 @@ Rails.application.routes.draw do
   namespace :api do
       namespace :v1 do
           resources :conversation, only: [:index, :create, :show, :update, :destroy]
-          resources :user, only: [:index, :create, :show, :update, :destroy]
+          #resources :user, only: [:index, :create, :show, :update, :destroy]
           scope '/messages' do
               post '/' => 'messages#create'
+          end
+          scope '/user' do
+              get '/' => 'user#index'
+              get '/:id' => 'user#show'
+              post '/updatescore' => 'user#updatescore'
           end
       end
   end
