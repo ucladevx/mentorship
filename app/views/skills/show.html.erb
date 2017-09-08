@@ -35,34 +35,30 @@
 				<div class="skills-content">
 					<div class="skills-subtitle skills-header">Example</div>
 					<div class="skills-content box">
-			            <% concept.examples.each do |ex| %>
-			              <%= ex.html_safe %>
-			            <% end %>
+				          <% concept.examples.each do |ex| %>
+				            <%= ex.html_safe %>
+				          <% end %>
 					</div>
 				</div>
 
 				<div class="skills-content">
 					<div class="skills-subtitle skills-header">Practice</div>
-					<div class="skills-content box">
+						<div class="skills-content box">
 			            <% concept.question.each do |q| %>
 										<!-- Add if @user.progress.include?(q.id) to check if already answered -->
 				            <div class="skills-practice">
-				            	<div class="skills-header">Question: </div>
+				            	<div class="skills-question-header skills-header">Question: </div>
 				            	<div class="skills-question"><%= q.content.html_safe %></div>
 				            </div>
 										<!-- So quizzes work through the check method in the skills controller which
-										checks the answer in the backend and redirects back to this page with params
-										 indicating a question was just answered-->
-				            <%= form_tag("/check", method: "get") do %>
+										checks the answer in the backend through Jquery in check.js displays response-->
+				            <%= form_tag(check_path, method: :post, remote: true) do %>
 											<% i = 0 %>
 											<%= hidden_field_tag(:question_id, q.id) %>
-											<%= hidden_field_tag(:id, @skill.id) %>
 											<% q.answers.each do |a| %>
-												<!-- Correct Answer(if just got it right, or once got it right) -->
-
+												<!-- Correct Answer(if once got it right) -->
 												<% if i.to_s == q.final_answer.to_s and @user.progress.include?(q.id)%>
 													<div class="skills-options">
-
 														<%= radio_button_tag(:answer, i, true) %>
 														<%= label_tag(:answer, a) %>
 													</div>
@@ -70,41 +66,36 @@
 														<span class="skills-correct"><i class="fa fa-check" aria-hidden="true"></i></span>
 															Correct answer, good job!
 													</div>
-												<!-- Incorrect Answer -->
 												<% else %>
-													<% if %>
-													<% i.to_s == params[:inputted_answer] and q.id.to_s == params[:answered_question]%>
-														<div class="skills-options">
-															<%= radio_button_tag(:answer, i, true) %>
-															<%= label_tag(:answer, a) %>
-														</div>
-														<div class="skills-response">
-															<span class="skills-wrong"><i class="fa fa-times" aria-hidden="true"></i></span>
-																Wrong answer, try again!
-														</div>
-													<% else %>
 													<!-- Default Answer -->
-														<div class="skills-options">
-															<%= radio_button_tag(:answer, i) %>
-															<%= label_tag(:answer, a) %>
-														</div>
-													<% end %>
+													<div class="skills-options">
+														<%= radio_button_tag(:answer, i) %>
+														<%= label_tag(:answer, a) %>
+													</div>
+													<div class="skills-response" id="q<%= q.id %>-a<%= i %>-wrong" style="display:none;">
+														<span class="skills-wrong"><i class="fa fa-times" aria-hidden="true"></i></span>
+															Wrong answer, try again!
+													</div>
+													<div class="skills-response" id="q<%= q.id %>-a<%= i %>-right" style="display:none;">
+														<span class="skills-correct"><i class="fa fa-check" aria-hidden="true"></i></span>
+															Correct answer, good job!
+													</div>
 												<% end %>
 												<% i+=1 %>
 											<% end %>
-								<% if !@user.progress.include?(q.id) %>
+											<% if !@user.progress.include?(q.id) %>
+												<div>
 			                		<%= submit_tag("Submit", :class => "btn-main reset btn-submit-skill", :id => 'btn-submit-skill')  %>
-			                	<% else %>
-
-			                	<% end %>
+												</div>
+			          			<% end %>
 											<% if q != concept.question.last %>
 												<div class="skills-line"></div>
 											<% end %>
 			            	<% end %>
 									<% end %>
+						</div>
 					</div>
 				</div>
-			</div>
 		<% end %>
 
 	</div>

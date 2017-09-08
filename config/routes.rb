@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'mentors/new'
   get 'mentors/create'
   get 'mentors/destroy'
-  get '/check', to: 'skills#check'
+  post '/check', to: 'skills#check'
 
   resources :conversations do
       resources :messages

@@ -69,7 +69,6 @@ Expression/Conditional<br>
 		</div>
 </div>",
   examples: ["", "<div class='skills-code-section skills-indent'>
-	<div class='skills-indent'>
 	// Pseudocode <br>
 	Flip a coin <br>
 	Coin landed on heads <br>
@@ -104,39 +103,32 @@ conceptTwo = sample.concept.create!(
   name: "While",
   description: "A while loop repeats a statement or group of statements while a given condition is true. It tests the condition before executing the loop body.
 	Inside the while loop, condition needs to be updated, otherwise it will result in an infinite loop and the program will crash. This is because the condition never become false.",
-    examples: ["<div class='skills-code-section skills-indent'>
-	int x = 5; <br>
-	while (x < 10) { <br>
-		<div class='skills-indent'>
-		cout << “Less than 10” << endl; <br>
-		</div>
+    examples: ["
+  <pre><code class='language-cpp'>
+	int x = 5;
+	while (x < 10) {
+		cout << “Less than 10” << endl;
 	}
-	</div>
+  </code></pre>
 
 	If the code is left as is, it will result in an infinite loop. The conditional will never be false, because the 5 < 10, and x is never updated. To fix the infinite loop, we add an increment (x += 1) within the loop body
 Now the loop will look like this:
-	<div class='skills-code-section skills-indent'>
-	int x = 5; <br>
-	while (x < 10) { <br>
-		<div class='skills-indent'>
-		cout << “Less than 10” << endl; <br>
-		x += 1; <br>
-		</div>
-	} <br>
-	</div>"
+	<pre><code class='language-cpp'>
+	int x = 5;
+	while (x < 10) {
+		cout << “Less than 10” << endl;
+		x += 1;
+	}</code></pre>"
   ])
 
 conceptTwo.question.create!(
   content: "What would we need to add to the following code block to fix the infinite loop?
-	<div class='skills-code-section skills-indent'>
-	int x = 6; <br>
-	while (x > 0) { <br>
-		<div class='skills-indent'>
-		cout << “X is positive” << endl; <br>
-		// Add code here <br>
-		</div>
-	}
-	</div>",
+	<pre><code class='language-cpp'>
+	int x = 6;
+	while (x > 0) {
+		cout << “X is positive” << endl;
+		// Add code here
+	}</code></pre>",
   question_type: "Multiple Choice",
   answers: ["x += 1", "x -= 1", "x = x+1", "x++"],
   final_answer: "1"
