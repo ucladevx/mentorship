@@ -68,3 +68,36 @@ div.profile-tab button.selected {
 }
 
 //------------------------------
+.grid-container {
+    margin-bottom: 60px;
+}
+
+.profile-progress-box {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e2e2e2;
+    margin-bottom: 20px;
+    &:hover {
+        border-style: dashed;
+        border-width: 1px;
+        border-color: grey;
+    }
+}
+
+.profile-progress-box-header {
+    width: 120px;
+    margin: 0;
+    color: $color-primary;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+
+.profile-progress-box-percent {
+    @extend .profile-progress-box-header;
+    color: $color-secondary-1;
+    border-left: 2px solid #e2e2e2;
+}
