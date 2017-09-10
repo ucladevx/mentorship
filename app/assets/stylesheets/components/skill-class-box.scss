@@ -6,6 +6,14 @@
 	margin-bottom: 20px;
 }
 
+.skills-tab-content {
+	&:hover {
+		border-style: dashed;
+    	border-width: 1px;
+    	border-color: grey;
+	}
+}
+
 .skills-class-box,
 .skills-class-stats-box {
 	position: relative;
@@ -14,6 +22,12 @@
 	margin-bottom: 40px;
 	border: 1px solid #e2e2e2;
 	padding: 20px;
+
+	&:hover {
+		border-style: dashed;
+    	border-width: 1px;
+    	border-color: grey;
+	}
 }
 
 .skills-class-box {
@@ -45,9 +59,15 @@
 
     .stat-body {
     	font-size: 1.8rem;
+    	font-weight: bold;
     	color: $color-secondary-1;
     	margin: 0;
-    	font-weight: bold;
+    	margin-top: 30px;
+    }
+
+    .number-lg {
+    	font-size: 6rem;
+    	margin: -0.3rem;
     }
 }
 

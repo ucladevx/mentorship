@@ -57,8 +57,21 @@
     </div>
 
     <div id="item-2" class="profile-tab-content tab-content-custom hide">
-      <h3>Progress</h3>
-      <p>No course tracks added.</p>
+      <h3>All Progress</h3>
+      <div class="grid-container">
+        <% @classes.each_with_index do |c, i| %>
+          <a href="/skills?<%= @class_params[i].to_param %>">
+            <div class="profile-progress-box">
+              <p class="profile-progress-box-header"><%= c %></p>
+              <p class="profile-progress-box-percent"><%= @user.class_progress(c)%>%</p>
+              <div class="class-progress-bar-outer">
+                <div id="progress-circle-initial"></div>
+                  <div id="progress" style="width: <%= @user.class_progress(c)%>%"></div>
+              </div>
+            </div>
+          </a>
+        <% end %>
+      </div>
     </div>
 
     <div id="item-3" class="profile-tab-content tab-content-custom hide">

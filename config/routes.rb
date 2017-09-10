@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   get 'mentors/new'
   get 'mentors/create'
   get 'mentors/destroy'
-  get '/check', to: 'skills#check'
+  post '/check', to: 'skills#check'
 
   resources :conversations do
       resources :messages
   end
 
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users, :controllers => {:registrations => "registrations", :sessions => "sessions"}
 
   get '/upvote', to: 'notes#upvote'
 
@@ -27,9 +27,14 @@ Rails.application.routes.draw do
   namespace :api do
       namespace :v1 do
           resources :conversation, only: [:index, :create, :show, :update, :destroy]
-          resources :user, only: [:index, :create, :show, :update, :destroy]
+          #resources :user, only: [:index, :create, :show, :update, :destroy]
           scope '/messages' do
               post '/' => 'messages#create'
+          end
+          scope '/user' do
+              get '/' => 'user#index'
+              get '/:id' => 'user#show'
+              post '/updatescore' => 'user#updatescore'
           end
       end
   end

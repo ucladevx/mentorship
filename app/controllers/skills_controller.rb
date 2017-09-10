@@ -25,9 +25,6 @@ class SkillsController < ApplicationController
       @user = User.find_by id:current_user.id
     end
     @users = User.all
-    if user_signed_in?
-      @user = User.find_by id:current_user.id
-    end
     @conversations = Conversation.all
     @skill = Skill.find(params[:id])
     @concepts = @skill.concept
@@ -42,17 +39,23 @@ class SkillsController < ApplicationController
   def edit
   end
 
-  # GET /skills/check
+  # POST /check
   def check
-    q = Question.find(params[:question_id])
-    if q.final_answer == params[:answer]
+    @answer_id = params[:answer]
+    @question = Question.find(params[:question_id])
+    puts "HI" + @question.answers.length.to_s
+    if @question.final_answer == @answer_id
       user = User.find_by id:current_user.id
-      user.progress.push(params[:question_id])
+      user.progress.push(@question.id)
       user.save
-      redirect_to controller: "skills", action: "show", id: params[:id], answered_question: params[:question_id], inputted_answer: params[:answer], correct: 1
+      @is_correct = true
     else
-      redirect_to controller: "skills", action: "show", id: params[:id], answered_question: params[:question_id], inputted_answer: params[:answer], correct: 0
+      @is_correct = false
     end
+    respond_to do |format|
+        format.html
+        format.js
+      end
   end
 
   # POST /skills

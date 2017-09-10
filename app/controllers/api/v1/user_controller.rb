@@ -26,4 +26,22 @@ class Api::V1::UserController < Api::V1::BaseController
             )
         )
     end
+
+    def updatescore
+        user = User.where("id = #{params[:id]}")
+        score = user[0].ratingscore
+        if score == nil
+            score = params[:addscore]
+        else
+            score = (score + params[:addscore]) / 2
+        end
+
+        user[0].ratingscore = score
+
+        if user[0].save
+            render json: user[0]
+        else
+            render body: nil, status: :bad_request
+        end
+    end
 end
