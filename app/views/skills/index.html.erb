@@ -1,57 +1,74 @@
 <p id="notice"><%= notice %></p>
 
-<div class="new-note-wrapper">
-  <%= link_to skills_path(ucla_class: "CS 31") do %>
-    <div class="btn-main new-note-btn" id="trigger-new-note">CS 31</div>
-  <% end %>
-</div>
-<div class="new-note-wrapper">
-  <%= link_to skills_path(ucla_class: "CS 32") do %>
-    <div class="btn-main new-note-btn" id="trigger-new-note">CS 32</div>
-  <% end %>
-</div>
-
-<div class="skills-tab-content">
-    <% @skills.each do |skill| %>
-        <div class="skill-block tab-content-custom toggleOff" id="item-<%= skill.id =%>">
-
-        <% if user_signed_in? %>
-            <div class="skill-box item">
-
-        <% else %>
-            <div class="skill-box item save-progress-trigger-modal">
-        <% end %>
-                <div class="skill-circle tab" id="tab-<%= skill.id =%>"><%= skill.topic[0] %></div>
-                <% if user_signed_in? %>
-                  <div class="skill-hide-when-toggle">
-                      <div class="skill-name">
-                          <h4><%= skill.topic %></h4>
-                      </div>
-                  </div>
-                <% else %>
-                  <div class="skill-name">
-                          <h4><%= skill.topic %></h4>
-                      </div>
-                <% end %>
-            </div>
-          <% if user_signed_in? %>
-            <div class="skill-pop-up">
-                <h4><%= skill.topic %></h4>
-                <h2 class="skill-percent"><%= skill.progress(@user.id) %>%</h2>
-                <p class="skill-submit">Submitted by <%= skill.author %></p>
-                <%= link_to skill do %>
-                  <div class="skill-click"><i class="fa fa-chevron-right" aria-hidden="true"></i><i class="fa fa-chevron-left" aria-hidden="true"></i></div>
-                <% end %>
-            </div>
-          <% end %>
-
-            <div class="progress-bar">
-            </div>
-
+<div class="grid-container">
+  <div class="skills-tab-content col lg-12 md-12 sm-12">
+      <% @skills.each do |skill| %>
+          <%= render partial: 'skills/skill_block', locals: {skill: skill} %>
+      <% end %>
+      <div class="skill-block tab-content-custom toggleOff"></div>
+  </div>
+  <div class="col lg-2 md-2 sm-2 spacing"></div>
+  <div class="col lg-10 md-10 sm-10">
+    <div class="skills-class-box">
+      <div class="class-header">
+        <i class="fa fa-bookmark" aria-hidden="true"></i>&nbsp<%= params[:ucla_class].present? ? params[:ucla_class] : "CS 31" %>
+        <div class="change-class-btn class-trigger-modal">
+          <i class="fa fa-pencil" aria-hidden="true"></i> Change class
         </div>
+      </div>
+      <% if user_signed_in? %>
+        <div class="class-progress-bar-outer">
+          <div id="progress-circle-initial"></div>
+            <div id="progress" style="width: <%= params[:ucla_class].present? ? @user.class_progress(params[:ucla_class]) : @user.class_progress("CS 31"); %>%"></div>
+        </div>
+      <% else %>
+        You must login to save and view progress.
+      <% end %>
+    </div>
+    <div class="skills-class-stats-box">
+      <div class="class-header"><i class="fa fa-bar-chart" aria-hidden="true"></i>&nbspCurrent Statistics</div>
+      <% if user_signed_in? %>
+        <div class="stat-block">
+            <p class="stat-header">Skills completed</p>
+            <% if params[:ucla_class].present? %>
+              <p class="stat-body"><span class="number-lg"><%=@user.completed_skill_by_class(params[:ucla_class])%></span>/<span class="number-sm"><%=@user.total_skills_by_class(params[:ucla_class])%></span></p>
+            <% else %>
+              <p class="stat-body"><span class="number-lg"><%=@user.completed_skill_by_class("CS 31")%></span>/<span class="number-sm"><%=@user.total_skills_by_class("CS 31")%></span></p>
+            <% end %>
+        </div>
+      <% else %>
+        You must login to see your current statistics for this class.
+      <% end %>
+    </div>
+  </div>
+
+<div class="modal-container class-modal hide">
+    <div class="modal login-modal">
+    <div class="class-header">Select a class:</div>
+
+    <% if !params[:ucla_class].present? || params[:ucla_class] == 'CS 31'%>
+      <div class="class-selection disabled">
+    <% else %>
+      <div class="class-selection">
     <% end %>
-    <div class="skill-block tab-content-custom toggleOff"></div>
-</div>
+      <%= link_to skills_path(ucla_class: "CS 31") do %>
+        <div class="btn-main new-note-btn" id="trigger-new-note">CS 31</div>
+      <% end %>
+    </div>
+
+     <% if params[:ucla_class] == 'CS 32'%>
+      <div class="class-selection disabled">
+      <% else %>
+      <div class="class-selection">
+      <% end %>
+      
+      <%= link_to skills_path(ucla_class: "CS 32") do %>
+       <div class="btn-main new-note-btn" id="trigger-new-note">CS 32</div>
+      <% end %>
+      </div>
+    </div>
+    <div class="overlay" onClick="hideModal('class-modal')"></div>
+</div>  
 
 <!--
 <h1>Skills</h1>

@@ -1,0 +1,84 @@
+@import "base/global";
+
+.class-header {
+	font-weight: bold;
+	font-size: 1.9rem;
+	margin-bottom: 20px;
+}
+
+.skills-tab-content {
+	&:hover {
+		border-style: dashed;
+    	border-width: 1px;
+    	border-color: grey;
+	}
+}
+
+.skills-class-box,
+.skills-class-stats-box {
+	position: relative;
+	background: white;
+	border-radius: 10px;
+	margin-bottom: 40px;
+	border: 1px solid #e2e2e2;
+	padding: 20px;
+
+	&:hover {
+		border-style: dashed;
+    	border-width: 1px;
+    	border-color: grey;
+	}
+}
+
+.skills-class-box {
+	.progress-bar {
+		width: 100%;
+	}
+}
+
+.change-class-btn {
+	display: inline-block;
+	color: #e2e2e2;
+	cursor: pointer;
+	font-size: 1rem;
+	-webkit-transition: color 0.3s ease;
+	transition: color 0.3s ease;
+	&:hover {
+		color: $color-tertiary-dark;
+	}
+}
+
+.stat-block {
+	border-top: 1px solid #e2e2e2;
+    padding: 20px 0;
+
+    .stat-header {
+    	font-size: 1rem;
+    	margin: 0;
+    }
+
+    .stat-body {
+    	font-size: 1.8rem;
+    	font-weight: bold;
+    	color: $color-secondary-1;
+    	margin: 0;
+    	margin-top: 30px;
+    }
+
+    .number-lg {
+    	font-size: 6rem;
+    	margin: -0.3rem;
+    }
+}
+
+.class-selection {
+	display: block;
+	margin: 20px 0;
+
+	&.disabled {
+		pointer-events: none;
+		 .btn-main{
+			background: #e2e2e2;
+		}
+	}
+}

@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
       build_resource(sign_up_params)
       imgid = 1 + rand(10)
       resource.image = '/profileimage/' + imgid.to_s + '.png'
-
+      resource.online = true
       resource.save
       yield resource if block_given?
       if resource.persisted?
@@ -24,7 +24,8 @@ class RegistrationsController < Devise::RegistrationsController
         clean_up_passwords resource
         set_minimum_password_length
         respond_with resource
-      end  end
+      end
+  end
 
   def update
     super

@@ -1,3 +1,234 @@
+<% @mentors = User.where(usertype: 'm', online: true) %>
+<% @conversations = Conversation.all %>
+<script>
+    let sender_id = -1;
+    let recipient_id = -1;
+    let conversationData = {};
+    let usericonpath = '';
+    let correctConversation = {};
+    let newConversation = {};
+    let oldConversation = {};
+    let messagetosend = "";
+    let checked = false;
+    let doesConversationExist = false;
+
+    function checkForUpdates() {
+        oldConversation = newConversation;
+        $.ajax({
+            url: '/api/v1/conversation/' + oldConversation.id,
+            dataType: 'json',
+            success: function(data) {
+                correctConversation = data;
+                newConversation = correctConversation.conversations[0];
+                if(JSON.stringify(oldConversation) === JSON.stringify(newConversation)) {
+                } else {
+                    let ol = document.getElementById("chatdiscussion");
+                    if(newConversation.messages[newConversation.messages.length - 1].user_id == sender_id){
+                        let messageBody = newConversation.messages[newConversation.messages.length - 1].body;
+                        messageBody = messageBody.substring(0, messageBody.length - 1);
+                        var li = document.createElement("li");
+                        li.className = 'self';
+
+                        let avatardiv = document.createElement("div");
+                        avatardiv.className = 'avatar';
+
+                        let useravatarimg = document.createElement("img");
+                        useravatarimg.src = '<%= @user.image %>';
+
+                        ol.appendChild(li);
+                        li.appendChild(avatardiv);
+                        avatardiv.appendChild(useravatarimg);
+
+                        let messagesdiv = document.createElement("div");
+                        messagesdiv.className = "messages";
+
+                        let pbody = document.createElement("p");
+                        pbody.innerHTML = messageBody;
+
+                        let timemessage = document.createElement("datetime");
+                        timemessage.datetime = "2009-11-13T20:14";
+                        timemessage.innerHTML = newConversation.messages[newConversation.messages.length - 1].created_at;
+
+                        li.appendChild(messagesdiv);
+                        messagesdiv.appendChild(pbody);
+                        messagesdiv.appendChild(timemessage);
+                    } else {
+                        let messageBody = newConversation.messages[newConversation.messages.length - 1].body;
+                        messageBody = messageBody.substring(0, messageBody.length - 1);
+                        var li = document.createElement("li");
+                        li.className = 'other';
+
+                        let avatardiv = document.createElement("div");
+                        avatardiv.className = 'avatar';
+
+                        let useravatarimg = document.createElement("img");
+                        useravatarimg.src = usericonpath;
+
+                        ol.appendChild(li);
+                        li.appendChild(avatardiv);
+                        avatardiv.appendChild(useravatarimg);
+
+                        let messagesdiv = document.createElement("div");
+                        messagesdiv.className = "messages";
+
+                        let pbody = document.createElement("p");
+                        pbody.innerHTML = messageBody;
+
+                        let timemessage = document.createElement("datetime");
+                        timemessage.datetime = "2009-11-13T20:14";
+                        timemessage.innerHTML = newConversation.messages[newConversation.messages.length - 1].created_at;
+
+                        li.appendChild(messagesdiv);
+                        messagesdiv.appendChild(pbody);
+                        messagesdiv.appendChild(timemessage);
+                    }
+                }
+            },
+            error: function() {
+            }
+        });
+    }
+
+    function queryOnce(sender, recipient) {
+        $('ol').empty();
+        $.ajax({
+            url: '/api/v1/conversation',
+            dataType: 'json',
+            success: function(data) {
+                conversationData = data;
+                setupInitialChat();
+            },
+             error: function() {
+                alert('error');
+            }
+        });
+    }
+
+    function sendMessage() {
+        $.post("/api/v1/messages",
+        {
+            message: {
+                body: messagetosend,
+                conversation_id: newConversation.id,
+                user_id: sender_id
+            }
+        });
+    }
+
+    function setupInitialChat() {
+        if(!checked) {
+            $('ol').empty();
+            for(var i = 0, len = conversationData.conversations.length; i < len; i++){
+                if((conversationData.conversations[i].sender_id == sender_id && conversationData.conversations[i].recipient_id == recipient_id) || (conversationData.conversations[i].sender_id == recipient_id && conversationData.conversations[i].recipient_id == sender_id)){
+                    correctConversation = conversationData.conversations[i];
+                    newConversation = correctConversation;
+                    doesConversationExist = true;
+                    break;
+                }
+            }
+
+            $.ajax({
+                url: '/api/v1/user/' + recipient_id,
+                dataType: 'json',
+                success: function(data) {
+                    usericonpath = data.users[0].image;
+                },
+                error: function() {
+                    alert('error getting user icon');
+                }
+            });
+
+            if(!doesConversationExist) {
+                let a = recipient_id;
+                let b = sender_id;
+                let convoid = <%= @conversations.length %>;
+
+                alert(JSON.stringify(convoid));
+                $.post("/api/v1/conversation/",
+                {
+                    conversation: {
+                        recipient_id: a,
+                        sender_id: b
+                    }
+                });
+                correctConversation = {
+                    id: convoid,
+                    recipient_id: recipient_id,
+                    sender_id: sender_id,
+                    messages: [{
+                        body: "Hello, how may I help you today?",
+                        created_at: Date.now()
+                    }]
+                };
+                newConversation = correctConversation;
+            }
+
+            let ol = document.getElementById("chatdiscussion");
+            for(var i = 0, len = correctConversation.messages.length; i < len; i++){
+                if(correctConversation.messages[i].user_id == sender_id){
+                    let messageBody = correctConversation.messages[i].body;
+                    var li = document.createElement("li");
+                    li.className = 'self';
+
+                    let avatardiv = document.createElement("div");
+                    avatardiv.className = 'avatar';
+
+                    let useravatarimg = document.createElement("img");
+                    useravatarimg.src = '<%= @user.image %>';
+
+                    ol.appendChild(li);
+                    li.appendChild(avatardiv);
+                    avatardiv.appendChild(useravatarimg);
+
+                    let messagesdiv = document.createElement("div");
+                    messagesdiv.className = "messages";
+
+                    let pbody = document.createElement("p");
+                    pbody.innerHTML = messageBody;
+
+                    let timemessage = document.createElement("datetime");
+                    timemessage.datetime = "2009-11-13T20:14";
+                    timemessage.innerHTML = correctConversation.messages[i].created_at;
+
+                    li.appendChild(messagesdiv);
+                    messagesdiv.appendChild(pbody);
+                    messagesdiv.appendChild(timemessage);
+                } else {
+                    let messageBody = correctConversation.messages[i].body;
+                    var li = document.createElement("li");
+                    li.className = 'other';
+
+                    let avatardiv = document.createElement("div");
+                    avatardiv.className = 'avatar';
+
+                    let useravatarimg = document.createElement("img");
+                    useravatarimg.src = usericonpath;
+
+                    ol.appendChild(li);
+                    li.appendChild(avatardiv);
+                    avatardiv.appendChild(useravatarimg);
+
+                    let messagesdiv = document.createElement("div");
+                    messagesdiv.className = "messages";
+
+                    let pbody = document.createElement("p");
+                    pbody.innerHTML = messageBody;
+
+                    let timemessage = document.createElement("datetime");
+                    timemessage.datetime = "2009-11-13T20:14";
+                    timemessage.innerHTML = correctConversation.messages[i].created_at;
+
+                    li.appendChild(messagesdiv);
+                    messagesdiv.appendChild(pbody);
+                    messagesdiv.appendChild(timemessage);
+                }
+            }
+
+            setInterval(checkForUpdates, 2000);
+            checked = true;
+        }
+    }
+</script>
 
   <div class="mentors-menu-container">
     <div class=open_navbar id="open_nav">
@@ -17,17 +248,17 @@
             <i class="remove icon remove-mentors-menu exit-conversation-trigger-modal"></i>
           </div>
         </div>
-        <% for i in 0..0 do %>
+        <% @mentors.each_with_index do |mentor, i| %>
         <div class="mentor-wrapper" id="mentorWrapper-<%= i %>">
           <div class="item mentor-trigger-modal" id="mentor-<%= i %>">
             <div class="mentor_pic">
-              <img class="ui avatar image" src="/shrink.jpg">
+              <img class="ui avatar image" src="<%= mentor.image %>">
             </div>
             <div class="mentor_name">
-              <span>Austin Lee</span>
+              <span><%= mentor.username %></span>
             </div>
             <div class="mentor_rating">
-              <%= i %>&nbsprating
+              <%= mentor.ratingscore %>&nbsprating
             </div>
           </div>
           <!-- Open chat with Mentor -->
@@ -35,26 +266,31 @@
             <div class="modal mentor-modal">
               <div class="modal-header">
                 <div class="modal_mentor_rating">
-                  <h4><%= i %>&nbsp<i class="fa fa-star" aria-hidden="true"></i></h4>
+                  <h4><%= mentor.ratingscore %>&nbsp<i class="fa fa-star" aria-hidden="true"></i></h4>
                 </div>
                 <div class="modal_mentor_pic">
-                  <%= image_tag("shrink.jpg", :class => "ui circular image")%>
+                  <img class="ui circular image" src="<%= mentor.image %>">
                 </div>
-
                 <div class="modal_mentor_char">
                   <div class="modal_mentor_name">
-                    <h2>Austin Lee</h2>
+                    <h2><%= mentor.username %></h2>
                   </div>
                 </div>
               </div>
               <div class="modal-field-content">
                 <div class="modal_mentor_bio">
-                  &nbsp&nbsp&nbsp&nbspI am a second year Computer Science student who is not qualified to mentor anyone.
-                  I have taken CS 31, CS 32, CS 33, and CS 35L. Feel free to ask me any questions.
+                  &nbsp&nbsp&nbsp&nbsp<%= mentor.description %>
                 </div>
                 <div class="chat_modal">
                   <div class="ui buttons">
-                    <button class="ui positive button modal_mentor_accept" id="btn-<%= i %>">Accept</button>
+                    <button class="ui positive button modal_mentor_accept" id="<%= mentor.id %>">Accept</button>
+                    <script>
+                    $("button").click(function() {
+                        recipient_id = parseInt(this.id); // or alert($(this).attr('id'));
+                        sender_id = <%= current_user.id %>;
+                        queryOnce(sender_id, recipient_id);
+                    });
+                    </script>
                     <div class="or"></div>
                     <button class="ui button modal_mentor_decline">Cancel</button>
                   </div>
@@ -66,55 +302,22 @@
         </div>
         <% end %>
       </div>
-
       <div class="chatbox">
         <div class="chat">
-          <ol class="discussion">
-            <li class="self">
-              <div class="avatar">
-                <% if user_signed_in? %>
-                  <%= image_tag(@user.image) %>
-                <% end %>
-              </div>
-              <div class="messages">
-                <p>Hey, I was wondering if you could help me with pointers.</p>
-                <p>I don't understand how they work.</p>
-                <time datetime="2009-11-13T20:14">37 mins</time>
-              </div>
-            </li>sept
-            <li class="other">
-              <div class="avatar">
-                <%= image_tag("shrink.jpg")%>
-              </div>
-              <div class="messages">
-                <p>Sure, how can I help?</p>
-                <time datetime="2009-11-13T20:14">30 mins</time>
-              </div>
-            </li>
-            <li class="self">
-              <div class="avatar">
-                <% if user_signed_in? %>
-                  <%= image_tag(@user.image) %>
-                <% end %>
-              </div>
-              <div class="messages">
-                <p>What do they do in their most basic sense.</p>
-                <time datetime="2009-11-13T20:14">25 mins</time>
-              </div>
-            </li>
-            <li class="other">
-              <div class="avatar">
-                <%= image_tag("shrink.jpg") %>
-              </div>
-              <div class="messages">
-                <p>In C, a pointer is a variable whose value is the address of another variable</p>
-                <time datetime="2009-11-13T20:14">9 mins</time>
-              </div>
-            </li>
+          <ol class="discussion" id="chatdiscussion">
           </ol>
         </div>
         <div class="send_message">
-          <textarea rows="2" cols="34"></textarea>
+          <textarea id="messagebox" class="messagebox" rows="2" cols="34"></textarea>
+          <script>
+            $(".messagebox").on('keyup', function(e) {
+                if(e.keyCode == 13) {
+                    messagetosend = document.getElementById("messagebox").value;
+                    document.getElementById("messagebox").value = "";
+                    sendMessage();
+                }
+            });
+          </script>
         </div>
       </div>
     </div>
@@ -124,7 +327,6 @@
           <div class="modal_mentor_pic">
             <%= image_tag("shrink.jpg", :class => "ui circular image")%>
           </div>
-
           <div class="modal_mentor_char">
             <div class="modal_mentor_name">
               <h2>Austin Lee</h2>

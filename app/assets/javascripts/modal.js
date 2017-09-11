@@ -31,6 +31,9 @@ function showModal(modal, id){
 			$('#sidebar').addClass('show-modal');
 			$('#rate-mentor').removeClass('hide');
 			break;
+		case 'class-modal':
+			$('.class-modal').removeClass('hide');
+			break;
 	}
 
 	$('body').addClass('locked');
@@ -67,6 +70,10 @@ function hideModal(modal){
 		case 'rate-mentor':
 			$('#sidebar').removeClass('show-modal');
 			$('.rate-mentor-modal-container').addClass('hide');
+			break;
+		case 'class-modal':
+			$('.class-modal').addClass('hide');
+			break;
 		case 'all':
 			$('.modal-container').addClass('hide');
 	}
@@ -121,6 +128,11 @@ var initModal = function(){
 	// 	hideModal('all');
 	// 	showModal('exit-conversation');
 	// });
+
+	$('.class-trigger-modal').click(function() {
+		hideModal('all');
+		showModal('class-modal');
+	});
 };
 
 
