@@ -93,9 +93,9 @@ ActiveRecord::Schema.define(version: 20170908120742) do
     t.string   "answers",       default: [],              array: true
     t.string   "question_type"
     t.string   "final_answer"
-    t.text     "content"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.text     "content"
     t.integer  "concept_id"
     t.index ["concept_id"], name: "index_questions_on_concept_id", using: :btree
   end
@@ -130,18 +130,14 @@ ActiveRecord::Schema.define(version: 20170908120742) do
     t.string   "description"
     t.integer  "progress",               default: [],                                        array: true
     t.boolean  "mentor"
-    t.string   "image",                  default: "/public/profileimage/1.png"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.integer  "conversations_id",       default: [],                                        array: true
-    t.integer  "conversationsarray_id",  default: [],                                        array: true
+    t.string   "image",                  default: "/public/profileimage/1.png"
     t.decimal  "ratingscore"
     t.boolean  "online",                 default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-    t.index ["conversations_id"], name: "index_users_on_conversations_id", using: :btree
-    t.index ["conversationsarray_id"], name: "index_users_on_conversationsarray_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
