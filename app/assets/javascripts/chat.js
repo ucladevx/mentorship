@@ -10,11 +10,9 @@ function beginMessaging(e){
 function closeChat() {
 	hideModal('exit-conversation');
 	showModal('rate-mentor');
-	console.log('open up the rating modal');
 }
 
 function rateMentor() {
-	console.log('rateMentor');
 	hideModal('rate-mentor');
 	$('#sidebar').removeClass('chatview');
 }
