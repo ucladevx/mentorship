@@ -32,7 +32,6 @@ var initMentors = function(){
 	}
 	// X BUTTON AT RIGHT OF MENTORS MENU
 	removeBtn.click(function(){
-		console.log('in this one');
 		hideSidebar();
 	});
 	sidebarBtn.unbind("click").click(function(e){
@@ -52,12 +51,9 @@ var initMentors = function(){
 	// Rating
 	$('[type*="radio"]').change(function () {
 		var me = $(this);
-		console.log(me.attr('class'));
-		console.log(me.attr('value'));
 		var mentorRateClassName = String(me.attr('class'));
 		var userId = mentorRateClassName.substring(0, 1);
 		var mentorRating = parseInt(me.attr('value'));
-		// var bigDecimalRating = new BigDecimal(me.attr(''))
 		userRateMentor(userId, mentorRating);
 		hideModal('rate-mentor');
 		drawer.removeClass('use-sidebar');
@@ -66,6 +62,6 @@ var initMentors = function(){
 		content.removeClass('use-sidebar');
 		$('#sidebar').removeClass('show-modal');
 		$('#sidebar').removeClass('chatview');
-
+		resetMentorSelect();
 	});
 }

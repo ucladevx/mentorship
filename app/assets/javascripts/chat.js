@@ -34,6 +34,7 @@ function selectMentor(id){
 }
 
 function resetMentorSelect(){
+	console.log('in here');
 	$('.mentor-wrapper').removeClass('hide');
 	$('.mentor-wrapper').removeClass('hide-soft');
 	$('#sidebar').removeClass('chatview');
