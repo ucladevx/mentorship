@@ -179,6 +179,9 @@
   text-align: center;
 }
 
+.modal-mentor-modal {
+  width: 50%;
+}
 
 /* Accept Chat Mentor */
 
@@ -210,6 +213,8 @@
   padding-bottom: 10px;
   font-size: 1rem;
   color: #606060;
+  display: flex;
+  justify-content: center;
 }
 
 .chat_modal{
@@ -241,6 +246,9 @@
     margin-bottom: $modal-spacing;
   }
 
+  .rate-modal-accept {
+    width: 100%;
+  }
 }
 
 
@@ -346,4 +354,76 @@ textarea{
   display: block;
   height: 30px;
   width: 30px;
+}
+
+$unchecked-star: '\2606';
+$unchecked-color: #888;
+$checked-star: '\2605';
+$checked-color: $color-primary;
+
+.modal-rate-mentor {
+  display: flex;
+  justify-content: space-between;
+}
+.star-cb-group {
+  /* remove inline-block whitespace */
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+  * {
+    font-size: 2.5rem;
+  }
+  /* flip the order so we can use the + and ~ combinators */
+  unicode-bidi: bidi-override;
+  direction: rtl;
+
+  & > input {
+    display: none;
+    & + label {
+      /* only enough room for the star */
+      display: inline-block;
+      overflow: hidden;
+      text-indent: 9999px;
+      width: 1.4em;
+      height: 1.5em;
+      padding-top: 10px;
+      white-space: nowrap;
+      cursor: pointer;
+      &:before {
+        display: inline-block;
+        text-indent: -9999px;
+        content: $unchecked-star;
+        color: $unchecked-color;
+      }
+    }
+    &:checked ~ label:before,
+      & + label:hover ~ label:before,
+      & + label:hover:before {
+      content: $checked-star;
+      color: $color-primary;
+      text-shadow: 0 0 1px #333;
+    }
+  }
+
+  /* the hidden clearer */
+  & > .star-cb-clear + label {
+    text-indent: -9999px;
+    width: .5em;
+    margin-left: -.5em;
+  }
+  & > .star-cb-clear + label:before {
+    width: .5em;
+  }
+
+  &:hover > input + label:before {
+    content: $unchecked-star;
+    color: $unchecked-color;
+    text-shadow: none;
+  }
+  &:hover > input + label:hover ~ label:before,
+  &:hover > input + label:hover:before {
+    content: $checked-star;
+    color: $checked-color;
+    text-shadow: 0 0 1px #333;
+  }
 }

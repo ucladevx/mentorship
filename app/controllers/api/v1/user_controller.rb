@@ -30,10 +30,11 @@ class Api::V1::UserController < Api::V1::BaseController
     def updatescore
         user = User.where("id = #{params[:id]}")
         score = user[0].ratingscore
+        addScore = params[:addscore].to_f
         if score == nil
             score = params[:addscore]
         else
-            score = (score + params[:addscore]) / 2
+            score = (score + addScore) / 2
         end
 
         user[0].ratingscore = score

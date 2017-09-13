@@ -228,6 +228,14 @@
             checked = true;
         }
     }
+
+    function userRateMentor(mentorId, score) {
+      $.post("/api/v1/user/updatescore",
+      {
+        id: mentorId,
+        addscore: score
+      });
+    }
 </script>
 
   <div class="mentors-menu-container">
@@ -273,7 +281,7 @@
                 </div>
                 <div class="modal_mentor_char">
                   <div class="modal_mentor_name">
-                    <h2><%= mentor.username %></h2>
+                    <h2>Chat with <%= mentor.username %></h2>
                   </div>
                 </div>
               </div>
@@ -308,7 +316,7 @@
           </ol>
         </div>
         <div class="send_message">
-          <textarea id="messagebox" class="messagebox" rows="2" cols="34"></textarea>
+          <textarea id="messagebox" class="messagebox" rows="2" cols="32"></textarea>
           <script>
             $(".messagebox").on('keyup', function(e) {
                 if(e.keyCode == 13) {
@@ -321,21 +329,22 @@
         </div>
       </div>
     </div>
+    <% @mentors.each_with_index do |mentor, i| %>
     <div class="modal-container hide exit-conversation-modal-container" id="exit-conversation">
       <div class="modal mentor-modal">
         <div class="modal-header">
           <div class="modal_mentor_pic">
-            <%= image_tag("shrink.jpg", :class => "ui circular image")%>
+            <img class="ui circular image" src="<%= mentor.image %>">
           </div>
           <div class="modal_mentor_char">
             <div class="modal_mentor_name">
-              <h2>Austin Lee</h2>
+              <h2><%= mentor.username %></h2>
             </div>
           </div>
         </div>
         <div class="modal-field-content">
           <div class="modal_mentor_bio">
-            Exit conversation with Austin Lee?
+            Exit conversation with <%= mentor.username %>?
           </div>
           <div class="chat_modal">
             <div class="ui buttons">
@@ -348,32 +357,39 @@
       </div>
       <div class="overlay" onClick="hideModal('exit-conversation')"></div>
     </div>
+    <% end %>
+    <% @mentors.each_with_index do |mentor, i| %>
     <div class="modal-container hide rate-mentor-modal-container" id="rate-mentor">
       <div class="modal mentor-modal">
         <div class="modal-header">
           <div class="modal_mentor_pic">
-            <%= image_tag("shrink.jpg", :class => "ui circular image")%>
+            <img class="ui circular image" src="<%= mentor.image %>">
           </div>
 
           <div class="modal_mentor_char">
             <div class="modal_mentor_name">
-              <h2>Austin Lee</h2>
+              <h2>Rate <%= mentor.username %></h2>
             </div>
           </div>
         </div>
         <div class="modal-field-content">
-          <div class="modal_mentor_bio">
-            Rate Austin Lee
-          </div>
-          <div class="chat_modal">
-            <div class="ui buttons">
-              <button class="ui positive button rate-modal-accept">Rate</button>
-              <div class="or"></div>
-              <button class="ui button rate-modal-decline">Cancel</button>
-            </div>
+          <div class="modal-rate-mentor">
+            <form>
+              <fieldset>
+                <span class="star-cb-group">
+                  <input type="radio" id="rating-5" name="rating" value="5" class="<%= mentor.id %>-mentor-rate"/><label class="star-rating" for="rating-5">5</label>
+                  <input type="radio" id="rating-4" name="rating" value="4" class="<%= mentor.id %>-mentor-rate"/><label class="star-rating" for="rating-4">4</label>
+                  <input type="radio" id="rating-3" name="rating" value="3" class="<%= mentor.id %>-mentor-rate"/><label class="star-rating" for="rating-3">3</label>
+                  <input type="radio" id="rating-2" name="rating" value="2" class="<%= mentor.id %>-mentor-rate"/><label class="star-rating" for="rating-2">2</label>
+                  <input type="radio" id="rating-1" name="rating" value="1" class="<%= mentor.id %>-mentor-rate"/><label class="star-rating" for="rating-1">1</label>
+                  <input type="radio" id="rating-0" name="rating" value="0" class="star-cb-clear" checked="checked"/><label class="star-rating" for="rating-0">0</label>
+                </span>
+              </fieldset>
+            </form>
           </div>
         </div>
       </div>
       <div class="overlay" onClick="hideModal('rate-mentor')"></div>
     </div>
+    <% end %>
   </div>
