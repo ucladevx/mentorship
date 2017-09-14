@@ -31,7 +31,7 @@ var initMentors = function(){
 
 	}
 	// X BUTTON AT RIGHT OF MENTORS MENU
-	removeBtn.unbind("click").click(function(){
+	removeBtn.click(function(){
 		hideSidebar();
 	});
 	sidebarBtn.unbind("click").click(function(e){
@@ -47,4 +47,21 @@ var initMentors = function(){
 
 	//enable going back to all mentor list
 	$('.back').click(resetMentorSelect);
+
+	// Rating
+	$('[type*="radio"]').change(function () {
+		var me = $(this);
+		var mentorRateClassName = String(me.attr('class'));
+		var userId = mentorRateClassName.substring(0, 1);
+		var mentorRating = parseInt(me.attr('value'));
+		userRateMentor(userId, mentorRating);
+		hideModal('rate-mentor');
+		drawer.removeClass('use-sidebar');
+		searchBar.removeClass('use-sidebar');
+		sidebarBtn.removeClass('remove-button');
+		content.removeClass('use-sidebar');
+		$('#sidebar').removeClass('show-modal');
+		$('#sidebar').removeClass('chatview');
+		resetMentorSelect();
+	});
 }

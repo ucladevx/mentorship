@@ -43,6 +43,8 @@ function hideModal(modal){
 
 	$('.save-progress-notice').addClass('hide');
 
+	console.log('modal');
+	console.log(modal);
 	switch(modal){
 		case 'login':
 			$('.login-modal-container').addClass('hide');
