@@ -134,7 +134,6 @@ ActiveRecord::Schema.define(version: 20170908120742) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.string   "image",                  default: "/public/profileimage/1.png"
     t.decimal  "ratingscore"
     t.boolean  "online",                 default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

@@ -15,6 +15,7 @@ var onReady = function(){
 	initRateMentorModal();
 	initSkills();
 	//initSkillsList();
+	initPrism();
 
 	$('body').click(onBodyClick);
 };
