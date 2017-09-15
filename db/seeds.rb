@@ -54,35 +54,27 @@ sample = Skill.create!(
 
 conceptOne = sample.concept.create!(
   name: "Concept",
-  description: "Loops allow us to execute a statement or a group of statements multiple times
-The statements are executed sequentially
-A conditional is checked, and if it passes the loop runs and executes the specified statements
+  description: "<b>Loops</b> allow us to execute a statement or a group of statements multiple times.<br>
+The statements are executed sequentially.<br>
+A conditional is checked, and if it passes the loop runs and executes the specified statements.<br>
 The basic structure is as follows:
+<pre><code class='language-markup'>Set Up
+Test
+Expression/Conditional
+  Statements
+  Increment
+</code></pre>",
 
-<div class='skills-code-section skills-indent'>
-Set Up <br>
-Test <br>
-Expression/Conditional<br>
-		<div class='skills-indent'>
-		Statements <br>
-		Increment <br>
-		</div>
-</div>",
-  examples: ["", "<div class='skills-code-section skills-indent'>
-	// Pseudocode <br>
-	Flip a coin <br>
-	Coin landed on heads <br>
-		<div class='skills-indent'>
-		Print “Heads” <br>
-		Flip the coin again<br>
-		</div>
-	Print 'Done'
-	</div>
-</div>
-
-In this loop, we continue to flip the coin until it does not land on heads, so it lands on tails
-This allows us to count how many times we rolled heads
-It is more efficient to do a loop, because otherwise we could copy code"
+  examples: ["", "In this loop, we continue to flip the coin until it does not land on heads, so it lands on tails.<br>
+This allows us to count how many times we rolled heads.<br>
+It is more efficient to do a loop, because otherwise we could copy code.
+<pre><code class='language-markup'>// Pseudocode
+Flip a coin
+Coin landed on heads
+  Print &quot;Heads&quot;
+  Flip the coin again
+Print &quot;Done&quot;
+</code></pre>"
 ])
 
 conceptOne.question.create!(
@@ -101,34 +93,29 @@ conceptOne.question.create!(
 
 conceptTwo = sample.concept.create!(
   name: "While",
-  description: "A while loop repeats a statement or group of statements while a given condition is true. It tests the condition before executing the loop body.
-	Inside the while loop, condition needs to be updated, otherwise it will result in an infinite loop and the program will crash. This is because the condition never become false.",
+  description: "&nbsp;&nbsp;&nbsp;&nbsp;A <b>while</b> loop repeats a statement or group of statements while a given condition is true. It tests the condition before executing the loop body.<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;Inside the while loop, condition needs to be updated, otherwise it will result in an infinite loop and the program will crash. This is because the condition never becomes false.",
     examples: ["
-  <pre><code class='language-cpp'>
-	int x = 5;
+  <pre><code class='language-cpp'>int x = 5;
 	while (x < 10) {
-		cout << “Less than 10” << endl;
-	}
-  </code></pre>
+		cout << &quot;Less than 10&quot; << endl;
+	}</code></pre>
 
-	If the code is left as is, it will result in an infinite loop. The conditional will never be false, because the 5 < 10, and x is never updated. To fix the infinite loop, we add an increment (x += 1) within the loop body
-Now the loop will look like this:
-	<pre><code class='language-cpp'>
-	int x = 5;
-	while (x < 10) {
-		cout << “Less than 10” << endl;
-		x += 1;
-	}</code></pre>"
-  ])
+	&nbsp;&nbsp;&nbsp;&nbsp;If the code is left as is, it will result in an infinite loop. The conditional will never be false, because the 5 < 10, and x is never updated. To fix the infinite loop, we add an increment (x += 1) within the loop body.<br>
+  Now the loop will look like this:
+<pre><code class='language-cpp'>int x = 5;
+while (x < 10) {
+	cout << &quot;Less than 10&quot; << endl;
+	x += 1;
+}</code></pre>"])
 
 conceptTwo.question.create!(
   content: "What would we need to add to the following code block to fix the infinite loop?
-	<pre><code class='language-cpp'>
-	int x = 6;
-	while (x > 0) {
-		cout << “X is positive” << endl;
-		// Add code here
-	}</code></pre>",
+<pre><code class='language-cpp'>int x = 6;
+while (x > 0) {
+	cout << &quot;X is positive&quot; << endl;
+	// Add code here
+}</code></pre>",
   question_type: "Multiple Choice",
   answers: ["x += 1", "x -= 1", "x = x+1", "x++"],
   final_answer: "1"
