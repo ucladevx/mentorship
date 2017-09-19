@@ -2,7 +2,7 @@
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
-Rails.application.config.assets.precompile += %w( homepage.js )
+Rails.application.config.assets.precompile += %w( _homepage.js.erb )
 Rails.application.config.assets.precompile += %w( profile.js )
 Rails.application.config.assets.precompile += %w( prism.css )
 # Add additional assets to the asset load path
