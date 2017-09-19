@@ -1,58 +1,58 @@
 //called in onReady located in handlers.js
 
 function homepage(){
-//
-	var active;
+	// var active;
 	// $('ui.sidebar').sidebar('setting', 'transition','overlay');
-	$('.right.menu.open').unbind().click(function(e){
+	// $('.right.menu.open').unbind().click(function(e){
 
-		console.log('clicked')
-        e.preventDefault();
 
-		var menu = document.getElementById('mobile-menu');
-	    if (menu.style.display == 'block') {
-	        menu.style.display = 'none';
-	    } else {
-	        menu.style.display = 'block';
-	    }
+	// 	console.log('clicked')
+ //        e.preventDefault();
 
-		// Check to see the orientation of the chevron
-		// and alternate
-		var icon = document.getElementById("chevron");
-		var iconClass = icon.className;
+	// 	var menu = document.getElementById('mobile-menu');
+	//     if (menu.style.display == 'block') {
+	//         menu.style.display = 'none';
+	//     } else {
+	//         menu.style.display = 'block';
+	//     }
 
-		if (iconClass == "chevron down icon") {
-			document.getElementById("chevron").classList= "chevron up icon";
-		}
+	// 	// Check to see the orientation of the chevron
+	// 	// and alternate
+	// 	var icon = document.getElementById("chevron");
+	// 	var iconClass = icon.className;
 
-		else {
-			document.getElementById("chevron").classList= "chevron down icon";
-		}
-	});
-	$('.ui.dropdown').dropdown();
+	// 	if (iconClass == "chevron down icon") {
+	// 		document.getElementById("chevron").classList= "chevron up icon";
+	// 	}
 
-	initCarousel('.note-cards', {
-		prevArrow: '.prev-notes',
-		nextArrow: '.next-notes'
-	});
+	// 	else {
+	// 		document.getElementById("chevron").classList= "chevron down icon";
+	// 	}
+	// });
+	// $('.ui.dropdown').dropdown();
+
+	// initCarousel('.note-cards', {
+	// 	prevArrow: '.prev-notes',
+	// 	nextArrow: '.next-notes'
+	// });
 
 	$('.ui.rating').rating();
-	$('#link').click(function(){
-	    $("html, body").animate({ scrollTop: 0 }, 400);
-	    return false;
- 	});
+	// $('#link').click(function(){
+	//     $("html, body").animate({ scrollTop: 0 }, 400);
+	//     return false;
+ // 	});
 
 
- 	$(document).scroll(function() {
-	  var y = $(this).scrollTop();
-	  if (y > 50) {
-	  	$('#grid-float').removeClass('hide');
-	  }
-	  else{
-	  	$('#grid-float').addClass('hide');
-	  }
+ // 	$(document).scroll(function() {
+	//   var y = $(this).scrollTop();
+	//   if (y > 50) {
+	//   	$('#grid-float').removeClass('hide');
+	//   }
+	//   else{
+	//   	$('#grid-float').addClass('hide');
+	//   }
 
-	});
+	// });
 }
 
 
