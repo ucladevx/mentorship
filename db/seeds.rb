@@ -6,53 +6,88 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+#=================
+# CS31
+#================
 
-Skill.create!(
-  ucla_class: "CS 31",
-  order: 2,
-  topic: "Strings",
-  author: "Jorge Fuentes"
-)
-Skill.create!(
-  ucla_class: "CS 32",
-  order: 3,
-  topic: "Classes",
-  author: "Gene Block"
-)
-skills = Skill.take(3)
-i = 0
-6.times do
-  content = "Lorem ipsum dolor sit amet, in donec lacinia tellus, ipsum dolor vehicula arcu, nibh diam sit.
-  Diam phasellus egestas in lorem. Lorem pellentesque in auctor wisi, eget vel fusce, velit ligula vel lacinia."
-  skills.each { |skill|
-    newConcept = skill.concept.create!(
-      description: "Testing Description",
-      name: "Concept" + i.to_s,
-      examples: [content],
-      order: i
-    )
-    j = 1
-    2.times do
-      newConcept.question.create!(
-        content: "Question" + j.to_s + content,
-        question_type: "Multiple Choice",
-        final_answer: "A",
-        answers: [content, content, content, content]
-      )
-      j+=1
-    end
-  }
-  i += 1
-end
-
-sample = Skill.create!(
+newSkill = Skill.create!(
   ucla_class: "CS 31",
   order: 1,
+  topic: "Variables",
+  author: "Apurva Panse"
+)
+
+newConcept = newSkill.concept.create!(
+  name: "Concept",
+  description: "&nbsp;&nbsp;&nbsp;&nbsp;<b>Variables</b> are basically a name storing a value. To use a variable, it must first be declared with its type preceding the name. Simply declaring the variable leaves it uninitialized with undefined/garbage values. The assignment operator \"=\" gives the variable a value. <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;There are a few essential basic/primitive types of variables: ints, chars, doubles, and bools. Each type of variable holds a different type of value. Ints hold integers, doubles hold decimals, chars hold letters, and bools hold True or False.<br>",
+  examples: [
+    "<pre><code class='language-cpp'>
+    int number = 5;
+    char letter = \"G\";
+    bool isUCLAgreat = True;
+    </code></pre>
+    &nbsp;&nbsp;&nbsp;&nbsp;In this case, “number”, “letter” and “isUCLAgreat” are the names of variables. "
+  ]
+)
+
+newConcept.question.create!(
+  content: "Which type of variable would you need to store the number of times someone clicks a link?",
+  question_type: "Multiple Choice",
+  answers: ["Char", "Int", "Double", "Bool"],
+  final_answer: "1"
+)
+
+newConcept.question.create!(
+  content: "To store information about whether a user purchased an item, we would use what type of variable?",
+  question_type: "Multiple Choice",
+  answers: ["Char", "Int", "Double", "Bool"],
+  final_answer: "3"
+)
+
+newConcept = newSkill.concept.create!(
+  name: "Mutability",
+  description: "A variable is mutable, so its value can change.",
+  examples: ["<pre><code class='language-cpp'>
+  int max = 5;
+  cout << max << endl;
+  max = 7;
+  cout << max << endl;
+  </code></pre>
+  This code block will print 5, then 7. The new value of “max” is 7. A variable’s value can also be set to that of another variable. ",
+  "<pre><code class='language-cpp'>
+  int max = 5;
+  int min = max - 2;
+  cout << min << endl;
+  </code></pre>
+  This code block will print 3, since the value of “max” is 5, and the value of min is “max” – 2. "
+  ]
+)
+
+newConcept.question.create!(
+  content: "In the following code block, what should be printed?
+  <pre><code class='language-cpp'>
+  int salary = 100;
+  int bonus = 50;
+  salary = salary + bonus;
+  int expenses = 75;
+  int profit = salary – expenses;
+  profit = profit – 10;
+  cout << profit << endl;
+  </code></pre>",
+  question_type: "Multiple Choice",
+  answers: ["75", "-35", "65", "150"],
+  final_answer: "2"
+)
+
+newSkill = Skill.create!(
+  ucla_class: "CS 31",
+  order: 2,
   topic: "Loops",
   author: "Apurva Panse"
 )
 
-conceptOne = sample.concept.create!(
+newConcept = newSkill.concept.create!(
   name: "Concept",
   description: "<b>Loops</b> allow us to execute a statement or a group of statements multiple times.<br>
 The statements are executed sequentially.<br>
@@ -77,13 +112,13 @@ Print &quot;Done&quot;
 </code></pre>"
 ])
 
-conceptOne.question.create!(
+newConcept.question.create!(
   content: "If we wanted to print every letter in the word “Happy”, how many times would the loop to do so run?",
   question_type: "Multiple Choice",
   answers: ["N times where N is the number of computer cores", "3", "4", "5", "6", "150"],
   final_answer: "3"
 )
-conceptOne.question.create!(
+newConcept.question.create!(
   content: "If the coin did not return heads in the initial example, what would happen?",
   question_type: "Multiple Choice",
   answers: ["The loop continues and the coin is flipped again", "\"Heads\" is printed",
@@ -91,7 +126,7 @@ conceptOne.question.create!(
   final_answer: "2"
 )
 
-conceptTwo = sample.concept.create!(
+newConcept = newSkill.concept.create!(
   name: "While",
   description: "&nbsp;&nbsp;&nbsp;&nbsp;A <b>while</b> loop repeats a statement or group of statements while a given condition is true. It tests the condition before executing the loop body.<br>
 	&nbsp;&nbsp;&nbsp;&nbsp;Inside the while loop, condition needs to be updated, otherwise it will result in an infinite loop and the program will crash. This is because the condition never becomes false.",
@@ -109,7 +144,7 @@ while (x < 10) {
 	x += 1;
 }</code></pre>"])
 
-conceptTwo.question.create!(
+newConcept.question.create!(
   content: "What would we need to add to the following code block to fix the infinite loop?
 <pre><code class='language-cpp'>int x = 6;
 while (x > 0) {
