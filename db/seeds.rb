@@ -47,7 +47,7 @@ newConcept.question.create!(
 
 newConcept = newSkill.concept.create!(
   name: "Mutability",
-  description: "A variable is mutable, so its value can change.",
+  description: "A variable is mutable, which means you can change it by assigning it a new value.",
   examples: ["<pre><code class='language-cpp'>
   int max = 5;
   cout << max << endl;
@@ -155,3 +155,141 @@ while (x > 0) {
   answers: ["x += 1", "x -= 1", "x = x+1", "x++"],
   final_answer: "1"
   )
+
+  #================
+  #CS 32
+  #================
+  newSkill = Skill.create!(
+    ucla_class: "CS 32",
+    order: 2,
+    topic: "Structs",
+    author: "Apurva Panse"
+  )
+
+  newConcept = newSkill.concept.create!(
+    name: "Concept",
+    description: "&nbsp;&nbsp;&nbsp;&nbsp;A <b>struct</b> is a single variable grouping together multiple related variables.
+    We use structs to better organize information.",
+    examples: ["If we wanted to define a person, we wouldn't want to define them by their
+    individual characteristics, but rather as the entire person themselves.
+    If we declared a person as a struct, it would look something like this:
+    <pre><code class='language-cpp'>
+    struct Person {
+    	string job;
+    	int age;
+    	string gender;
+    };
+    </code></pre>",
+    "We can use the Person struct to correctly categorize each person’s age, name and gender; rather than making an array for each characteristic, we can make an array of Persons, which each keep track of their characteristics. As always, don’t forget the semicolons. We can declare a Person and it’s characteristics like this:
+    <pre><code class='language-cpp'>
+    Person Apurva = new Person;
+    Apurva.job = “Teacher”;
+    Apurva.age = 20;
+    Apurva.gender = “Female”;
+    </code></pre>
+    "
+  ])
+
+  newConcept.question.create!(
+    content: "What will the following code print out?
+    <pre><code class='language-cpp'>
+    cout << Apurva.job << “, ”;
+    Apurva.job = “Engineer”;
+    cout << Apurva.job << endl;
+    </code></pre>",
+    question_type: "Multiple Choice",
+    answers: ["Teacher, Teacher", "Teacher, Engineer", "Engineer, Engineer", "This code will result in an error message"],
+    final_answer: "1"
+  )
+
+  newConcept = newSkill.concept.create!(
+    name: "Concept",
+    description: "&nbsp;&nbsp;&nbsp;&nbsp;Data members in a struct are by default public, unless the private keyword is used. The private key word makes the member only accessible to the other members of the class, and not by anything else in the program.",
+    examples: ["<pre><code class='language-cpp'>
+      struct Person {
+      	private int age;
+      	string job;
+      	string gender;
+      };
+      </code></pre>
+      "
+  ])
+
+  newConcept.question.create!(
+    content: "Which of the following data members can only be accessed by other members in the class? ",
+    question_type: "Multiple Choice",
+    answers: ["Age", "Job", "Gender", "None of the Above"],
+    final_answer: "1"
+  )
+
+  newSkill = Skill.create!(
+    ucla_class: "CS 32",
+    order: 3,
+    topic: "Big-O",
+    author: "Jorge Fuentes"
+  )
+
+  newConcept = newSkill.concept.create!(
+    name: "Concept",
+    description: "&nbsp;&nbsp;&nbsp;&nbsp;Big-O notation is used to evaluate the speed/time complexity of an algorithm.
+      Thus, we can compare algorithms to see which one is faster. Big-O counts the number operations it takes to run a program, and measures the
+      worst case of time complexity. A smaller Big-O means a faster algorithm.<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;We drop the coefficients in front of Big-O because as the numbers
+      grow in size there is not much of a difference between 1.5N^3 and 3N^3. For simplicity, we would consider this time complexity N^3.
+      So, when defining an algorithm's Big-O notation, we ignore the coefficients and lower-order terms.",
+    examples: ["For example, the Big-O of this program is O(N), because
+           we go through the for loop N times, so we complete N operations. The other for loop
+           is executed N/2 times, but since it’s a lower order, we can ignore it and go with N.
+           <pre><code class='language-cpp'>
+            for (int i = 0; i < N; i++) {
+            	cout << i << endl;
+            }
+            for (int j = 0; j < N/2; j++) {
+            	cout << j << endl;
+            }
+            </code></pre>"
+    ])
+
+    newConcept.question.create!(
+      content: "What is the Big-O of the following:
+      <pre><code class='language-cpp'>
+      for (int i = 0; i < N; i++) {
+      	cout << i << endl;
+      	for (int j = 0; j < N/2; j++) {
+      		cout << j << endl;
+      }
+      }
+      </code></pre>
+      ",
+      question_type: "Multiple Choice",
+      answers: ["N", "N + N/2", "N^2", "N/2"],
+      final_answer: "1"
+    )
+
+    newConcept.question.create!(
+      content: "Which of the following Big-O represents the fastest algorithm?",
+      question_type: "Multiple Choice",
+      answers: ["3N!", "10log2(N)", "1N^2", "4N"],
+      final_answer: "1"
+    )
+
+    newConcept = newSkill.concept.create!(
+      name: "Operations",
+      description: "&nbsp;&nbsp;&nbsp;&nbsp;Operations are defined as the following:
+        <pre><code class='language-markup'>
+          1.	Accessing an item
+          2.	Evaluating a math expression
+          3.	Traversing a single link in a linked list, an array, etc.
+        </code></pre>
+        Operations that do not rely on one another are “added” in Big-O, but usually the lower-term notiation is dropped. Operations that are nested are usually multiplied in Big-O. To analyze a multi-step algorithm, break each section down into its individual Big-O
+        ",
+      examples: ["<pre><code class='language-cpp'>
+        for ( i < n) {			O(N)
+        	for (j < i * i) {		O(N^2)
+        		for (k < j){}	O(N^2)
+        	}
+        }
+        </code></pre>
+        Thus, the Big-O is O(N^5).
+        "
+      ])
