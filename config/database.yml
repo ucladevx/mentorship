@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
+  host: localhost
   database: mentorship_production
   username: mentorship
   password: <%= ENV['MENTORSHIP_DATABASE_PASSWORD'] %>
