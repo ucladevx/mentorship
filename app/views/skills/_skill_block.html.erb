@@ -6,7 +6,9 @@
 <% else %>
     <div class="skill-box item save-progress-trigger-modal">
 <% end %>
-        <div class="skill-circle tab" id="tab-<%= skill.id =%>"><%= skill.topic[0] %></div>
+        <%= link_to skill do %>
+          <div class="skill-circle tab" id="tab-<%= skill.id =%>"><%= skill.topic[0] %></div>
+        <% end %>
         <% if user_signed_in? %>
           <div class="skill-hide-when-toggle">
               <div class="skill-name">
@@ -15,8 +17,8 @@
           </div>
         <% else %>
           <div class="skill-name">
-                  <h4><%= skill.topic %></h4>
-              </div>
+              <h4><%= skill.topic %></h4>
+          </div>
         <% end %>
     </div>
   <% if user_signed_in? %>
@@ -31,5 +33,4 @@
 
     <div class="timeline-bar">
     </div>
-
 </div>

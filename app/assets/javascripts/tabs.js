@@ -1,7 +1,8 @@
 var TabNavigation = function(containerSelector, config){
 
   var defaults = {
-    contentClassToToggle: 'hide'
+    contentClassToToggle: 'hide',
+    enableHover: false
   };
 
   this._config = Object.assign(defaults, config);
@@ -12,6 +13,9 @@ var TabNavigation = function(containerSelector, config){
 TabNavigation.prototype._init = function(){
   var tabs = $(this._selector + ' .tab');
   tabs.click($.proxy(this._handleClick, this));
+  if (this._config.enableHover) {
+    tabs.hover($.proxy(this._handleHover, this));
+  }
 }
 
 TabNavigation.prototype._extractId = function(string){
@@ -40,14 +44,17 @@ TabNavigation.prototype._handleClick = function(e){
   correspondingTabContent.removeClass(this._config.contentClassToToggle);
 }
 
+TabNavigation.prototype._handleHover = function(e) {
+  this._handleClick(e);
+}
+
 function initProfileTab(){
   var profileTabs = new TabNavigation('.profile-content');
 }
 
 function initSkillsTab(){
   var skillsTab = new TabNavigation('.skills-tab-content', {
-    contentClassToToggle: 'toggleOff'
+    contentClassToToggle: 'toggleOff',
+    enableHover: true
   });
 }
-
-

@@ -19,7 +19,7 @@ function updateProgressBar(progress){
 
 	var listOfCarouselModules = Array.from($('.skill-module'));
 	var numberModules = listOfCarouselModules.length;
-	
+
 	//0 - n - 1
 	var currentIndex = listOfCarouselModules.indexOf($('.slick-current')[0]);
 	var percentage = currentIndex / (numberModules - 1);
