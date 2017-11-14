@@ -276,9 +276,6 @@ h4 {
 	}
 }
 
-
-
-
 .class-progress-bar-outer{
 	height: $progress-height;
     width: 100%;
@@ -306,16 +303,18 @@ h4 {
 	width: 100%;
 	margin-top: 0px;
 	margin-bottom: 18px;
-	height: 80px;
+	height: 100px;
 
-	.right-section {
-		position: absolute;
+	.item {
+		height: $skill-circle-size;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
 	}
 
 	.skill-circle {
 		float: left;
-		margin-top: 8px;
-		margin-left: 10px;
+		margin-left: 16px;
 		display: flex;
 	    align-items: center;
 	    justify-content: center;
@@ -346,18 +345,17 @@ h4 {
 	.divider {
 		float: left;
 		width: 1px;
-		height: 60px;
+		height: 100%;
 		background-color: #dedede;
 		margin-left: 10px;
-		margin-top: 10px;
 	}
 
 	.skill-info {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
 		margin-left: 90px;
 		margin-right: 15px;
-		margin-bottom: 10px;
-		padding-top: 12px;
-		padding-bottom: 10px;
 
 		.skill-percent {
 			color: $color-secondary-1;

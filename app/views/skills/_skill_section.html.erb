@@ -3,7 +3,7 @@
       <%= link_to skill do %>
         <div class="skill-circle tab" id="tab-<%= skill.id =%>"><%= skill.topic[0] %></div>
       <% end %>
-      <div class="divider"></div>
+      <!-- <div class="divider"></div> -->
       <div class="skill-info">
         <div class="skill-name">
             <h4><%= skill.topic %>&nbsp;&nbsp;<span class="skill-percent"><%= skill.progress(@user.id) %>%</span></h4>
