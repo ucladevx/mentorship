@@ -4,13 +4,21 @@
   <div class="col lg-12 md-12 sm-12">
     <% if user_signed_in? %>
       <div class="class-header">In Progress</div>
-      <div class="skills-progress-section">
-        <% @skills.each do |skill| %>
-          <div class="row">
-            <%= render partial: 'skills/skill_section', locals: {skill: skill} if skill.progress(@user.id) > 0 and skill.progress(@user.id) < 100 %>
-          </div>
-        <% end %>
-      </div>
+      <% skills_in_progress = [] %>
+      <% @skills.each do |skill| %>
+        <% skills_in_progress.push(skill) if skill.progress(@user.id) > 0 and skill.progress(@user.id) < 100 %>
+      <% end %>
+      <% if skills_in_progress.length > 0 %>
+        <div class="skills-progress-section">
+          <% @skills.each do |skill| %>
+            <div class="row">
+              <%= render partial: 'skills/skill_section', locals: {skill: skill} if skill.progress(@user.id) > 0 and skill.progress(@user.id) < 100 %>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div id="start-skill-text"><i>No skills in progress. Start one below!</i></div>
+      <% end %>
       <div id="all-skills-header" class="class-header">All Skills</div>
     <% end %>
     <div class="skills-tab-content skills-all">
