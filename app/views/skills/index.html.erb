@@ -1,11 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <div class="grid-container">
-  <div class="skills-tab-content col lg-12 md-12 sm-12">
+  <div class="col lg-12 md-12 sm-12">
+    <% if user_signed_in? %>
+      <div class="class-header">In Progress</div>
+      <div class="skills-progress-section">
+        <% @skills.each do |skill| %>
+          <div class="row">
+            <%= render partial: 'skills/skill_section', locals: {skill: skill} if skill.progress(@user.id) > 0 and skill.progress(@user.id) < 100 %>
+          </div>
+        <% end %>
+      </div>
+      <div id="all-skills-header" class="class-header">All Skills</div>
+    <% end %>
+    <div class="skills-tab-content skills-all">
       <% @skills.each do |skill| %>
           <%= render partial: 'skills/skill_block', locals: {skill: skill} %>
       <% end %>
       <div class="skill-block tab-content-custom toggleOff"></div>
+    </div>
   </div>
   <div class="col lg-2 md-2 sm-2 spacing"></div>
   <div class="col lg-10 md-10 sm-10">
@@ -61,14 +74,14 @@
       <% else %>
       <div class="class-selection">
       <% end %>
-      
+
       <%= link_to skills_path(ucla_class: "CS 32") do %>
        <div class="btn-main new-note-btn" id="trigger-new-note">CS 32</div>
       <% end %>
       </div>
     </div>
     <div class="overlay" onClick="hideModal('class-modal')"></div>
-</div>  
+</div>
 
 <!--
 <h1>Skills</h1>

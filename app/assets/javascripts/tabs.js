@@ -2,7 +2,7 @@ var TabNavigation = function(containerSelector, config){
 
   var defaults = {
     contentClassToToggle: 'hide',
-    enableHover: false
+    enableHover: false,
   };
 
   this._config = Object.assign(defaults, config);

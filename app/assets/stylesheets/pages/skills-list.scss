@@ -285,7 +285,7 @@ h4 {
     background: $color-primary;
     border-radius: 50px;
     padding: $progress-spacing;
-    margin-top: 10px;
+    margin-top: 5px;
 
     #progress-circle-initial, #progress{
     	height: 100%;
@@ -299,4 +299,108 @@ h4 {
     	width: $progress-height - 2 * $progress-spacing;
     }
 
+}
+
+.skills-in-progress {
+	position: relative;
+	width: 100%;
+	margin-top: 0px;
+	margin-bottom: 18px;
+	height: 80px;
+
+	.right-section {
+		position: absolute;
+	}
+
+	.skill-circle {
+		float: left;
+		margin-top: 8px;
+		margin-left: 10px;
+		display: flex;
+	    align-items: center;
+	    justify-content: center;
+		cursor: pointer;
+
+		width: $skill-circle-size;
+		height: $skill-circle-size;
+
+		padding: 5px;
+		border-radius: 50%;
+		background-color: $color-primary;
+		border: 2px solid $color-primary;
+		background-clip: content-box;
+
+		text-align: center;
+		font-size: 25px;
+		font-weight: bold;
+		color: #fffff0;
+
+		transition: all 0.2s ease;
+
+		&:hover{
+			padding: 10px;
+		    color: $color-primary;
+		}
+	}
+
+	.divider {
+		float: left;
+		width: 1px;
+		height: 60px;
+		background-color: #dedede;
+		margin-left: 10px;
+		margin-top: 10px;
+	}
+
+	.skill-info {
+		margin-left: 90px;
+		margin-right: 15px;
+		margin-bottom: 10px;
+		padding-top: 12px;
+		padding-bottom: 10px;
+
+		.skill-percent {
+			color: $color-secondary-1;
+		}
+
+		.skill-name {
+			height: 100%;
+		    display: flex;
+		    align-items: center;
+
+			font-size: 20px;
+			font-weight: bold;
+			text-align: left;
+
+			h4{
+				color: #54595e;
+			}
+		}
+
+		.skill-progress-bar-outer{
+			height: $skill-progress-height;
+		    width: 100%;
+		    background: $color-primary;
+		    border-radius: 50px;
+		    padding: $progress-spacing;
+		    margin-top: 5px;
+
+		    #progress-circle-initial, #progress{
+		    	height: 100%;
+		    	background: white;
+		    	border-radius: 50px;
+		    }
+
+		    #progress-circle-initial{
+		    	position: absolute;
+		    	height: $skill-progress-height - 2 * $progress-spacing;
+		    	width: $skill-progress-height - 2 * $progress-spacing;
+		    }
+
+		}
+	}
+}
+
+#all-skills-header {
+	margin-top: 10px;
 }
