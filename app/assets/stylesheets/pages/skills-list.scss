@@ -116,6 +116,26 @@ h4 {
 		}
 	}
 
+	.skill-circle.complete-circle {
+		background-color: $color-secondary-2;
+		border: 2px solid $color-secondary-2;
+
+		&:hover{
+			padding: 10px;
+				color: $color-secondary-2;
+		}
+	}
+
+	.skill-circle.in-progress-circle {
+		background-color: $color-secondary-1;
+		border: 2px solid $color-secondary-1;
+
+		&:hover{
+			padding: 10px;
+				color: $color-secondary-1;
+		}
+	}
+
 	.skill-name {
 		position: absolute;
 		height: 100%;
@@ -137,12 +157,11 @@ h4 {
 		left: 50%;
 	    top: 50%;
 	    z-index: 100;
-	    margin-top: -30px;
+			margin-top: -5px;
 
 		border: 1px solid #e2e2e2;
 		border-radius: 10px;
 		width: 160px;
-		height: 100%;
 		background-color: white;
 		font-size: 20px;
 		color: #494949;
@@ -190,8 +209,8 @@ h4 {
 
 	.timeline-bar {
 		height: 90px;
-		width: 2px;
-		background-color: $color-primary;
+		width: 1px;
+		background-color: #bebebe;
 		position: absolute;
 		left: 50%;
 		-webkit-transform: translateX(-50%);
@@ -224,6 +243,14 @@ h4 {
 		}
 	}
 
+	.skill-progress-label {
+		color: #a0a0a0;
+		float: left;
+		margin-top: 20px;
+		text-align: left;
+		margin-left: 75px;
+	}
+
 	.skill-click{
 		left: $skill-spacing;
 
@@ -233,11 +260,11 @@ h4 {
 	}
 
 	.skill-pop-up{
-		-webkit-transform: translateX(-130%);
-				transform: translateX(-130%);
+		-webkit-transform: translateX(30%);
+				transform: translateX(30%);
 
 		h2, h4, p{
-			text-align: right;
+			text-align: left;
 		}
 
 		p.skill-submit{
@@ -260,6 +287,14 @@ h4 {
 		text-align: left;
 	}
 
+	.skill-progress-label {
+		color: #a0a0a0;
+		margin-top: 20px;
+		float: right;
+		text-align: right;
+		margin-right: 75px;
+	}
+
 	.skill-click{
 		right: $skill-spacing;
 
@@ -268,11 +303,13 @@ h4 {
 		}
 	}
 
-
-
 	.skill-pop-up{
-		-webkit-transform: translateX(30%);
-				transform: translateX(30%);
+		-webkit-transform: translateX(-130%);
+				transform: translateX(-130%);
+
+		h2, h4, p{
+			text-align: right;
+		}
 	}
 }
 
@@ -325,8 +362,6 @@ h4 {
 
 		padding: 5px;
 		border-radius: 50%;
-		background-color: $color-primary;
-		border: 2px solid $color-primary;
 		background-clip: content-box;
 
 		text-align: center;
@@ -336,18 +371,13 @@ h4 {
 
 		transition: all 0.2s ease;
 
+		background-color: $color-secondary-1;
+		border: 2px solid $color-secondary-1;
+
 		&:hover{
 			padding: 10px;
-		    color: $color-primary;
+				color: $color-secondary-1;
 		}
-	}
-
-	.divider {
-		float: left;
-		width: 1px;
-		height: 100%;
-		background-color: #dedede;
-		margin-left: 10px;
 	}
 
 	.skill-info {
@@ -378,7 +408,7 @@ h4 {
 		.skill-progress-bar-outer{
 			height: $skill-progress-height;
 		    width: 100%;
-		    background: $color-primary;
+		    background: $color-secondary-1;
 		    border-radius: 50px;
 		    padding: $progress-spacing;
 		    margin-top: 5px;
