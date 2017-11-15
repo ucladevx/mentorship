@@ -22,14 +22,18 @@
             <% if skill_progress == 100 %>
               <i class="label-done">DONE</i>
             <% elsif skill_progress > 0 %>
-              <i class="label-done">IN&nbsp;PROGRESS</i>
+              <i class="label-in-progress">IN&nbsp;PROGRESS</i>
             <% else %>
-              <i class="label-done"></i>
+              <i></i>
             <% end %>
           </div>
         </div>
         <div class="skill-name">
+          <% if skill_progress == 100 %>
+            <h4 class="skill-name-faded"><%= skill.topic %></h4>
+          <% else %>
             <h4><%= skill.topic %></h4>
+          <% end %>
         </div>
       <% else %>
         <div class="skill-circle tab" id="tab-<%= skill.id =%>"><%= skill.topic[0] %></div>

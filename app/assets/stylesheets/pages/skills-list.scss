@@ -241,6 +241,10 @@ h4 {
 		&.skill-pop-up {
 			padding-right: 5px;
 		}
+
+		.skill-name-faded {
+			color: #c8c8c8;
+		}
 	}
 
 	.skill-progress-label {
@@ -285,6 +289,9 @@ h4 {
 		margin-left: 45px;
 		left: 30px;
 		text-align: left;
+		.skill-name-faded {
+			color: #c8c8c8;
+		}
 	}
 
 	.skill-progress-label {
@@ -310,6 +317,15 @@ h4 {
 		h2, h4, p{
 			text-align: right;
 		}
+	}
+}
+
+.skill-block {
+	.label-done {
+		color: $color-secondary-2;
+	}
+	.label-in-progress {
+		color: $color-secondary-1;
 	}
 }
 
