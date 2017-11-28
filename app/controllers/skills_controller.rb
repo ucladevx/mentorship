@@ -43,15 +43,15 @@ class SkillsController < ApplicationController
   def check
     @answer_id = params[:answer]
     @question = Question.find(params[:question_id])
-    puts "HI" + @question.answers.length.to_s
+    user = User.find_by id:current_user.id
+    user.state[@question.id.to_s] = @answer_id.to_i
     if @question.final_answer == @answer_id
-      user = User.find_by id:current_user.id
       user.progress.push(@question.id)
-      user.save
       @is_correct = true
     else
       @is_correct = false
     end
+    user.save
     respond_to do |format|
         format.html
         format.js
